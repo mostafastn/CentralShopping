@@ -67,9 +67,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\bootstrap-4-navbar.css" />
+    <Content Include="favicon.ico" />
     <Content Include="index.html" />
     <Content Include="js\bootstrap-4-navbar.js" />
+    <Content Include="js\Infrastructure.js" />
+    <Content Include="js\jquery-3.3.1.min.js" />
+    <Content Include="Menu\HtmlPage1.html" />
+    <Content Include="Menu\HtmlPage2.html" />
+    <Content Include="Menu\MenuTest.html" />
     <Content Include="packages.config" />
+    <Content Include="Menu\Menu.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

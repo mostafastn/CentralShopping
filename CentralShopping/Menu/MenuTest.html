@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+
+            var Menu = {
+                Items: [
+                    {
+                        Caption: "Products",
+                        Link: "#",
+                        Items: [
+                            {
+                                Caption: "Mobile",
+                                Link: "#",
+                                Items: null
+                            },
+                            {
+                                Caption: "Tablet",
+                                Link: "#",
+                                Items: [
+                                    {
+                                        Caption: "Mobile",
+                                        Link: "#",
+                                        Items: null
+                                    },
+                                    {
+                                        Caption: "Tablet",
+                                        Link: "#",
+                                        Items: null
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        Caption: "Cuntact Us",
+                        Link: "#",
+                        Items: [
+                            {
+                                Caption: "About US",
+                                Link: "#",
+                                Items: null
+                            },
+                            {
+                                Caption: "Support",
+                                Link: "#",
+                                Items: null
+                            },
+                            {
+                                Caption: "Jobs Title",
+                                Link: "#",
+                                Items: null
+                            }
+                        ]
+                    }
+                ]
+            };
+            var getMenuItem = function (itemData, isFirstLevel) {
+
+
+                var item = $("<li>");
+                var subList = $("<ul class='dropdown-menu'>");
+
+                if (itemData.Items) {
+
+                    if (isFirstLevel) {
+
+                        var itemFirst = $("<li class='nav-item dropdown'>");
+
+                        item.append(
+                            $("<a>",
+                                {
+                                    class: "nav-link dropdown-toggle",
+                                    id: "navbardrop",
+                                    'data-toggle': "dropdown",
+                                    href: itemData.Link,
+                                    html: itemData.Caption
+                                }));
+
+                        subList = $("<ul class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>");
+                    } else {
+
+                        item.append(
+                            $("<a>",
+                                {
+                                    class: "dropdown-item dropdown-toggle",
+                                    href: itemData.Link,
+                                    html: itemData.Caption
+                                }));
+                    }
+
+                    $.each(itemData.Items,
+                            function () {
+                                subList.append(getMenuItem(this, false));
+                            });
+                    item.append(subList);
+
+
+                } else {
+                    item.append(
+                        $("<a>",
+                            {
+                                class: "dropdown-item",
+                                href: itemData.Link,
+                                html: itemData.Caption
+                            }));
+                }
+                return item;
+            };
+
+
+            var $menu = $("#menu");
+            $.each(Menu.Items, function () {
+                $menu.append(
+                    getMenuItem(this, true)
+                );
+            });
+        });
+    </script>
+    <style>
+        .ui-menu {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="menu"></ul>
+</body>
+</html>
