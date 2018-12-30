@@ -66,7 +66,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\bootstrap-4-navbar.css" />
+    <Content Include="css\rtlBootstrap\bootstrap-4-navbar.css" />
+    <Content Include="css\bootstrap\bootstrap.min.css" />
+    <Content Include="css\rtlBootstrap\bootstrap.min.css" />
+    <Content Include="js\rtlBootstrap\bootstrap.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="Images\Slids\Brands\1_500.png" />
     <Content Include="Images\Slids\Brands\5_500.png" />
@@ -81,9 +84,12 @@
     <Content Include="Images\Slids\Brands\the-inspirations-behind-20-of-the-most-well-known-logos-in-high-fashion-16.jpg" />
     <Content Include="Images\Slids\Brands\top-brands-and-the-meaning-of-their-logo-hermes-paris-lapolo.jpg" />
     <Content Include="index.html" />
-    <Content Include="js\bootstrap-4-navbar.js" />
+    <Content Include="js\rtlBootstrap\bootstrap-4-navbar.js" />
+    <Content Include="js\bootstrap\bootstrap.min.js" />
+    <Content Include="js\bootstrap\popper.min.js" />
     <Content Include="js\Infrastructure.js" />
     <Content Include="js\jquery-3.3.1.min.js" />
+    <Content Include="js\rtlBootstrap\popper.min.js" />
     <Content Include="Menu\HtmlPage1.html" />
     <Content Include="Menu\HtmlPage2.html" />
     <Content Include="Menu\MenuTest.html" />

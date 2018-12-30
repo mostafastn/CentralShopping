@@ -4,22 +4,27 @@
     <title>خرید مرکزی</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Online-->
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>-->
-
-    <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.0.0/css/bootstrap.min.css" integrity="sha384-P4uhUIGk/q1gaD/NdgkBIl3a6QywJjlsFJFk7SPRdruoGddvRVSwv5qFnvZ73cpz" crossorigin="anonymous">
-
-    <link href="css/bootstrap-4-navbar.css" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!--Offline-->
+    <!--<link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <script src="js/bootstrap/popper.min.js"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>-->
 
     <script src="js/jquery-3.3.1.min.js"></script>
+    <!--Online-->
+    <!--<link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.0.0/css/bootstrap.min.css" integrity="sha384-P4uhUIGk/q1gaD/NdgkBIl3a6QywJjlsFJFk7SPRdruoGddvRVSwv5qFnvZ73cpz" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.rtlcss.com/bootstrap/v4.0.0/js/bootstrap.min.js" integrity="sha384-54+cucJ4QbVb99v8dcttx/0JRx4FHMmhOWi4W+xrXpKcsKQodCBwAvu3xxkZAwsH" crossorigin="anonymous"></script>
-
-    <script src="js/bootstrap-4-navbar.js"></script>
+    <script src="https://cdn.rtlcss.com/bootstrap/v4.0.0/js/bootstrap.min.js" integrity="sha384-54+cucJ4QbVb99v8dcttx/0JRx4FHMmhOWi4W+xrXpKcsKQodCBwAvu3xxkZAwsH" crossorigin="anonymous"></script>-->
+    <!--Offline-->
+    <script src="js/rtlBootstrap/bootstrap.min.js"></script>
+    <script src="js/rtlBootstrap/popper.min.js"></script>
+    <link href="css/rtlBootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/rtlBootstrap/bootstrap-4-navbar.css" rel="stylesheet" />
+    <script src="js/rtlBootstrap/bootstrap-4-navbar.js"></script>
     <script src="js/Infrastructure.js"></script>
 
     <style>
@@ -403,44 +408,91 @@
             </div>
 
         </div>
-        <div class="row">
-            <div class="col-sm-4">
-                <h2>About Me</h2>
-                <h5>Photo of me:</h5>
-                <div class="fakeimg">Fake Image</div>
-                <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-                <h3>Some Links</h3>
-                <p>Lorem ipsum dolor sit ame.</p>
-                <ul class="nav nav-pills flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Active</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
-                </ul>
-                <hr class="d-sm-none">
-            </div>
-            <div class="col-sm-8">
-                <h2>TITLE HEADING</h2>
-                <h5>Title description, Dec 7, 2017</h5>
-                <div class="fakeimg">Fake Image</div>
-                <p>Some text..</p>
-                <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-                <br>
-                <h2>TITLE HEADING</h2>
-                <h5>Title description, Sep 2, 2017</h5>
-                <div class="fakeimg">Fake Image</div>
-                <p>Some text..</p>
-                <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+
+        <div class="row my-5">
+            <div class="col">
+                <div class="card-deck">
+                    <div class="card">
+                        <div class="card-header bg-secondary text-white ">محصول جدید</div>
+                        <div class="card-body text-center">
+                            <h6 class="card-title">فروشگاه لوتوس</h6>
+                            <p class="card-text">
+                                فروشنده انواع
+                                تجهیزات آی تی با بهترین قیمت روز و ضمانت اصالت کالا و گارانتی اصلی.
+                            </p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-info small">تخفیف های ویژه</li>
+                            <li class="list-group-item text-info small">مدت محدود</li>
+                            <li class="list-group-item text-info small">ارسال رایگان</li>
+                        </ul>
+                        <div class="card-footer text-muted small">
+                            <p class="btn-sm btn-primary text-center">فروشگاه لوتوس</p>
+                            40 دقیقه پیش
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header bg-secondary text-white ">محصول جدید</div>
+                        <div class="card-body text-center">
+                            <h6 class="card-title">فروشگاه عطر سفیر</h6>
+                            <p class="card-text">ارائه رایحه های اصیل و ماندگار از عطرها و برندهای معتبر جهان</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-info small">3 روز ضمانت برگشت کالا</li>
+                            <li class="list-group-item text-info small">ارسال رایگان</li>
+                        </ul>
+                        <div class="card-footer text-muted small">
+                            <p class="btn-sm btn-primary text-center">فروشگاه عطر سفیر</p>
+                            7 دقیقه پیش
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header bg-secondary text-white ">محصول جدید</div>
+                        <div class="card-body text-center">
+                            <h6 class="card-title">فروشگاه گوشی شاپ</h6>
+                            <p class="card-text">اولین و معتبرترین فروشگاه آنلاین گوشی های موبایل، تبلت، گجت و لوازم جانبی</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-info small">تخفیف های ویژه</li>
+                            <li class="list-group-item text-info small">مدت محدود</li>
+                        </ul>
+                        <div class="card-footer text-muted small">
+                            <p class="btn-sm btn-primary text-center">فروشگاه گوشی شاپ</p>
+                            57 دقیقه پیش
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header bg-secondary text-white ">محصول جدید</div>
+                        <div class="card-body text-center">
+                            <h6 class="card-title">فروشگاه الماس پایتخت</h6>
+                            <p class="card-text">محصولات سایت اپل در ایران  نمایندگی فروش ایفون اپل در ایران با گارانتی رسمی</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-info small">گارانتی یک ساله</li>
+                            <li class="list-group-item text-info small">خدمات پس از فروش</li>
+                            <li class="list-group-item text-info small">ارسال رایگان</li>
+                        </ul>
+                        <div class="card-footer text-muted small">
+                            <p class="btn-sm btn-primary text-center">فروشگاه الماس پایتخت</p>
+                            15 دقیقه پیش
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header bg-secondary text-white ">محصول جدید</div>
+                        <div class="card-body text-center">
+                            <h6 class="card-title">فروشگاه میثم عطر</h6>
+                            <p class="card-text">مرجع تخصصی عطر، لوازم آرایش و محصولات بهداشتی، ارائه کننده بیش از 100 برند معتبر</p>
+                        </div>
+                        <div class="card-footer text-muted small">
+                            <p class="btn-sm btn-primary text-center">فروشگاه میثم عطر</p>
+                            7 دقیقه پیش
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
+
     </div>
 
     <div class="jumbotron text-center" style="margin-bottom:0">
