@@ -93,6 +93,7 @@
     <Content Include="Menu\HtmlPage1.html" />
     <Content Include="Menu\HtmlPage2.html" />
     <Content Include="Menu\MenuTest.html" />
+    <Content Include="Menu\template.html" />
     <Content Include="packages.config" />
     <Content Include="Menu\Menu.json" />
     <None Include="Web.Debug.config">

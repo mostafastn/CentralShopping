@@ -26,7 +26,9 @@
     <link href="css/rtlBootstrap/bootstrap-4-navbar.css" rel="stylesheet" />
     <script src="js/rtlBootstrap/bootstrap-4-navbar.js"></script>
     <script src="js/Infrastructure.js"></script>
-
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
     <style>
         .fakeimg {
             height: 200px;
@@ -39,7 +41,13 @@
 
         .carousel-control-next-icon {
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f00' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
-        }      
+        }
+
+        .tabbable .nav-tabs {
+            overflow-x: auto;
+            overflow-y: hidden;
+            flex-wrap: nowrap;
+        }
     </style>
 
 </head>
@@ -49,12 +57,13 @@
             <h1>نسخه آزمایشی خرید مرکزی</h1>
             <p>کلیه محصولات از تمام برند های معتبر‬‎</p>
         </div>
+        
 
     </div>
 
-    <div class="container-fluid bg-dark sticky-top">
+    <div class="container-fluid bg-dark  sticky-top">
         <div class="container">
-            <nav class="navbar navbar-expand-md bg-dark navbar-dark row ">
+            <nav class="navbar navbar-expand-md navbar-dark row ">
 
                 <a class="navbar-brand" href="Index.html">خرید مرکزی</a>
 
@@ -64,7 +73,7 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            <a class="nav-link text-nowrap dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                                 محصولات
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -318,27 +327,37 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">فروشگاه ها</a>
+                            <a class="nav-link text-nowrap" href="#">فروشگاه ها</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">درباره ما</a>
+                            <a class="nav-link text-nowrap" href="#">درباره ما</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">تماس ما</a>
+                            <a class="nav-link text-nowrap" href="#">تماس ما</a>
                         </li>
                     </ul>
 
-                    <form class="navbar-form ">
+                    <form class="navbar-form mr-2">
                         <div class="input-group">
-                            <input type="text" class="form-control border border-success" placeholder="دنبال چی هستی؟">
+                            <input type="text" class="form-control border border-light" placeholder="دنبال چی هستی؟">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-success" type="submit">Go</button>
+                                <button class="btn btn-outline-light" type="submit"  title="جستجو">
+                                    <i class="fa fa-search"></i>
+                                </button>
                             </div>
                         </div>
 
 
                     </form>
-                    <input class="btn btn-info ml-2 my-sm-0" type="submit" value="ورود" />
+               
+                <button class="btn btn-light mr-2 my-2 " type="submit" title="ورود">
+                    <i class="fa fa-user-circle"></i>
+                </button>
+                <button class="btn btn-light my-2" type="submit"  title="سبد خرید">
+                    <i class="fa fa-shopping-cart" >
+                        <span class="badge badge-secondary small"  title="تعداد محصولات" >0</span>
+                    </i>
+                </button>
                 </div>
 
             </nav>
@@ -418,32 +437,32 @@
 
         <div class="row my-5">
             <div class="col">
-                <ul class="nav nav-tabs bg-light rounded-0 py-1">
-                    <li class="nav-item">
-                        <a class="nav-link bg-light active" data-toggle="tab" href="#home">ادوتویلت مردانه</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link bg-light" data-toggle="tab" href="#menu1">کارت حافظه اپیسر</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link bg-light" data-toggle="tab" href="#menu2">شکلات خوری سفالی</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link bg-light" data-toggle="tab" href="#menu3">ماشین اصلاح مک استایلر</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link bg-light" data-toggle="tab" href="#menu4">ست کالسکه و کریر</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link bg-light" data-toggle="tab" href="#menu5">ماست لاکتیویا کاله</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link bg-light" data-toggle="tab" href="#menu6">شارژر همراه پرومیت</a>
-                    </li>
-                </ul>
+                <nav class="tabbable">
+                    <div class="nav nav-tabs">
+                        <a class="nav-item nav-link text-nowrap bg-light active" data-toggle="tab" href="#home">ادوتویلت مردانه</a>
+                        <a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" role="tab" href="#menu1">کارت حافظه اپیسر</a>
+                        <a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" role="tab" href="#menu2">شکلات خوری سفالی</a>
+                        <a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" role="tab" href="#menu3">ماشین اصلاح مک استایلر</a>
+                        <a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" role="tab" href="#menu4">ست کالسکه و کریر</a>
+                        <a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" role="tab" href="#menu5">ماست لاکتیویا کاله</a>
+                        <a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" role="tab" href="#menu6">شارژر همراه پرومیت</a>
 
-                <!-- Tab panes -->
-                <div class="tab-content">
+                        <!--<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+                        <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+                        <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+                        <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>-->
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <!--<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">Home</div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">Profile</div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">Contact</div>-->
+
                     <div id="home" class="container tab-pane  border border-secondary rounded  active">
                         <div class="row">
                             <div class="col-lg-4 my-auto ">
@@ -529,6 +548,119 @@
             </div>
         </div>
 
+        <!--<div class="row my-5">
+            <div class="col">
+                <ul class="nav nav-tabs rounded-0 py-1">
+                    <li class="nav-item">
+                        <a class="nav-link bg-light active" data-toggle="tab" href="#home">ادوتویلت مردانه</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link bg-light" data-toggle="tab" href="#menu1">کارت حافظه اپیسر</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link bg-light" data-toggle="tab" href="#menu2">شکلات خوری سفالی</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link bg-light" data-toggle="tab" href="#menu3">ماشین اصلاح مک استایلر</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link bg-light" data-toggle="tab" href="#menu4">ست کالسکه و کریر</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link bg-light" data-toggle="tab" href="#menu5">ماست لاکتیویا کاله</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link bg-light" data-toggle="tab" href="#menu6">شارژر همراه پرومیت</a>
+                    </li>
+                </ul>
+
+
+                <div class="tab-content">
+                    <div id="home" class="container tab-pane  border border-secondary rounded  active">
+                        <div class="row">
+                            <div class="col-lg-4 my-auto ">
+                                <dl class="row my-0">
+                                    <dt class="col-sm-3">مشخصه</dt>
+                                    <dd class="col-sm-9">توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات</dd>
+
+                                    <dt class="col-sm-3">مشخصه</dt>
+                                    <dd class="col-sm-9">توضیحات</dd>
+
+                                    <dt class="col-sm-3">مشخصه</dt>
+                                    <dd class="col-sm-9">توضیحات</dd>
+
+                                    <dt class="col-sm-3">مشخصه</dt>
+                                    <dd class="col-sm-9">توضیحات</dd>
+
+                                    <dt class="col-sm-3">مشخصه</dt>
+                                    <dd class="col-sm-9">توضیحات</dd>
+
+                                    <dt class="col-sm-3">مشخصه</dt>
+                                    <dd class="col-sm-9">توضیحات</dd>
+
+                                    <dt class="col-sm-3">مشخصه</dt>
+                                    <dd class="col-sm-9">توضیحات</dd>
+                                </dl>
+                            </div>
+                            <div class="col-md-4 my-auto">
+                                <dl class="row m-0">
+                                    <dt class="col-sm-3">قیمت</dt>
+                                    <dd class="col-sm-9"><s>85000000</s></dd>
+
+                                    <dt class="col-sm-3"><span class="label text-danger">تخفیف</span></dt>
+                                    <dd class="col-sm-9">
+                                        <p class="label text-danger">25%</p>
+                                        <p class="label text-danger badge-warning rounded p-1">65000000</p>
+                                    </dd>
+
+                                    <dt class="col-sm-3"></dt>
+                                    <dd class="col-sm-9">
+                                        <button type="button" class="btn btn-primary float-right">
+                                            خرید
+                                            <span class="badge badge-danger ml-2">25 %</span>
+                                        </button>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-md-4 my-2">
+                                <img src="Images/Slids/Brands/5_500.png" alt="Chicago" class="img-fluid mx-auto d-block mt-auto ">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="menu1" class="container tab-pane fade">
+                        <br>
+                        <h3>Menu 1</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div id="menu2" class="container tab-pane fade">
+                        <br>
+                        <h3>Menu 2</h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                    </div>
+                    <div id="menu3" class="container tab-pane fade">
+                        <br>
+                        <h3>Menu 3</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div id="menu4" class="container tab-pane fade">
+                        <br>
+                        <h3>Menu 4</h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                    </div>
+                    <div id="menu5" class="container tab-pane fade">
+                        <br>
+                        <h3>Menu 5</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div id="menu6" class="container tab-pane fade">
+                        <br>
+                        <h3>Menu 6</h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
         <div class="card-deck">
             <div class="card   mb-4">
                 <div class="card-header bg-secondary text-white ">محصول جدید</div>
@@ -597,7 +729,7 @@
                     15 دقیقه پیش
                 </div>
             </div>
-            
+
             <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
             <div class="w-100 d-none d-lg-block d-xl-none"><!-- wrap every 4 on lg--></div>
             <div class="card   mb-4">
