@@ -55,6 +55,8 @@
 
         </div>
 
+        <!-- #region Menubar -->
+
         <div class="container-fluid bg-dark  sticky-top">
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-dark row ">
@@ -358,7 +360,15 @@
             </div>
         </div>
 
+        <!-- #endregion -->
+
+
         <div class="container" style="margin-top:30px">
+
+            <!-- #region HomePage -->
+
+
+
             <div class="row" ng-show="HomeView">
                 <div class="col">
                     <div id="demo" class="carousel slide" data-ride="carousel">
@@ -595,29 +605,70 @@
                     </div>
                 </div>
             </div>
+            <!-- #endregion -->
 
-            <div class="row" ng-show="StoreView">
+            <div class="row" ng-show="ProductView">
 
-                <div class="col-3 bg-info">
+                <div class="col-3 bg-light">
                     <h1>فیلتر ها</h1>
+
+
                 </div>
                 <div class="col-9">
                     <div class="row">
-                        <div class="col-sm-4 border border-primary">مرتبسازی</div>
-                        <div class="col-sm-4 border border-dark">تعداد نمایش</div>
-                        <div class="col-sm-4 border border-primary">جزئیات نمایش</div>
+                        <div class="col-sm-4 border border-primary">مرتب سازی</div>
+                        <div class="col-sm-4 border border-dark">
+                            تعداد نمایش
+                            <span class="bg-dark text-light font-weight-bold" ng-repeat="x in ObjectInPageCount">
+                                {{x}}
+                            </span>
+                        </div>
+                        <div class="col-sm-4 border border-primary">{{ShowingDetails}}</div>
                     </div>
 
                     <div class="row">
-                        <div class="col-4 p-1" ng-repeat="x in Stores" id="{{x.ID}}">
-                            <div class="m-1">
-                                <img src="Images/Slids/Brands/{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 150px;">
+                        <div class="col-md-4 p-1" ng-repeat="x in Products" id="{{x.ID}}">
+                            <div class="border border-secondary rounded">
+                                <div class="m-1">
+                                    <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 150px;">
+                                </div>
+                                <div class="m-1 small">{{x.Category}}</div>
+                                <div class="m-1 text-dark font-weight-bold">{{x.Name}}</div>
+                                <div class="m-1 text-danger badge-warning rounded p-1" text-danger">{{x.Price | currency:"ریال ":0}}</div>
                             </div>
-                            <div class="m-1 small">{{x.Category}}</div>
-                            <div class="m-1 text-dark font-weight-bold">{{x.Name}}</div>
-                            <div class="m-1 text-danger" text-danger">{{x.Price | currency:"ریال ":0}}</div>
                         </div>
 
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" ng-show="StoreView">
+
+                <form class="col-12 p-0 mb-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control border border-dark" placeholder="دنبال کدام فروشگاه هستی؟">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-dark" type="submit" title="جستجو">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="card-columns">
+                    <div class="card mb-4"  ng-repeat="x in Stores">
+                        <div class="card-header bg-secondary text-white">محصول جدید {{x.ProductCont}}</div>
+                        <div class="card-body text-center">
+                            <h6 class="card-title">{{x.Name}}</h6>
+                            <p class="card-text">{{x.Introduction}}</p>
+                        </div>
+                        <ul class="list-group list-group-flush" ng-repeat="t in x.Options">
+                            <li class="list-group-item text-info small"><small>{{t.caption}}</small></li>
+                        </ul>
+                        <div class="card-footer text-muted small">
+                            <p class="btn-sm btn-primary text-center">{{x.Name}}</p>
+                            {{x.lastUpdate}} دقیقه پیش
+                        </div>
                     </div>
                 </div>
             </div>
