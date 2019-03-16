@@ -426,58 +426,39 @@
                 <div class="col">
                     <nav class="tabbable">
                         <div class="nav nav-tabs">
-                            <a class="nav-item nav-link text-nowrap bg-light active" data-toggle="tab" href="#home">ادوتویلت مردانه</a>
-                            <a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" role="tab" href="#menu1">کارت حافظه اپیسر</a>
+                            <a class="nav-item nav-link text-nowrap bg-light active" data-toggle="tab" ng-repeat="x in SpecialTab" ng-click="SpecialTabClick(x)">{{x.Name}}</a>
+                            <!--<a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" role="tab" href="#menu1">کارت حافظه اپیسر</a>
                             <a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" role="tab" href="#menu2">شکلات خوری سفالی</a>
                             <a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" role="tab" href="#menu3">ماشین اصلاح مک استایلر</a>
                             <a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" role="tab" href="#menu4">ست کالسکه و کریر</a>
                             <a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" role="tab" href="#menu5">ماست لاکتیویا کاله</a>
-                            <a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" role="tab" href="#menu6">شارژر همراه پرومیت</a>
+                            <a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" role="tab" href="#menu6">شارژر همراه پرومیت</a>-->
                         </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
-                        <div id="home" class="container tab-pane  border border-secondary rounded  active">
+                        <div class="container tab-pane  border border-secondary rounded" ng-class="{'active': x.Active , 'fade': !x.Active}" ng-repeat="x in SpecialTab">
                             <div class="row">
                                 <div class="col-lg-4 my-auto ">
-                                    <dl class="row my-0">
-                                        <dt class="col-sm-3">مشخصه</dt>
-                                        <dd class="col-sm-9">توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات</dd>
-
-                                        <dt class="col-sm-3">مشخصه</dt>
-                                        <dd class="col-sm-9">توضیحات</dd>
-
-                                        <dt class="col-sm-3">مشخصه</dt>
-                                        <dd class="col-sm-9">توضیحات</dd>
-
-                                        <dt class="col-sm-3">مشخصه</dt>
-                                        <dd class="col-sm-9">توضیحات</dd>
-
-                                        <dt class="col-sm-3">مشخصه</dt>
-                                        <dd class="col-sm-9">توضیحات</dd>
-
-                                        <dt class="col-sm-3">مشخصه</dt>
-                                        <dd class="col-sm-9">توضیحات</dd>
-
-                                        <dt class="col-sm-3">مشخصه</dt>
-                                        <dd class="col-sm-9">توضیحات</dd>
-                                    </dl>
+                                    <div ng-repeat="t in x.Options">
+                                        {{t.caption}}
+                                    </div>
                                 </div>
                                 <div class="col-md-4 my-auto">
                                     <dl class="row m-0">
                                         <dt class="col-sm-3">قیمت</dt>
-                                        <dd class="col-sm-9"><s>85000000</s></dd>
+                                        <dd class="col-sm-9"><s>{{x.Price| currency:"":0}}</s></dd>
 
                                         <dt class="col-sm-3"><span class="label text-danger">تخفیف</span></dt>
                                         <dd class="col-sm-9">
-                                            <p class="label text-danger">25%</p>
-                                            <p class="label text-danger badge-warning rounded p-1">65000000</p>
+                                            <p class="label text-danger">{{x.Discount}}%</p>
+                                            <p class="label text-danger badge-warning rounded p-1">{{x.FinallPrice| currency:"":0}}</p>
                                         </dd>
 
                                         <dt class="col-sm-3"></dt>
                                         <dd class="col-sm-9">
                                             <button type="button" class="btn btn-primary float-right">
                                                 خرید
-                                                <span class="badge badge-danger ml-2">25 %</span>
+                                                <span class="badge badge-danger ml-2">{{x.Discount}}%</span>
                                             </button>
                                         </dd>
                                     </dl>
@@ -487,7 +468,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="menu1" class="container tab-pane fade">
+                        <!--<div id="menu1" class="container tab-pane fade">
                             <br>
                             <h3>Menu 1</h3>
                             <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -516,7 +497,7 @@
                             <br>
                             <h3>Menu 6</h3>
                             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
@@ -656,8 +637,8 @@
                 </form>
 
                 <div class="card-columns">
-                    <div class="card mb-4"  ng-repeat="x in Stores">
-                        <div class="card-header bg-secondary text-white">محصول جدید {{x.ProductCont}}</div>
+                    <div class="card mb-4" ng-repeat="x in Stores">
+                        <div class="card-header bg-secondary text-white">{{x.ProductCont}} محصول</div>
                         <div class="card-body text-center">
                             <h6 class="card-title">{{x.Name}}</h6>
                             <p class="card-text">{{x.Introduction}}</p>
