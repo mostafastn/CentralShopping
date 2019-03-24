@@ -616,12 +616,12 @@
                 </div>
             </div>
 
-            <div class="row border border-secondary rounded" ng-show="StoreView">
+            <div class="row border border-dark mb-3 rounded" ng-show="StoreView">
 
-                <div class="col-3 bg-light border border-left-0 border-top-0 border-bottom-0 border-dark rounded">
+                <div class="col-3 border border-left-0 border-top-0 border-bottom-0 border-secondary rounded">
 
                     <h5 class="pt-3">
-                        <a href="#">
+                        <a href="">
                             {{Store.Name}}
                         </a>
                     </h5>
@@ -690,7 +690,7 @@
                         <h6>
                             {{x.Caption}}
                         </h6>
-                        <p class="text-justify"  style="direction: rtl;">
+                        <p class="text-justify" style="direction: rtl;">
                             {{x.Content}}
                         </p>
                     </div>
@@ -698,20 +698,13 @@
                 </div>
 
                 <div class="col-9" ng-show="StoreContactCompanyView">
-                    <div class="card-body">
-                        <div  ng-repeat="x in Store.ContactCompany">
-
+                    <div class="card-body" ng-repeat="x in Store.ContactCompany">
                         <h6>
                             {{x.Caption}}
                         </h6>
-                        <p class="text-justify" style="direction: ltr;">
+                        <p class="text-left" style="direction: ltr;">
                             {{x.Content}}
                         </p>
-                        </div>
-                        
-                        <!--<iframe ng-src="{{Store.CompanyMap}}" width="400" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>-->
-                        
-                        <iframe width="500" height="400" ng-src="{{Store.CompanyMap}}"></iframe>
                     </div>
                 </div>
 
