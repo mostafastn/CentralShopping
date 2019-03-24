@@ -69,6 +69,7 @@
     <Content Include="css\rtlBootstrap\bootstrap-4-navbar.css" />
     <Content Include="css\bootstrap\bootstrap.min.css" />
     <Content Include="css\rtlBootstrap\bootstrap.min.css" />
+    <Content Include="Images\Slids\Brands\Ray-Ban-RB3581N-001E4-1.jpg" />
     <Content Include="js\Angular\Controllers\MainController.js" />
     <Content Include="js\rtlBootstrap\bootstrap.min.js" />
     <Content Include="favicon.ico" />

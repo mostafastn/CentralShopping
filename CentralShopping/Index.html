@@ -46,18 +46,16 @@
 
     <div ng-app="CentralShopping" ng-controller="MainControl">
 
-        <div class="jumbotron" style="margin-bottom:0">
+        <div class="jumbotron" style="margin-bottom:0;">
             <div class="container">
                 <h1>نسخه آزمایشی خرید مرکزی</h1>
-                <p>کلیه محصولات از تمام برند های معتبر‬‎</p>
+                <h6>کلیه محصولات از تمام برند های معتبر‬‎</h6>
             </div>
-
-
         </div>
 
         <!-- #region Menubar -->
 
-        <div class="container-fluid bg-dark  sticky-top">
+        <div class="container-fluid bg-dark sticky-top">
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-dark row ">
 
@@ -378,7 +376,7 @@
                                 <img src="Images/Slids/Brands/1_500.png" alt="Appel" class="img-fluid mx-auto d-block" style="height: 350px;" />
                             </div>
                             <div class="carousel-item">
-                                <img src="Images/Slids/Brands/5_500.png" alt="Chicago" class="img-fluid mx-auto d-block" style="height: 350px;">
+                                <img src="Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg" alt="Chicago" class="img-fluid mx-auto d-block" style="height: 350px;">
                             </div>
                             <div class="carousel-item">
                                 <img src="Images/Slids/Brands/9_500.png" alt="New York" class="img-fluid mx-auto d-block" style="height: 350px;">
@@ -426,13 +424,7 @@
                 <div class="col">
                     <nav class="tabbable">
                         <div class="nav nav-tabs">
-                            <a class="nav-item nav-link text-nowrap bg-light active" data-toggle="tab" ng-repeat="x in SpecialTab" ng-click="SpecialTabClick(x)">{{x.Name}}</a>
-                            <!--<a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" role="tab" href="#menu1">کارت حافظه اپیسر</a>
-                            <a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" role="tab" href="#menu2">شکلات خوری سفالی</a>
-                            <a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" role="tab" href="#menu3">ماشین اصلاح مک استایلر</a>
-                            <a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" role="tab" href="#menu4">ست کالسکه و کریر</a>
-                            <a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" role="tab" href="#menu5">ماست لاکتیویا کاله</a>
-                            <a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" role="tab" href="#menu6">شارژر همراه پرومیت</a>-->
+                            <a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" ng-repeat="x in SpecialTab" ng-click="SpecialTabClick(x)" ng-class="{'active': x.Active }">{{x.Name}}</a>
                         </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
@@ -440,7 +432,7 @@
                             <div class="row">
                                 <div class="col-lg-4 my-auto ">
                                     <div ng-repeat="t in x.Options">
-                                        {{t.caption}}
+                                        {{t.Caption}}
                                     </div>
                                 </div>
                                 <div class="col-md-4 my-auto">
@@ -464,40 +456,10 @@
                                     </dl>
                                 </div>
                                 <div class="col-md-4 my-2">
-                                    <img src="Images/Slids/Brands/5_500.png" alt="Chicago" class="img-fluid mx-auto d-block mt-auto ">
+                                    <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 200px;">
                                 </div>
                             </div>
                         </div>
-                        <!--<div id="menu1" class="container tab-pane fade">
-                            <br>
-                            <h3>Menu 1</h3>
-                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        </div>
-                        <div id="menu2" class="container tab-pane fade">
-                            <br>
-                            <h3>Menu 2</h3>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                        </div>
-                        <div id="menu3" class="container tab-pane fade">
-                            <br>
-                            <h3>Menu 3</h3>
-                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        </div>
-                        <div id="menu4" class="container tab-pane fade">
-                            <br>
-                            <h3>Menu 4</h3>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                        </div>
-                        <div id="menu5" class="container tab-pane fade">
-                            <br>
-                            <h3>Menu 5</h3>
-                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        </div>
-                        <div id="menu6" class="container tab-pane fade">
-                            <br>
-                            <h3>Menu 6</h3>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                        </div>-->
                     </div>
                 </div>
             </div>
@@ -623,7 +585,7 @@
                 </div>
             </div>
 
-            <div class="row" ng-show="StoreView">
+            <div class="row" ng-show="StoresView">
 
                 <form class="col-12 p-0 mb-4">
                     <div class="input-group">
@@ -638,13 +600,13 @@
 
                 <div class="card-columns">
                     <div class="card mb-4" ng-repeat="x in Stores">
-                        <div class="card-header bg-secondary text-white">{{x.ProductCont}} محصول</div>
+                        <div class="card-header bg-secondary text-white">{{x.ProductCount}} محصول</div>
                         <div class="card-body text-center">
                             <h6 class="card-title">{{x.Name}}</h6>
                             <p class="card-text">{{x.Introduction}}</p>
                         </div>
                         <ul class="list-group list-group-flush" ng-repeat="t in x.Options">
-                            <li class="list-group-item text-info small"><small>{{t.caption}}</small></li>
+                            <li class="list-group-item text-info small"><small>{{t.Caption}}</small></li>
                         </ul>
                         <div class="card-footer text-muted small">
                             <p class="btn-sm btn-primary text-center">{{x.Name}}</p>
@@ -652,6 +614,107 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="row border border-secondary rounded" ng-show="StoreView">
+
+                <div class="col-3 bg-light border border-left-0 border-top-0 border-bottom-0 border-dark rounded">
+
+                    <h5 class="pt-3">
+                        <a href="#">
+                            {{Store.Name}}
+                        </a>
+                    </h5>
+                    <div id="accordion">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" href="#collapseProductMenu">
+                                    محصولات
+                                </a>
+                            </div>
+                            <div id="collapseProductMenu" class="collapse show" data-parent="#accordion">
+                                <div class="card-body" ng-repeat="x in Store.ProductMenu">
+                                    {{x.Caption}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="collapsed card-link" href="" ng-click="AboutCompanyClick()">درباره ما</a>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="collapsed card-link" href="" ng-click="ContactCompanyClick()">تماس با ما</a>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <div class="col-9" ng-show="StoreProductMenuView">
+                    <div class="row">
+                        <div class="col-sm-4 border border-primary">مرتب سازی</div>
+                        <div class="col-sm-4 border border-dark">
+                            تعداد نمایش
+                            <span class="bg-dark text-light font-weight-bold" ng-repeat="x in ObjectInPageCount">
+                                {{x}}
+                            </span>
+                        </div>
+                        <div class="col-sm-4 border border-primary">{{ShowingDetails}}</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 p-1" ng-repeat="x in Products" id="{{x.ID}}">
+                            <div class="border border-secondary rounded">
+                                <div class="m-1">
+                                    <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 150px;">
+                                </div>
+                                <div class="m-1 small">{{x.Category}}</div>
+                                <div class="m-1 text-dark font-weight-bold">{{x.Name}}</div>
+                                <div class="m-1 text-danger badge-warning rounded p-1" text-danger">{{x.Price | currency:"ریال ":0}}</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-9" ng-show="StoreAboutCompanyView">
+
+                    <div class="card-body" ng-repeat="x in Store.AboutCompany">
+                        <h6>
+                            {{x.Caption}}
+                        </h6>
+                        <p class="text-justify"  style="direction: rtl;">
+                            {{x.Content}}
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="col-9" ng-show="StoreContactCompanyView">
+                    <div class="card-body">
+                        <div  ng-repeat="x in Store.ContactCompany">
+
+                        <h6>
+                            {{x.Caption}}
+                        </h6>
+                        <p class="text-justify" style="direction: ltr;">
+                            {{x.Content}}
+                        </p>
+                        </div>
+                        
+                        <!--<iframe ng-src="{{Store.CompanyMap}}" width="400" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>-->
+                        
+                        <iframe width="500" height="400" ng-src="{{Store.CompanyMap}}"></iframe>
+                    </div>
+                </div>
+
             </div>
         </div>
 
