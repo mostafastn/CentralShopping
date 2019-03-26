@@ -38,8 +38,8 @@
             flex-wrap: nowrap;
         }
     </style>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="js/Angular/angular.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>-->
     <script src="js/Angular/Controllers/MainController.js"></script>
 </head>
 <body>
@@ -549,8 +549,159 @@
                 </div>
             </div>
             <!-- #endregion -->
+            <!-- #region StoresView -->
+            <div class="row" ng-show="StoresView">
 
-            <div class="row" ng-show="ProductView">
+                <form class="col-12 p-0 mb-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control border border-dark" placeholder="دنبال کدام فروشگاه هستی؟">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-dark" type="submit" title="جستجو">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="card-columns">
+                    <div class="card mb-4" ng-repeat="x in Stores">
+                        <div class="card-header bg-secondary text-white">{{x.ProductCount}} محصول</div>
+                        <div class="card-body text-center">
+                            <h6 class="card-title">{{x.Name}}</h6>
+                            <p class="card-text">{{x.Introduction}}</p>
+                        </div>
+                        <ul class="list-group list-group-flush" ng-repeat="t in x.Options">
+                            <li class="list-group-item text-info small"><small>{{t.Caption}}</small></li>
+                        </ul>
+                        <div class="card-footer text-muted small">
+                            <p class="btn-sm btn-primary text-center">{{x.Name}}</p>
+                            {{x.lastUpdate}} دقیقه پیش
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #endregion -->
+            <!-- #region StoreView -->
+            <div class="row border border-dark mb-3 rounded" ng-show="StoreView">
+
+                <div class="col-3 border border-left-0 border-top-0 border-bottom-0 border-secondary rounded">
+
+                    <h5 class="pt-3">
+                        <a href="">
+                            {{Store.Name}}
+                        </a>
+                    </h5>
+                    <div id="accordion">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" href="#collapseProductMenu">
+                                    محصولات
+                                </a>
+                            </div>
+                            <div id="collapseProductMenu" class="collapse show" data-parent="#accordion">
+                                <div class="card-body" ng-repeat="x in Store.ProductMenu">
+                                    <a class="collapsed card-link" href="" ng-click="ProductMenuClick(x.ID)">
+                                        {{x.Caption}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="collapsed card-link" href="" ng-click="AboutCompanyClick()">درباره ما</a>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="collapsed card-link" href="" ng-click="ContactCompanyClick()">تماس با ما</a>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <div class="col-9" ng-show="StoreProductMenuView">
+                    <div class="row pt-2">
+                        <div class="col-sm-4 border border-success rounded border-bottom-0 border-left-0 border-top-0">
+                            <select class="text-primary border-0" ng-model="SortType" ng-options="x.Caption for x in SortTypes"></select>
+                        </div>
+                        <div class="col-sm-4 border border-success rounded border-bottom-0 border-top-0">
+                            <ul class="pagination pagination-sm text-right">
+                                <li class="m-1" ng-repeat="x in ObjectInPageCount">
+                                    <a href="" class="border border-dark bg-light rounded p-1">{{x}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-4 text-info border border-success rounded border-bottom-0 border-right-0 border-top-0">
+                            نمایش 1-{{StoreSelectedProductMenu.ProductList.length}} از {{StoreSelectedProductMenu.TotalCount}} محصول
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 p-1" ng-repeat="x in StoreSelectedProductMenu.ProductList | orderBy : SortType.Value" id="{{x.ID}}" ng-click="StoreProductClick(x.ID)">
+                            <div class="border border-secondary rounded">
+                                <div class="m-1">
+                                    <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 150px;">
+                                </div>
+                                <div class="m-1 text-dark font-weight-bold">{{x.Name}}</div>
+                                <div class="m-1 text-danger badge-warning rounded p-1 text-danger" style="direction: ltr;">{{x.Price | currency:"ریال ":0}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <ul class="pagination pagination-sm">
+                            <li class="border border-dark rounded m-1 px-2 py-1"><a href="" class="text-primary">1</a></li>
+                            <li class="border border-dark rounded m-1 px-2 py-1"><a href="" class="text-primary">5</a></li>
+                            <li class="border border-dark rounded m-1 px-2 py-1"><a href="" class="text-primary">2</a></li>
+                            <li class="border border-dark rounded m-1 px-2 py-1"><a href="" class="text-primary">3</a></li>
+                            <li class="border border-dark rounded m-1 px-2 py-1"><a href="" class="text-primary">4</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="col-9" ng-show="StoreAboutCompanyView">
+
+                    <div class="card-body" ng-repeat="x in Store.AboutCompany">
+                        <h6>
+                            {{x.Caption}}
+                        </h6>
+                        <p class="text-justify" style="direction: rtl;">
+                            {{x.Content}}
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="col-9" ng-show="StoreContactCompanyView">
+                    <div class="card-body" ng-repeat="x in Store.ContactCompany">
+                        <h6>
+                            {{x.Caption}}
+                        </h6>
+                        <p class="text-left" style="direction: ltr;">
+                            {{x.Content}}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-9" ng-show="StoreProductView">
+                    <div class="card-body" ng-repeat="x in StoreSelectedProduct.Options">
+                        <h6>
+                            {{x.Caption}}
+                        </h6>
+                    </div>
+                </div>
+
+            </div>
+        <!-- #endregion -->
+        
+            <!-- #region StoreProductView -->
+        <div class="row" ng-show="ProductView">
 
                 <div class="col-3 bg-light">
                     <h1>فیلتر ها</h1>
@@ -584,133 +735,8 @@
                     </div>
                 </div>
             </div>
-
-            <div class="row" ng-show="StoresView">
-
-                <form class="col-12 p-0 mb-4">
-                    <div class="input-group">
-                        <input type="text" class="form-control border border-dark" placeholder="دنبال کدام فروشگاه هستی؟">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-dark" type="submit" title="جستجو">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-
-                <div class="card-columns">
-                    <div class="card mb-4" ng-repeat="x in Stores">
-                        <div class="card-header bg-secondary text-white">{{x.ProductCount}} محصول</div>
-                        <div class="card-body text-center">
-                            <h6 class="card-title">{{x.Name}}</h6>
-                            <p class="card-text">{{x.Introduction}}</p>
-                        </div>
-                        <ul class="list-group list-group-flush" ng-repeat="t in x.Options">
-                            <li class="list-group-item text-info small"><small>{{t.Caption}}</small></li>
-                        </ul>
-                        <div class="card-footer text-muted small">
-                            <p class="btn-sm btn-primary text-center">{{x.Name}}</p>
-                            {{x.lastUpdate}} دقیقه پیش
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row border border-dark mb-3 rounded" ng-show="StoreView">
-
-                <div class="col-3 border border-left-0 border-top-0 border-bottom-0 border-secondary rounded">
-
-                    <h5 class="pt-3">
-                        <a href="">
-                            {{Store.Name}}
-                        </a>
-                    </h5>
-                    <div id="accordion">
-
-                        <div class="card">
-                            <div class="card-header">
-                                <a class="card-link" data-toggle="collapse" href="#collapseProductMenu">
-                                    محصولات
-                                </a>
-                            </div>
-                            <div id="collapseProductMenu" class="collapse show" data-parent="#accordion">
-                                <div class="card-body" ng-repeat="x in Store.ProductMenu">
-                                    {{x.Caption}}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header">
-                                <a class="collapsed card-link" href="" ng-click="AboutCompanyClick()">درباره ما</a>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header">
-                                <a class="collapsed card-link" href="" ng-click="ContactCompanyClick()">تماس با ما</a>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-                <div class="col-9" ng-show="StoreProductMenuView">
-                    <div class="row">
-                        <div class="col-sm-4 border border-primary">مرتب سازی</div>
-                        <div class="col-sm-4 border border-dark">
-                            تعداد نمایش
-                            <span class="bg-dark text-light font-weight-bold" ng-repeat="x in ObjectInPageCount">
-                                {{x}}
-                            </span>
-                        </div>
-                        <div class="col-sm-4 border border-primary">{{ShowingDetails}}</div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-4 p-1" ng-repeat="x in Products" id="{{x.ID}}">
-                            <div class="border border-secondary rounded">
-                                <div class="m-1">
-                                    <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 150px;">
-                                </div>
-                                <div class="m-1 small">{{x.Category}}</div>
-                                <div class="m-1 text-dark font-weight-bold">{{x.Name}}</div>
-                                <div class="m-1 text-danger badge-warning rounded p-1" text-danger">{{x.Price | currency:"ریال ":0}}</div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="col-9" ng-show="StoreAboutCompanyView">
-
-                    <div class="card-body" ng-repeat="x in Store.AboutCompany">
-                        <h6>
-                            {{x.Caption}}
-                        </h6>
-                        <p class="text-justify" style="direction: rtl;">
-                            {{x.Content}}
-                        </p>
-                    </div>
-
-                </div>
-
-                <div class="col-9" ng-show="StoreContactCompanyView">
-                    <div class="card-body" ng-repeat="x in Store.ContactCompany">
-                        <h6>
-                            {{x.Caption}}
-                        </h6>
-                        <p class="text-left" style="direction: ltr;">
-                            {{x.Content}}
-                        </p>
-                    </div>
-                </div>
-
-            </div>
+            <!-- #endregion -->
         </div>
-
         <div class="jumbotron text-center" style="margin-bottom:0">
             <div>تمامی حقوق این اثر متعلق به <a class="text-muted" href="http://tahasoft.ir">طاها سافت</a> می باشد</div>
         </div>

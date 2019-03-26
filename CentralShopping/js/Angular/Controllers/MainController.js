@@ -3,17 +3,40 @@ app.controller('MainControl', function ($scope) {
 
 
     $scope.HomeView = false;
-    $scope.ProductView = false;
     $scope.StoresView = false;
 
     $scope.StoreView = true;
-    $scope.StoreProductMenuView = false;
-    $scope.StoreAboutCompanyView = true;
+    $scope.StoreProductView = true;
+    $scope.StoreProductMenuView = true;
+    $scope.StoreAboutCompanyView = false;
     $scope.StoreContactCompanyView = false;
 
-    $scope.ShowingDetails = "نمایش 1-12 از 158 محصول";
+    $scope.ObjectInPageCount = [9, 18, "همه"];
 
-    $scope.ObjectInPageCount = ["همه", 12, 24];
+    $scope.SortTypes = [
+        {
+            ID: 1,
+            Caption: "محبوب ترین",
+            Value: "VisitsCount"
+        },
+        {
+            ID: 2,
+            Caption: "جدیدترین",
+            Value: "LastUpdate"
+        },
+        {
+            ID: 3,
+            Caption: "کمترین قیمت",
+            Value: "FinallPrice"
+        },
+        {
+            ID: 4,
+            Caption: "بیشترین قیمت",
+            Value: "-FinallPrice "
+        }
+    ];
+
+    $scope.SortType = $scope.SortTypes[0];
 
     $scope.SpecialTab = [
         {
@@ -336,45 +359,15 @@ app.controller('MainControl', function ($scope) {
         ProductMenu: [
             {
                 ID: 1,
-                Caption: 'انواع لنز'
-            },
-            {
-                ID: 2,
-                Caption: 'عینک های آفتابی',
-                productList: [
-                    {
-                        ID: 1,
-                        Name: 'عینک آفتابی RayBan 3581N 90387J',
-                        Price: 25790000,
-                        Discount: 0,
-                        FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/1_500.png',
-                        Options: [
-                            {
-                                ID: 1,
-                                Caption: 'ساخت کشور ایتالیا'
-                            },
-                            {
-                                ID: 2,
-                                Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
-                            },
-                            {
-                                ID: 3,
-                                Caption: 'زیبایی و ترکیبی فراتر از انتظار'
-                            },
-                            {
-                                ID: 4,
-                                Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
-                            },
-                        ],
-                    },
+                Caption: 'انواع لنز',
+                ProductList: [
                     {
                         ID: 2,
                         Name: 'عینک آفتابی RayBan 3576N 1537V',
                         Price: 25790000,
                         Discount: 0,
                         FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/1_500.png',
+                        Image: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
                         Options: [
                             {
                                 ID: 1,
@@ -393,6 +386,37 @@ app.controller('MainControl', function ($scope) {
                                 Caption: 'مناسب برای صورت های بیضی و گرد شکل'
                             },
                         ],
+                        LastUpdate: '2017-12-01',
+                        VisitsCount: 150
+                    },
+                    {
+                        ID: 1,
+                        Name: 'عینک آفتابی RayBan 3581N 90387J',
+                        Price: 25790000,
+                        Discount: 0,
+                        FinallPrice: 25790000,
+                        Image: 'Images/Slids/Brands/9_500.png',
+                        Options: [
+                            {
+                                ID: 1,
+                                Caption: 'ساخت کشور ایتالیا'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
+                            },
+                            {
+                                ID: 3,
+                                Caption: 'زیبایی و ترکیبی فراتر از انتظار'
+                            },
+                            {
+                                ID: 4,
+                                Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
+                            },
+                        ],
+                        LastUpdate: '2018-01-20',
+                        VisitsCount: 70
+
                     },
                     {
                         ID: 3,
@@ -400,7 +424,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 23460000,
                         Discount: 0,
                         FinallPrice: 23460000,
-                        Image: 'Images/Slids/Brands/1_500.png',
+                        Image: 'Images/Slids/Brands/samsung_circle.jpg',
                         Options: [
                             {
                                 ID: 1,
@@ -415,58 +439,8 @@ app.controller('MainControl', function ($scope) {
                                 Caption: 'بسیار بادوام و مستحکم'
                             },
                         ],
-                    },
-                    {
-                        ID: 4,
-                        Name: 'عینک آفتابی RayBan 3581N 90387J',
-                        Price: 25790000,
-                        Discount: 0,
-                        FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/1_500.png',
-                        Options: [
-                            {
-                                ID: 1,
-                                Caption: 'ساخت کشور ایتالیا'
-                            },
-                            {
-                                ID: 2,
-                                Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
-                            },
-                            {
-                                ID: 3,
-                                Caption: 'زیبایی و ترکیبی فراتر از انتظار'
-                            },
-                            {
-                                ID: 4,
-                                Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
-                            },
-                        ],
-                    },
-                    {
-                        ID: 5,
-                        Name: 'عینک آفتابی RayBan 3576N 1537V',
-                        Price: 25790000,
-                        Discount: 0,
-                        FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/1_500.png',
-                        Options: [
-                            {
-                                ID: 1,
-                                Caption: 'ساخت کشور ایتالیا'
-                            },
-                            {
-                                ID: 2,
-                                Caption: 'سبک کلاسیک، با معرفی Blaze'
-                            },
-                            {
-                                ID: 3,
-                                Caption: 'لنز Sharp Onesie! Ray-Ban'
-                            },
-                            {
-                                ID: 4,
-                                Caption: 'مناسب برای صورت های بیضی و گرد شکل'
-                            },
-                        ],
+                        LastUpdate: '2017-12-05',
+                        VisitsCount: 15
                     },
                     {
                         ID: 6,
@@ -474,7 +448,8 @@ app.controller('MainControl', function ($scope) {
                         Price: 23460000,
                         Discount: 0,
                         FinallPrice: 23460000,
-                        Image: 'Images/Slids/Brands/1_500.png',
+                        Image:
+                            'Images/Slids/Brands/top-brands-and-the-meaning-of-their-logo-hermes-paris-lapolo.jpg',
                         Options: [
                             {
                                 ID: 1,
@@ -489,6 +464,8 @@ app.controller('MainControl', function ($scope) {
                                 Caption: 'بسیار بادوام و مستحکم'
                             },
                         ],
+                        LastUpdate: '2018-10-15',
+                        VisitsCount: 51
                     },
                     {
                         ID: 7,
@@ -496,7 +473,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 25790000,
                         Discount: 0,
                         FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/1_500.png',
+                        Image: 'Images/Slids/Brands/puma_thumb.jpg',
                         Options: [
                             {
                                 ID: 1,
@@ -515,14 +492,16 @@ app.controller('MainControl', function ($scope) {
                                 Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
                             },
                         ],
+                        LastUpdate: '2019-02-08',
+                        VisitsCount: 7
                     },
                     {
-                        ID: 8,
+                        ID: 5,
                         Name: 'عینک آفتابی RayBan 3576N 1537V',
                         Price: 25790000,
                         Discount: 0,
                         FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/1_500.png',
+                        Image: 'Images/Slids/Brands/nike-logo.png',
                         Options: [
                             {
                                 ID: 1,
@@ -541,6 +520,8 @@ app.controller('MainControl', function ($scope) {
                                 Caption: 'مناسب برای صورت های بیضی و گرد شکل'
                             },
                         ],
+                        LastUpdate: '2018-09-11',
+                        VisitsCount: 201
                     },
                     {
                         ID: 9,
@@ -563,34 +544,591 @@ app.controller('MainControl', function ($scope) {
                                 Caption: 'بسیار بادوام و مستحکم'
                             },
                         ],
+                        LastUpdate: '2018-11-27',
+                        VisitsCount: 71
                     },
-                ]
+                    {
+                        ID: 8,
+                        Name: 'عینک آفتابی RayBan 3576N 1537V',
+                        Price: 25790000,
+                        Discount: 0,
+                        FinallPrice: 25790000,
+                        Image: 'Images/Slids/Brands/5_500.png',
+                        Options: [
+                            {
+                                ID: 1,
+                                Caption: 'ساخت کشور ایتالیا'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'سبک کلاسیک، با معرفی Blaze'
+                            },
+                            {
+                                ID: 3,
+                                Caption: 'لنز Sharp Onesie! Ray-Ban'
+                            },
+                            {
+                                ID: 4,
+                                Caption: 'مناسب برای صورت های بیضی و گرد شکل'
+                            },
+                        ],
+                        LastUpdate: '2019-01-11',
+                        VisitsCount: 20
+                    },
+                    {
+                        ID: 4,
+                        Name: 'عینک آفتابی RayBan 3581N 90387J',
+                        Price: 25790000,
+                        Discount: 0,
+                        FinallPrice: 25790000,
+                        Image: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
+                        Options: [
+                            {
+                                ID: 1,
+                                Caption: 'ساخت کشور ایتالیا'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
+                            },
+                            {
+                                ID: 3,
+                                Caption: 'زیبایی و ترکیبی فراتر از انتظار'
+                            },
+                            {
+                                ID: 4,
+                                Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
+                            },
+                        ],
+                        LastUpdate: '2018-10-08',
+                        VisitsCount: 550
+                    },
+                ],
+                TotalCount: 50,
+            },
+            {
+                ID: 2,
+                Caption: 'عینک های آفتابی',
+                ProductList: [
+                    {
+                        ID: 3,
+                        Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
+                        Price: 23460000,
+                        Discount: 0,
+                        FinallPrice: 23460000,
+                        Image: 'Images/Slids/Brands/samsung_circle.jpg',
+                        Options: [
+                            {
+                                ID: 1,
+                                Caption: 'ساخت کشور ایتالیا'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
+                            },
+                            {
+                                ID: 3,
+                                Caption: 'بسیار بادوام و مستحکم'
+                            },
+                        ],
+                        LastUpdate: '2017-12-05',
+                        VisitsCount: 15
+                    },
+                    {
+                        ID: 4,
+                        Name: 'عینک آفتابی RayBan 3581N 90387J',
+                        Price: 25790000,
+                        Discount: 0,
+                        FinallPrice: 25790000,
+                        Image: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
+                        Options: [
+                            {
+                                ID: 1,
+                                Caption: 'ساخت کشور ایتالیا'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
+                            },
+                            {
+                                ID: 3,
+                                Caption: 'زیبایی و ترکیبی فراتر از انتظار'
+                            },
+                            {
+                                ID: 4,
+                                Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
+                            },
+                        ],
+                        LastUpdate: '2018-10-08',
+                        VisitsCount: 550
+                    },
+                    {
+                        ID: 5,
+                        Name: 'عینک آفتابی RayBan 3576N 1537V',
+                        Price: 25790000,
+                        Discount: 0,
+                        FinallPrice: 25790000,
+                        Image: 'Images/Slids/Brands/nike-logo.png',
+                        Options: [
+                            {
+                                ID: 1,
+                                Caption: 'ساخت کشور ایتالیا'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'سبک کلاسیک، با معرفی Blaze'
+                            },
+                            {
+                                ID: 3,
+                                Caption: 'لنز Sharp Onesie! Ray-Ban'
+                            },
+                            {
+                                ID: 4,
+                                Caption: 'مناسب برای صورت های بیضی و گرد شکل'
+                            },
+                        ],
+                        LastUpdate: '2018-09-11',
+                        VisitsCount: 201
+                    },
+                    {
+                        ID: 8,
+                        Name: 'عینک آفتابی RayBan 3576N 1537V',
+                        Price: 25790000,
+                        Discount: 0,
+                        FinallPrice: 25790000,
+                        Image: 'Images/Slids/Brands/5_500.png',
+                        Options: [
+                            {
+                                ID: 1,
+                                Caption: 'ساخت کشور ایتالیا'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'سبک کلاسیک، با معرفی Blaze'
+                            },
+                            {
+                                ID: 3,
+                                Caption: 'لنز Sharp Onesie! Ray-Ban'
+                            },
+                            {
+                                ID: 4,
+                                Caption: 'مناسب برای صورت های بیضی و گرد شکل'
+                            },
+                        ],
+                        LastUpdate: '2019-01-11',
+                        VisitsCount: 20
+                    },
+                    {
+                        ID: 9,
+                        Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
+                        Price: 23460000,
+                        Discount: 0,
+                        FinallPrice: 23460000,
+                        Image: 'Images/Slids/Brands/1_500.png',
+                        Options: [
+                            {
+                                ID: 1,
+                                Caption: 'ساخت کشور ایتالیا'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
+                            },
+                            {
+                                ID: 3,
+                                Caption: 'بسیار بادوام و مستحکم'
+                            },
+                        ],
+                        LastUpdate: '2018-11-27',
+                        VisitsCount: 71
+                    },
+                    {
+                        ID: 7,
+                        Name: 'عینک آفتابی RayBan 3581N 90387J',
+                        Price: 25790000,
+                        Discount: 0,
+                        FinallPrice: 25790000,
+                        Image: 'Images/Slids/Brands/puma_thumb.jpg',
+                        Options: [
+                            {
+                                ID: 1,
+                                Caption: 'ساخت کشور ایتالیا'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
+                            },
+                            {
+                                ID: 3,
+                                Caption: 'زیبایی و ترکیبی فراتر از انتظار'
+                            },
+                            {
+                                ID: 4,
+                                Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
+                            },
+                        ],
+                        LastUpdate: '2019-02-08',
+                        VisitsCount: 7
+                    },
+                    {
+                        ID: 2,
+                        Name: 'عینک آفتابی RayBan 3576N 1537V',
+                        Price: 25790000,
+                        Discount: 0,
+                        FinallPrice: 25790000,
+                        Image: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
+                        Options: [
+                            {
+                                ID: 1,
+                                Caption: 'ساخت کشور ایتالیا'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'سبک کلاسیک، با معرفی Blaze'
+                            },
+                            {
+                                ID: 3,
+                                Caption: 'لنز Sharp Onesie! Ray-Ban'
+                            },
+                            {
+                                ID: 4,
+                                Caption: 'مناسب برای صورت های بیضی و گرد شکل'
+                            },
+                        ],
+                        LastUpdate: '2017-12-01',
+                        VisitsCount: 150
+                    },
+                    {
+                        ID: 1,
+                        Name: 'عینک آفتابی RayBan 3581N 90387J',
+                        Price: 25790000,
+                        Discount: 0,
+                        FinallPrice: 25790000,
+                        Image: 'Images/Slids/Brands/9_500.png',
+                        Options: [
+                            {
+                                ID: 1,
+                                Caption: 'ساخت کشور ایتالیا'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
+                            },
+                            {
+                                ID: 3,
+                                Caption: 'زیبایی و ترکیبی فراتر از انتظار'
+                            },
+                            {
+                                ID: 4,
+                                Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
+                            },
+                        ],
+                        LastUpdate: '2018-01-20',
+                        VisitsCount: 70
+
+                    },
+                    {
+                        ID: 6,
+                        Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
+                        Price: 23460000,
+                        Discount: 0,
+                        FinallPrice: 23460000,
+                        Image:
+                            'Images/Slids/Brands/top-brands-and-the-meaning-of-their-logo-hermes-paris-lapolo.jpg',
+                        Options: [
+                            {
+                                ID: 1,
+                                Caption: 'ساخت کشور ایتالیا'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
+                            },
+                            {
+                                ID: 3,
+                                Caption: 'بسیار بادوام و مستحکم'
+                            },
+                        ],
+                        LastUpdate: '2018-10-15',
+                        VisitsCount: 51
+                    },
+                ],
+                TotalCount: 56,
             },
             {
                 ID: 3,
-                Caption: 'عینک های طبی'
+                Caption: 'عینک های طبی',
+                ProductList: [
+                    {
+                        ID: 1,
+                        Name: 'عینک آفتابی RayBan 3581N 90387J',
+                        Price: 25790000,
+                        Discount: 0,
+                        FinallPrice: 25790000,
+                        Image: 'Images/Slids/Brands/9_500.png',
+                        Options: [
+                            {
+                                ID: 1,
+                                Caption: 'ساخت کشور ایتالیا'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
+                            },
+                            {
+                                ID: 3,
+                                Caption: 'زیبایی و ترکیبی فراتر از انتظار'
+                            },
+                            {
+                                ID: 4,
+                                Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
+                            },
+                        ],
+                        LastUpdate: '2018-01-20',
+                        VisitsCount: 70
+
+                    },
+                    {
+                        ID: 6,
+                        Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
+                        Price: 23460000,
+                        Discount: 0,
+                        FinallPrice: 23460000,
+                        Image:
+                            'Images/Slids/Brands/top-brands-and-the-meaning-of-their-logo-hermes-paris-lapolo.jpg',
+                        Options: [
+                            {
+                                ID: 1,
+                                Caption: 'ساخت کشور ایتالیا'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
+                            },
+                            {
+                                ID: 3,
+                                Caption: 'بسیار بادوام و مستحکم'
+                            },
+                        ],
+                        LastUpdate: '2018-10-15',
+                        VisitsCount: 51
+                    },
+                    {
+                        ID: 3,
+                        Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
+                        Price: 23460000,
+                        Discount: 0,
+                        FinallPrice: 23460000,
+                        Image: 'Images/Slids/Brands/samsung_circle.jpg',
+                        Options: [
+                            {
+                                ID: 1,
+                                Caption: 'ساخت کشور ایتالیا'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
+                            },
+                            {
+                                ID: 3,
+                                Caption: 'بسیار بادوام و مستحکم'
+                            },
+                        ],
+                        LastUpdate: '2017-12-05',
+                        VisitsCount: 15
+                    },
+                    {
+                        ID: 5,
+                        Name: 'عینک آفتابی RayBan 3576N 1537V',
+                        Price: 25790000,
+                        Discount: 0,
+                        FinallPrice: 25790000,
+                        Image: 'Images/Slids/Brands/nike-logo.png',
+                        Options: [
+                            {
+                                ID: 1,
+                                Caption: 'ساخت کشور ایتالیا'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'سبک کلاسیک، با معرفی Blaze'
+                            },
+                            {
+                                ID: 3,
+                                Caption: 'لنز Sharp Onesie! Ray-Ban'
+                            },
+                            {
+                                ID: 4,
+                                Caption: 'مناسب برای صورت های بیضی و گرد شکل'
+                            },
+                        ],
+                        LastUpdate: '2018-09-11',
+                        VisitsCount: 201
+                    },
+                    {
+                        ID: 7,
+                        Name: 'عینک آفتابی RayBan 3581N 90387J',
+                        Price: 25790000,
+                        Discount: 0,
+                        FinallPrice: 25790000,
+                        Image: 'Images/Slids/Brands/puma_thumb.jpg',
+                        Options: [
+                            {
+                                ID: 1,
+                                Caption: 'ساخت کشور ایتالیا'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
+                            },
+                            {
+                                ID: 3,
+                                Caption: 'زیبایی و ترکیبی فراتر از انتظار'
+                            },
+                            {
+                                ID: 4,
+                                Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
+                            },
+                        ],
+                        LastUpdate: '2019-02-08',
+                        VisitsCount: 7
+                    },
+                    {
+                        ID: 4,
+                        Name: 'عینک آفتابی RayBan 3581N 90387J',
+                        Price: 25790000,
+                        Discount: 0,
+                        FinallPrice: 25790000,
+                        Image: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
+                        Options: [
+                            {
+                                ID: 1,
+                                Caption: 'ساخت کشور ایتالیا'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
+                            },
+                            {
+                                ID: 3,
+                                Caption: 'زیبایی و ترکیبی فراتر از انتظار'
+                            },
+                            {
+                                ID: 4,
+                                Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
+                            },
+                        ],
+                        LastUpdate: '2018-10-08',
+                        VisitsCount: 550
+                    },
+                    {
+                        ID: 8,
+                        Name: 'عینک آفتابی RayBan 3576N 1537V',
+                        Price: 25790000,
+                        Discount: 0,
+                        FinallPrice: 25790000,
+                        Image: 'Images/Slids/Brands/5_500.png',
+                        Options: [
+                            {
+                                ID: 1,
+                                Caption: 'ساخت کشور ایتالیا'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'سبک کلاسیک، با معرفی Blaze'
+                            },
+                            {
+                                ID: 3,
+                                Caption: 'لنز Sharp Onesie! Ray-Ban'
+                            },
+                            {
+                                ID: 4,
+                                Caption: 'مناسب برای صورت های بیضی و گرد شکل'
+                            },
+                        ],
+                        LastUpdate: '2019-01-11',
+                        VisitsCount: 20
+                    },
+                    {
+                        ID: 9,
+                        Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
+                        Price: 23460000,
+                        Discount: 0,
+                        FinallPrice: 23460000,
+                        Image: 'Images/Slids/Brands/1_500.png',
+                        Options: [
+                            {
+                                ID: 1,
+                                Caption: 'ساخت کشور ایتالیا'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
+                            },
+                            {
+                                ID: 3,
+                                Caption: 'بسیار بادوام و مستحکم'
+                            },
+                        ],
+                        LastUpdate: '2018-11-27',
+                        VisitsCount: 71
+                    },
+                    {
+                        ID: 2,
+                        Name: 'عینک آفتابی RayBan 3576N 1537V',
+                        Price: 25790000,
+                        Discount: 0,
+                        FinallPrice: 25790000,
+                        Image: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
+                        Options: [
+                            {
+                                ID: 1,
+                                Caption: 'ساخت کشور ایتالیا'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'سبک کلاسیک، با معرفی Blaze'
+                            },
+                            {
+                                ID: 3,
+                                Caption: 'لنز Sharp Onesie! Ray-Ban'
+                            },
+                            {
+                                ID: 4,
+                                Caption: 'مناسب برای صورت های بیضی و گرد شکل'
+                            },
+                        ],
+                        LastUpdate: '2017-12-01',
+                        VisitsCount: 150
+                    },
+                ],
+                TotalCount: 23,
             },
         ],
         AboutCompany: [
             {
                 ID: 1,
                 Caption: 'هدف ما آسایش مشتری است',
-                Content: ' یکی از اصلی‌ترین اهداف فروشگاه اینترنتی لوناتو، آسایش هرچه بیشتر مشتری در خرید عینک موردنظرش است. برای این منظور ما خدمات ویژه‌ای در نظر گرفته‌ایم. به این صورت که کاربر می‌تواند تا حداکثر ۵ جفت عینک را انتخاب کند تا برای تست رایگان در منزل، به نشانی وی ارسال شود. این سرویس کاملا رایگان است و توسط پیک در کوتاه‌ترین زمان برایتان ارسال می‌شود. شما پس از انتخاب گزینه (های) دلخواه، بقیه عینک‌ها را به پیک لوناتو پس داده و هزینه خرید عینک را همان‌جا در منزل خود با کارت بانکی یا به‌صورت نقد پرداخت می‌کنید. لازم است اشاره کنیم که اگر به هر دلیلی، هیچ‌کدام از ۵ عینک ارسالی موردپسندتان واقع نشد، بدون پرداخت هیچ‌نوع هزینه‌ای می‌توانید آن‌ها را مرجوع کنید. همچنین به صورت آنلاین هم می‌توانید با پاسخ دادن به پرسش‌های تصویری، فریم‌های متناسب با صورت خود را انتخاب کنید.'
+                Content:
+                    ' یکی از اصلی‌ترین اهداف فروشگاه اینترنتی لوناتو، آسایش هرچه بیشتر مشتری در خرید عینک موردنظرش است. برای این منظور ما خدمات ویژه‌ای در نظر گرفته‌ایم. به این صورت که کاربر می‌تواند تا حداکثر ۵ جفت عینک را انتخاب کند تا برای تست رایگان در منزل، به نشانی وی ارسال شود. این سرویس کاملا رایگان است و توسط پیک در کوتاه‌ترین زمان برایتان ارسال می‌شود. شما پس از انتخاب گزینه (های) دلخواه، بقیه عینک‌ها را به پیک لوناتو پس داده و هزینه خرید عینک را همان‌جا در منزل خود با کارت بانکی یا به‌صورت نقد پرداخت می‌کنید. لازم است اشاره کنیم که اگر به هر دلیلی، هیچ‌کدام از ۵ عینک ارسالی موردپسندتان واقع نشد، بدون پرداخت هیچ‌نوع هزینه‌ای می‌توانید آن‌ها را مرجوع کنید. همچنین به صورت آنلاین هم می‌توانید با پاسخ دادن به پرسش‌های تصویری، فریم‌های متناسب با صورت خود را انتخاب کنید.'
             },
             {
                 ID: 2,
                 Caption: 'کالای فروخته شده پس گرفته می‌شود!',
-                Content: 'هدف اصلی لوناتو، جلب اعتماد صددرصدی مشتری‌هاست. ما با اطمینان می‌گوییم که برای انتخاب مشتری و هزینه‌ای که برای خرید پرداخت می‌کند، ارزش بسیار زیادی قائل هستیم. برای اثبات این ادعا نیز به اطلاع مشتری‌های خود می‌رسانیم که اگر به هر دلیلی از خرید خود پشیمان شده و قصد مرجوع کردن کالای خریداری شده را دارند، لوناتو این امکان را برای آن‌ها مهیا ساخته و با کمال‌ میل، اجناس فروخته شده را تا ۳۰ روز پس از خرید و بدون نیاز به هیچ توضیحی پس می‌گیرد.'
+                Content:
+                    'هدف اصلی لوناتو، جلب اعتماد صددرصدی مشتری‌هاست. ما با اطمینان می‌گوییم که برای انتخاب مشتری و هزینه‌ای که برای خرید پرداخت می‌کند، ارزش بسیار زیادی قائل هستیم. برای اثبات این ادعا نیز به اطلاع مشتری‌های خود می‌رسانیم که اگر به هر دلیلی از خرید خود پشیمان شده و قصد مرجوع کردن کالای خریداری شده را دارند، لوناتو این امکان را برای آن‌ها مهیا ساخته و با کمال‌ میل، اجناس فروخته شده را تا ۳۰ روز پس از خرید و بدون نیاز به هیچ توضیحی پس می‌گیرد.'
             },
             {
                 ID: 3,
                 Caption: 'هدف ما آسایش مشتری است',
-                Content: ' یکی از اصلی‌ترین اهداف فروشگاه اینترنتی لوناتو، آسایش هرچه بیشتر مشتری در خرید عینک موردنظرش است. برای این منظور ما خدمات ویژه‌ای در نظر گرفته‌ایم. به این صورت که کاربر می‌تواند تا حداکثر ۵ جفت عینک را انتخاب کند تا برای تست رایگان در منزل، به نشانی وی ارسال شود. این سرویس کاملا رایگان است و توسط پیک در کوتاه‌ترین زمان برایتان ارسال می‌شود. شما پس از انتخاب گزینه (های) دلخواه، بقیه عینک‌ها را به پیک لوناتو پس داده و هزینه خرید عینک را همان‌جا در منزل خود با کارت بانکی یا به‌صورت نقد پرداخت می‌کنید. لازم است اشاره کنیم که اگر به هر دلیلی، هیچ‌کدام از ۵ عینک ارسالی موردپسندتان واقع نشد، بدون پرداخت هیچ‌نوع هزینه‌ای می‌توانید آن‌ها را مرجوع کنید. همچنین به صورت آنلاین هم می‌توانید با پاسخ دادن به پرسش‌های تصویری، فریم‌های متناسب با صورت خود را انتخاب کنید.'
+                Content:
+                    ' یکی از اصلی‌ترین اهداف فروشگاه اینترنتی لوناتو، آسایش هرچه بیشتر مشتری در خرید عینک موردنظرش است. برای این منظور ما خدمات ویژه‌ای در نظر گرفته‌ایم. به این صورت که کاربر می‌تواند تا حداکثر ۵ جفت عینک را انتخاب کند تا برای تست رایگان در منزل، به نشانی وی ارسال شود. این سرویس کاملا رایگان است و توسط پیک در کوتاه‌ترین زمان برایتان ارسال می‌شود. شما پس از انتخاب گزینه (های) دلخواه، بقیه عینک‌ها را به پیک لوناتو پس داده و هزینه خرید عینک را همان‌جا در منزل خود با کارت بانکی یا به‌صورت نقد پرداخت می‌کنید. لازم است اشاره کنیم که اگر به هر دلیلی، هیچ‌کدام از ۵ عینک ارسالی موردپسندتان واقع نشد، بدون پرداخت هیچ‌نوع هزینه‌ای می‌توانید آن‌ها را مرجوع کنید. همچنین به صورت آنلاین هم می‌توانید با پاسخ دادن به پرسش‌های تصویری، فریم‌های متناسب با صورت خود را انتخاب کنید.'
             },
             {
                 ID: 4,
                 Caption: 'کالای فروخته شده پس گرفته می‌شود!',
-                Content: 'هدف اصلی لوناتو، جلب اعتماد صددرصدی مشتری‌هاست. ما با اطمینان می‌گوییم که برای انتخاب مشتری و هزینه‌ای که برای خرید پرداخت می‌کند، ارزش بسیار زیادی قائل هستیم. برای اثبات این ادعا نیز به اطلاع مشتری‌های خود می‌رسانیم که اگر به هر دلیلی از خرید خود پشیمان شده و قصد مرجوع کردن کالای خریداری شده را دارند، لوناتو این امکان را برای آن‌ها مهیا ساخته و با کمال‌ میل، اجناس فروخته شده را تا ۳۰ روز پس از خرید و بدون نیاز به هیچ توضیحی پس می‌گیرد.'
+                Content:
+                    'هدف اصلی لوناتو، جلب اعتماد صددرصدی مشتری‌هاست. ما با اطمینان می‌گوییم که برای انتخاب مشتری و هزینه‌ای که برای خرید پرداخت می‌کند، ارزش بسیار زیادی قائل هستیم. برای اثبات این ادعا نیز به اطلاع مشتری‌های خود می‌رسانیم که اگر به هر دلیلی از خرید خود پشیمان شده و قصد مرجوع کردن کالای خریداری شده را دارند، لوناتو این امکان را برای آن‌ها مهیا ساخته و با کمال‌ میل، اجناس فروخته شده را تا ۳۰ روز پس از خرید و بدون نیاز به هیچ توضیحی پس می‌گیرد.'
             },
         ],
         ContactCompany: [
@@ -629,14 +1167,16 @@ app.controller('MainControl', function ($scope) {
                 Caption: 'ارسال رایگان'
             },
         ],
-
     };
+
+    $scope.StoreSelectedProductMenu = $scope.Store.ProductMenu[0];
+
+    $scope.StoreSelectedProduct = $scope.Store.ProductMenu[0].ProductList[0];
 
     $scope.HomeMenuClick = function () {
 
         $scope.HomeView = true;
 
-        $scope.ProductView = false;
         $scope.StoresView = false;
         $scope.StoreView = false;
     }
@@ -646,7 +1186,6 @@ app.controller('MainControl', function ($scope) {
         $scope.StoresView = true;
 
         $scope.HomeView = false;
-        $scope.ProductView = false;
         $scope.StoreView = false;
     }
 
@@ -660,7 +1199,6 @@ app.controller('MainControl', function ($scope) {
         item.Active = true;
     };
 
-
     $scope.AboutCompanyClick = function () {
 
         $scope.StoreView = true;
@@ -668,13 +1206,11 @@ app.controller('MainControl', function ($scope) {
         $scope.StoreAboutCompanyView = true;
         $scope.StoreProductMenuView = false;
         $scope.StoreContactCompanyView = false;
-        
+
 
         $scope.StoresView = false;
         $scope.HomeView = false;
-        $scope.ProductView = false;
     }
-
 
     $scope.ContactCompanyClick = function () {
 
@@ -683,10 +1219,48 @@ app.controller('MainControl', function ($scope) {
         $scope.StoreContactCompanyView = true;
         $scope.StoreAboutCompanyView = false;
         $scope.StoreProductMenuView = false;
-        
+
 
         $scope.StoresView = false;
         $scope.HomeView = false;
-        $scope.ProductView = false;
+    }
+
+    $scope.ProductMenuClick = function (productMenuID) {
+
+        $scope.StoreView = true;
+
+        $scope.StoreProductMenuView = true;
+        $scope.StoreContactCompanyView = false;
+        $scope.StoreAboutCompanyView = false;
+
+        $scope.StoresView = false;
+        $scope.HomeView = false;
+
+        var _item = $scope.Store.ProductMenu.find(function (x) {
+            return x.ID == productMenuID
+        });
+        if (_item)
+            $scope.StoreSelectedProductMenu = _item;
+    }
+
+    $scope.StoreProductClick = function (productID) {
+        
+        $scope.StoreView = true;
+
+        $scope.StoreProductView = true;
+        $scope.StoreProductMenuView = false;
+        $scope.StoreContactCompanyView = false;
+        $scope.StoreAboutCompanyView = false;
+
+        $scope.StoresView = false;
+        $scope.HomeView = false;
+
+        var _item = $scope.StoreSelectedProductMenu.ProductList.find(function (x) {
+            return x.ID == productID
+        });
+        if (_item)
+            $scope.StoreSelectedProduct = _item;
+
+        console.log(_item);
     }
 });
