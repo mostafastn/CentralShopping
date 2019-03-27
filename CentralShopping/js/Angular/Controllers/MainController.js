@@ -6,10 +6,10 @@ app.controller('MainControl', function ($scope) {
     $scope.StoresView = false;
 
     $scope.StoreView = true;
-    $scope.StoreProductView = true;
     $scope.StoreProductMenuView = true;
     $scope.StoreAboutCompanyView = false;
     $scope.StoreContactCompanyView = false;
+    $scope.StoreProductView = false;
 
     $scope.ObjectInPageCount = [9, 18, "همه"];
 
@@ -365,7 +365,7 @@ app.controller('MainControl', function ($scope) {
                         ID: 2,
                         Name: 'عینک آفتابی RayBan 3576N 1537V',
                         Price: 25790000,
-                        Discount: 0,
+                        Discount: 25,
                         FinallPrice: 25790000,
                         Image: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
                         Options: [
@@ -393,7 +393,7 @@ app.controller('MainControl', function ($scope) {
                         ID: 1,
                         Name: 'عینک آفتابی RayBan 3581N 90387J',
                         Price: 25790000,
-                        Discount: 0,
+                        Discount: 10,
                         FinallPrice: 25790000,
                         Image: 'Images/Slids/Brands/9_500.png',
                         Options: [
@@ -422,7 +422,7 @@ app.controller('MainControl', function ($scope) {
                         ID: 3,
                         Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
                         Price: 23460000,
-                        Discount: 0,
+                        Discount: 20,
                         FinallPrice: 23460000,
                         Image: 'Images/Slids/Brands/samsung_circle.jpg',
                         Options: [
@@ -1169,25 +1169,79 @@ app.controller('MainControl', function ($scope) {
         ],
     };
 
+    $scope.StoreProduct = {
+        ID: 2,
+        Name: 'عینک آفتابی RayBan 3576N 1537V',
+        Price: 25790000,
+        Discount: 0,
+        FinallPrice: 25790000,
+        Images: [
+            {
+                ID: 1,
+                AlternateText: "Alternate Text",
+                Source: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
+                Active: true
+            },
+            {
+                ID: 2,
+                AlternateText: "Alternate Text",
+                Source: 'Images/Slids/Brands/9_500.png',
+                Active: false
+            },
+            {
+                ID: 3,
+                AlternateText: "Alternate Text",
+                Source: 'Images/Slids/Brands/puma_thumb.jpg',
+                Active: false
+            },
+            {
+                ID: 4,
+                AlternateText: "Alternate Text",
+                Source: 'Images/Slids/Brands/nike-logo.png',
+                Active: false
+            },
+        ],
+        Options: [
+            {
+                ID: 1,
+                Caption: 'ساخت کشور ایتالیا'
+            },
+            {
+                ID: 2,
+                Caption: 'سبک کلاسیک، با معرفی Blaze'
+            },
+            {
+                ID: 3,
+                Caption: 'لنز Sharp Onesie! Ray-Ban'
+            },
+            {
+                ID: 4,
+                Caption: 'مناسب برای صورت های بیضی و گرد شکل'
+            },
+        ],
+        Available: true,
+        AvailableCount : 5,
+    };
+
     $scope.StoreSelectedProductMenu = $scope.Store.ProductMenu[0];
 
-    $scope.StoreSelectedProduct = $scope.Store.ProductMenu[0].ProductList[0];
+    //$scope.StoreSelectedProduct = $scope.Store.ProductMenu[0].ProductList[0];
 
-    $scope.HomeMenuClick = function () {
+    $scope.HomeMenuClick = function() {
 
         $scope.HomeView = true;
 
         $scope.StoresView = false;
         $scope.StoreView = false;
-    }
+    };
 
-    $scope.StoreMenuClick = function () {
+    $scope.StoreMenuClick = function() {
 
         $scope.StoresView = true;
 
         $scope.HomeView = false;
         $scope.StoreView = false;
-    }
+    };
 
     $scope.SpecialTabClick = function (item) {
 
@@ -1199,7 +1253,7 @@ app.controller('MainControl', function ($scope) {
         item.Active = true;
     };
 
-    $scope.AboutCompanyClick = function () {
+    $scope.AboutCompanyClick = function() {
 
         $scope.StoreView = true;
 
@@ -1210,7 +1264,7 @@ app.controller('MainControl', function ($scope) {
 
         $scope.StoresView = false;
         $scope.HomeView = false;
-    }
+    };
 
     $scope.ContactCompanyClick = function () {
 
@@ -1225,7 +1279,7 @@ app.controller('MainControl', function ($scope) {
         $scope.HomeView = false;
     }
 
-    $scope.ProductMenuClick = function (productMenuID) {
+    $scope.ProductMenuClick = function(productMenuID) {
 
         $scope.StoreView = true;
 
@@ -1236,15 +1290,15 @@ app.controller('MainControl', function ($scope) {
         $scope.StoresView = false;
         $scope.HomeView = false;
 
-        var _item = $scope.Store.ProductMenu.find(function (x) {
+        var _item = $scope.Store.ProductMenu.find(function(x) {
             return x.ID == productMenuID
         });
         if (_item)
             $scope.StoreSelectedProductMenu = _item;
-    }
+    };
 
-    $scope.StoreProductClick = function (productID) {
-        
+    $scope.StoreProductClick = function(productID) {
+
         $scope.StoreView = true;
 
         $scope.StoreProductView = true;
@@ -1255,12 +1309,16 @@ app.controller('MainControl', function ($scope) {
         $scope.StoresView = false;
         $scope.HomeView = false;
 
-        var _item = $scope.StoreSelectedProductMenu.ProductList.find(function (x) {
+        var _item = $scope.StoreSelectedProductMenu.ProductList.find(function(x) {
             return x.ID == productID
         });
-        if (_item)
-            $scope.StoreSelectedProduct = _item;
+        if (_item) {
 
-        console.log(_item);
-    }
+            $scope.StoreProduct.ID = _item.ID;
+            $scope.StoreProduct.Name = _item.Name;
+            $scope.StoreProduct.Price = _item.Price;
+            $scope.StoreProduct.Discount = _item.Discount;
+            $scope.StoreProduct.FinallPrice = _item.FinallPrice;
+        }
+    };
 });
