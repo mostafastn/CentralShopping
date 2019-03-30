@@ -5,11 +5,15 @@ app.controller('MainControl', function ($scope) {
     $scope.HomeView = false;
     $scope.StoresView = false;
 
-    $scope.StoreView = true;
-    $scope.StoreProductMenuView = true;
+    $scope.StoreView = false;
+    $scope.StoreProductListView = true;
     $scope.StoreAboutCompanyView = false;
     $scope.StoreContactCompanyView = false;
     $scope.StoreProductView = false;
+
+    $scope.CartView = true;
+
+
 
     $scope.ObjectInPageCount = [9, 18, "همه"];
 
@@ -249,110 +253,100 @@ app.controller('MainControl', function ($scope) {
         },
     ];
 
-    $scope.Products = [
-        { ID: 1, Name: 'پلیس 1', Image: 'Images/Slids/Brands/puma_thumb.jpg', Category: 'عینک آفتابی', Price: 1500000 },
-        { ID: 2, Name: 'پلیس 2', Image: 'Images/Slids/Brands/rolex-1024x597.jpg', Category: 'عینک آفتابی', Price: 2000000 },
-        { ID: 3, Name: 'پلیس 2', Image: 'Images/Slids/Brands/samsung_circle.jpg', Category: 'عینک آفتابی', Price: 2000000 },
-        { ID: 4, Name: 'پلیس 2', Image: 'Images/Slids/Brands/hugo-boss-ok-300x200.png', Category: 'عینک آفتابی', Price: 2000000 },
-        { ID: 5, Name: 'پلیس 2', Image: 'Images/Slids/Brands/nike-logo.png', Category: 'عینک آفتابی', Price: 2000000 },
-        { ID: 6, Name: 'پلیس 2', Image: 'Images/Slids/Brands/top-brands-and-the-meaning-of-their-logo-hermes-paris-lapolo.jpg', Category: 'عینک آفتابی', Price: 2000000 }
-    ];
-
     $scope.Stores = [
-        {
-            ID: 1,
-            ProductCount: 10,
-            Name: 'فروشگاه لوتوس',
-            Introduction: 'فروشنده انواع تجهیزات آی تی با بهترین قیمت روز و ضمانت اصالت کالا و گارانتی اصلی.',
-            lastUpdate: '15',
-            Options: [
-                {
-                    ID: 1,
-                    Caption: 'تخفیف های ویژه'
-                },
-                {
-                    ID: 2,
-                    Caption: 'مدت محدود'
-                },
-                {
-                    ID: 3,
-                    Caption: 'ارسال رایگان'
-                },
-            ],
-            Link: 'http://centralshopping.ir'
-        },
-        {
-            ID: 2,
-            ProductCount: 15,
-            Name: 'فروشگاه گوشی شاپ',
-            Introduction: 'اولین و معتبرترین فروشگاه آنلاین گوشی های موبایل، تبلت، گجت و لوازم جانبی.',
-            lastUpdate: '19',
-            Options: [
-                {
-                    ID: 1,
-                    Caption: 'تخفیف های ویژه'
-                },
-                {
-                    ID: 2,
-                    Caption: 'مدت محدود'
-                },
-            ],
-            Link: 'http://centralshopping.ir'
-        },
-        {
-            ID: 3,
-            ProductCount: 25,
-            Name: 'فروشگاه میثم عطر',
-            Introduction: 'مرجع تخصصی عطر، لوازم آرایش و محصولات بهداشتی، ارائه کننده بیش از 100 برند معتبر.',
-            lastUpdate: '26',
-            Options: [],
-            Link: 'http://centralshopping.ir'
-        },
-        {
-            ID: 4,
-            ProductCount: 240,
-            Name: 'فروشگاه عطر سفیر',
-            Introduction: 'ارائه رایحه های اصیل و ماندگار از عطرها و برندهای معتبر جهان.',
-            lastUpdate: '45',
-            Options: [
-                {
-                    ID: 1,
-                    Caption: '3 روز ضمانت برگشت کالا'
-                },
-                {
-                    ID: 2,
-                    Caption: 'ارسال رایگان'
-                },
-            ],
-            Link: 'http://centralshopping.ir'
-        },
-        {
-            ID: 5,
-            ProductCount: 9,
-            Name: 'فروشگاه الماس پایتخت',
-            Introduction: 'محصولات سایت اپل در ایران نمایندگی فروش ایفون اپل در ایران با گارانتی رسمی.',
-            lastUpdate: '53',
-            Options: [
-                {
-                    ID: 1,
-                    Caption: 'گارانتی یک ساله'
-                },
-                {
-                    ID: 2,
-                    Caption: 'خدمات پس از فروش'
-                },
-                {
-                    ID: 3,
-                    Caption: 'ارسال رایگان'
-                },
-            ],
-            Link: 'http://centralshopping.ir'
-        },
+         {
+             ID: 1,
+             ProductCount: 10,
+             Name: 'فروشگاه لوتوس',
+             Introduction: 'فروشنده انواع تجهیزات آی تی با بهترین قیمت روز و ضمانت اصالت کالا و گارانتی اصلی.',
+             lastUpdate: '15',
+             Options: [
+                 {
+                     ID: 1,
+                     Caption: 'تخفیف های ویژه'
+                 },
+                 {
+                     ID: 2,
+                     Caption: 'مدت محدود'
+                 },
+                 {
+                     ID: 3,
+                     Caption: 'ارسال رایگان'
+                 },
+             ],
+             Link: 'http://centralshopping.ir'
+         },
+         {
+             ID: 2,
+             ProductCount: 15,
+             Name: 'فروشگاه گوشی شاپ',
+             Introduction: 'اولین و معتبرترین فروشگاه آنلاین گوشی های موبایل، تبلت، گجت و لوازم جانبی.',
+             lastUpdate: '19',
+             Options: [
+                 {
+                     ID: 1,
+                     Caption: 'تخفیف های ویژه'
+                 },
+                 {
+                     ID: 2,
+                     Caption: 'مدت محدود'
+                 },
+             ],
+             Link: 'http://centralshopping.ir'
+         },
+         {
+             ID: 3,
+             ProductCount: 25,
+             Name: 'فروشگاه میثم عطر',
+             Introduction: 'مرجع تخصصی عطر، لوازم آرایش و محصولات بهداشتی، ارائه کننده بیش از 100 برند معتبر.',
+             lastUpdate: '26',
+             Options: [],
+             Link: 'http://centralshopping.ir'
+         },
+         {
+             ID: 4,
+             ProductCount: 240,
+             Name: 'فروشگاه عطر سفیر',
+             Introduction: 'ارائه رایحه های اصیل و ماندگار از عطرها و برندهای معتبر جهان.',
+             lastUpdate: '45',
+             Options: [
+                 {
+                     ID: 1,
+                     Caption: '3 روز ضمانت برگشت کالا'
+                 },
+                 {
+                     ID: 2,
+                     Caption: 'ارسال رایگان'
+                 },
+             ],
+             Link: 'http://centralshopping.ir'
+         },
+         {
+             ID: 5,
+             ProductCount: 9,
+             Name: 'فروشگاه الماس پایتخت',
+             Introduction: 'محصولات سایت اپل در ایران نمایندگی فروش ایفون اپل در ایران با گارانتی رسمی.',
+             lastUpdate: '53',
+             Options: [
+                 {
+                     ID: 1,
+                     Caption: 'گارانتی یک ساله'
+                 },
+                 {
+                     ID: 2,
+                     Caption: 'خدمات پس از فروش'
+                 },
+                 {
+                     ID: 3,
+                     Caption: 'ارسال رایگان'
+                 },
+             ],
+             Link: 'http://centralshopping.ir'
+         },
     ];
 
     $scope.Store = {
         ID: 1,
-        ProductCount: 10,
         Name: 'فروشگاه اینترنتی لوناتو',
         Introduction: 'مرجع تخصصی عینک طبی، عینک آفتابی، لنز چشم.',
         lastUpdate: '55',
@@ -387,7 +381,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2017-12-01',
-                        VisitsCount: 150
+                        VisitsCount: 150,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                     {
                         ID: 1,
@@ -415,7 +411,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2018-01-20',
-                        VisitsCount: 70
+                        VisitsCount: 70,
+                        Available: false,
+                        AvailableCount: 0,
 
                     },
                     {
@@ -440,7 +438,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2017-12-05',
-                        VisitsCount: 15
+                        VisitsCount: 15,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                     {
                         ID: 6,
@@ -465,7 +465,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2018-10-15',
-                        VisitsCount: 51
+                        VisitsCount: 51,
+                        Available: false,
+                        AvailableCount: 0,
                     },
                     {
                         ID: 7,
@@ -493,7 +495,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2019-02-08',
-                        VisitsCount: 7
+                        VisitsCount: 7,
+                        Available: false,
+                        AvailableCount: 0,
                     },
                     {
                         ID: 5,
@@ -521,7 +525,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2018-09-11',
-                        VisitsCount: 201
+                        VisitsCount: 201,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                     {
                         ID: 9,
@@ -545,7 +551,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2018-11-27',
-                        VisitsCount: 71
+                        VisitsCount: 71,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                     {
                         ID: 8,
@@ -573,7 +581,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2019-01-11',
-                        VisitsCount: 20
+                        VisitsCount: 20,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                     {
                         ID: 4,
@@ -601,7 +611,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2018-10-08',
-                        VisitsCount: 550
+                        VisitsCount: 550,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                 ],
                 TotalCount: 50,
@@ -632,7 +644,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2017-12-05',
-                        VisitsCount: 15
+                        VisitsCount: 15,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                     {
                         ID: 4,
@@ -660,7 +674,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2018-10-08',
-                        VisitsCount: 550
+                        VisitsCount: 550,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                     {
                         ID: 5,
@@ -688,7 +704,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2018-09-11',
-                        VisitsCount: 201
+                        VisitsCount: 201,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                     {
                         ID: 8,
@@ -716,7 +734,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2019-01-11',
-                        VisitsCount: 20
+                        VisitsCount: 20,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                     {
                         ID: 9,
@@ -740,7 +760,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2018-11-27',
-                        VisitsCount: 71
+                        VisitsCount: 71,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                     {
                         ID: 7,
@@ -768,7 +790,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2019-02-08',
-                        VisitsCount: 7
+                        VisitsCount: 7,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                     {
                         ID: 2,
@@ -796,7 +820,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2017-12-01',
-                        VisitsCount: 150
+                        VisitsCount: 150,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                     {
                         ID: 1,
@@ -824,7 +850,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2018-01-20',
-                        VisitsCount: 70
+                        VisitsCount: 70,
+                        Available: true,
+                        AvailableCount: 5,
 
                     },
                     {
@@ -850,7 +878,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2018-10-15',
-                        VisitsCount: 51
+                        VisitsCount: 51,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                 ],
                 TotalCount: 56,
@@ -885,7 +915,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2018-01-20',
-                        VisitsCount: 70
+                        VisitsCount: 70,
+                        Available: true,
+                        AvailableCount: 5,
 
                     },
                     {
@@ -911,7 +943,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2018-10-15',
-                        VisitsCount: 51
+                        VisitsCount: 51,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                     {
                         ID: 3,
@@ -935,7 +969,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2017-12-05',
-                        VisitsCount: 15
+                        VisitsCount: 15,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                     {
                         ID: 5,
@@ -963,7 +999,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2018-09-11',
-                        VisitsCount: 201
+                        VisitsCount: 201,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                     {
                         ID: 7,
@@ -991,7 +1029,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2019-02-08',
-                        VisitsCount: 7
+                        VisitsCount: 7,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                     {
                         ID: 4,
@@ -1019,7 +1059,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2018-10-08',
-                        VisitsCount: 550
+                        VisitsCount: 550,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                     {
                         ID: 8,
@@ -1047,7 +1089,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2019-01-11',
-                        VisitsCount: 20
+                        VisitsCount: 20,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                     {
                         ID: 9,
@@ -1071,7 +1115,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2018-11-27',
-                        VisitsCount: 71
+                        VisitsCount: 71,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                     {
                         ID: 2,
@@ -1099,7 +1145,9 @@ app.controller('MainControl', function ($scope) {
                             },
                         ],
                         LastUpdate: '2017-12-01',
-                        VisitsCount: 150
+                        VisitsCount: 150,
+                        Available: true,
+                        AvailableCount: 5,
                     },
                 ],
                 TotalCount: 23,
@@ -1220,27 +1268,126 @@ app.controller('MainControl', function ($scope) {
             },
         ],
         Available: true,
-        AvailableCount : 5,
+        AvailableCount: 5,
     };
 
     $scope.StoreSelectedProductMenu = $scope.Store.ProductMenu[0];
 
-    //$scope.StoreSelectedProduct = $scope.Store.ProductMenu[0].ProductList[0];
+    $scope.Cart = [
+        {
+            ID: 2,
+            Name: 'عینک آفتابی RayBan 3576N 1537V',
+            Price: 25790000,
+            Discount: 25,
+            FinallPrice: 19342500,
+            Image: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
+            Options: [
+                {
+                    ID: 1,
+                    Caption: 'ساخت کشور ایتالیا'
+                },
+                {
+                    ID: 2,
+                    Caption: 'سبک کلاسیک، با معرفی Blaze'
+                },
+                {
+                    ID: 3,
+                    Caption: 'لنز Sharp Onesie! Ray-Ban'
+                },
+                {
+                    ID: 4,
+                    Caption: 'مناسب برای صورت های بیضی و گرد شکل'
+                },
+            ],
+            Available: true,
+            AvailableCount: 5,
+            OrderCount: 1,
+        },
+        {
+            ID: 1,
+            Name: 'عینک آفتابی RayBan 3581N 90387J',
+            Price: 25790000,
+            Discount: 10,
+            FinallPrice: 25790000,
+            Image: 'Images/Slids/Brands/9_500.png',
+            Options: [
+                {
+                    ID: 1,
+                    Caption: 'ساخت کشور ایتالیا'
+                },
+                {
+                    ID: 2,
+                    Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
+                },
+                {
+                    ID: 3,
+                    Caption: 'زیبایی و ترکیبی فراتر از انتظار'
+                },
+                {
+                    ID: 4,
+                    Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
+                },
+            ],
+            Available: true,
+            AvailableCount: 3,
+            OrderCount: 2,
 
-    $scope.HomeMenuClick = function() {
+        },
+        {
+            ID: 3,
+            Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
+            Price: 23460000,
+            Discount: 20,
+            FinallPrice: 23460000,
+            Image: 'Images/Slids/Brands/samsung_circle.jpg',
+            Options: [
+                {
+                    ID: 1,
+                    Caption: 'ساخت کشور ایتالیا'
+                },
+                {
+                    ID: 2,
+                    Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
+                },
+                {
+                    ID: 3,
+                    Caption: 'بسیار بادوام و مستحکم'
+                },
+            ],
+            Available: true,
+            AvailableCount: 10,
+            OrderCount: 3,
+        },
+        {
+            ID: 6,
+            Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
+            Price: 23460000,
+            Discount: 0,
+            FinallPrice: 23460000,
+            Image:
+                'Images/Slids/Brands/top-brands-and-the-meaning-of-their-logo-hermes-paris-lapolo.jpg',
+            Available: true,
+            AvailableCount: 1,
+            OrderCount: 1,
+        },
+    ];
+
+    $scope.HomeMenuClick = function () {
 
         $scope.HomeView = true;
 
         $scope.StoresView = false;
         $scope.StoreView = false;
+        $scope.CartView = false;
     };
 
-    $scope.StoreMenuClick = function() {
+    $scope.StoreMenuClick = function () {
 
         $scope.StoresView = true;
 
         $scope.HomeView = false;
         $scope.StoreView = false;
+        $scope.CartView = false;
     };
 
     $scope.SpecialTabClick = function (item) {
@@ -1253,17 +1400,18 @@ app.controller('MainControl', function ($scope) {
         item.Active = true;
     };
 
-    $scope.AboutCompanyClick = function() {
+    $scope.AboutCompanyClick = function () {
 
         $scope.StoreView = true;
 
         $scope.StoreAboutCompanyView = true;
-        $scope.StoreProductMenuView = false;
+        $scope.StoreProductListView = false;
         $scope.StoreContactCompanyView = false;
 
 
         $scope.StoresView = false;
         $scope.HomeView = false;
+        $scope.CartView = false;
     };
 
     $scope.ContactCompanyClick = function () {
@@ -1272,44 +1420,79 @@ app.controller('MainControl', function ($scope) {
 
         $scope.StoreContactCompanyView = true;
         $scope.StoreAboutCompanyView = false;
-        $scope.StoreProductMenuView = false;
+        $scope.StoreProductListView = false;
 
 
         $scope.StoresView = false;
         $scope.HomeView = false;
+        $scope.CartView = false;
     }
 
-    $scope.ProductMenuClick = function(productMenuID) {
+    $scope.ProductMenuClick = function (productMenuID) {
 
         $scope.StoreView = true;
 
-        $scope.StoreProductMenuView = true;
+        $scope.StoreProductListView = true;
+
+        $scope.StoreProductView = false;
         $scope.StoreContactCompanyView = false;
         $scope.StoreAboutCompanyView = false;
 
         $scope.StoresView = false;
         $scope.HomeView = false;
+        $scope.CartView = false;
 
-        var _item = $scope.Store.ProductMenu.find(function(x) {
+        var _item = $scope.Store.ProductMenu.find(function (x) {
             return x.ID == productMenuID
         });
         if (_item)
             $scope.StoreSelectedProductMenu = _item;
     };
 
-    $scope.StoreProductClick = function(productID) {
+    $scope.StoreClick = function (StoreID) {
 
         $scope.StoreView = true;
+        $scope.StoreProductListView = true;
 
-        $scope.StoreProductView = true;
-        $scope.StoreProductMenuView = false;
+        $scope.StoreProductView = false;
         $scope.StoreContactCompanyView = false;
         $scope.StoreAboutCompanyView = false;
 
         $scope.StoresView = false;
         $scope.HomeView = false;
+        $scope.CartView = false;
 
-        var _item = $scope.StoreSelectedProductMenu.ProductList.find(function(x) {
+        var _item = $scope.Stores.find(function (x) {
+            return x.ID == StoreID
+        });
+        if (_item) {
+            $scope.Store.ID = _item.ID;
+            $scope.Store.Name = _item.Name;
+            $scope.Store.Introduction = _item.Introduction;
+            $scope.Store.Options = _item.Options;
+            $scope.Store.lastUpdate = _item.lastUpdate;
+        }
+    };
+
+    $scope.StoreProductClick = function (productID, isAvailable) {
+
+        if (!isAvailable) {
+            alert("محصول نا موجود است.");
+            return;
+        }
+
+        $scope.StoreView = true;
+        $scope.StoreProductView = true;
+
+        $scope.StoreProductListView = false;
+        $scope.StoreContactCompanyView = false;
+        $scope.StoreAboutCompanyView = false;
+
+        $scope.StoresView = false;
+        $scope.HomeView = false;
+        $scope.CartView = false;
+
+        var _item = $scope.StoreSelectedProductMenu.ProductList.find(function (x) {
             return x.ID == productID
         });
         if (_item) {
@@ -1320,5 +1503,14 @@ app.controller('MainControl', function ($scope) {
             $scope.StoreProduct.Discount = _item.Discount;
             $scope.StoreProduct.FinallPrice = _item.FinallPrice;
         }
+    };
+
+    $scope.CartClick = function () {
+
+        $scope.CartView = true;
+
+        $scope.HomeView = false;
+        $scope.StoresView = false;
+        $scope.StoreView = false;
     };
 });

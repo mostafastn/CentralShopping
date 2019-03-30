@@ -347,9 +347,9 @@
                         <button class="btn btn-light mr-2 my-2 " type="submit" title="ورود">
                             <i class="fa fa-user-circle"></i>
                         </button>
-                        <button class="btn btn-light my-2" type="submit" title="سبد خرید">
+                        <button class="btn btn-light my-2" type="submit" title="سبد خرید" ng-click="CartClick()">
                             <i class="fa fa-shopping-cart">
-                                <span class="badge badge-secondary small" title="تعداد محصولات">0</span>
+                                <span class="badge badge-secondary small" title="تعداد محصولات">{{Cart.length}}</span>
                             </i>
                         </button>
                     </div>
@@ -364,8 +364,6 @@
         <div class="container" style="margin-top:30px">
 
             <!-- #region HomePage -->
-
-
 
             <div class="row" ng-show="HomeView">
                 <div class="col">
@@ -463,7 +461,6 @@
                     </div>
                 </div>
             </div>
-
 
             <div class="card-deck" ng-show="HomeView">
 
@@ -564,7 +561,7 @@
                 </form>
 
                 <div class="card-columns">
-                    <div class="card mb-4" ng-repeat="x in Stores">
+                    <div class="card mb-4" ng-repeat="x in Stores" ng-click="StoreClick(x.ID)">
                         <div class="card-header bg-secondary text-white">{{x.ProductCount}} محصول</div>
                         <div class="card-body text-center">
                             <h6 class="card-title">{{x.Name}}</h6>
@@ -584,14 +581,14 @@
             <!-- #region StoreView -->
             <div class="row border border-dark mb-3 rounded" ng-show="StoreView">
 
-                <div class="col-3 border border-left-0 border-top-0 border-bottom-0 border-secondary rounded">
+                <div class="col-3 border-right border-secondary rounded">
 
                     <h5 class="pt-3">
                         <a href="">
                             {{Store.Name}}
                         </a>
                     </h5>
-                    <div id="accordion">
+                    <div id="accordion" class="m-2">
 
                         <div class="card">
                             <div class="card-header">
@@ -625,32 +622,32 @@
 
                 </div>
 
-                <div class="col-9" ng-show="StoreProductMenuView">
+                <div class="col-9" ng-show="StoreProductListView">
                     <div class="row pt-2">
-                        <div class="col-sm-4 border border-success rounded border-bottom-0 border-left-0 border-top-0">
+                        <div class="col-sm-4 border-right border-success ">
                             <select class="text-primary border-0" ng-model="SortType" ng-options="x.Caption for x in SortTypes"></select>
                         </div>
-                        <div class="col-sm-4 border border-success rounded border-bottom-0 border-top-0">
+                        <div class="col-sm-4 border border-success  border-bottom-0 border-top-0">
                             <ul class="pagination pagination-sm text-right">
                                 <li class="m-1" ng-repeat="x in ObjectInPageCount">
                                     <a href="" class="border border-dark bg-light rounded p-1">{{x}}</a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-sm-4 text-info border border-success rounded border-bottom-0 border-right-0 border-top-0">
+                        <div class="col-sm-4 text-info border-left border-success ">
                             نمایش 1-{{StoreSelectedProductMenu.ProductList.length}} از {{StoreSelectedProductMenu.TotalCount}} محصول
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-4 p-1" ng-repeat="x in StoreSelectedProductMenu.ProductList | orderBy : SortType.Value" id="{{x.ID}}" ng-click="StoreProductClick(x.ID)">
-                            <div class="border border-secondary rounded">
+                        <div class="col-md-4 p-1" ng-repeat="x in StoreSelectedProductMenu.ProductList | orderBy : SortType.Value" id="{{x.ID}}" ng-click="StoreProductClick(x.ID,x.Available)">
+                            <div class="border border-secondary rounded " ng-class="{'border-danger' : !x.Available }">
                                 <div class="m-1">
                                     <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 150px;">
                                 </div>
-                                <div class="m-1 text-dark font-weight-bold">{{x.Name}}</div>
-                                <p class="label text-danger">تخفیف : {{x.Discount}}%</p>
-                                <div class="m-1 text-danger badge-warning rounded p-1 text-danger" style="direction: ltr;">{{x.FinallPrice | currency:"ریال ":0}}</div>
+                                <div class="label m-1 text-dark font-weight-bold">{{x.Name}}</div>
+                                <div class="label m-1">تخفیف : <span class="text-danger">{{x.Discount}}%</span></div>
+                                <div class="label m-1 text-white bg-info rounded p-1">{{x.FinallPrice | currency:"ریال ":0}}</div>
                             </div>
                         </div>
                     </div>
@@ -691,7 +688,7 @@
                 </div>
 
                 <div class="col-9" ng-show="StoreProductView">
-                    <div class="row">
+                    <div class="row border-bottom border-secondary rounded" style="border-width: 5px;">
 
                         <div class="col-6 pt-3">
                             <h6>
@@ -708,7 +705,7 @@
                             <div id="productImage" class="carousel slide" data-ride="carousel" data-interval="false">
                                 <div class="carousel-inner">
                                     <div class="carousel-item" ng-repeat="x in StoreProduct.Images" ng-class="{'active': x.Active}">
-                                        <img src="{{x.Source}}" alt="Appel" class="img-fluid mx-auto d-block" style="height: 250px;" />
+                                        <img src="{{x.Source}}" alt="Appel" class="img-fluid mx-auto d-block" style="height: 300px;" />
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#productImage" data-slide="prev">
@@ -720,28 +717,32 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row pb-2">
 
                         <div class="col-4">
-                            <div ng-show="StoreProduct.Discount">
+                            <div ng-show="StoreProduct.Discount" ng-class="{'mt-2': StoreProduct.Discount}">
 
-                            <span class="text-danger">
-                                قیمت :
-                                <s>
-                                    {{StoreProduct.Price | currency:"":0}}
-                                </s>
-                            </span>
-                            <p class="label text-danger">تخفیف : {{StoreProduct.Discount}}%</p>
+                                <div class="text-danger">
+                                    قیمت :
+                                    <s>
+                                        {{StoreProduct.Price | currency:"":0}}
+                                    </s>
+                                </div>
+                                <div class="label text-danger">
+                                    تخفیف : {{StoreProduct.Discount}}%
+                                </div>
                             </div>
 
-                            <p class="label text-danger badge-warning rounded p-1">{{StoreProduct.FinallPrice| currency:"ریال ":0}}</p>
+                            <p class="label text-danger badge-warning rounded p-1 w-100" ng-class="{'mt-2': !StoreProduct.Discount}">
+                                {{StoreProduct.FinallPrice| currency:"ریال ":0}}
+                            </p>
 
                         </div>
                         <div class="col-4">
 
                         </div>
-                        <div class="col-4">
-                            <button class="btn btn-primary position-sticky" type="submit" title="سبد خرید">
+                        <div class="col-4 mt-auto">
+                            <button class="btn btn-primary position-sticky w-100" type="submit" title="سبد خرید">
                                 <i class="fa fa-shopping-cart font-weight-bold">
                                     افزودن به سبد خرید
                                 </i>
@@ -752,40 +753,49 @@
 
             </div>
             <!-- #endregion -->
-            <!-- #region StoreProductView -->
-            <div class="row" ng-show="ProductView">
-
-                <div class="col-3 bg-light">
-                    <h1>فیلتر ها</h1>
-
-
-                </div>
-                <div class="col-9">
-                    <div class="row">
-                        <div class="col-sm-4 border border-primary">مرتب سازی</div>
-                        <div class="col-sm-4 border border-dark">
-                            تعداد نمایش
-                            <span class="bg-dark text-light font-weight-bold" ng-repeat="x in ObjectInPageCount">
-                                {{x}}
-                            </span>
-                        </div>
-                        <div class="col-sm-4 border border-primary">{{ShowingDetails}}</div>
+            <!-- #region CartView -->
+            <div class="row" ng-show="CartView" ng-repeat="x in Cart">
+                <div class="col-3 pl-2">
+                    <div class="font-weight-bold">
+                        {{x.Name}}
                     </div>
-
-                    <div class="row">
-                        <div class="col-md-4 p-1" ng-repeat="x in Products" id="{{x.ID}}">
-                            <div class="border border-secondary rounded">
-                                <div class="m-1">
-                                    <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 150px;">
-                                </div>
-                                <div class="m-1 small">{{x.Category}}</div>
-                                <div class="m-1 text-dark font-weight-bold">{{x.Name}}</div>
-                                <div class="m-1 text-danger badge-warning rounded p-1" text-danger">{{x.Price | currency:"ریال ":0}}</div>
-                            </div>
-                        </div>
-
+                    <hr class="w-100" />
+                    <div ng-repeat="y in x.Options" class="text-justify">
+                        {{y.Caption}}
                     </div>
                 </div>
+                <div class="col-3">
+                    <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 200px;">
+                </div>
+                <div class="col-3">
+                    <div class="label">
+                        تعداد
+                        <select class="text-primary border-0" ng-model="" ng-options=""></select>
+                    </div>
+
+                    <div ng-show="x.Discount" ng-class="{'mt-2': x.Discount}">
+
+                        <div class="text-danger">
+                            قیمت :
+                            <s>
+                                {{x.Price | currency:"":0}}
+                            </s>
+                        </div>
+                        <div class="label text-danger">
+                            تخفیف : {{x.Discount}}%
+                        </div>
+                    </div>
+
+                    <p class="label text-danger badge-warning rounded p-1 w-100" ng-class="{'mt-2': !x.Discount}">
+                        {{x.FinallPrice| currency:"ریال ":0}}
+                    </p>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-outline-danger" type="submit" ng-click="RemoveCart(x.ID)">
+                        حذف <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <hr class="w-100" />
             </div>
             <!-- #endregion -->
         </div>
