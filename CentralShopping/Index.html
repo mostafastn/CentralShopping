@@ -742,7 +742,7 @@
 
                         </div>
                         <div class="col-4 mt-auto">
-                            <button class="btn btn-primary position-sticky w-100" type="submit" title="سبد خرید">
+                            <button class="btn btn-primary position-sticky w-100" type="submit" title="سبد خرید" ng-click="AddCart(StoreProduct)">
                                 <i class="fa fa-shopping-cart font-weight-bold">
                                     افزودن به سبد خرید
                                 </i>
@@ -754,23 +754,26 @@
             </div>
             <!-- #endregion -->
             <!-- #region CartView -->
-            <div class="row" ng-show="CartView" ng-repeat="x in Cart">
-                <div class="col-3 pl-2">
+        <div ng-show="CartView">
+            
+            <div class="row" ng-repeat="x in Cart">
+
+                <div class="col-md-4 pl-2">
                     <div class="font-weight-bold">
                         {{x.Name}}
                     </div>
-                    <hr class="w-100" />
+                    <hr class="w-100"/>
                     <div ng-repeat="y in x.Options" class="text-justify">
                         {{y.Caption}}
                     </div>
                 </div>
-                <div class="col-3">
-                    <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 200px;">
+                <div class="col-md-4">
+                    <img src="{{x.Images[0].Source}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 200px;">
                 </div>
-                <div class="col-3">
+                <div class="col-md-3">
                     <div class="label">
                         تعداد
-                        <select class="text-primary border-0" ng-model="" ng-options=""></select>
+                        <input type="number" ng-model="x.OrderCount" max="{{x.AvailableCount}}" min="1"/>
                     </div>
 
                     <div ng-show="x.Discount" ng-class="{'mt-2': x.Discount}">
@@ -778,7 +781,7 @@
                         <div class="text-danger">
                             قیمت :
                             <s>
-                                {{x.Price | currency:"":0}}
+                                {{x.Price * x.OrderCount | currency:"":0}}
                             </s>
                         </div>
                         <div class="label text-danger">
@@ -787,20 +790,60 @@
                     </div>
 
                     <p class="label text-danger badge-warning rounded p-1 w-100" ng-class="{'mt-2': !x.Discount}">
-                        {{x.FinallPrice| currency:"ریال ":0}}
+                        {{x.FinallPrice * x.OrderCount| currency:"ریال ":0}}
                     </p>
                 </div>
-                <div class="col-3">
-                    <button class="btn btn-outline-danger" type="submit" ng-click="RemoveCart(x.ID)">
+                <div class="col-md-1">
+                    <button class="btn btn-sm btn-danger" type="submit" ng-click="RemoveCart(x)">
                         حذف <i class="fa fa-times" aria-hidden="true"></i>
                     </button>
                 </div>
-                <hr class="w-100" />
+                <hr class="w-100"/>
             </div>
+            <div class="row align-items-end">
+                <div class="col-sm-4">
+                    <div class="label">تعداد کالا ها : {{Cart.length}}</div>
+                </div>
+                <div class="col-sm-4">
+
+                </div>
+                <div class="col-sm-4">
+
+                </div>
+            </div>
+        </div>
             <!-- #endregion -->
         </div>
         <div class="jumbotron text-center" style="margin-bottom:0">
             <div>تمامی حقوق این اثر متعلق به <a class="text-muted" href="http://tahasoft.ir">طاها سافت</a> می باشد</div>
+        </div>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal3" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">{{ModalContent.ModalTitle}}</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            {{ModalContent.ModalBody}}
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn" data-dismiss="modal" ng-repeat="x in ModalContent.Buttons"
+                                ng-class="x.Class" ng-click="x.Click()">
+                            {{x.Caption}}
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </body>

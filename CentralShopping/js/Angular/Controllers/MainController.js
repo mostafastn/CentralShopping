@@ -13,8 +13,6 @@ app.controller('MainControl', function ($scope) {
 
     $scope.CartView = true;
 
-
-
     $scope.ObjectInPageCount = [9, 18, "همه"];
 
     $scope.SortTypes = [
@@ -41,6 +39,26 @@ app.controller('MainControl', function ($scope) {
     ];
 
     $scope.SortType = $scope.SortTypes[0];
+
+    $scope.ModalContent =
+    {
+        ModalTitle: 'ModalTitle',
+        ModalBody: 'ModalBody',
+        Buttons: [
+            {
+                Caption: 'Caption',
+                Class: 'btn-success',
+                Show: true,
+                Click: function () { },
+            },
+            {
+                Caption: 'Caption',
+                Class: 'btn-danger',
+                Show: true,
+                Click: function () { },
+            },
+        ]
+    };
 
     $scope.SpecialTab = [
         {
@@ -1269,107 +1287,107 @@ app.controller('MainControl', function ($scope) {
         ],
         Available: true,
         AvailableCount: 5,
+        OrderCount: 0,
     };
 
     $scope.StoreSelectedProductMenu = $scope.Store.ProductMenu[0];
 
     $scope.Cart = [
-        {
-            ID: 2,
-            Name: 'عینک آفتابی RayBan 3576N 1537V',
-            Price: 25790000,
-            Discount: 25,
-            FinallPrice: 19342500,
-            Image: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
-            Options: [
-                {
-                    ID: 1,
-                    Caption: 'ساخت کشور ایتالیا'
-                },
-                {
-                    ID: 2,
-                    Caption: 'سبک کلاسیک، با معرفی Blaze'
-                },
-                {
-                    ID: 3,
-                    Caption: 'لنز Sharp Onesie! Ray-Ban'
-                },
-                {
-                    ID: 4,
-                    Caption: 'مناسب برای صورت های بیضی و گرد شکل'
-                },
-            ],
-            Available: true,
-            AvailableCount: 5,
-            OrderCount: 1,
-        },
-        {
-            ID: 1,
-            Name: 'عینک آفتابی RayBan 3581N 90387J',
-            Price: 25790000,
-            Discount: 10,
-            FinallPrice: 25790000,
-            Image: 'Images/Slids/Brands/9_500.png',
-            Options: [
-                {
-                    ID: 1,
-                    Caption: 'ساخت کشور ایتالیا'
-                },
-                {
-                    ID: 2,
-                    Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
-                },
-                {
-                    ID: 3,
-                    Caption: 'زیبایی و ترکیبی فراتر از انتظار'
-                },
-                {
-                    ID: 4,
-                    Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
-                },
-            ],
-            Available: true,
-            AvailableCount: 3,
-            OrderCount: 2,
-
-        },
-        {
-            ID: 3,
-            Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
-            Price: 23460000,
-            Discount: 20,
-            FinallPrice: 23460000,
-            Image: 'Images/Slids/Brands/samsung_circle.jpg',
-            Options: [
-                {
-                    ID: 1,
-                    Caption: 'ساخت کشور ایتالیا'
-                },
-                {
-                    ID: 2,
-                    Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
-                },
-                {
-                    ID: 3,
-                    Caption: 'بسیار بادوام و مستحکم'
-                },
-            ],
-            Available: true,
-            AvailableCount: 10,
-            OrderCount: 3,
-        },
-        {
-            ID: 6,
-            Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
-            Price: 23460000,
-            Discount: 0,
-            FinallPrice: 23460000,
-            Image:
-                'Images/Slids/Brands/top-brands-and-the-meaning-of-their-logo-hermes-paris-lapolo.jpg',
-            Available: true,
-            AvailableCount: 1,
-            OrderCount: 1,
-        },
+        //{
+        //    ID: 2,
+        //    Name: 'عینک آفتابی RayBan 3576N 1537V',
+        //    Price: 25790000,
+        //    Discount: 25,
+        //    FinallPrice: 19342500,
+        //    Image: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
+        //    Options: [
+        //        {
+        //            ID: 1,
+        //            Caption: 'ساخت کشور ایتالیا'
+        //        },
+        //        {
+        //            ID: 2,
+        //            Caption: 'سبک کلاسیک، با معرفی Blaze'
+        //        },
+        //        {
+        //            ID: 3,
+        //            Caption: 'لنز Sharp Onesie! Ray-Ban'
+        //        },
+        //        {
+        //            ID: 4,
+        //            Caption: 'مناسب برای صورت های بیضی و گرد شکل'
+        //        },
+        //    ],
+        //    Available: true,
+        //    AvailableCount: 5,
+        //    OrderCount: 1,
+        //},
+        //{
+        //    ID: 1,
+        //    Name: 'عینک آفتابی RayBan 3581N 90387J',
+        //    Price: 25790000,
+        //    Discount: 10,
+        //    FinallPrice: 25790000,
+        //    Image: 'Images/Slids/Brands/9_500.png',
+        //    Options: [
+        //        {
+        //            ID: 1,
+        //            Caption: 'ساخت کشور ایتالیا'
+        //        },
+        //        {
+        //            ID: 2,
+        //            Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
+        //        },
+        //        {
+        //            ID: 3,
+        //            Caption: 'زیبایی و ترکیبی فراتر از انتظار'
+        //        },
+        //        {
+        //            ID: 4,
+        //            Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
+        //        },
+        //    ],
+        //    Available: true,
+        //    AvailableCount: 3,
+        //    OrderCount: 2,
+        //},
+        //{
+        //    ID: 3,
+        //    Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
+        //    Price: 23460000,
+        //    Discount: 20,
+        //    FinallPrice: 23460000,
+        //    Image: 'Images/Slids/Brands/samsung_circle.jpg',
+        //    Options: [
+        //        {
+        //            ID: 1,
+        //            Caption: 'ساخت کشور ایتالیا'
+        //        },
+        //        {
+        //            ID: 2,
+        //            Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
+        //        },
+        //        {
+        //            ID: 3,
+        //            Caption: 'بسیار بادوام و مستحکم'
+        //        },
+        //    ],
+        //    Available: true,
+        //    AvailableCount: 10,
+        //    OrderCount: 3,
+        //},
+        //{
+        //    ID: 6,
+        //    Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
+        //    Price: 23460000,
+        //    Discount: 0,
+        //    FinallPrice: 23460000,
+        //    Image:
+        //        'Images/Slids/Brands/top-brands-and-the-meaning-of-their-logo-hermes-paris-lapolo.jpg',
+        //    Available: true,
+        //    AvailableCount: 1,
+        //    OrderCount: 1,
+        //},
     ];
 
     $scope.HomeMenuClick = function () {
@@ -1513,4 +1531,57 @@ app.controller('MainControl', function ($scope) {
         $scope.StoresView = false;
         $scope.StoreView = false;
     };
+
+    $scope.RemoveCart = function (item) {
+
+        var buttons = [];
+        buttons.push(new Button('بله', 'btn-success',
+            function () {
+                var index = $scope.Cart.indexOf(item);
+                $scope.Cart.splice(index, 1);
+            }));
+        buttons.push(new Button('خیر', 'btn-danger'));
+
+        SetModal('توجه', 'آیا از حذف کالا مطمئن هستید؟', buttons);
+        $("#myModal3").modal({ backdrop: "static" });
+    };
+
+    $scope.AddCart = function (item) {
+
+        debugger;
+        item.OrderCount = 1;
+
+        var _itemInCart = $scope.Cart.find(function (x) {
+            return x.ID == item.ID
+        });
+        if (_itemInCart) {
+
+            var buttons = [];
+            buttons.push(new Button('بله',
+                'btn-success',
+                function() {
+                    _itemInCart.OrderCount += 1;
+                }));
+            buttons.push(new Button('خیر', 'btn-danger'));
+
+            SetModal('توجه', 'کالا در سبد خرید وجود دارد. آیا مایل به افزایش تعداد سفارش هستید؟', buttons);
+            $("#myModal3").modal({ backdrop: "static" });
+        } else
+            $scope.Cart.push(angular.copy(item));
+    };
+    
+    function SetModal(modalTitle, modalBody, buttons) {
+
+        $scope.ModalContent.ModalTitle = modalTitle;
+        $scope.ModalContent.ModalBody = modalBody;
+        $scope.ModalContent.Buttons = buttons;
+    };
+
+    function Button(caption, _class, click) {
+
+        this.Caption = caption;
+        this.Class = _class;
+        this.Click = click;
+    };
+
 });
