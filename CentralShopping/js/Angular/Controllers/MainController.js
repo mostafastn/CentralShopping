@@ -1,6 +1,16 @@
 ﻿var app = angular.module('CentralShopping', []);
 app.controller('MainControl', function ($scope) {
 
+    // Class Object
+
+    function Button(caption, _class, click) {
+
+        this.Caption = caption;
+        this.Class = _class;
+        this.Click = click;
+    };
+
+    //
 
     $scope.HomeView = false;
     $scope.StoresView = false;
@@ -11,7 +21,8 @@ app.controller('MainControl', function ($scope) {
     $scope.StoreContactCompanyView = false;
     $scope.StoreProductView = false;
 
-    $scope.CartView = true;
+    $scope.CartView = false;
+    $scope.RegisterForm = true;
 
     $scope.ObjectInPageCount = [9, 18, "همه"];
 
@@ -378,7 +389,7 @@ app.controller('MainControl', function ($scope) {
                         Name: 'عینک آفتابی RayBan 3576N 1537V',
                         Price: 25790000,
                         Discount: 25,
-                        FinallPrice: 25790000,
+                        FinallPrice: 19342500,
                         Image: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
                         Options: [
                             {
@@ -408,7 +419,7 @@ app.controller('MainControl', function ($scope) {
                         Name: 'عینک آفتابی RayBan 3581N 90387J',
                         Price: 25790000,
                         Discount: 10,
-                        FinallPrice: 25790000,
+                        FinallPrice: 23211000,
                         Image: 'Images/Slids/Brands/9_500.png',
                         Options: [
                             {
@@ -439,7 +450,7 @@ app.controller('MainControl', function ($scope) {
                         Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
                         Price: 23460000,
                         Discount: 20,
-                        FinallPrice: 23460000,
+                        FinallPrice: 18768000,
                         Image: 'Images/Slids/Brands/samsung_circle.jpg',
                         Options: [
                             {
@@ -1287,108 +1298,119 @@ app.controller('MainControl', function ($scope) {
         ],
         Available: true,
         AvailableCount: 5,
-        OrderCount: 0,
+        Quantity: 0,
     };
 
     $scope.StoreSelectedProductMenu = $scope.Store.ProductMenu[0];
 
-    $scope.Cart = [
-        //{
-        //    ID: 2,
-        //    Name: 'عینک آفتابی RayBan 3576N 1537V',
-        //    Price: 25790000,
-        //    Discount: 25,
-        //    FinallPrice: 19342500,
-        //    Image: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
-        //    Options: [
-        //        {
-        //            ID: 1,
-        //            Caption: 'ساخت کشور ایتالیا'
-        //        },
-        //        {
-        //            ID: 2,
-        //            Caption: 'سبک کلاسیک، با معرفی Blaze'
-        //        },
-        //        {
-        //            ID: 3,
-        //            Caption: 'لنز Sharp Onesie! Ray-Ban'
-        //        },
-        //        {
-        //            ID: 4,
-        //            Caption: 'مناسب برای صورت های بیضی و گرد شکل'
-        //        },
-        //    ],
-        //    Available: true,
-        //    AvailableCount: 5,
-        //    OrderCount: 1,
-        //},
-        //{
-        //    ID: 1,
-        //    Name: 'عینک آفتابی RayBan 3581N 90387J',
-        //    Price: 25790000,
-        //    Discount: 10,
-        //    FinallPrice: 25790000,
-        //    Image: 'Images/Slids/Brands/9_500.png',
-        //    Options: [
-        //        {
-        //            ID: 1,
-        //            Caption: 'ساخت کشور ایتالیا'
-        //        },
-        //        {
-        //            ID: 2,
-        //            Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
-        //        },
-        //        {
-        //            ID: 3,
-        //            Caption: 'زیبایی و ترکیبی فراتر از انتظار'
-        //        },
-        //        {
-        //            ID: 4,
-        //            Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
-        //        },
-        //    ],
-        //    Available: true,
-        //    AvailableCount: 3,
-        //    OrderCount: 2,
-        //},
-        //{
-        //    ID: 3,
-        //    Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
-        //    Price: 23460000,
-        //    Discount: 20,
-        //    FinallPrice: 23460000,
-        //    Image: 'Images/Slids/Brands/samsung_circle.jpg',
-        //    Options: [
-        //        {
-        //            ID: 1,
-        //            Caption: 'ساخت کشور ایتالیا'
-        //        },
-        //        {
-        //            ID: 2,
-        //            Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
-        //        },
-        //        {
-        //            ID: 3,
-        //            Caption: 'بسیار بادوام و مستحکم'
-        //        },
-        //    ],
-        //    Available: true,
-        //    AvailableCount: 10,
-        //    OrderCount: 3,
-        //},
-        //{
-        //    ID: 6,
-        //    Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
-        //    Price: 23460000,
-        //    Discount: 0,
-        //    FinallPrice: 23460000,
-        //    Image:
-        //        'Images/Slids/Brands/top-brands-and-the-meaning-of-their-logo-hermes-paris-lapolo.jpg',
-        //    Available: true,
-        //    AvailableCount: 1,
-        //    OrderCount: 1,
-        //},
-    ];
+    $scope.Cart = {
+        Items: [
+            //{
+            //    ID: 2,
+            //    Name: 'عینک آفتابی RayBan 3576N 1537V',
+            //    Price: 25790000,
+            //    Discount: 25,
+            //    FinallPrice: 19342500,
+            //    Image: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
+            //    Options: [
+            //        {
+            //            ID: 1,
+            //            Caption: 'ساخت کشور ایتالیا'
+            //        },
+            //        {
+            //            ID: 2,
+            //            Caption: 'سبک کلاسیک، با معرفی Blaze'
+            //        },
+            //        {
+            //            ID: 3,
+            //            Caption: 'لنز Sharp Onesie! Ray-Ban'
+            //        },
+            //        {
+            //            ID: 4,
+            //            Caption: 'مناسب برای صورت های بیضی و گرد شکل'
+            //        },
+            //    ],
+            //    Available: true,
+            //    AvailableCount: 5,
+            //    Quantity: 1,
+            //},
+            //{
+            //    ID: 1,
+            //    Name: 'عینک آفتابی RayBan 3581N 90387J',
+            //    Price: 25790000,
+            //    Discount: 10,
+            //    FinallPrice: 25790000,
+            //    Image: 'Images/Slids/Brands/9_500.png',
+            //    Options: [
+            //        {
+            //            ID: 1,
+            //            Caption: 'ساخت کشور ایتالیا'
+            //        },
+            //        {
+            //            ID: 2,
+            //            Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
+            //        },
+            //        {
+            //            ID: 3,
+            //            Caption: 'زیبایی و ترکیبی فراتر از انتظار'
+            //        },
+            //        {
+            //            ID: 4,
+            //            Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
+            //        },
+            //    ],
+            //    Available: true,
+            //    AvailableCount: 3,
+            //    Quantity: 2,
+            //},
+            //{
+            //    ID: 3,
+            //    Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
+            //    Price: 23460000,
+            //    Discount: 20,
+            //    FinallPrice: 23460000,
+            //    Image: 'Images/Slids/Brands/samsung_circle.jpg',
+            //    Options: [
+            //        {
+            //            ID: 1,
+            //            Caption: 'ساخت کشور ایتالیا'
+            //        },
+            //        {
+            //            ID: 2,
+            //            Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
+            //        },
+            //        {
+            //            ID: 3,
+            //            Caption: 'بسیار بادوام و مستحکم'
+            //        },
+            //    ],
+            //    Available: true,
+            //    AvailableCount: 10,
+            //    Quantity: 3,
+            //},
+            //{
+            //    ID: 6,
+            //    Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
+            //    Price: 23460000,
+            //    Discount: 0,
+            //    FinallPrice: 23460000,
+            //    Image:
+            //        'Images/Slids/Brands/top-brands-and-the-meaning-of-their-logo-hermes-paris-lapolo.jpg',
+            //    Available: true,
+            //    AvailableCount: 1,
+            //    Quantity: 1,
+            //},
+        ],
+        CartTotalPrice: 0,
+        CartTotalFinallPrice: 0,
+    };
+
+    $scope.$watch('Cart.Items', function () {
+        CartTotalPrice();
+        CartTotalFinallPrice();
+    }, true);
+
+    // Agular Functions
 
     $scope.HomeMenuClick = function () {
 
@@ -1397,6 +1419,7 @@ app.controller('MainControl', function ($scope) {
         $scope.StoresView = false;
         $scope.StoreView = false;
         $scope.CartView = false;
+        $scope.RegisterForm = false;
     };
 
     $scope.StoreMenuClick = function () {
@@ -1406,6 +1429,7 @@ app.controller('MainControl', function ($scope) {
         $scope.HomeView = false;
         $scope.StoreView = false;
         $scope.CartView = false;
+        $scope.RegisterForm = false;
     };
 
     $scope.SpecialTabClick = function (item) {
@@ -1426,10 +1450,10 @@ app.controller('MainControl', function ($scope) {
         $scope.StoreProductListView = false;
         $scope.StoreContactCompanyView = false;
 
-
         $scope.StoresView = false;
         $scope.HomeView = false;
         $scope.CartView = false;
+        $scope.RegisterForm = false;
     };
 
     $scope.ContactCompanyClick = function () {
@@ -1439,11 +1463,11 @@ app.controller('MainControl', function ($scope) {
         $scope.StoreContactCompanyView = true;
         $scope.StoreAboutCompanyView = false;
         $scope.StoreProductListView = false;
-
-
+        
         $scope.StoresView = false;
         $scope.HomeView = false;
         $scope.CartView = false;
+        $scope.RegisterForm = false;
     }
 
     $scope.ProductMenuClick = function (productMenuID) {
@@ -1459,6 +1483,7 @@ app.controller('MainControl', function ($scope) {
         $scope.StoresView = false;
         $scope.HomeView = false;
         $scope.CartView = false;
+        $scope.RegisterForm = false;
 
         var _item = $scope.Store.ProductMenu.find(function (x) {
             return x.ID == productMenuID
@@ -1479,6 +1504,7 @@ app.controller('MainControl', function ($scope) {
         $scope.StoresView = false;
         $scope.HomeView = false;
         $scope.CartView = false;
+        $scope.RegisterForm = false;
 
         var _item = $scope.Stores.find(function (x) {
             return x.ID == StoreID
@@ -1494,11 +1520,9 @@ app.controller('MainControl', function ($scope) {
 
     $scope.StoreProductClick = function (productID, isAvailable) {
 
-        if (!isAvailable) {
-            alert("محصول نا موجود است.");
-            return;
-        }
-
+        if (!isAvailable) 
+           return;
+        
         $scope.StoreView = true;
         $scope.StoreProductView = true;
 
@@ -1509,6 +1533,7 @@ app.controller('MainControl', function ($scope) {
         $scope.StoresView = false;
         $scope.HomeView = false;
         $scope.CartView = false;
+        $scope.RegisterForm = false;
 
         var _item = $scope.StoreSelectedProductMenu.ProductList.find(function (x) {
             return x.ID == productID
@@ -1530,6 +1555,7 @@ app.controller('MainControl', function ($scope) {
         $scope.HomeView = false;
         $scope.StoresView = false;
         $scope.StoreView = false;
+        $scope.RegisterForm = false;
     };
 
     $scope.RemoveCart = function (item) {
@@ -1537,8 +1563,8 @@ app.controller('MainControl', function ($scope) {
         var buttons = [];
         buttons.push(new Button('بله', 'btn-success',
             function () {
-                var index = $scope.Cart.indexOf(item);
-                $scope.Cart.splice(index, 1);
+                var index = $scope.Cart.Items.indexOf(item);
+                $scope.Cart.Items.splice(index, 1);
             }));
         buttons.push(new Button('خیر', 'btn-danger'));
 
@@ -1548,10 +1574,9 @@ app.controller('MainControl', function ($scope) {
 
     $scope.AddCart = function (item) {
 
-        debugger;
-        item.OrderCount = 1;
+        item.Quantity = 1;
 
-        var _itemInCart = $scope.Cart.find(function (x) {
+        var _itemInCart = $scope.Cart.Items.find(function (x) {
             return x.ID == item.ID
         });
         if (_itemInCart) {
@@ -1559,17 +1584,32 @@ app.controller('MainControl', function ($scope) {
             var buttons = [];
             buttons.push(new Button('بله',
                 'btn-success',
-                function() {
-                    _itemInCart.OrderCount += 1;
+                function () {
+                    _itemInCart.Quantity += 1;
                 }));
             buttons.push(new Button('خیر', 'btn-danger'));
 
             SetModal('توجه', 'کالا در سبد خرید وجود دارد. آیا مایل به افزایش تعداد سفارش هستید؟', buttons);
             $("#myModal3").modal({ backdrop: "static" });
         } else
-            $scope.Cart.push(angular.copy(item));
+            $scope.Cart.Items.push(angular.copy(item));
     };
-    
+
+    $scope.RegisterClick = function () {
+
+        $scope.RegisterForm = true;
+
+        $scope.HomeView = false;
+        $scope.StoresView = false;
+        $scope.StoreView = false;
+        $scope.CartView = false;
+
+    };
+
+    //
+
+    // Private Finctions
+
     function SetModal(modalTitle, modalBody, buttons) {
 
         $scope.ModalContent.ModalTitle = modalTitle;
@@ -1577,11 +1617,27 @@ app.controller('MainControl', function ($scope) {
         $scope.ModalContent.Buttons = buttons;
     };
 
-    function Button(caption, _class, click) {
+    function CartTotalPrice() {
 
-        this.Caption = caption;
-        this.Class = _class;
-        this.Click = click;
+        var total = 0;
+        angular.forEach($scope.Cart.Items,
+            function (x) {
+                total += x.Price * x.Quantity;
+            });
+        $scope.Cart.CartTotalPrice = total;
     };
+
+    function CartTotalFinallPrice() {
+
+        var totall = 0;
+        angular.forEach($scope.Cart.Items,
+            function (x) {
+                totall += x.FinallPrice * x.Quantity;
+            });
+        $scope.Cart.CartTotalFinallPrice = totall;
+    };
+
+    //
+
 
 });

@@ -349,7 +349,7 @@
                         </button>
                         <button class="btn btn-light my-2" type="submit" title="سبد خرید" ng-click="CartClick()">
                             <i class="fa fa-shopping-cart">
-                                <span class="badge badge-secondary small" title="تعداد محصولات">{{Cart.length}}</span>
+                                <span class="badge badge-secondary small" title="تعداد محصولات">{{Cart.Items.length}}</span>
                             </i>
                         </button>
                     </div>
@@ -436,12 +436,12 @@
                                 <div class="col-md-4 my-auto">
                                     <dl class="row m-0">
                                         <dt class="col-sm-3">قیمت</dt>
-                                        <dd class="col-sm-9"><s>{{x.Price| currency:"":0}}</s></dd>
+                                        <dd class="col-sm-9"><s>{{x.Price| currency:"":0}}</s> ریال</dd>
 
                                         <dt class="col-sm-3"><span class="label text-danger">تخفیف</span></dt>
                                         <dd class="col-sm-9">
                                             <p class="label text-danger">{{x.Discount}}%</p>
-                                            <p class="label text-danger badge-warning rounded p-1">{{x.FinallPrice| currency:"":0}}</p>
+                                            <p class="label text-danger badge-warning rounded p-1">{{x.FinallPrice| currency:"":0}} ریال</p>
                                         </dd>
 
                                         <dt class="col-sm-3"></dt>
@@ -647,7 +647,7 @@
                                 </div>
                                 <div class="label m-1 text-dark font-weight-bold">{{x.Name}}</div>
                                 <div class="label m-1">تخفیف : <span class="text-danger">{{x.Discount}}%</span></div>
-                                <div class="label m-1 text-white bg-info rounded p-1">{{x.FinallPrice | currency:"ریال ":0}}</div>
+                                <div class="label m-1 text-white bg-info rounded p-1">{{x.FinallPrice | currency:"":0}} ریال</div>
                             </div>
                         </div>
                     </div>
@@ -690,7 +690,7 @@
                 <div class="col-9" ng-show="StoreProductView">
                     <div class="row border-bottom border-secondary rounded" style="border-width: 5px;">
 
-                        <div class="col-6 pt-3">
+                        <div class="col-lg-6 pt-3">
                             <h6>
                                 {{StoreProduct.Name}}
                             </h6>
@@ -701,7 +701,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-6">
+                        <div class="col-lg-6">
                             <div id="productImage" class="carousel slide" data-ride="carousel" data-interval="false">
                                 <div class="carousel-inner">
                                     <div class="carousel-item" ng-repeat="x in StoreProduct.Images" ng-class="{'active': x.Active}">
@@ -719,33 +719,30 @@
                     </div>
                     <div class="row pb-2">
 
-                        <div class="col-4">
+                        <div class="col-lg-4">
                             <div ng-show="StoreProduct.Discount" ng-class="{'mt-2': StoreProduct.Discount}">
 
-                                <div class="text-danger">
-                                    قیمت :
-                                    <s>
-                                        {{StoreProduct.Price | currency:"":0}}
-                                    </s>
+                                <div class="label text-danger bg-warning rounded m-1 p-1 w-100">
+                                    قیمت : <s>{{StoreProduct.Price | currency:"":0}}</s> ریال
                                 </div>
-                                <div class="label text-danger">
+                                <div class="label text-danger bg-warning rounded m-1 p-1 w-100">
                                     تخفیف : {{StoreProduct.Discount}}%
                                 </div>
                             </div>
 
-                            <p class="label text-danger badge-warning rounded p-1 w-100" ng-class="{'mt-2': !StoreProduct.Discount}">
-                                {{StoreProduct.FinallPrice| currency:"ریال ":0}}
-                            </p>
+                            <div class="label text-light bg-info rounded m-1 p-1 w-100" ng-class="{'mt-5': !StoreProduct.Discount}">
+                                قیمت کل : {{StoreProduct.FinallPrice| currency:"":0}} ریال
+                            </div>
 
                         </div>
-                        <div class="col-4">
+                        <div class="col-lg-4">
 
                         </div>
-                        <div class="col-4 mt-auto">
-                            <button class="btn btn-primary position-sticky w-100" type="submit" title="سبد خرید" ng-click="AddCart(StoreProduct)">
-                                <i class="fa fa-shopping-cart font-weight-bold">
-                                    افزودن به سبد خرید
+                        <div class="col-lg-4 mt-auto">
+                            <button class="btn btn-primary w-100" type="submit" title="سبد خرید" ng-click="AddCart(StoreProduct)">
+                                <i class="fa fa-cart-plus fa-2x pull-left" aria-hidden="true">
                                 </i>
+                                افزودن به سبد خرید
                             </button>
                         </div>
                     </div>
@@ -754,64 +751,129 @@
             </div>
             <!-- #endregion -->
             <!-- #region CartView -->
-        <div ng-show="CartView">
-            
-            <div class="row" ng-repeat="x in Cart">
+            <div ng-show="CartView">
 
-                <div class="col-md-4 pl-2">
-                    <div class="font-weight-bold">
-                        {{x.Name}}
-                    </div>
-                    <hr class="w-100"/>
-                    <div ng-repeat="y in x.Options" class="text-justify">
-                        {{y.Caption}}
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <img src="{{x.Images[0].Source}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 200px;">
-                </div>
-                <div class="col-md-3">
-                    <div class="label">
-                        تعداد
-                        <input type="number" ng-model="x.OrderCount" max="{{x.AvailableCount}}" min="1"/>
+                <div ng-show="Cart.Items.length">
+
+                    <div class="text-dark text-left mb-5">
+
+                        سبد خرید
+
+                        <hr />
                     </div>
 
-                    <div ng-show="x.Discount" ng-class="{'mt-2': x.Discount}">
+                    <div class="row" ng-repeat="x in Cart.Items">
 
-                        <div class="text-danger">
-                            قیمت :
-                            <s>
-                                {{x.Price * x.OrderCount | currency:"":0}}
-                            </s>
+                        <div class="col-md-4 pl-2">
+                            <div class="font-weight-bold">
+                                {{x.Name}}
+                            </div>
+                            <hr class="w-100" />
+                            <div ng-repeat="y in x.Options" class="text-justify">
+                                {{y.Caption}}
+                            </div>
                         </div>
-                        <div class="label text-danger">
-                            تخفیف : {{x.Discount}}%
+                        <div class="col-md-4">
+                            <img src="{{x.Images[0].Source}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 200px;">
+                        </div>
+                        <div class="col-md-3">
+                            <div class="label">
+                                تعداد
+                                <input type="number" required ng-model="x.Quantity" max="{{x.AvailableCount}}" min="1" />
+                            </div>
+
+                            <div ng-show="x.Discount" ng-class="{'mt-2': x.Discount}">
+
+                                <div class="label bg-warning rounded m-1 p-1 w-100">
+                                    قیمت :<s>{{x.Price * x.Quantity | currency:"":0}}</s> ریال
+                                </div>
+                                <div class="label bg-warning rounded m-1 p-1 w-100">
+                                    تخفیف : {{x.Discount}}%
+                                </div>
+                            </div>
+
+                            <p class="label text-light bg-info rounded m-1 p-1 w-100" ng-class="{'mt-2': !x.Discount}">
+                                {{x.FinallPrice * x.Quantity| currency:"":0}} ریال
+                            </p>
+                        </div>
+                        <div class="col-md-1">
+                            <button class="btn btn-sm btn-danger" type="submit" ng-click="RemoveCart(x)">
+                                حذف <i class="fa fa-times" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <hr class="w-100" />
+                    </div>
+                    <div class="row align-items-end m-2 p-1  border border-muted rounded ">
+                        <div class="col-md-4">
+                            <div class="label m-1 p-1">تعداد کالا ها : {{Cart.Items.length}}</div>
+                            <div class="label text-danger bg-warning rounded m-1 p-1">مبلغ کل : {{Cart.CartTotalPrice| currency:"":0}} ریال</div>
+                            <div class="label text-danger bg-warning rounded m-1 p-1">تخفیف : {{Cart.CartTotalPrice - Cart.CartTotalFinallPrice| currency:"":0}} ریال</div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="label text-light bg-info rounded m-1 p-1">
+                                مبلغ قابل پرداخت {{Cart.CartTotalFinallPrice| currency:"":0}} ریال
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+
+                            <button class="btn btn-primary w-100" type="submit" ng-click="RegisterClick()">
+                                <i class="fa fa-file-text-o fa-2x pull-left" aria-hidden="true">
+                                </i>
+                                تایید و ثبت سفارش
+                            </button>
                         </div>
                     </div>
+                </div>
+                <div ng-show="!Cart.Items.length">
 
-                    <p class="label text-danger badge-warning rounded p-1 w-100" ng-class="{'mt-2': !x.Discount}">
-                        {{x.FinallPrice * x.OrderCount| currency:"ریال ":0}}
-                    </p>
-                </div>
-                <div class="col-md-1">
-                    <button class="btn btn-sm btn-danger" type="submit" ng-click="RemoveCart(x)">
-                        حذف <i class="fa fa-times" aria-hidden="true"></i>
-                    </button>
-                </div>
-                <hr class="w-100"/>
-            </div>
-            <div class="row align-items-end">
-                <div class="col-sm-4">
-                    <div class="label">تعداد کالا ها : {{Cart.length}}</div>
-                </div>
-                <div class="col-sm-4">
+                    <div class="text-center text-danger">
 
-                </div>
-                <div class="col-sm-4">
+                        <i class="fa fa-shopping-cart fa-spin fa-5x" aria-hidden="true">
+                        </i>
 
+                    </div>
+                    <div class="text-center text-secondary display-3">
+                        سبد خرید شما خالیست!
+                        <hr />
+                    </div>
                 </div>
             </div>
-        </div>
+            <!-- #endregion -->
+            <!-- #region RegisterForm -->
+            <div ng-show="RegisterForm">
+                <div class="row">
+                    <div class="col-md-2 p-1 text-right">نام</div>
+                    <div class="col-md-4 p-1">
+                        <input type="text" maxlength="50" class="text-dark border border-dark  rounded" required placeholder=" نام" />
+                    </div>
+                    <div class="col-md-2 p-1 text-right">نام خانوادگی</div>
+                    <div class="col-md-4 p-1">
+                        <input type="text" maxlength="50" class="text-dark border border-dark  rounded" required placeholder=" نام خانوادگی" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 p-1 text-right">کد ملی</div>
+                    <div class="col-md-4 p-1">
+                        <input type="text" maxlength="50" class="text-dark border border-dark  rounded" required placeholder=" کد ملی" />
+                    </div>
+                    <div class="col-md-2 p-1 text-right">آدرس پستی</div>
+                    <div class="col-md-4 p-1">
+                        <input type="text" maxlength="50" class="text-dark border border-dark  rounded" required placeholder=" آدرس پستی" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 p-1 text-right">شماره تلفن</div>
+                    <div class="col-md-4 p-1">
+                        <input type="text" maxlength="50" class="text-dark border border-dark  rounded" required placeholder=" شماره تلفن" />
+                    </div>
+                    <div class="col-md-2 p-1 text-right">پست الکترونیک</div>
+                    <div class="col-md-4 p-1">
+                        <input type="text" maxlength="50" class="text-dark border border-dark  rounded" required placeholder=" پست الکترونیک" />
+                    </div>
+                </div>
+
+            </div>
             <!-- #endregion -->
         </div>
         <div class="jumbotron text-center" style="margin-bottom:0">
