@@ -365,14 +365,12 @@
 
             <!-- #region Alert -->
 
-            <!--<div class="alert alert-dismissible fade show" ng-repeat="x in Alerts" ng-class="x.Class">
+            <div class="alert alert-dismissible fade show" ng-repeat="x in Alerts" ng-class="x.Class"  id="{{x.ID}}">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <strong>{{x.Caption}}</strong> {{x.Body}}
-            </div>-->
+            </div>
         
-        <div ng-repeat="x in Alerts">
-            <strong>{{x.Caption}}</strong> {{x.Body}}
-        </div>
+     
 
         <!-- #endregion -->
             <!-- #region HomePage -->
@@ -409,9 +407,6 @@
                         <div class="container tab-pane  border border-secondary rounded" ng-class="{'active': x.Active , 'fade': !x.Active}" ng-repeat="x in SpecialTab">
                             <div class="row">
 
-                                <div class="col-md-4 my-2">
-                                    <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 200px;">
-                                </div>
                                 <div class="col-lg-4 my-auto ">
                                     <div ng-repeat="t in x.Options">
                                         {{t.Caption}}
@@ -440,6 +435,9 @@
                                             مشاهده محصول
                                         </button>
                                     </div>
+                                </div>
+                                <div class="col-md-4 my-2">
+                                    <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 200px;">
                                 </div>
 
                             </div>

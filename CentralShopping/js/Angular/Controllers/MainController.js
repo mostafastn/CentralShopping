@@ -10,21 +10,33 @@ app.controller('MainControl', function ($scope) {
         this.Click = click;
     };
 
-    function Alert(caption, body, _class, timeout) {
+    function Alert(id, caption, body, _class, timeout) {
 
+        this.ID = id;
         this.Caption = caption;
         this.Body = body;
         this.Class = _class;
 
         if (timeout > 0) {
 
-            $scope.Alerts.pop();
             setTimeout(function () {
                 $scope.Alerts.splice(0, 1);
-
-            });
+                var itemID = '#' + id
+                $(itemID).fadeTo(500, 0).slideUp(500, function () {
+                    $(this).remove();
+                });
+            }, timeout * 1000);
 
         }
+    };
+
+    function AlertWithHandler(id, caption, body, _class, handler) {
+
+        this.ID = id;
+        this.Caption = caption;
+        this.Body = body;
+        this.Class = _class;
+        this.Handler = handler;
     };
 
     // Class Object
@@ -90,18 +102,20 @@ app.controller('MainControl', function ($scope) {
     };
 
     $scope.Alerts = [
-        {
-            Caption: 'Caption',
-            Body: 'Body',
-            Class: 'alert-success',
-            Timeout: 3,
-        },
-        {
-            Caption: 'Caption',
-            Body: 'Body',
-            Class: 'alert-danger',
-            Timeout: 3,
-        }
+        //{
+        //    ID: 1,
+        //    Caption: 'Caption',
+        //    Body: 'Body',
+        //    Class: 'alert-success',
+        //    Timeout: 3,
+        //},
+        //{
+        //    ID: 2,
+        //    Caption: 'Caption',
+        //    Body: 'Body',
+        //    Class: 'alert-danger',
+        //    Timeout: 3,
+        //}
     ];
 
     $scope.CarouselSlide = [
@@ -1652,7 +1666,7 @@ app.controller('MainControl', function ($scope) {
                 var index = $scope.Cart.Items.indexOf(item);
                 $scope.Cart.Items.splice(index, 1);
 
-                $scope.Alerts.push(new Alert('توجه', 'حذف کالا از سبد خرید با موفقیت انجام شد.', 'alert-danger', 3));
+                $scope.Alerts.push(new Alert(50,'توجه', 'حذف کالا از سبد خرید با موفقیت انجام شد.', 'alert-danger', 3));
 
             }));
         buttons.push(new Button('خیر', 'btn-danger'));
@@ -1678,7 +1692,8 @@ app.controller('MainControl', function ($scope) {
                 'btn-success',
                 function () {
                     _itemInCart.Quantity += 1;
-                    $scope.Alerts.push(new Alert('توجه',
+                    $scope.Alerts.push(new Alert(101,
+                        'توجه',
                         'افزودن کالا به سبد خرید با موفقیت انجام شد.',
                         'alert-success',
                         3));
@@ -1690,7 +1705,8 @@ app.controller('MainControl', function ($scope) {
         } else {
 
             $scope.Cart.Items.push(angular.copy(item));
-            $scope.Alerts.push(new Alert('توجه', 'افزودن کالا به سبد خرید با موفقیت انجام شد.', 'alert-success', 3));
+            $scope.Alerts.push(new Alert(100,'توجه', 'افزودن کالا به سبد خرید با موفقیت انجام شد.', 'alert-success', 3));
+
         }
     };
 
