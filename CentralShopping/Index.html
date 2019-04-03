@@ -363,6 +363,18 @@
 
         <div class="container" style="margin-top:30px">
 
+            <!-- #region Alert -->
+
+            <!--<div class="alert alert-dismissible fade show" ng-repeat="x in Alerts" ng-class="x.Class">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>{{x.Caption}}</strong> {{x.Body}}
+            </div>-->
+        
+        <div ng-repeat="x in Alerts">
+            <strong>{{x.Caption}}</strong> {{x.Body}}
+        </div>
+
+        <!-- #endregion -->
             <!-- #region HomePage -->
 
             <div class="row" ng-show="HomeView">
@@ -370,41 +382,9 @@
                     <div id="demo" class="carousel slide" data-ride="carousel">
 
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="Images/Slids/Brands/1_500.png" alt="Appel" class="img-fluid mx-auto d-block" style="height: 350px;" />
-                            </div>
-                            <div class="carousel-item">
-                                <img src="Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg" alt="Chicago" class="img-fluid mx-auto d-block" style="height: 350px;">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="Images/Slids/Brands/9_500.png" alt="New York" class="img-fluid mx-auto d-block" style="height: 350px;">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="Images/Slids/Brands/Adidas-Company-Logo.jpg" alt="Appel" class="img-fluid mx-auto d-block" style="height: 350px;" />
-                            </div>
-                            <div class="carousel-item">
-                                <img src="Images/Slids/Brands/hugo-boss-ok-300x200.png" alt="Chicago" class="img-fluid mx-auto d-block" style="height: 350px;">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="Images/Slids/Brands/logo_social_sharing.jpg" alt="New York" class="img-fluid mx-auto d-block" style="height: 350px;">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="Images/Slids/Brands/nike-logo.png" alt="Chicago" class="img-fluid mx-auto d-block" style="height: 350px;">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="Images/Slids/Brands/puma_thumb.jpg" alt="New York" class="img-fluid mx-auto d-block" style="height: 350px;">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="Images/Slids/Brands/rolex-1024x597.jpg" alt="Appel" class="img-fluid mx-auto d-block" style="height: 350px;" />
-                            </div>
-                            <div class="carousel-item">
-                                <img src="Images/Slids/Brands/samsung_circle.jpg" alt="Chicago" class="img-fluid mx-auto d-block" style="height: 350px;">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="Images/Slids/Brands/the-inspirations-behind-20-of-the-most-well-known-logos-in-high-fashion-16.jpg" alt="New York" class="img-fluid mx-auto d-block" style="height: 350px;">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="Images/Slids/Brands/top-brands-and-the-meaning-of-their-logo-hermes-paris-lapolo.jpg" alt="New York" class="img-fluid mx-auto d-block" style="height: 350px;">
+
+                            <div class="carousel-item" ng-repeat="x in CarouselSlide" ng-class="{'active': x.Active}">
+                                <img src="{{x.Source}}" alt="Appel" class="img-fluid mx-auto d-block" style="height: 350px;" />
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#demo" data-slide="prev">
@@ -428,34 +408,40 @@
                     <div class="tab-content" id="nav-tabContent">
                         <div class="container tab-pane  border border-secondary rounded" ng-class="{'active': x.Active , 'fade': !x.Active}" ng-repeat="x in SpecialTab">
                             <div class="row">
+
+                                <div class="col-md-4 my-2">
+                                    <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 200px;">
+                                </div>
                                 <div class="col-lg-4 my-auto ">
                                     <div ng-repeat="t in x.Options">
                                         {{t.Caption}}
                                     </div>
                                 </div>
                                 <div class="col-md-4 my-auto">
-                                    <dl class="row m-0">
-                                        <dt class="col-sm-3">قیمت</dt>
-                                        <dd class="col-sm-9"><s>{{x.Price| currency:"":0}}</s> ریال</dd>
 
-                                        <dt class="col-sm-3"><span class="label text-danger">تخفیف</span></dt>
-                                        <dd class="col-sm-9">
-                                            <p class="label text-danger">{{x.Discount}}%</p>
-                                            <p class="label text-danger badge-warning rounded p-1">{{x.FinallPrice| currency:"":0}} ریال</p>
-                                        </dd>
+                                    <div ng-show="x.Discount" ng-class="{'mt-2': x.Discount}">
 
-                                        <dt class="col-sm-3"></dt>
-                                        <dd class="col-sm-9">
-                                            <button type="button" class="btn btn-primary float-right">
-                                                خرید
-                                                <span class="badge badge-danger ml-2">{{x.Discount}}%</span>
-                                            </button>
-                                        </dd>
-                                    </dl>
+                                        <div class="label text-danger bg-warning rounded m-1 p-1 w-100">
+                                            قیمت : <s>{{x.Price | currency:"":0}}</s> ریال
+                                        </div>
+                                        <div class="label text-danger bg-warning rounded m-1 p-1 w-100">
+                                            تخفیف : {{x.Discount}}%
+                                        </div>
+                                    </div>
+
+                                    <div class="label text-light bg-info rounded m-1 p-1 w-100" ng-class="{'mt-5': !x.Discount}">
+                                        قیمت نهایی : {{x.FinallPrice| currency:"":0}} ریال
+                                    </div>
+
+                                    <div class="mt-3 text-center">
+                                        <button class="btn btn-primary w-75 font-weight-bold" type="submit" ng-click="SpecialTabProductClick(x)">
+                                            <i class="fa fa-eye fa-2x pull-left" aria-hidden="true">
+                                            </i>
+                                            مشاهده محصول
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="col-md-4 my-2">
-                                    <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 200px;">
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -545,6 +531,7 @@
                     </div>
                 </div>
             </div>
+
             <!-- #endregion -->
             <!-- #region StoresView -->
             <div class="row" ng-show="StoresView">
@@ -581,7 +568,7 @@
             <!-- #region StoreView -->
             <div class="row border border-dark mb-3 rounded" ng-show="StoreView">
 
-                <div class="col-3 border-right border-secondary rounded">
+                <div class="col-md-3 border-right border-secondary rounded">
 
                     <h5 class="pt-3">
                         <a href="">
@@ -622,7 +609,7 @@
 
                 </div>
 
-                <div class="col-9" ng-show="StoreProductListView">
+                <div class="col-md-9" ng-show="StoreProductListView">
                     <div class="row pt-2">
                         <div class="col-sm-4 border-right border-success ">
                             <select class="text-primary border-0" ng-model="SortType" ng-options="x.Caption for x in SortTypes"></select>
@@ -640,7 +627,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-4 p-1" ng-repeat="x in StoreSelectedProductMenu.ProductList | orderBy : SortType.Value" id="{{x.ID}}" ng-click="StoreProductClick(x.ID,x.Available)">
+                        <div class="col-md-4 p-1" ng-repeat="x in StoreSelectedProductMenu.ProductList | orderBy : SortType.Value" id="{{x.ID}}" ng-click="StoreProductClick(x.ID)">
                             <div class="border border-secondary rounded " ng-class="{'border-danger' : !x.Available }">
                                 <div class="m-1">
                                     <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 150px;">
@@ -663,7 +650,7 @@
 
                 </div>
 
-                <div class="col-9" ng-show="StoreAboutCompanyView">
+                <div class="col-md-9" ng-show="StoreAboutCompanyView">
 
                     <div class="card-body" ng-repeat="x in Store.AboutCompany">
                         <h6>
@@ -676,7 +663,7 @@
 
                 </div>
 
-                <div class="col-9" ng-show="StoreContactCompanyView">
+                <div class="col-md-9" ng-show="StoreContactCompanyView">
                     <div class="card-body" ng-repeat="x in Store.ContactCompany">
                         <h6>
                             {{x.Caption}}
@@ -687,7 +674,7 @@
                     </div>
                 </div>
 
-                <div class="col-9" ng-show="StoreProductView">
+                <div class="col-md-9" ng-show="StoreProductView">
                     <div class="row border-bottom border-secondary rounded" style="border-width: 5px;">
 
                         <div class="col-lg-6 pt-3">
@@ -784,10 +771,10 @@
 
                             <div ng-show="x.Discount" ng-class="{'mt-2': x.Discount}">
 
-                                <div class="label bg-warning rounded m-1 p-1 w-100">
+                                <div class="label text-danger bg-warning rounded m-1 p-1 w-100">
                                     قیمت :<s>{{x.Price * x.Quantity | currency:"":0}}</s> ریال
                                 </div>
-                                <div class="label bg-warning rounded m-1 p-1 w-100">
+                                <div class="label text-danger bg-warning rounded m-1 p-1 w-100">
                                     تخفیف : {{x.Discount}}%
                                 </div>
                             </div>
@@ -840,37 +827,94 @@
                 </div>
             </div>
             <!-- #endregion -->
-            <!-- #region RegisterForm -->
-            <div ng-show="RegisterForm">
-                <div class="row">
-                    <div class="col-md-2 p-1 text-right">نام</div>
-                    <div class="col-md-4 p-1">
-                        <input type="text" maxlength="50" class="text-dark border border-dark  rounded" required placeholder=" نام" />
-                    </div>
-                    <div class="col-md-2 p-1 text-right">نام خانوادگی</div>
-                    <div class="col-md-4 p-1">
-                        <input type="text" maxlength="50" class="text-dark border border-dark  rounded" required placeholder=" نام خانوادگی" />
-                    </div>
+            <!-- #region RegisterView -->
+            <div ng-show="RegisterView">
+
+                <div class="row mb-3">
+                    <h5 class="label text-secondary">
+                        ورود اطلاعات خریدار
+                    </h5>
+
                 </div>
-                <div class="row">
-                    <div class="col-md-2 p-1 text-right">کد ملی</div>
-                    <div class="col-md-4 p-1">
-                        <input type="text" maxlength="50" class="text-dark border border-dark  rounded" required placeholder=" کد ملی" />
+
+                <form name="RegisterForm">
+                    <div class="row">
+                        <div class="col-md-3 p-1">
+                            <input type="text" maxlength="50" class="form-control" required placeholder=" نام"
+                                   name="FirstName"
+                                   ng-model="Customer.FirstName"
+                                   ng-class="{'is-invalid':RegisterForm.FirstName.$touched && RegisterForm.FirstName.$invalid ,'is-valid':RegisterForm.FirstName.$touched && RegisterForm.FirstName.$valid }" />
+                        </div>
+                        <div class="col-md-3 p-1">
+                            <input type="text" maxlength="50" class="form-control" required placeholder=" نام خانوادگی"
+                                   name="LastName"
+                                   ng-model="Customer.LastName"
+                                   ng-class="{'is-invalid':RegisterForm.LastName.$touched && RegisterForm.LastName.$invalid ,'is-valid':RegisterForm.LastName.$touched && RegisterForm.LastName.$valid }" />
+                        </div>
+                        <div class="col-md-3 p-1">
+                            <input type="text" maxlength="50" class="form-control" required placeholder=" کد ملی"
+                                   name="SSN"
+                                   ng-pattern="/^(\d{10})+$/"
+                                   ng-model="Customer.SSN"
+                                   ng-class="{'is-invalid':RegisterForm.SSN.$touched && RegisterForm.SSN.$invalid ,'is-valid':RegisterForm.SSN.$touched && RegisterForm.SSN.$valid }" />
+                            <div class="invalid-feedback">کد ملی نباید شامل حروف باشد. طول کد ملی باید 10 رقم باشد.</div>
+                        </div>
+                        <div class="col-md-3 p-1">
+                            <input type="text" maxlength="50" class="form-control" required placeholder=" شماره تلفن"
+                                   name="Phone"
+                                   number
+                                   ng-pattern="/^(\d{11,13})+$/"
+                                   ng-model="Customer.Phone"
+                                   ng-class="{'is-invalid':RegisterForm.Phone.$touched && RegisterForm.Phone.$invalid ,'is-valid':RegisterForm.Phone.$touched && RegisterForm.Phone.$valid }" />
+                            <div class="invalid-feedback">شماره تلفن نباید شامل حروف باشد.</div>
+                            <div class="invalid-feedback">طول شماره تلفن باید  بین 11 رقم تا 13 رقم باشد.</div>
+                        </div>
                     </div>
-                    <div class="col-md-2 p-1 text-right">آدرس پستی</div>
-                    <div class="col-md-4 p-1">
-                        <input type="text" maxlength="50" class="text-dark border border-dark  rounded" required placeholder=" آدرس پستی" />
+
+                    <div class="row">
+                        <div class="col-md-6 p-1">
+                            <input type="Email" maxlength="50" class="form-control" required placeholder=" پست الکترونیک"
+                                   name="Email"
+                                   ng-model="Customer.Email"
+                                   ng-class="{'is-invalid':RegisterForm.Email.$touched && RegisterForm.Email.$invalid ,
+                                              'is-valid':RegisterForm.Email.$touched && RegisterForm.Email.$valid }" />
+                            <div class="invalid-feedback">پست الکترونیک به صورت صحیح وارد نشده است.</div>
+                        </div>
+                        <div class="col-md-6 p-1">
+                            <input type="text" maxlength="50" class="form-control" required placeholder=" آدرس پستی"
+                                   name="Address"
+                                   ng-model="Customer.Address"
+                                   ng-class="{'is-invalid':RegisterForm.Address.$touched && RegisterForm.Address.$invalid ,
+                                              'is-valid':RegisterForm.Address.$touched && RegisterForm.Address.$valid }" />
+                            <div class="invalid-feedback">آدرس پستی برای ارسال محصول مورد نیاز است.</div>
+                        </div>
                     </div>
+
+                    <div class="row m-3">
+                        <div class="col text-center">
+
+                            <button class="btn btn-primary w-25 font-weight-bold" type="submit" ng-click="PaymentClick()" ng-disabled="RegisterForm.$invalid">
+                                <i class="fa fa-credit-card fa-2x pull-left" aria-hidden="true">
+                                </i>
+                                تایید و پرداخت
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <!-- #endregion -->
+            <!-- #region PaymentView -->
+            <div ng-show="PaymentView">
+                <div class="text-center text-primary">
+
+                    <i class="fa fa-refresh fa-spin fa-5x" aria-hidden="true">
+                    </i>
+
                 </div>
-                <div class="row">
-                    <div class="col-md-2 p-1 text-right">شماره تلفن</div>
-                    <div class="col-md-4 p-1">
-                        <input type="text" maxlength="50" class="text-dark border border-dark  rounded" required placeholder=" شماره تلفن" />
-                    </div>
-                    <div class="col-md-2 p-1 text-right">پست الکترونیک</div>
-                    <div class="col-md-4 p-1">
-                        <input type="text" maxlength="50" class="text-dark border border-dark  rounded" required placeholder=" پست الکترونیک" />
-                    </div>
+                <div class="text-center text-dark display-4">
+                    درحال انتقال به درگاه پرداخت !
+                    <hr />
                 </div>
 
             </div>
@@ -881,7 +925,8 @@
         </div>
 
 
-        <!-- Modal -->
+        <!-- #region Modal -->
+
         <div class="modal fade" id="myModal3" role="dialog">
             <div class="modal-dialog">
 
@@ -907,6 +952,9 @@
 
             </div>
         </div>
+
+        <!-- #endregion -->
+
     </div>
 </body>
 </html>

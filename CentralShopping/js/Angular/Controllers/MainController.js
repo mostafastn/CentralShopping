@@ -10,9 +10,26 @@ app.controller('MainControl', function ($scope) {
         this.Click = click;
     };
 
-    //
+    function Alert(caption, body, _class, timeout) {
 
-    $scope.HomeView = false;
+        this.Caption = caption;
+        this.Body = body;
+        this.Class = _class;
+
+        if (timeout > 0) {
+
+            $scope.Alerts.pop();
+            setTimeout(function () {
+                $scope.Alerts.splice(0, 1);
+
+            });
+
+        }
+    };
+
+    // Class Object
+
+    $scope.HomeView = true;
     $scope.StoresView = false;
 
     $scope.StoreView = false;
@@ -22,7 +39,8 @@ app.controller('MainControl', function ($scope) {
     $scope.StoreProductView = false;
 
     $scope.CartView = false;
-    $scope.RegisterForm = true;
+    $scope.RegisterView = false;
+    $scope.PaymentView = false;
 
     $scope.ObjectInPageCount = [9, 18, "همه"];
 
@@ -70,6 +88,96 @@ app.controller('MainControl', function ($scope) {
             },
         ]
     };
+
+    $scope.Alerts = [
+        {
+            Caption: 'Caption',
+            Body: 'Body',
+            Class: 'alert-success',
+            Timeout: 3,
+        },
+        {
+            Caption: 'Caption',
+            Body: 'Body',
+            Class: 'alert-danger',
+            Timeout: 3,
+        }
+    ];
+
+    $scope.CarouselSlide = [
+        {
+            ID: 1,
+            AlternateText: "Alternate Text",
+            Source: 'Images/Slids/Brands/1_500.png',
+            Active: true
+        },
+        {
+            ID: 2,
+            AlternateText: "Alternate Text",
+            Source: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
+            Active: false
+        },
+        {
+            ID: 3,
+            AlternateText: "Alternate Text",
+            Source: 'Images/Slids/Brands/9_500.png',
+            Active: false
+        },
+        {
+            ID: 4,
+            AlternateText: "Alternate Text",
+            Source: 'Images/Slids/Brands/Adidas-Company-Logo.jpg',
+            Active: false
+        },
+        {
+            ID: 5,
+            AlternateText: "Alternate Text",
+            Source: 'Images/Slids/Brands/hugo-boss-ok-300x200.png',
+            Active: false
+        },
+        {
+            ID: 6,
+            AlternateText: "Alternate Text",
+            Source: 'Images/Slids/Brands/logo_social_sharing.jpg',
+            Active: false
+        },
+        {
+            ID: 7,
+            AlternateText: "Alternate Text",
+            Source: 'Images/Slids/Brands/nike-logo.png',
+            Active: false
+        },
+        {
+            ID: 8,
+            AlternateText: "Alternate Text",
+            Source: 'Images/Slids/Brands/puma_thumb.jpg',
+            Active: false
+        },
+        {
+            ID: 9,
+            AlternateText: "Alternate Text",
+            Source: 'Images/Slids/Brands/rolex-1024x597.jpg',
+            Active: false
+        },
+        {
+            ID: 10,
+            AlternateText: "Alternate Text",
+            Source: 'Images/Slids/Brands/samsung_circle.jpg',
+            Active: false
+        },
+        {
+            ID: 11,
+            AlternateText: "Alternate Text",
+            Source: 'Images/Slids/Brands/the-inspirations-behind-20-of-the-most-well-known-logos-in-high-fashion-16.jpg',
+            Active: false
+        },
+        {
+            ID: 12,
+            AlternateText: "Alternate Text",
+            Source: 'Images/Slids/Brands/top-brands-and-the-meaning-of-their-logo-hermes-paris-lapolo.jpg',
+            Active: false
+        },
+    ];
 
     $scope.SpecialTab = [
         {
@@ -1405,6 +1513,15 @@ app.controller('MainControl', function ($scope) {
         CartTotalFinallPrice: 0,
     };
 
+    $scope.Customer = {
+        FirstName: '',
+        LastName: '',
+        SSN: '',
+        Phone: '',
+        Email: '',
+        Address: ''
+    };
+
     $scope.$watch('Cart.Items', function () {
         CartTotalPrice();
         CartTotalFinallPrice();
@@ -1414,22 +1531,14 @@ app.controller('MainControl', function ($scope) {
 
     $scope.HomeMenuClick = function () {
 
+        SetAllView(false);
         $scope.HomeView = true;
-
-        $scope.StoresView = false;
-        $scope.StoreView = false;
-        $scope.CartView = false;
-        $scope.RegisterForm = false;
     };
 
     $scope.StoreMenuClick = function () {
 
+        SetAllView(false);
         $scope.StoresView = true;
-
-        $scope.HomeView = false;
-        $scope.StoreView = false;
-        $scope.CartView = false;
-        $scope.RegisterForm = false;
     };
 
     $scope.SpecialTabClick = function (item) {
@@ -1444,46 +1553,23 @@ app.controller('MainControl', function ($scope) {
 
     $scope.AboutCompanyClick = function () {
 
+        SetAllView(false);
         $scope.StoreView = true;
-
         $scope.StoreAboutCompanyView = true;
-        $scope.StoreProductListView = false;
-        $scope.StoreContactCompanyView = false;
-
-        $scope.StoresView = false;
-        $scope.HomeView = false;
-        $scope.CartView = false;
-        $scope.RegisterForm = false;
     };
 
     $scope.ContactCompanyClick = function () {
 
+        SetAllView(false);
         $scope.StoreView = true;
-
         $scope.StoreContactCompanyView = true;
-        $scope.StoreAboutCompanyView = false;
-        $scope.StoreProductListView = false;
-        
-        $scope.StoresView = false;
-        $scope.HomeView = false;
-        $scope.CartView = false;
-        $scope.RegisterForm = false;
-    }
+    };
 
     $scope.ProductMenuClick = function (productMenuID) {
 
+        SetAllView(false);
         $scope.StoreView = true;
-
         $scope.StoreProductListView = true;
-
-        $scope.StoreProductView = false;
-        $scope.StoreContactCompanyView = false;
-        $scope.StoreAboutCompanyView = false;
-
-        $scope.StoresView = false;
-        $scope.HomeView = false;
-        $scope.CartView = false;
-        $scope.RegisterForm = false;
 
         var _item = $scope.Store.ProductMenu.find(function (x) {
             return x.ID == productMenuID
@@ -1494,17 +1580,9 @@ app.controller('MainControl', function ($scope) {
 
     $scope.StoreClick = function (StoreID) {
 
+        SetAllView(false);
         $scope.StoreView = true;
         $scope.StoreProductListView = true;
-
-        $scope.StoreProductView = false;
-        $scope.StoreContactCompanyView = false;
-        $scope.StoreAboutCompanyView = false;
-
-        $scope.StoresView = false;
-        $scope.HomeView = false;
-        $scope.CartView = false;
-        $scope.RegisterForm = false;
 
         var _item = $scope.Stores.find(function (x) {
             return x.ID == StoreID
@@ -1518,22 +1596,11 @@ app.controller('MainControl', function ($scope) {
         }
     };
 
-    $scope.StoreProductClick = function (productID, isAvailable) {
+    $scope.StoreProductClick = function (productID) {
 
-        if (!isAvailable) 
-           return;
-        
+        SetAllView(false);
         $scope.StoreView = true;
         $scope.StoreProductView = true;
-
-        $scope.StoreProductListView = false;
-        $scope.StoreContactCompanyView = false;
-        $scope.StoreAboutCompanyView = false;
-
-        $scope.StoresView = false;
-        $scope.HomeView = false;
-        $scope.CartView = false;
-        $scope.RegisterForm = false;
 
         var _item = $scope.StoreSelectedProductMenu.ProductList.find(function (x) {
             return x.ID == productID
@@ -1545,17 +1612,36 @@ app.controller('MainControl', function ($scope) {
             $scope.StoreProduct.Price = _item.Price;
             $scope.StoreProduct.Discount = _item.Discount;
             $scope.StoreProduct.FinallPrice = _item.FinallPrice;
+            $scope.StoreProduct.Available = _item.Available;
+            $scope.StoreProduct.AvailableCount = _item.AvailableCount;
+        }
+    };
+
+    $scope.SpecialTabProductClick = function (productID, isAvailable) {
+
+        SetAllView(false);
+        $scope.StoreView = true;
+        $scope.StoreProductView = true;
+
+        var _item = $scope.StoreSelectedProductMenu.ProductList.find(function (x) {
+            return x.ID == productID
+        });
+        if (_item) {
+
+            $scope.StoreProduct.ID = _item.ID;
+            $scope.StoreProduct.Name = _item.Name;
+            $scope.StoreProduct.Price = _item.Price;
+            $scope.StoreProduct.Discount = _item.Discount;
+            $scope.StoreProduct.FinallPrice = _item.FinallPrice;
+            $scope.StoreProduct.Available = _item.Available;
+            $scope.StoreProduct.AvailableCount = _item.AvailableCount;
         }
     };
 
     $scope.CartClick = function () {
 
+        SetAllView(false);
         $scope.CartView = true;
-
-        $scope.HomeView = false;
-        $scope.StoresView = false;
-        $scope.StoreView = false;
-        $scope.RegisterForm = false;
     };
 
     $scope.RemoveCart = function (item) {
@@ -1565,6 +1651,9 @@ app.controller('MainControl', function ($scope) {
             function () {
                 var index = $scope.Cart.Items.indexOf(item);
                 $scope.Cart.Items.splice(index, 1);
+
+                $scope.Alerts.push(new Alert('توجه', 'حذف کالا از سبد خرید با موفقیت انجام شد.', 'alert-danger', 3));
+
             }));
         buttons.push(new Button('خیر', 'btn-danger'));
 
@@ -1573,6 +1662,9 @@ app.controller('MainControl', function ($scope) {
     };
 
     $scope.AddCart = function (item) {
+
+        if (!item.Available)
+            return;
 
         item.Quantity = 1;
 
@@ -1586,29 +1678,54 @@ app.controller('MainControl', function ($scope) {
                 'btn-success',
                 function () {
                     _itemInCart.Quantity += 1;
+                    $scope.Alerts.push(new Alert('توجه',
+                        'افزودن کالا به سبد خرید با موفقیت انجام شد.',
+                        'alert-success',
+                        3));
                 }));
             buttons.push(new Button('خیر', 'btn-danger'));
 
             SetModal('توجه', 'کالا در سبد خرید وجود دارد. آیا مایل به افزایش تعداد سفارش هستید؟', buttons);
             $("#myModal3").modal({ backdrop: "static" });
-        } else
+        } else {
+
             $scope.Cart.Items.push(angular.copy(item));
+            $scope.Alerts.push(new Alert('توجه', 'افزودن کالا به سبد خرید با موفقیت انجام شد.', 'alert-success', 3));
+        }
     };
 
     $scope.RegisterClick = function () {
 
-        $scope.RegisterForm = true;
+        SetAllView(false);
+        $scope.RegisterView = true;
+    };
 
-        $scope.HomeView = false;
-        $scope.StoresView = false;
-        $scope.StoreView = false;
-        $scope.CartView = false;
+    $scope.PaymentClick = function () {
 
+        SetAllView(false);
+        $scope.PaymentView = true;
     };
 
     //
 
     // Private Finctions
+
+    function SetAllView(isShow) {
+
+        $scope.HomeView = isShow;
+        $scope.StoresView = isShow;
+
+        $scope.StoreView = isShow;
+        $scope.StoreProductListView = isShow;
+        $scope.StoreAboutCompanyView = isShow;
+        $scope.StoreContactCompanyView = isShow;
+        $scope.StoreProductView = isShow;
+
+        $scope.CartView = isShow;
+        $scope.RegisterView = isShow;
+        $scope.PaymentView = isShow;
+
+    }
 
     function SetModal(modalTitle, modalBody, buttons) {
 
