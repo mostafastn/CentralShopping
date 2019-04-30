@@ -41,7 +41,7 @@ app.controller('MainControl', function ($scope) {
 
     // Class Object
 
-    $scope.HomeView = true;
+    $scope.HomeView = false;
     $scope.StoresView = false;
 
     $scope.StoreView = false;
@@ -49,6 +49,8 @@ app.controller('MainControl', function ($scope) {
     $scope.StoreAboutCompanyView = false;
     $scope.StoreContactCompanyView = false;
     $scope.StoreProductView = false;
+
+    $scope.ProductsView = true;
 
     $scope.CartView = false;
     $scope.RegisterView = false;
@@ -118,77 +120,172 @@ app.controller('MainControl', function ($scope) {
         //}
     ];
 
+    $scope.NavbarProductMenu = [
+        {
+            Id: 1,
+            Caption: "test 1",
+            Menu: [
+                {
+                    Id: 11,
+                    Caption: "test 1 - 1",
+                    Menu: [
+                        {
+                            Id: 111,
+                            Caption: "test 1 - 1 - 1",
+                            Menu: []
+                        },
+                        {
+                            Id: 112,
+                            Caption: "test 1 - 1 - 2",
+                            Menu: []
+                        }, {
+                            Id: 113,
+                            Caption: "test 1 - 1 - 3",
+                            Menu: []
+                        }
+                    ]
+                },
+                {
+                    Id: 12,
+                    Caption: "test 1 - 2",
+                    Menu: [
+                        {
+                            Id: 121,
+                            Caption: "test 1 - 2 - 1",
+                            Menu: []
+                        },
+                        {
+                            Id: 122,
+                            Caption: "test 1 - 2 - 2",
+                            Menu: []
+                        }, {
+                            Id: 123,
+                            Caption: "test 1 - 2 - 3",
+                            Menu: []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            Id: 2,
+            Caption: "test 2",
+            Menu: [
+                {
+                    Id: 21,
+                    Caption: "test 2 - 1",
+                    Menu: [
+                        {
+                            Id: 211,
+                            Caption: "test 2 - 1 - 1",
+                            Menu: []
+                        },
+                        {
+                            Id: 212,
+                            Caption: "test 2 - 1 - 2",
+                            Menu: []
+                        }, {
+                            Id: 213,
+                            Caption: "test 2 - 1 - 3",
+                            Menu: []
+                        }
+                    ]
+                },
+                {
+                    Id: 22,
+                    Caption: "test 2 - 2",
+                    Menu: [
+                        {
+                            Id: 221,
+                            Caption: "test 2 - 2 - 1",
+                            Menu: []
+                        },
+                        {
+                            Id: 222,
+                            Caption: "test 2 - 2 - 2",
+                            Menu: []
+                        }, {
+                            Id: 223,
+                            Caption: "test 2 - 2 - 3",
+                            Menu: []
+                        }
+                    ]
+                }
+            ]
+        }
+    ];
+
     $scope.CarouselSlide = [
         {
             ID: 1,
             AlternateText: "Alternate Text",
-            Source: 'Images/Slids/Brands/1_500.png',
+            SourceAddress: 'Images/Slids/Brands/1.png',
             Active: true
         },
         {
             ID: 2,
             AlternateText: "Alternate Text",
-            Source: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
+            SourceAddress: 'Images/Slids/Brands/2.png',
             Active: false
         },
         {
             ID: 3,
             AlternateText: "Alternate Text",
-            Source: 'Images/Slids/Brands/9_500.png',
+            SourceAddress: 'Images/Slids/Brands/3.png',
             Active: false
         },
         {
             ID: 4,
             AlternateText: "Alternate Text",
-            Source: 'Images/Slids/Brands/Adidas-Company-Logo.jpg',
+            SourceAddress: 'Images/Slids/Brands/4.jpg',
             Active: false
         },
         {
             ID: 5,
             AlternateText: "Alternate Text",
-            Source: 'Images/Slids/Brands/hugo-boss-ok-300x200.png',
+            SourceAddress: 'Images/Slids/Brands/5.png',
             Active: false
         },
         {
             ID: 6,
             AlternateText: "Alternate Text",
-            Source: 'Images/Slids/Brands/logo_social_sharing.jpg',
+            SourceAddress: 'Images/Slids/Brands/6.jpg',
             Active: false
         },
         {
             ID: 7,
             AlternateText: "Alternate Text",
-            Source: 'Images/Slids/Brands/nike-logo.png',
+            SourceAddress: 'Images/Slids/Brands/7.png',
             Active: false
         },
         {
             ID: 8,
             AlternateText: "Alternate Text",
-            Source: 'Images/Slids/Brands/puma_thumb.jpg',
+            SourceAddress: 'Images/Slids/Brands/8.jpg',
             Active: false
         },
         {
             ID: 9,
             AlternateText: "Alternate Text",
-            Source: 'Images/Slids/Brands/rolex-1024x597.jpg',
+            SourceAddress: 'Images/Slids/Brands/9.jpg',
             Active: false
         },
         {
             ID: 10,
             AlternateText: "Alternate Text",
-            Source: 'Images/Slids/Brands/samsung_circle.jpg',
+            SourceAddress: 'Images/Slids/Brands/10.jpg',
             Active: false
         },
         {
             ID: 11,
             AlternateText: "Alternate Text",
-            Source: 'Images/Slids/Brands/the-inspirations-behind-20-of-the-most-well-known-logos-in-high-fashion-16.jpg',
+            SourceAddress: 'Images/Slids/Brands/11.jpg',
             Active: false
         },
         {
             ID: 12,
             AlternateText: "Alternate Text",
-            Source: 'Images/Slids/Brands/top-brands-and-the-meaning-of-their-logo-hermes-paris-lapolo.jpg',
+            SourceAddress: 'Images/Slids/Brands/12.jpg',
             Active: false
         },
     ];
@@ -202,7 +299,7 @@ app.controller('MainControl', function ($scope) {
             Price: 1500000,
             Discount: 10,
             FinallPrice: 1350000,
-            Image: 'Images/Slids/Brands/1_500.png',
+            Image: 'Images/Slids/Brands/1.png',
             Options: [
                 {
                     ID: 1,
@@ -228,7 +325,7 @@ app.controller('MainControl', function ($scope) {
             Price: 15000000,
             Discount: 10,
             FinallPrice: 13500000,
-            Image: 'Images/Slids/Brands/5_500.png',
+            Image: 'Images/Slids/Brands/3.png',
             Options: [
                 {
                     ID: 1,
@@ -254,7 +351,7 @@ app.controller('MainControl', function ($scope) {
             Price: 150000000,
             Discount: 10,
             FinallPrice: 135000000,
-            Image: 'Images/Slids/Brands/Adidas-Company-Logo.jpg',
+            Image: 'Images/Slids/Brands/9.jpg',
             Options: [
                 {
                     ID: 1,
@@ -280,7 +377,7 @@ app.controller('MainControl', function ($scope) {
             Price: 1500000000,
             Discount: 10,
             FinallPrice: 1350000000,
-            Image: 'Images/Slids/Brands/puma_thumb.jpg',
+            Image: 'Images/Slids/Brands/4.jpg',
             Options: [
                 {
                     ID: 1,
@@ -306,7 +403,7 @@ app.controller('MainControl', function ($scope) {
             Price: 1500000,
             Discount: 10,
             FinallPrice: 1350000,
-            Image: 'Images/Slids/Brands/puma_thumb.jpg',
+            Image: 'Images/Slids/Brands/4.jpg',
             Options: [
                 {
                     ID: 1,
@@ -332,7 +429,7 @@ app.controller('MainControl', function ($scope) {
             Price: 15000000,
             Discount: 10,
             FinallPrice: 13500000,
-            Image: 'Images/Slids/Brands/puma_thumb.jpg',
+            Image: 'Images/Slids/Brands/4.jpg',
             Options: [
                 {
                     ID: 1,
@@ -358,7 +455,7 @@ app.controller('MainControl', function ($scope) {
             Price: 150000000,
             Discount: 10,
             FinallPrice: 135000000,
-            Image: 'Images/Slids/Brands/puma_thumb.jpg',
+            Image: 'Images/Slids/Brands/4.jpg',
             Options: [
                 {
                     ID: 1,
@@ -384,7 +481,7 @@ app.controller('MainControl', function ($scope) {
             Price: 1500000000,
             Discount: 10,
             FinallPrice: 1350000000,
-            Image: 'Images/Slids/Brands/puma_thumb.jpg',
+            Image: 'Images/Slids/Brands/4.jpg',
             Options: [
                 {
                     ID: 1,
@@ -403,6 +500,274 @@ app.controller('MainControl', function ($scope) {
             Active: false,
         },
     ];
+
+    $scope.ProductList = {
+        ID: 1,
+        Caption: 'انواع لنز',
+        Products: [
+            {
+                ID: 2,
+                Name: 'عینک آفتابی RayBan 3576N 1537V',
+                Price: 25790000,
+                Discount: 25,
+                FinallPrice: 19342500,
+                Image: 'Images/Slids/Brands/2.png',
+                Options: [
+                    {
+                        ID: 1,
+                        Caption: 'ساخت کشور ایتالیا'
+                    },
+                    {
+                        ID: 2,
+                        Caption: 'سبک کلاسیک، با معرفی Blaze'
+                    },
+                    {
+                        ID: 3,
+                        Caption: 'لنز Sharp Onesie! Ray-Ban'
+                    },
+                    {
+                        ID: 4,
+                        Caption: 'مناسب برای صورت های بیضی و گرد شکل'
+                    },
+                ],
+                LastUpdate: '2017-12-01',
+                VisitsCount: 150,
+                Available: true,
+                AvailableCount: 5,
+            },
+            {
+                ID: 1,
+                Name: 'عینک آفتابی RayBan 3581N 90387J',
+                Price: 25790000,
+                Discount: 10,
+                FinallPrice: 23211000,
+                Image: 'Images/Slids/Brands/8.jpg',
+                Options: [
+                    {
+                        ID: 1,
+                        Caption: 'ساخت کشور ایتالیا'
+                    },
+                    {
+                        ID: 2,
+                        Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
+                    },
+                    {
+                        ID: 3,
+                        Caption: 'زیبایی و ترکیبی فراتر از انتظار'
+                    },
+                    {
+                        ID: 4,
+                        Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
+                    },
+                ],
+                LastUpdate: '2018-01-20',
+                VisitsCount: 70,
+                Available: false,
+                AvailableCount: 0,
+
+            },
+            {
+                ID: 3,
+                Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
+                Price: 23460000,
+                Discount: 20,
+                FinallPrice: 18768000,
+                Image: 'Images/Slids/Brands/6.jpg',
+                Options: [
+                    {
+                        ID: 1,
+                        Caption: 'ساخت کشور ایتالیا'
+                    },
+                    {
+                        ID: 2,
+                        Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
+                    },
+                    {
+                        ID: 3,
+                        Caption: 'بسیار بادوام و مستحکم'
+                    },
+                ],
+                LastUpdate: '2017-12-05',
+                VisitsCount: 15,
+                Available: true,
+                AvailableCount: 5,
+            },
+            {
+                ID: 6,
+                Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
+                Price: 23460000,
+                Discount: 0,
+                FinallPrice: 23460000,
+                Image:
+                    'Images/Slids/Brands/7.png',
+                Options: [
+                    {
+                        ID: 1,
+                        Caption: 'ساخت کشور ایتالیا'
+                    },
+                    {
+                        ID: 2,
+                        Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
+                    },
+                    {
+                        ID: 3,
+                        Caption: 'بسیار بادوام و مستحکم'
+                    },
+                ],
+                LastUpdate: '2018-10-15',
+                VisitsCount: 51,
+                Available: false,
+                AvailableCount: 0,
+            },
+            //{
+            //    ID: 7,
+            //    Name: 'عینک آفتابی RayBan 3581N 90387J',
+            //    Price: 25790000,
+            //    Discount: 0,
+            //    FinallPrice: 25790000,
+            //    Image: 'Images/Slids/Brands/4.jpg',
+            //    Options: [
+            //        {
+            //            ID: 1,
+            //            Caption: 'ساخت کشور ایتالیا'
+            //        },
+            //        {
+            //            ID: 2,
+            //            Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
+            //        },
+            //        {
+            //            ID: 3,
+            //            Caption: 'زیبایی و ترکیبی فراتر از انتظار'
+            //        },
+            //        {
+            //            ID: 4,
+            //            Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
+            //        },
+            //    ],
+            //    LastUpdate: '2019-02-08',
+            //    VisitsCount: 7,
+            //    Available: false,
+            //    AvailableCount: 0,
+            //},
+            //{
+            //    ID: 5,
+            //    Name: 'عینک آفتابی RayBan 3576N 1537V',
+            //    Price: 25790000,
+            //    Discount: 0,
+            //    FinallPrice: 25790000,
+            //    Image: 'Images/Slids/Brands/5.png',
+            //    Options: [
+            //        {
+            //            ID: 1,
+            //            Caption: 'ساخت کشور ایتالیا'
+            //        },
+            //        {
+            //            ID: 2,
+            //            Caption: 'سبک کلاسیک، با معرفی Blaze'
+            //        },
+            //        {
+            //            ID: 3,
+            //            Caption: 'لنز Sharp Onesie! Ray-Ban'
+            //        },
+            //        {
+            //            ID: 4,
+            //            Caption: 'مناسب برای صورت های بیضی و گرد شکل'
+            //        },
+            //    ],
+            //    LastUpdate: '2018-09-11',
+            //    VisitsCount: 201,
+            //    Available: true,
+            //    AvailableCount: 5,
+            //},
+            //{
+            //    ID: 9,
+            //    Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
+            //    Price: 23460000,
+            //    Discount: 0,
+            //    FinallPrice: 23460000,
+            //    Image: 'Images/Slids/Brands/1.png',
+            //    Options: [
+            //        {
+            //            ID: 1,
+            //            Caption: 'ساخت کشور ایتالیا'
+            //        },
+            //        {
+            //            ID: 2,
+            //            Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
+            //        },
+            //        {
+            //            ID: 3,
+            //            Caption: 'بسیار بادوام و مستحکم'
+            //        },
+            //    ],
+            //    LastUpdate: '2018-11-27',
+            //    VisitsCount: 71,
+            //    Available: true,
+            //    AvailableCount: 5,
+            //},
+            //{
+            //    ID: 8,
+            //    Name: 'عینک آفتابی RayBan 3576N 1537V',
+            //    Price: 25790000,
+            //    Discount: 0,
+            //    FinallPrice: 25790000,
+            //    Image: 'Images/Slids/Brands/3.png',
+            //    Options: [
+            //        {
+            //            ID: 1,
+            //            Caption: 'ساخت کشور ایتالیا'
+            //        },
+            //        {
+            //            ID: 2,
+            //            Caption: 'سبک کلاسیک، با معرفی Blaze'
+            //        },
+            //        {
+            //            ID: 3,
+            //            Caption: 'لنز Sharp Onesie! Ray-Ban'
+            //        },
+            //        {
+            //            ID: 4,
+            //            Caption: 'مناسب برای صورت های بیضی و گرد شکل'
+            //        },
+            //    ],
+            //    LastUpdate: '2019-01-11',
+            //    VisitsCount: 20,
+            //    Available: true,
+            //    AvailableCount: 5,
+            //},
+            //{
+            //    ID: 4,
+            //    Name: 'عینک آفتابی RayBan 3581N 90387J',
+            //    Price: 25790000,
+            //    Discount: 0,
+            //    FinallPrice: 25790000,
+            //    Image: 'Images/Slids/Brands/2.png',
+            //    Options: [
+            //        {
+            //            ID: 1,
+            //            Caption: 'ساخت کشور ایتالیا'
+            //        },
+            //        {
+            //            ID: 2,
+            //            Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
+            //        },
+            //        {
+            //            ID: 3,
+            //            Caption: 'زیبایی و ترکیبی فراتر از انتظار'
+            //        },
+            //        {
+            //            ID: 4,
+            //            Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
+            //        },
+            //    ],
+            //    LastUpdate: '2018-10-08',
+            //    VisitsCount: 550,
+            //    Available: true,
+            //    AvailableCount: 5,
+            //},
+        ],
+        TotalCount: 50,
+    };
 
     $scope.Stores = [
          {
@@ -512,7 +877,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 25790000,
                         Discount: 25,
                         FinallPrice: 19342500,
-                        Image: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
+                        Image: 'Images/Slids/Brands/2.png',
                         Options: [
                             {
                                 ID: 1,
@@ -542,7 +907,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 25790000,
                         Discount: 10,
                         FinallPrice: 23211000,
-                        Image: 'Images/Slids/Brands/9_500.png',
+                        Image: 'Images/Slids/Brands/8.jpg',
                         Options: [
                             {
                                 ID: 1,
@@ -573,7 +938,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 23460000,
                         Discount: 20,
                         FinallPrice: 18768000,
-                        Image: 'Images/Slids/Brands/samsung_circle.jpg',
+                        Image: 'Images/Slids/Brands/6.jpg',
                         Options: [
                             {
                                 ID: 1,
@@ -600,7 +965,7 @@ app.controller('MainControl', function ($scope) {
                         Discount: 0,
                         FinallPrice: 23460000,
                         Image:
-                            'Images/Slids/Brands/top-brands-and-the-meaning-of-their-logo-hermes-paris-lapolo.jpg',
+                            'Images/Slids/Brands/7.png',
                         Options: [
                             {
                                 ID: 1,
@@ -626,7 +991,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 25790000,
                         Discount: 0,
                         FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/puma_thumb.jpg',
+                        Image: 'Images/Slids/Brands/4.jpg',
                         Options: [
                             {
                                 ID: 1,
@@ -656,7 +1021,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 25790000,
                         Discount: 0,
                         FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/nike-logo.png',
+                        Image: 'Images/Slids/Brands/5.png',
                         Options: [
                             {
                                 ID: 1,
@@ -686,7 +1051,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 23460000,
                         Discount: 0,
                         FinallPrice: 23460000,
-                        Image: 'Images/Slids/Brands/1_500.png',
+                        Image: 'Images/Slids/Brands/1.png',
                         Options: [
                             {
                                 ID: 1,
@@ -712,7 +1077,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 25790000,
                         Discount: 0,
                         FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/5_500.png',
+                        Image: 'Images/Slids/Brands/3.png',
                         Options: [
                             {
                                 ID: 1,
@@ -742,7 +1107,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 25790000,
                         Discount: 0,
                         FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
+                        Image: 'Images/Slids/Brands/2.png',
                         Options: [
                             {
                                 ID: 1,
@@ -779,7 +1144,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 23460000,
                         Discount: 0,
                         FinallPrice: 23460000,
-                        Image: 'Images/Slids/Brands/samsung_circle.jpg',
+                        Image: 'Images/Slids/Brands/6.jpg',
                         Options: [
                             {
                                 ID: 1,
@@ -805,7 +1170,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 25790000,
                         Discount: 0,
                         FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
+                        Image: 'Images/Slids/Brands/2.png',
                         Options: [
                             {
                                 ID: 1,
@@ -835,7 +1200,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 25790000,
                         Discount: 0,
                         FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/nike-logo.png',
+                        Image: 'Images/Slids/Brands/5.png',
                         Options: [
                             {
                                 ID: 1,
@@ -865,7 +1230,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 25790000,
                         Discount: 0,
                         FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/5_500.png',
+                        Image: 'Images/Slids/Brands/3.png',
                         Options: [
                             {
                                 ID: 1,
@@ -895,7 +1260,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 23460000,
                         Discount: 0,
                         FinallPrice: 23460000,
-                        Image: 'Images/Slids/Brands/1_500.png',
+                        Image: 'Images/Slids/Brands/1.png',
                         Options: [
                             {
                                 ID: 1,
@@ -921,7 +1286,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 25790000,
                         Discount: 0,
                         FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/puma_thumb.jpg',
+                        Image: 'Images/Slids/Brands/4.jpg',
                         Options: [
                             {
                                 ID: 1,
@@ -951,7 +1316,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 25790000,
                         Discount: 0,
                         FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
+                        Image: 'Images/Slids/Brands/2.png',
                         Options: [
                             {
                                 ID: 1,
@@ -981,7 +1346,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 25790000,
                         Discount: 0,
                         FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/9_500.png',
+                        Image: 'Images/Slids/Brands/8.jpg',
                         Options: [
                             {
                                 ID: 1,
@@ -1013,7 +1378,7 @@ app.controller('MainControl', function ($scope) {
                         Discount: 0,
                         FinallPrice: 23460000,
                         Image:
-                            'Images/Slids/Brands/top-brands-and-the-meaning-of-their-logo-hermes-paris-lapolo.jpg',
+                            'Images/Slids/Brands/7.png',
                         Options: [
                             {
                                 ID: 1,
@@ -1046,7 +1411,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 25790000,
                         Discount: 0,
                         FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/9_500.png',
+                        Image: 'Images/Slids/Brands/8.jpg',
                         Options: [
                             {
                                 ID: 1,
@@ -1078,7 +1443,7 @@ app.controller('MainControl', function ($scope) {
                         Discount: 0,
                         FinallPrice: 23460000,
                         Image:
-                            'Images/Slids/Brands/top-brands-and-the-meaning-of-their-logo-hermes-paris-lapolo.jpg',
+                            'Images/Slids/Brands/7.png',
                         Options: [
                             {
                                 ID: 1,
@@ -1104,7 +1469,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 23460000,
                         Discount: 0,
                         FinallPrice: 23460000,
-                        Image: 'Images/Slids/Brands/samsung_circle.jpg',
+                        Image: 'Images/Slids/Brands/6.jpg',
                         Options: [
                             {
                                 ID: 1,
@@ -1130,7 +1495,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 25790000,
                         Discount: 0,
                         FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/nike-logo.png',
+                        Image: 'Images/Slids/Brands/5.png',
                         Options: [
                             {
                                 ID: 1,
@@ -1160,7 +1525,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 25790000,
                         Discount: 0,
                         FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/puma_thumb.jpg',
+                        Image: 'Images/Slids/Brands/4.jpg',
                         Options: [
                             {
                                 ID: 1,
@@ -1190,7 +1555,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 25790000,
                         Discount: 0,
                         FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
+                        Image: 'Images/Slids/Brands/2.png',
                         Options: [
                             {
                                 ID: 1,
@@ -1220,7 +1585,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 25790000,
                         Discount: 0,
                         FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/5_500.png',
+                        Image: 'Images/Slids/Brands/3.png',
                         Options: [
                             {
                                 ID: 1,
@@ -1250,7 +1615,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 23460000,
                         Discount: 0,
                         FinallPrice: 23460000,
-                        Image: 'Images/Slids/Brands/1_500.png',
+                        Image: 'Images/Slids/Brands/1.png',
                         Options: [
                             {
                                 ID: 1,
@@ -1276,7 +1641,7 @@ app.controller('MainControl', function ($scope) {
                         Price: 25790000,
                         Discount: 0,
                         FinallPrice: 25790000,
-                        Image: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
+                        Image: 'Images/Slids/Brands/2.png',
                         Options: [
                             {
                                 ID: 1,
@@ -1378,25 +1743,25 @@ app.controller('MainControl', function ($scope) {
             {
                 ID: 1,
                 AlternateText: "Alternate Text",
-                Source: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
+                SourceAddress: 'Images/Slids/Brands/2.png',
                 Active: true
             },
             {
                 ID: 2,
                 AlternateText: "Alternate Text",
-                Source: 'Images/Slids/Brands/9_500.png',
+                SourceAddress: 'Images/Slids/Brands/8.jpg',
                 Active: false
             },
             {
                 ID: 3,
                 AlternateText: "Alternate Text",
-                Source: 'Images/Slids/Brands/puma_thumb.jpg',
+                SourceAddress: 'Images/Slids/Brands/4.jpg',
                 Active: false
             },
             {
                 ID: 4,
                 AlternateText: "Alternate Text",
-                Source: 'Images/Slids/Brands/nike-logo.png',
+                SourceAddress: 'Images/Slids/Brands/5.png',
                 Active: false
             },
         ],
@@ -1433,7 +1798,7 @@ app.controller('MainControl', function ($scope) {
             //    Price: 25790000,
             //    Discount: 25,
             //    FinallPrice: 19342500,
-            //    Image: 'Images/Slids/Brands/Ray-Ban-RB3581N-001E4-1.jpg',
+            //    Image: 'Images/Slids/Brands/2.png',
             //    Options: [
             //        {
             //            ID: 1,
@@ -1462,7 +1827,7 @@ app.controller('MainControl', function ($scope) {
             //    Price: 25790000,
             //    Discount: 10,
             //    FinallPrice: 25790000,
-            //    Image: 'Images/Slids/Brands/9_500.png',
+            //    Image: 'Images/Slids/Brands/8.jpg',
             //    Options: [
             //        {
             //            ID: 1,
@@ -1491,7 +1856,7 @@ app.controller('MainControl', function ($scope) {
             //    Price: 23460000,
             //    Discount: 20,
             //    FinallPrice: 23460000,
-            //    Image: 'Images/Slids/Brands/samsung_circle.jpg',
+            //    Image: 'Images/Slids/Brands/6.jpg',
             //    Options: [
             //        {
             //            ID: 1,
@@ -1517,7 +1882,7 @@ app.controller('MainControl', function ($scope) {
             //    Discount: 0,
             //    FinallPrice: 23460000,
             //    Image:
-            //        'Images/Slids/Brands/top-brands-and-the-meaning-of-their-logo-hermes-paris-lapolo.jpg',
+            //        'Images/Slids/Brands/7.png',
             //    Available: true,
             //    AvailableCount: 1,
             //    Quantity: 1,
@@ -1652,6 +2017,13 @@ app.controller('MainControl', function ($scope) {
         }
     };
 
+    $scope.NavbarMenuClick = function (CategoryID) {
+
+        console.log(CategoryID);
+        SetAllView(false);
+        $scope.ProductsView = true;
+    };
+
     $scope.CartClick = function () {
 
         SetAllView(false);
@@ -1666,7 +2038,7 @@ app.controller('MainControl', function ($scope) {
                 var index = $scope.Cart.Items.indexOf(item);
                 $scope.Cart.Items.splice(index, 1);
 
-                $scope.Alerts.push(new Alert(50,'توجه', 'حذف کالا از سبد خرید با موفقیت انجام شد.', 'alert-danger', 3));
+                $scope.Alerts.push(new Alert(50, 'توجه', 'حذف کالا از سبد خرید با موفقیت انجام شد.', 'alert-danger', 3));
 
             }));
         buttons.push(new Button('خیر', 'btn-danger'));
@@ -1705,7 +2077,7 @@ app.controller('MainControl', function ($scope) {
         } else {
 
             $scope.Cart.Items.push(angular.copy(item));
-            $scope.Alerts.push(new Alert(100,'توجه', 'افزودن کالا به سبد خرید با موفقیت انجام شد.', 'alert-success', 3));
+            $scope.Alerts.push(new Alert(100, 'توجه', 'افزودن کالا به سبد خرید با موفقیت انجام شد.', 'alert-success', 3));
 
         }
     };
@@ -1736,6 +2108,8 @@ app.controller('MainControl', function ($scope) {
         $scope.StoreAboutCompanyView = isShow;
         $scope.StoreContactCompanyView = isShow;
         $scope.StoreProductView = isShow;
+
+        $scope.ProductsView = isShow;
 
         $scope.CartView = isShow;
         $scope.RegisterView = isShow;
