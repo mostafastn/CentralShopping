@@ -1,4 +1,7 @@
-﻿var app = angular.module('CentralShopping', []);
+﻿/// <reference path="../../Infrastructure.js" />
+var app = angular.module('CentralShopping', []);
+
+
 app.controller('MainControl', function ($scope) {
 
     // Class Object
@@ -56,6 +59,8 @@ app.controller('MainControl', function ($scope) {
     $scope.RegisterView = false;
     $scope.PaymentView = false;
 
+    $scope.AvalableProductOnly = false;
+
     $scope.ObjectInPageCount = [9, 18, "همه"];
 
     $scope.SortTypes = [
@@ -83,8 +88,7 @@ app.controller('MainControl', function ($scope) {
 
     $scope.SortType = $scope.SortTypes[0];
 
-    $scope.ModalContent =
-    {
+    $scope.ModalContent ={
         ModalTitle: 'ModalTitle',
         ModalBody: 'ModalBody',
         Buttons: [
@@ -768,6 +772,8 @@ app.controller('MainControl', function ($scope) {
         ],
         TotalCount: 50,
     };
+
+    $scope.SearchResultProductList = $scope.ProductList;
 
     $scope.Stores = [
          {
@@ -1906,7 +1912,17 @@ app.controller('MainControl', function ($scope) {
         CartTotalFinallPrice();
     }, true);
 
+
+    // Angular Directive
+
+
     // Agular Functions
+
+    $scope.init = function () {
+        //var menuDom = "";
+        //var res = CreateNavbarMenu($scope.NavbarProductMenu);
+        //console.log(res);
+    }
 
     $scope.HomeMenuClick = function () {
 
@@ -2147,4 +2163,15 @@ app.controller('MainControl', function ($scope) {
     //
 
 
+});
+
+app.directive("w3TestDirective", function () {
+    return {
+        template: CreateNavbarMenu(scope.NavbarProductMenu),
+        scope: {
+            ngModel: '='
+        },
+        link: function (scope) {
+        }
+    };
 });

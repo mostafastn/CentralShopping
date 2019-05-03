@@ -6,7 +6,7 @@
     rawFile.open("GET", file, true);
     rawFile.onreadystatechange = function () {
         if (rawFile.readyState === 4 && rawFile.status == "200") {
-            
+
             callback(rawFile.responseText);
         }
     }
@@ -14,7 +14,7 @@
 };
 
 function readTextFile(file, callback) {
-    
+
     $.getJSON(file, function (data) {
         var items = [];
         $.each(data, function (key, val) {
@@ -39,7 +39,7 @@ function loadMenuJS(callback) {
 };
 
 function loadMenu(callback) {
-    
+
     var file = '../Menu/Menu.json';
     readTextFile(file, function (text) {
         callback(text);
@@ -47,3 +47,21 @@ function loadMenu(callback) {
 
 
 };
+
+
+
+//test
+function CreateNavbarMenu(menuDate) {
+    var str = "";
+    menuDate.forEach(function (item) {
+        
+        str += "<li><a class=\"dropdown-item " +
+            (item.Menu.length > 0 ? "dropdown-toggle" : "") +
+            "\" href=\"#\">" +
+            item.Caption +
+            "</a>" +
+            (item.Menu.length > 0 ? "<ul class=\"dropdown-menu\">" + CreateNavbarMenu(item.Menu) + "</ul>" : "") +
+            "</li>";
+    });
+    return str;
+}
