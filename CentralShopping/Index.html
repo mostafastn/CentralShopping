@@ -41,9 +41,9 @@
     <script src="js/Angular/angular.min.js"></script>
     <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>-->
     <script src="js/Angular/Controllers/MainController.js"></script>
+   
 </head>
 <body>
-
     <div ng-app="CentralShopping" ng-controller="MainControl" ng-init="init()">
 
         <div class="jumbotron" style="margin-bottom:0;">
@@ -490,15 +490,18 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link text-nowrap dropdown-toggle" href="#" data-toggle="dropdown">
-                                    محصولات داینامیک
+                                    داینامیک
                                 </a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" id="menuScript">
+                                    <!--test-->
                                     <!--<li ng-repeat="NavbarProduct in NavbarProductMenu" ng-include="'categoryTree'">
 
                                     </li>-->
                                     
-                                    <!--test-->
-                                    <w3-test-directive></w3-test-directive>
+                                    <!--<w3-test-directive ng-bind-html-unsafe="NavbarProductMenuJS"></w3-test-directive>
+                                    
+                                    <li ng-bind-html-unsafe="NavbarProductMenuJS"> </li>-->
+                                  
                                     <!--test-->
                                 </ul>
                             </li>

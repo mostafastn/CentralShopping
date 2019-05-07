@@ -1,7 +1,5 @@
 ﻿/// <reference path="../../Infrastructure.js" />
 var app = angular.module('CentralShopping', []);
-
-
 app.controller('MainControl', function ($scope) {
 
     // Class Object
@@ -88,7 +86,7 @@ app.controller('MainControl', function ($scope) {
 
     $scope.SortType = $scope.SortTypes[0];
 
-    $scope.ModalContent ={
+    $scope.ModalContent = {
         ModalTitle: 'ModalTitle',
         ModalBody: 'ModalBody',
         Buttons: [
@@ -218,6 +216,7 @@ app.controller('MainControl', function ($scope) {
             ]
         }
     ];
+    $scope.NavbarProductMenuJS = CreateNavbarMenu($scope.NavbarProductMenu);
 
     $scope.CarouselSlide = [
         {
@@ -1919,9 +1918,10 @@ app.controller('MainControl', function ($scope) {
     // Agular Functions
 
     $scope.init = function () {
-        //var menuDom = "";
-        //var res = CreateNavbarMenu($scope.NavbarProductMenu);
-        //console.log(res);
+
+        var res = CreateNavbarMenu($scope.NavbarProductMenu);
+        $("#menuScript").html(res);
+
     }
 
     $scope.HomeMenuClick = function () {
@@ -2035,7 +2035,6 @@ app.controller('MainControl', function ($scope) {
 
     $scope.NavbarMenuClick = function (CategoryID) {
 
-        console.log(CategoryID);
         SetAllView(false);
         $scope.ProductsView = true;
     };
@@ -2167,11 +2166,100 @@ app.controller('MainControl', function ($scope) {
 
 app.directive("w3TestDirective", function () {
     return {
-        template: CreateNavbarMenu(scope.NavbarProductMenu),
-        scope: {
-            ngModel: '='
+
+        template: CreateNavbarMenu([
+        {
+            Id: 1,
+            Caption: "test 1",
+            Menu: [
+                {
+                    Id: 11,
+                    Caption: "test 1 - 1",
+                    Menu: [
+                        {
+                            Id: 111,
+                            Caption: "test 1 - 1 - 1",
+                            Menu: []
+                        },
+                        {
+                            Id: 112,
+                            Caption: "test 1 - 1 - 2",
+                            Menu: []
+                        }, {
+                            Id: 113,
+                            Caption: "test 1 - 1 - 3",
+                            Menu: []
+                        }
+                    ]
+                },
+                {
+                    Id: 12,
+                    Caption: "test 1 - 2",
+                    Menu: [
+                        {
+                            Id: 121,
+                            Caption: "test 1 - 2 - 1",
+                            Menu: []
+                        },
+                        {
+                            Id: 122,
+                            Caption: "test 1 - 2 - 2",
+                            Menu: []
+                        }, {
+                            Id: 123,
+                            Caption: "test 1 - 2 - 3",
+                            Menu: []
+                        }
+                    ]
+                }
+            ]
         },
-        link: function (scope) {
+        {
+            Id: 2,
+            Caption: "test 2",
+            Menu: [
+                {
+                    Id: 21,
+                    Caption: "test 2 - 1",
+                    Menu: [
+                        {
+                            Id: 211,
+                            Caption: "test 2 - 1 - 1",
+                            Menu: []
+                        },
+                        {
+                            Id: 212,
+                            Caption: "test 2 - 1 - 2",
+                            Menu: []
+                        }, {
+                            Id: 213,
+                            Caption: "test 2 - 1 - 3",
+                            Menu: []
+                        }
+                    ]
+                },
+                {
+                    Id: 22,
+                    Caption: "test 2 - 2",
+                    Menu: [
+                        {
+                            Id: 221,
+                            Caption: "test 2 - 2 - 1",
+                            Menu: []
+                        },
+                        {
+                            Id: 222,
+                            Caption: "test 2 - 2 - 2",
+                            Menu: []
+                        }, {
+                            Id: 223,
+                            Caption: "test 2 - 2 - 3",
+                            Menu: []
+                        }
+                    ]
+                }
+            ]
         }
+        ])
     };
 });
