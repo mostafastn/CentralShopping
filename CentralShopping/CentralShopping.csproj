@@ -69,6 +69,16 @@
     <Content Include="css\rtlBootstrap\bootstrap-4-navbar.css" />
     <Content Include="css\bootstrap\bootstrap.min.css" />
     <Content Include="css\rtlBootstrap\bootstrap.min.css" />
+    <Content Include="Images\Products\111.jpg" />
+    <Content Include="Images\Products\112.jpg" />
+    <Content Include="Images\Products\113.jpg" />
+    <Content Include="Images\Products\114.jpg" />
+    <Content Include="Images\Products\115.jpg" />
+    <Content Include="Images\Products\121.jpg" />
+    <Content Include="Images\Products\122.jpg" />
+    <Content Include="Images\Products\123.jpg" />
+    <Content Include="Images\Products\124.jpg" />
+    <Content Include="Images\Products\125.jpg" />
     <Content Include="Images\Slids\Brands\1.png" />
     <Content Include="Images\Slids\Brands\9.jpg" />
     <Content Include="js\Angular\angular.min.js" />
@@ -100,6 +110,8 @@
     <Content Include="Menu\template.html" />
     <Content Include="packages.config" />
     <Content Include="Menu\Menu.json" />
+    <Content Include="css\FontStyle\B-NAZANIN.TTF" />
+    <Content Include="css\FontStyle\B Titr Bold_0.ttf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

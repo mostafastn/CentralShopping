@@ -19,6 +19,36 @@
 
 
     <style>
+        @font-face {
+            font-family: 'BNAZANIN';
+            src: url('css/FontStyle/B-NAZANIN.TTF') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BTitr';
+            src: url('css/FontStyle/B Titr Bold_0.ttf') format('truetype');
+        }
+
+        .BNAZANIN {
+            font-family: BNAZANIN;
+        }
+
+        * {
+            font-family: BNAZANIN;
+        }
+
+        .BTitr {
+            font-family: BTitr;
+        }
+
+        .orange-text {
+            color: #ff9800;
+        }
+
+        a.orange-text:hover {
+            color: #e65100;
+        }
+
         .fakeimg {
             height: 200px;
             background: #aaa;
@@ -41,17 +71,17 @@
     <script src="js/Angular/angular.min.js"></script>
     <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>-->
     <script src="js/Angular/Controllers/MainController.js"></script>
-   
+
 </head>
 <body>
     <div ng-app="CentralShopping" ng-controller="MainControl" ng-init="init()">
 
-        <div class="jumbotron" style="margin-bottom:0;">
-            <div class="container">
+        <div class="jumbotron" style="margin-bottom:0; padding-top: 30px; padding-bottom: 20px;">
+            <div class="container BTitr orange-text">
                 <h1>نسخه آزمایشی خرید مرکزی</h1>
                 <h6>کلیه محصولات از تمام برند های معتبر‬‎</h6>
-                
-                
+
+
             </div>
         </div>
 
@@ -61,7 +91,7 @@
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-dark row ">
 
-                    <a class="navbar-brand" href="" ng-click="HomeMenuClick()">خرید مرکزی</a>
+                    <a class="navbar-brand BTitr orange-text" style="color: #ff9800;" href="" ng-click="HomeMenuClick()">خرید مرکزی</a>
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                         <span class="navbar-toggler-icon"></span>
@@ -80,10 +110,10 @@
                                                 <a class="dropdown-item dropdown-toggle" href="#">لوازم جانبی گوشی</a>
                                                 <ul class="dropdown-menu">
                                                     <li>
-                                                        <a class="dropdown-item" href="#" ng-click="NavbarMenuClick(1)">کیف و کاور گوشی</a>
+                                                        <a class="dropdown-item" href="#" ng-click="NavbarMenuClick('کیف و کاور گوشی')">کیف و کاور گوشی</a>
                                                     </li>
                                                     <li>
-                                                        <a class="dropdown-item" href="#" ng-click="NavbarMenuClick(2)">پاور بانک (شارژر همراه)</a>
+                                                        <a class="dropdown-item" href="#" ng-click="NavbarMenuClick('FE10B934-F112-4F4A-A814-EC0321E4E86B')">پاور بانک (شارژر همراه)</a>
                                                     </li>
                                                     <li>
                                                         <a class="dropdown-item" href="#">هندزفری، هدفون، هدست</a>
@@ -488,32 +518,24 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item dropdown">
+                            <!--test-->
+                            <!--<li class="nav-item dropdown">
                                 <a class="nav-link text-nowrap dropdown-toggle" href="#" data-toggle="dropdown">
                                     داینامیک
                                 </a>
                                 <ul class="dropdown-menu" id="menuScript">
-                                    <!--test-->
-                                    <!--<li ng-repeat="NavbarProduct in NavbarProductMenu" ng-include="'categoryTree'">
+                                    <li ng-repeat="NavbarProduct in NavbarProductMenu" ng-include="'categoryTree'">
 
-                                    </li>-->
-                                    
-                                    <!--<w3-test-directive ng-bind-html-unsafe="NavbarProductMenuJS"></w3-test-directive>
-                                    
-                                    <li ng-bind-html-unsafe="NavbarProductMenuJS"> </li>-->
-                                  
-                                    <!--test-->
+                                    </li>
+                                    <w3-test-directive ng-bind-html-unsafe="NavbarProductMenuJS"></w3-test-directive>
+
+                                    <li ng-bind-html-unsafe="NavbarProductMenuJS"> </li>
                                 </ul>
-                            </li>
+                            </li>-->
+                            <!--test-->
 
                             <li class="nav-item">
                                 <a class="nav-link text-nowrap" href="" id="StoreMenu" ng-click="StoreMenuClick()">فروشگاه ها</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-nowrap" href="">درباره ما</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-nowrap" href="">تماس ما</a>
                             </li>
                         </ul>
 
@@ -560,7 +582,7 @@
 
             <!-- #region Alert -->
 
-            <div class="alert alert-dismissible fade show" ng-repeat="x in Alerts" ng-class="x.Class" id="{{x.ID}}">
+            <div class="alert alert-dismissible fade show " ng-repeat="x in Alerts" ng-class="x.Class" id="{{x.ID}}">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <strong>{{x.Caption}}</strong> {{x.Body}}
             </div>
@@ -605,6 +627,7 @@
                                 <div class="col-lg-4 my-auto ">
                                     <div ng-repeat="t in x.Options">
                                         {{t.Caption}}
+                                        <hr />
                                     </div>
                                 </div>
                                 <div class="col-md-4 my-auto">
@@ -762,11 +785,12 @@
                 </form>
 
                 <div class="card-columns">
-                    <div class="card mb-4" ng-repeat="x in Stores" ng-click="StoreClick(x.ID)">
+                    <div class="card mb-4 " style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+                         ng-repeat="x in Stores" ng-click="StoreClick(x.ID)">
                         <div class="card-header bg-secondary text-white">{{x.ProductCount}} محصول</div>
                         <div class="card-body text-center">
                             <h6 class="card-title">{{x.Name}}</h6>
-                            <p class="card-text">{{x.Introduction}}</p>
+                            <p class="card-text">{{x.IntroductionSummary}}</p>
                         </div>
                         <ul class="list-group list-group-flush" ng-repeat="t in x.Options">
                             <li class="list-group-item text-info small">
@@ -779,6 +803,9 @@
                         </div>
                     </div>
                 </div>
+
+
+
             </div>
             <!-- #endregion -->
             <!-- #region StoreView -->
@@ -786,12 +813,12 @@
 
                 <div class="col-md-3 border-right border-secondary rounded">
 
-                    <h5 class="pt-3">
-                        <a href="">
-                            {{Store.Name}}
-                        </a>
-                    </h5>
-                    <div id="accordion" class="m-2">
+                    <div id="accordion" class="m-1">
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="collapsed card-link font-weight-bold" href="" ng-click="HomeCompanyClick()">{{Store.Name}}</a>
+                            </div>
+                        </div>
 
                         <div class="card">
                             <div class="card-header">
@@ -819,26 +846,41 @@
                                 <a class="collapsed card-link" href="" ng-click="ContactCompanyClick()">تماس با ما</a>
                             </div>
                         </div>
+                    </div>
+                </div>
 
+                <div class="col-md-9" ng-show="HomeCompanyView">
 
+                    <div class="card-body">
+                        <img src="{{Store.Introduction.Image}}" alt="{{Store.Introduction.Summary}}" class="img-fluid mx-auto d-block">
                     </div>
 
+                    <div class="card-body" ng-repeat="x in Store.Introduction.Contents">
+                        <h6>
+                            {{x.Caption}}
+                        </h6>
+                        <p class="text-justify" style="direction: rtl;">
+                            {{x.Content}}
+                        </p>
+                    </div>
+
+                    <div class="card-body" ng-show="Store.Introduction.Link!=''">
+                        <p class="text-left" style="direction: ltr;">
+                            <a class="text-primary font-weight-bold" href="{{Store.Introduction.Link}}" target="_blank">{{Store.Name}}</a>
+                        </p>
+                    </div>
                 </div>
 
                 <div class="col-md-9" ng-show="StoreProductListView">
                     <div class="row pt-2">
-                        <div class="col-sm-4 border-right border-success ">
+                        <div class="col-sm-4">
                             <select class="text-primary border-0" ng-model="SortType" ng-options="x.Caption for x in SortTypes"></select>
                         </div>
-                        <div class="col-sm-4 border border-success  border-bottom-0 border-top-0">
-                            <ul class="pagination pagination-sm text-right">
-                                <li class="m-1" ng-repeat="x in ObjectInPageCount">
-                                    <a href="" class="border border-dark bg-light rounded p-1">{{x}}</a>
-                                </li>
-                            </ul>
+                        <div class="col-sm-4">
+                            
                         </div>
-                        <div class="col-sm-4 text-info border-left border-success ">
-                            نمایش 1-{{StoreSelectedProductMenu.ProductList.length}} از {{StoreSelectedProductMenu.TotalCount}} محصول
+                        <div class="col-sm-4 text-info">
+                             {{StoreSelectedProductMenu.TotalCount}} محصول
                         </div>
                     </div>
 
@@ -849,32 +891,13 @@
                                     <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 150px;">
                                 </div>
                                 <div class="label m-1 text-dark font-weight-bold">{{x.Name}}</div>
-                                <div class="label m-1">
+                                <div class="label m-1 p-1" ng-show="x.Discount">
                                     تخفیف :
-                                    <span class="text-danger">{{x.Discount}}%</span>
+                                    <span class="text-danger bg-warning rounded p-1">{{x.Discount}}%</span>
                                 </div>
                                 <div class="label m-1 text-white bg-info rounded p-1">{{x.FinallPrice | currency:"":0}} ریال</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <ul class="pagination pagination-sm">
-                            <li class="border border-dark rounded m-1 px-2 py-1">
-                                <a href="" class="text-primary">1</a>
-                            </li>
-                            <li class="border border-dark rounded m-1 px-2 py-1">
-                                <a href="" class="text-primary">5</a>
-                            </li>
-                            <li class="border border-dark rounded m-1 px-2 py-1">
-                                <a href="" class="text-primary">2</a>
-                            </li>
-                            <li class="border border-dark rounded m-1 px-2 py-1">
-                                <a href="" class="text-primary">3</a>
-                            </li>
-                            <li class="border border-dark rounded m-1 px-2 py-1">
-                                <a href="" class="text-primary">4</a>
-                            </li>
-                        </ul>
                     </div>
 
                 </div>
@@ -913,7 +936,10 @@
 
                             <ul class="list-unstyled">
                                 <li ng-repeat="x in StoreProduct.Options">
-                                    {{x.Caption}}
+
+                                    <p class="text-justify">
+                                        {{x.Caption}}
+                                    </p>
                                 </li>
                             </ul>
                         </div>
@@ -1252,11 +1278,97 @@
 
             </div>
             <!-- #endregion -->
+            <!-- #region PolicyView -->
+            <div ng-show="PolicyView">
+                <div class="text-center text-primary">
+
+                    <i class="fa fa-refresh fa-spin fa-5x" aria-hidden="true">
+                    </i>
+
+                </div>
+                <div class="text-center text-dark display-4">
+                    قوانین و خط مشی !
+                    <hr />
+                </div>
+
+            </div>
+            <!-- #endregion -->
+            <!-- #region ContactUsView -->
+            <div ng-show="ContactUsView">
+                <div class="text-center text-primary">
+
+                    <i class="fa fa-refresh fa-spin fa-5x" aria-hidden="true">
+                    </i>
+
+                </div>
+                <div class="text-center text-dark display-4">
+                    ارتباط با ما !
+                    <hr />
+                </div>
+
+            </div>
+            <!-- #endregion -->
+            <!-- #region AboutUsView -->
+            <div ng-show="AboutUsView">
+                <div class="text-center text-primary">
+
+                    <i class="fa fa-refresh fa-spin fa-5x" aria-hidden="true">
+                    </i>
+
+                </div>
+                <div class="text-center text-dark display-4">
+                    سخن ما !
+                    <hr />
+                </div>
+
+            </div>
+            <!-- #endregion -->
+            <!-- #region AdsView -->
+            <div ng-show="AdsView">
+                <div class="text-center text-primary">
+
+                    <i class="fa fa-refresh fa-spin fa-5x" aria-hidden="true">
+                    </i>
+
+                </div>
+                <div class="text-center text-dark display-4">
+                    تبلیغات در سایت !
+                    <hr />
+                </div>
+
+            </div>
+            <!-- #endregion -->
+            <!-- #region ProblemView -->
+            <div ng-show="ProblemView">
+                <div class="text-center text-primary">
+
+                    <i class="fa fa-refresh fa-spin fa-5x" aria-hidden="true">
+                    </i>
+
+                </div>
+                <div class="text-center text-dark display-4">
+                    اعلام مشکل سایت !
+                    <hr />
+                </div>
+
+            </div>
+            <!-- #endregion -->
+
         </div>
-        <div class="jumbotron text-center" style="margin-bottom:0">
-            <div>
+        <div class="jumbotron text-center" style="margin-bottom:0; padding-top: 20px; padding-bottom: 15px;">
+            <div class="font-weight-bold text-nowrap p-0 m-0">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item"><a href="" class="nav-link orange-text mx-3" ng-click="PolicyClick()">خط مشی</a></li>
+                    <li class="nav-item"><a href="" class="nav-link orange-text mx-3" ng-click="ContactUsClick()">ارتباط با ما</a></li>
+                    <li class="nav-item"><a href="" class="nav-link orange-text mx-3" ng-click="AboutUsClick()">سخن ما</a></li>
+                    <li class="nav-item"><a href="" class="nav-link orange-text mx-3" ng-click="AdsClick()">تبلیغات در سایت</a></li>
+                    <li class="nav-item"><a href="" class="nav-link orange-text mx-3" ng-click="ProblemClick()">اعلام مشکل سایت</a></li>
+                </ul>
+
+            </div>
+            <div class="text-muted">
                 تمامی حقوق این اثر متعلق به
-                <a class="text-muted" href="http://tahasoft.ir">طاها سافت</a> می باشد
+                <a class="text-primary font-weight-bold" href="http://tahasoft.ir" target="_blank">طاها سافت</a> می باشد
             </div>
         </div>
 
@@ -1269,16 +1381,16 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">{{ModalContent.ModalTitle}}</h4>
+                        <h5 class="modal-title BTitr">{{ModalContent.ModalTitle}}</h5>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body font-weight-bold">
                         <p>
                             {{ModalContent.ModalBody}}
                         </p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn" data-dismiss="modal" ng-repeat="x in ModalContent.Buttons"
+                        <button type="button" class="btn BNAZANIN" data-dismiss="modal" ng-repeat="x in ModalContent.Buttons"
                                 ng-class="x.Class" ng-click="x.Click()">
                             {{x.Caption}}
                         </button>
