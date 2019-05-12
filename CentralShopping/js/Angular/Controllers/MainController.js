@@ -42,10 +42,11 @@ app.controller('MainControl', function ($scope) {
 
     // Class Object
 
-    $scope.HomeView = false;
+    $scope.HomeView = true;
+
     $scope.StoresView = false;
 
-    $scope.StoreView = true;
+    $scope.StoreView = false;
     $scope.HomeCompanyView = true;
     $scope.StoreProductListView = false;
     $scope.StoreAboutCompanyView = false;
@@ -1098,10 +1099,11 @@ app.controller('MainControl', function ($scope) {
                         TotalCount: 56,
                     },
             ],
+            Image: 'Images/Company/1.jpg',
         },
         {
             ID: 2,
-            ProductCount: 15,
+            ProductCount: 27,
             Name: 'فروشگاه طارم آنلاین',
             IntroductionSummary:
                 'اولین و معتبرترین فروشگاه آنلاین مصولات اورگانیک شامل انواع زیتون ، روغن زیتون، رب انار ترش و شیرین ملس، سیر ترشی، رب گوجه خانگی .',
@@ -1120,93 +1122,715 @@ app.controller('MainControl', function ($scope) {
                     Caption: 'ضمانت برگشت کالا'
                 },
             ],
-            Link: ''
-        },
-        {
-            ID: 3,
-            ProductCount: 25,
-            Name: 'فروشگاه اینترنتی لوناتو',
-            Introduction: 'مرجع تخصصی عینک طبی، عینک آفتابی، لنز چشم.',
-            lastUpdate: '1',
-            Options: [
+            Link: '',
+            //این ایتم برای تست ایجاد شده و نیازی به ایجاد از وب سرویس ندارد
+            // هنگام ارسال به صفحه فروشگاه از سرویس فراخوانی می شود
+            ProductMenu: [
                 {
                     ID: 1,
-                    Caption: 'گارانتی یک ساله'
+                    Caption: 'زیتون شکسته',
+                    ProductList: [
+                                {
+                                    ID: 1,
+                                    Name: 'زیتون شکسته درجه 1',
+                                    Price: 180000,
+                                    Discount: 5,
+                                    FinallPrice: 171000,
+                                    Image: 'Images/Products/211.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 2,
+                                    Name: 'زیتون شکسته درجه 2',
+                                    Price: 160000,
+                                    Discount: 0,
+                                    FinallPrice: 160000,
+                                    Image: 'Images/Products/212.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 3,
+                                    Name: 'زیتون شکسته درجه 3',
+                                    Price: 140000,
+                                    Discount: 0,
+                                    FinallPrice: 140000,
+                                    Image: 'Images/Products/213.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 4,
+                                    Name: 'زیتون شکسته درجه 4',
+                                    Price: 120000,
+                                    Discount: 0,
+                                    FinallPrice: 120000,
+                                    Image: 'Images/Products/214.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 5,
+                                    Name: 'زیتون شکسته درجه 5',
+                                    Price: 100000,
+                                    Discount: 0,
+                                    FinallPrice: 100000,
+                                    Image: 'Images/Products/215.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                    ],
+                    TotalCount: 5,
                 },
                 {
                     ID: 2,
-                    Caption: 'خدمات پس از فروش'
+                    Caption: 'زیتون کنسروی',
+                    ProductList: [
+                                {
+                                    ID: 1,
+                                    Name: 'زیتون کنسروی درجه 1',
+                                    Price: 180000,
+                                    Discount: 5,
+                                    FinallPrice: 171000,
+                                    Image: 'Images/Products/221.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 2,
+                                    Name: 'زیتون کنسروی درجه 2',
+                                    Price: 160000,
+                                    Discount: 0,
+                                    FinallPrice: 160000,
+                                    Image: 'Images/Products/222.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 3,
+                                    Name: 'زیتون کنسروی درجه 3',
+                                    Price: 140000,
+                                    Discount: 0,
+                                    FinallPrice: 140000,
+                                    Image: 'Images/Products/223.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 4,
+                                    Name: 'زیتون کنسروی درجه 4',
+                                    Price: 120000,
+                                    Discount: 0,
+                                    FinallPrice: 120000,
+                                    Image: 'Images/Products/224.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 5,
+                                    Name: 'زیتون کنسروی درجه 5',
+                                    Price: 100000,
+                                    Discount: 0,
+                                    FinallPrice: 100000,
+                                    Image: 'Images/Products/225.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                    ],
+                    TotalCount: 5,
                 },
                 {
                     ID: 3,
-                    Caption: 'ارسال رایگان'
-                }
+                    Caption: 'زیتون پرورده',
+                    ProductList: [
+                                {
+                                    ID: 1,
+                                    Name: 'زیتون پرورده درجه 1',
+                                    Price: 280000,
+                                    Discount: 5,
+                                    FinallPrice: 266000,
+                                    Image: 'Images/Products/231.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 2,
+                                    Name: 'زیتون پرورده درجه 2',
+                                    Price: 160000,
+                                    Discount: 0,
+                                    FinallPrice: 160000,
+                                    Image: 'Images/Products/232.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 3,
+                                    Name: 'زیتون پرورده درجه 3',
+                                    Price: 140000,
+                                    Discount: 0,
+                                    FinallPrice: 140000,
+                                    Image: 'Images/Products/233.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 4,
+                                    Name: 'زیتون پرورده درجه 4',
+                                    Price: 120000,
+                                    Discount: 0,
+                                    FinallPrice: 120000,
+                                    Image: 'Images/Products/234.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 5,
+                                    Name: 'زیتون پرورده درجه 5',
+                                    Price: 100000,
+                                    Discount: 0,
+                                    FinallPrice: 100000,
+                                    Image: 'Images/Products/235.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                    ],
+                    TotalCount: 5,
+                },
+                {
+                    ID: 4,
+                    Caption: 'روغن زیتون',
+                    ProductList: [
+                                {
+                                    ID: 1,
+                                    Name: 'روغن زیتون درجه 1',
+                                    Price: 750000,
+                                    Discount: 5,
+                                    FinallPrice: 712500,
+                                    Image: 'Images/Products/241.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'روغن زیتون ماری'
+                                        },
+                                        {
+                                            ID: 3,
+                                            Caption: 'رنگ زرد'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 2,
+                                    Name: 'روغن زیتون درجه 1',
+                                    Price: 750000,
+                                    Discount: 5,
+                                    FinallPrice: 712500,
+                                    Image: 'Images/Products/242.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'رنگ سبز'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                }
+                    ],
+                    TotalCount: 2,
+                },
+                {
+                    ID: 5,
+                    Caption: 'رب انار',
+                    ProductList: [
+                                {
+                                    ID: 1,
+                                    Name: 'رب انار شیرین درجه 1',
+                                    Price: 550000,
+                                    Discount: 5,
+                                    FinallPrice: 522500,
+                                    Image: 'Images/Products/251.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'انار طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'غلیظ و به صرفه'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'رنگ سیاه'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 2,
+                                    Name: 'رب انار ترش درجه 1',
+                                    Price: 550000,
+                                    Discount: 5,
+                                    FinallPrice: 522500,
+                                    Image: 'Images/Products/252.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'انار طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'غلیظ و به صرفه'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'رنگ سیاه'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 3,
+                                    Name: 'رب انار ترش و شیرین مخلوط درجه 1',
+                                    Price: 550000,
+                                    Discount: 5,
+                                    FinallPrice: 522500,
+                                    Image: 'Images/Products/253.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'انار طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'غلیظ و به صرفه'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'رنگ سیاه'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                    ],
+                    TotalCount: 3,
+                },
+                {
+                    ID: 6,
+                    Caption: 'ترشی جات',
+                    ProductList: [
+                        {
+                            ID: 1,
+                            Name: 'سیر ترشی درجه 1',
+                            Price: 250000,
+                            Discount: 5,
+                            FinallPrice: 237500,
+                            Image: 'Images/Products/261.jpg',
+                            Options: [
+                                {
+                                    ID: 1,
+                                    Caption: 'سیر طارم'
+                                },
+                                {
+                                    ID: 2,
+                                    Caption: 'ترشی هفت ساله'
+                                },
+                                {
+                                    ID: 2,
+                                    Caption: 'رنگ سیاه'
+                                }
+                            ],
+                            LastUpdate: '2019-05-12',
+                            VisitsCount: 150,
+                            Available: true,
+                            AvailableCount: 50,
+                        },
+                        {
+                            ID: 2,
+                            Name: 'سیر ترشی درجه 2',
+                            Price: 220000,
+                            Discount: 5,
+                            FinallPrice: 209000,
+                            Image: 'Images/Products/261.jpg',
+                            Options: [
+                            {
+                                ID: 1,
+                                Caption: 'سیر طارم'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'ترشی شش ساله'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'رنگ سیاه'
+                            }
+                            ],
+                            LastUpdate: '2019-05-12',
+                            VisitsCount: 150,
+                            Available: true,
+                            AvailableCount: 50,
+                        },
+                        {
+                            ID: 3,
+                            Name: 'سیر ترشی درجه 3',
+                            Price: 200000,
+                            Discount: 0,
+                            FinallPrice: 200000,
+                            Image: 'Images/Products/261.jpg',
+                            Options: [
+                            {
+                                ID: 1,
+                                Caption: 'سیر طارم'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'ترشی پنج ساله'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'رنگ سیاه'
+                            }
+                            ],
+                            LastUpdate: '2019-05-12',
+                            VisitsCount: 150,
+                            Available: true,
+                            AvailableCount: 50,
+                        },
+                        {
+                            ID: 4,
+                            Name: 'سیر ترشی درجه 4',
+                            Price: 190000,
+                            Discount: 0,
+                            FinallPrice: 190000,
+                            Image: 'Images/Products/261.jpg',
+                            Options: [
+                            {
+                                ID: 1,
+                                Caption: 'سیر طارم'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'ترشی چهار ساله'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'رنگ سیاه'
+                            }
+                            ],
+                            LastUpdate: '2019-05-12',
+                            VisitsCount: 150,
+                            Available: true,
+                            AvailableCount: 50,
+                        },
+                        {
+                            ID: 5,
+                            Name: 'سیر ترشی درجه 5',
+                            Price: 180000,
+                            Discount: 5,
+                            FinallPrice: 180000,
+                            Image: 'Images/Products/261.jpg',
+                            Options: [
+                            {
+                                ID: 1,
+                                Caption: 'سیر طارم'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'ترشی سه ساله'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'رنگ سیاه'
+                            }
+                            ],
+                            LastUpdate: '2019-05-12',
+                            VisitsCount: 150,
+                            Available: true,
+                            AvailableCount: 50,
+                        },
+                        {
+                            ID: 6,
+                            Name: 'سیر ترشی درجه 6',
+                            Price: 170000,
+                            Discount: 5,
+                            FinallPrice: 170000,
+                            Image: 'Images/Products/262.jpg',
+                            Options: [
+                            {
+                                ID: 1,
+                                Caption: 'سیر طارم'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'ترشی دو ساله'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'رنگ سفید'
+                            }
+                            ],
+                            LastUpdate: '2019-05-12',
+                            VisitsCount: 150,
+                            Available: true,
+                            AvailableCount: 50,
+                        },
+                        {
+                            ID: 7,
+                            Name: 'سیر ترشی درجه 7',
+                            Price: 150000,
+                            Discount: 0,
+                            FinallPrice: 150000,
+                            Image: 'Images/Products/262.jpg',
+                            Options: [
+                            {
+                                ID: 1,
+                                Caption: 'سیر طارم'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'ترشی هفت ساله'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'رنگ سفید'
+                            }
+                            ],
+                            LastUpdate: '2019-05-12',
+                            VisitsCount: 150,
+                            Available: true,
+                            AvailableCount: 50,
+                        },
+                    ],
+                    TotalCount: 7,
+                },
             ],
-            Link: 'http://centralshopping.ir'
+            Image: 'Images/Company/2.jpg',
         },
-        {
-            ID: 1,
-            ProductCount: 10,
-            Name: 'فروشگاه عطر برادران',
-            IntroductionSummary: 'ارائه رایحه های اصیل و ماندگار از عطرها و برندهای معتبر جهان',
-            lastUpdate: '15',
-            Options: [
-                {
-                    ID: 1,
-                    Caption: 'تخفیف های ویژه'
-                },
-                {
-                    ID: 3,
-                    Caption: 'ارسال رایگان'
-                },
-            ],
-            Link: ''
-        },
-        {
-            ID: 2,
-            ProductCount: 15,
-            Name: 'فروشگاه طارم آنلاین',
-            IntroductionSummary:
-                'اولین و معتبرترین فروشگاه آنلاین مصولات اورگانیک شامل انواع زیتون ، روغن زیتون، رب انار ترش و شیرین ملس، سیر ترشی، رب گوجه خانگی .',
-            lastUpdate: '25',
-            Options: [
-                {
-                    ID: 1,
-                    Caption: 'مدت محدود'
-                },
-                {
-                    ID: 2,
-                    Caption: 'ارسال رایگان'
-                },
-                {
-                    ID: 3,
-                    Caption: 'ضمانت برگشت کالا'
-                },
-            ],
-            Link: ''
-        },
-        {
-            ID: 3,
-            ProductCount: 25,
-            Name: 'فروشگاه اینترنتی لوناتو',
-            Introduction: 'مرجع تخصصی عینک طبی، عینک آفتابی، لنز چشم.',
-            lastUpdate: '1',
-            Options: [
-                {
-                    ID: 1,
-                    Caption: 'گارانتی یک ساله'
-                },
-                {
-                    ID: 2,
-                    Caption: 'خدمات پس از فروش'
-                },
-                {
-                    ID: 3,
-                    Caption: 'ارسال رایگان'
-                }
-            ],
-            Link: 'http://centralshopping.ir'
-        },
+        //{
+        //    ID: 3,
+        //    ProductCount: 25,
+        //    Name: 'فروشگاه اینترنتی لوناتو',
+        //    Introduction: 'مرجع تخصصی عینک طبی، عینک آفتابی، لنز چشم.',
+        //    lastUpdate: '1',
+        //    Options: [
+        //        {
+        //            ID: 1,
+        //            Caption: 'گارانتی یک ساله'
+        //        },
+        //        {
+        //            ID: 2,
+        //            Caption: 'خدمات پس از فروش'
+        //        },
+        //        {
+        //            ID: 3,
+        //            Caption: 'ارسال رایگان'
+        //        }
+        //    ],
+        //    Link: 'http://centralshopping.ir'
+        //},
     ];
 
     $scope.Store = {
@@ -2396,8 +3020,9 @@ app.controller('MainControl', function ($scope) {
             $scope.Store.ID = _item.ID;
             $scope.Store.Name = _item.Name;
             $scope.Store.Introduction.Summary = _item.Introduction;
+            $scope.Store.Introduction.Image = _item.Image;
             $scope.Store.ProductMenu = _item.ProductMenu;
-            $scope.Store.Image = _item.Image;
+            //$scope.Store.Image = _item.Image;
             $scope.Store.Options = _item.Options;
             $scope.Store.lastUpdate = _item.lastUpdate;
         }
@@ -2418,7 +3043,12 @@ app.controller('MainControl', function ($scope) {
             $scope.StoreProduct.Name = _item.Name;
             $scope.StoreProduct.Price = _item.Price;
             $scope.StoreProduct.Discount = _item.Discount;
-            $scope.StoreProduct.Images[0].SourceAddress = _item.Image;
+            $scope.StoreProduct.Images = [{
+                ID: 1,
+                AlternateText: _item.Name,
+                SourceAddress: _item.Image,
+                Active: true
+            }],
             $scope.StoreProduct.Options = _item.Options;
             $scope.StoreProduct.FinallPrice = _item.FinallPrice;
             $scope.StoreProduct.Available = _item.Available;

@@ -42,7 +42,7 @@
         }
 
         .orange-text {
-            color: #ff9800;
+            color: #fb9600;
         }
 
         a.orange-text:hover {
@@ -78,10 +78,8 @@
 
         <div class="jumbotron" style="margin-bottom:0; padding-top: 30px; padding-bottom: 20px;">
             <div class="container BTitr orange-text">
-                <h1>نسخه آزمایشی خرید مرکزی</h1>
-                <h6>کلیه محصولات از تمام برند های معتبر‬‎</h6>
-
-
+                <h1 style="text-shadow:1px 1px 3px black;">نسخه آزمایشی خرید مرکزی</h1>
+                <h6 style="text-shadow:0px 0px 10px #fb9600;">کلیه محصولات از تمام برند های معتبر‬‎</h6>
             </div>
         </div>
 
@@ -91,7 +89,7 @@
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-dark row ">
 
-                    <a class="navbar-brand BTitr orange-text" style="color: #ff9800;" href="" ng-click="HomeMenuClick()">خرید مرکزی</a>
+                    <a class="navbar-brand BTitr orange-text" style="color: #fb9600;" href="" ng-click="HomeMenuClick()">خرید مرکزی</a>
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                         <span class="navbar-toggler-icon"></span>
@@ -541,7 +539,7 @@
 
                         <form class="navbar-form mr-2">
                             <div class="input-group">
-                                <input type="text" class="form-control border border-light" placeholder="دنبال چی هستی؟">
+                                <input type="text" class="form-control border border-light" placeholder="جستجو">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-light" type="submit" title="جستجو">
                                         <i class="fa fa-search"></i>
@@ -775,7 +773,7 @@
 
                 <form class="col-12 p-0 mb-4">
                     <div class="input-group">
-                        <input type="text" class="form-control border border-dark" placeholder="دنبال کدام فروشگاه هستی؟">
+                        <input type="text" class="form-control border border-dark" placeholder="جستجو">
                         <div class="input-group-append">
                             <button class="btn btn-outline-dark" type="submit" title="جستجو">
                                 <i class="fa fa-search"></i>
@@ -784,7 +782,7 @@
                     </div>
                 </form>
 
-                <div class="card-columns">
+                <!--<div class="card-columns bg-primary">
                     <div class="card mb-4 " style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
                          ng-repeat="x in Stores" ng-click="StoreClick(x.ID)">
                         <div class="card-header bg-secondary text-white">{{x.ProductCount}} محصول</div>
@@ -802,9 +800,30 @@
                             {{x.lastUpdate}} دقیقه پیش
                         </div>
                     </div>
+                </div>-->
+
+                <div class="row card-deck" >
+                    <div class="col-md-4" ng-repeat="x in Stores"  ng-click="StoreClick(x.ID)">                        
+                        <div class="card mb-4 " style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                            <div class="card-header bg-secondary text-white">{{x.ProductCount}} محصول</div>
+                            <div class="card-body text-center">
+                                <h6 class="card-title">{{x.Name}}</h6>
+                                <p class="card-text">{{x.IntroductionSummary}}</p>
+                            </div>
+                            <ul class="list-group list-group-flush" ng-repeat="t in x.Options">
+                                <li class="list-group-item text-info small">
+                                    <small>{{t.Caption}}</small>
+                                </li>
+                            </ul>
+                            <div class="card-footer text-muted small">
+                                <p class="btn-sm btn-primary text-center">{{x.Name}}</p>
+                                {{x.lastUpdate}} دقیقه پیش
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-
-
+                
 
             </div>
             <!-- #endregion -->
@@ -1071,28 +1090,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <ul class="pagination pagination-sm">
-                            <li class="border border-dark rounded m-1 px-2 py-1">
-                                <a href="" class="text-primary">1</a>
-                            </li>
-                            <li class="border border-dark rounded m-1 px-2 py-1">
-                                <a href="" class="text-primary">5</a>
-                            </li>
-                            <li class="border border-dark rounded m-1 px-2 py-1">
-                                <a href="" class="text-primary">2</a>
-                            </li>
-                            <li class="border border-dark rounded m-1 px-2 py-1">
-                                <a href="" class="text-primary">3</a>
-                            </li>
-                            <li class="border border-dark rounded m-1 px-2 py-1">
-                                <a href="" class="text-primary">4</a>
-                            </li>
-                        </ul>
-                    </div>
-
                 </div>
-
             </div>
             <!-- #endregion -->
             <!-- #region CartView -->
@@ -1119,7 +1117,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <img src="{{x.Images[0].SourceAddress}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 200px;">
+                            <img src="{{x.Images[0].SourceAddress}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block rounded" style="height: 200px;">
                         </div>
                         <div class="col-md-3">
                             <div class="label">
