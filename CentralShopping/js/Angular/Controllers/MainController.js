@@ -66,6 +66,8 @@ app.controller('MainControl', function ($scope) {
     $scope.ProblemView = false;
 
     $scope.AvalableProductOnly = false;
+    $scope.ProductsPriceFrom = 0;
+    $scope.ProductsPriceTo = 0;
 
     $scope.ObjectInPageCount = [9, 18, "همه"];
 
@@ -521,7 +523,7 @@ app.controller('MainControl', function ($scope) {
                 Name: 'عینک آفتابی RayBan 3576N 1537V',
                 Price: 25790000,
                 Discount: 25,
-                FinallPrice: 19342500,
+                FinallPrice: 10,
                 Image: 'Images/Slids/Brands/2.png',
                 Options: [
                     {
@@ -551,7 +553,7 @@ app.controller('MainControl', function ($scope) {
                 Name: 'عینک آفتابی RayBan 3581N 90387J',
                 Price: 25790000,
                 Discount: 10,
-                FinallPrice: 23211000,
+                FinallPrice: 20,
                 Image: 'Images/Slids/Brands/8.jpg',
                 Options: [
                     {
@@ -582,7 +584,7 @@ app.controller('MainControl', function ($scope) {
                 Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
                 Price: 23460000,
                 Discount: 20,
-                FinallPrice: 18768000,
+                FinallPrice: 30,
                 Image: 'Images/Slids/Brands/6.jpg',
                 Options: [
                     {
@@ -608,7 +610,7 @@ app.controller('MainControl', function ($scope) {
                 Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
                 Price: 23460000,
                 Discount: 0,
-                FinallPrice: 23460000,
+                FinallPrice: 40,
                 Image:
                     'Images/Slids/Brands/7.png',
                 Options: [
@@ -630,152 +632,152 @@ app.controller('MainControl', function ($scope) {
                 Available: false,
                 AvailableCount: 0,
             },
-            //{
-            //    ID: 7,
-            //    Name: 'عینک آفتابی RayBan 3581N 90387J',
-            //    Price: 25790000,
-            //    Discount: 0,
-            //    FinallPrice: 25790000,
-            //    Image: 'Images/Slids/Brands/4.jpg',
-            //    Options: [
-            //        {
-            //            ID: 1,
-            //            Caption: 'ساخت کشور ایتالیا'
-            //        },
-            //        {
-            //            ID: 2,
-            //            Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
-            //        },
-            //        {
-            //            ID: 3,
-            //            Caption: 'زیبایی و ترکیبی فراتر از انتظار'
-            //        },
-            //        {
-            //            ID: 4,
-            //            Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
-            //        },
-            //    ],
-            //    LastUpdate: '2019-02-08',
-            //    VisitsCount: 7,
-            //    Available: false,
-            //    AvailableCount: 0,
-            //},
-            //{
-            //    ID: 5,
-            //    Name: 'عینک آفتابی RayBan 3576N 1537V',
-            //    Price: 25790000,
-            //    Discount: 0,
-            //    FinallPrice: 25790000,
-            //    Image: 'Images/Slids/Brands/5.png',
-            //    Options: [
-            //        {
-            //            ID: 1,
-            //            Caption: 'ساخت کشور ایتالیا'
-            //        },
-            //        {
-            //            ID: 2,
-            //            Caption: 'سبک کلاسیک، با معرفی Blaze'
-            //        },
-            //        {
-            //            ID: 3,
-            //            Caption: 'لنز Sharp Onesie! Ray-Ban'
-            //        },
-            //        {
-            //            ID: 4,
-            //            Caption: 'مناسب برای صورت های بیضی و گرد شکل'
-            //        },
-            //    ],
-            //    LastUpdate: '2018-09-11',
-            //    VisitsCount: 201,
-            //    Available: true,
-            //    AvailableCount: 5,
-            //},
-            //{
-            //    ID: 9,
-            //    Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
-            //    Price: 23460000,
-            //    Discount: 0,
-            //    FinallPrice: 23460000,
-            //    Image: 'Images/Slids/Brands/1.png',
-            //    Options: [
-            //        {
-            //            ID: 1,
-            //            Caption: 'ساخت کشور ایتالیا'
-            //        },
-            //        {
-            //            ID: 2,
-            //            Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
-            //        },
-            //        {
-            //            ID: 3,
-            //            Caption: 'بسیار بادوام و مستحکم'
-            //        },
-            //    ],
-            //    LastUpdate: '2018-11-27',
-            //    VisitsCount: 71,
-            //    Available: true,
-            //    AvailableCount: 5,
-            //},
-            //{
-            //    ID: 8,
-            //    Name: 'عینک آفتابی RayBan 3576N 1537V',
-            //    Price: 25790000,
-            //    Discount: 0,
-            //    FinallPrice: 25790000,
-            //    Image: 'Images/Slids/Brands/3.png',
-            //    Options: [
-            //        {
-            //            ID: 1,
-            //            Caption: 'ساخت کشور ایتالیا'
-            //        },
-            //        {
-            //            ID: 2,
-            //            Caption: 'سبک کلاسیک، با معرفی Blaze'
-            //        },
-            //        {
-            //            ID: 3,
-            //            Caption: 'لنز Sharp Onesie! Ray-Ban'
-            //        },
-            //        {
-            //            ID: 4,
-            //            Caption: 'مناسب برای صورت های بیضی و گرد شکل'
-            //        },
-            //    ],
-            //    LastUpdate: '2019-01-11',
-            //    VisitsCount: 20,
-            //    Available: true,
-            //    AvailableCount: 5,
-            //},
-            //{
-            //    ID: 4,
-            //    Name: 'عینک آفتابی RayBan 3581N 90387J',
-            //    Price: 25790000,
-            //    Discount: 0,
-            //    FinallPrice: 25790000,
-            //    Image: 'Images/Slids/Brands/2.png',
-            //    Options: [
-            //        {
-            //            ID: 1,
-            //            Caption: 'ساخت کشور ایتالیا'
-            //        },
-            //        {
-            //            ID: 2,
-            //            Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
-            //        },
-            //        {
-            //            ID: 3,
-            //            Caption: 'زیبایی و ترکیبی فراتر از انتظار'
-            //        },
-            //        {
-            //            ID: 4,
-            //            Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
-            //        },
-            //    ],
-            //    LastUpdate: '2018-10-08',
-            //    VisitsCount: 550,
-            //    Available: true,
-            //    AvailableCount: 5,
-            //},
+            {
+                ID: 7,
+                Name: 'عینک آفتابی RayBan 3581N 90387J',
+                Price: 25790000,
+                Discount: 0,
+                FinallPrice: 25790000,
+                Image: 'Images/Slids/Brands/4.jpg',
+                Options: [
+                    {
+                        ID: 1,
+                        Caption: 'ساخت کشور ایتالیا'
+                    },
+                    {
+                        ID: 2,
+                        Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
+                    },
+                    {
+                        ID: 3,
+                        Caption: 'زیبایی و ترکیبی فراتر از انتظار'
+                    },
+                    {
+                        ID: 4,
+                        Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
+                    },
+                ],
+                LastUpdate: '2019-02-08',
+                VisitsCount: 7,
+                Available: false,
+                AvailableCount: 0,
+            },
+            {
+                ID: 5,
+                Name: 'عینک آفتابی RayBan 3576N 1537V',
+                Price: 25790000,
+                Discount: 0,
+                FinallPrice: 25790000,
+                Image: 'Images/Slids/Brands/5.png',
+                Options: [
+                    {
+                        ID: 1,
+                        Caption: 'ساخت کشور ایتالیا'
+                    },
+                    {
+                        ID: 2,
+                        Caption: 'سبک کلاسیک، با معرفی Blaze'
+                    },
+                    {
+                        ID: 3,
+                        Caption: 'لنز Sharp Onesie! Ray-Ban'
+                    },
+                    {
+                        ID: 4,
+                        Caption: 'مناسب برای صورت های بیضی و گرد شکل'
+                    },
+                ],
+                LastUpdate: '2018-09-11',
+                VisitsCount: 201,
+                Available: true,
+                AvailableCount: 5,
+            },
+            {
+                ID: 9,
+                Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
+                Price: 23460000,
+                Discount: 0,
+                FinallPrice: 23460000,
+                Image: 'Images/Slids/Brands/1.png',
+                Options: [
+                    {
+                        ID: 1,
+                        Caption: 'ساخت کشور ایتالیا'
+                    },
+                    {
+                        ID: 2,
+                        Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
+                    },
+                    {
+                        ID: 3,
+                        Caption: 'بسیار بادوام و مستحکم'
+                    },
+                ],
+                LastUpdate: '2018-11-27',
+                VisitsCount: 71,
+                Available: true,
+                AvailableCount: 5,
+            },
+            {
+                ID: 8,
+                Name: 'عینک آفتابی RayBan 3576N 1537V',
+                Price: 25790000,
+                Discount: 0,
+                FinallPrice: 25790000,
+                Image: 'Images/Slids/Brands/3.png',
+                Options: [
+                    {
+                        ID: 1,
+                        Caption: 'ساخت کشور ایتالیا'
+                    },
+                    {
+                        ID: 2,
+                        Caption: 'سبک کلاسیک، با معرفی Blaze'
+                    },
+                    {
+                        ID: 3,
+                        Caption: 'لنز Sharp Onesie! Ray-Ban'
+                    },
+                    {
+                        ID: 4,
+                        Caption: 'مناسب برای صورت های بیضی و گرد شکل'
+                    },
+                ],
+                LastUpdate: '2019-01-11',
+                VisitsCount: 20,
+                Available: true,
+                AvailableCount: 5,
+            },
+            {
+                ID: 4,
+                Name: 'عینک آفتابی RayBan 3581N 90387J',
+                Price: 25790000,
+                Discount: 0,
+                FinallPrice: 25790000,
+                Image: 'Images/Slids/Brands/2.png',
+                Options: [
+                    {
+                        ID: 1,
+                        Caption: 'ساخت کشور ایتالیا'
+                    },
+                    {
+                        ID: 2,
+                        Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
+                    },
+                    {
+                        ID: 3,
+                        Caption: 'زیبایی و ترکیبی فراتر از انتظار'
+                    },
+                    {
+                        ID: 4,
+                        Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
+                    },
+                ],
+                LastUpdate: '2018-10-08',
+                VisitsCount: 550,
+                Available: true,
+                AvailableCount: 5,
+            },
         ],
         TotalCount: 50,
     };
@@ -3079,10 +3081,27 @@ app.controller('MainControl', function ($scope) {
 
     $scope.NavbarMenuClick = function (CategoryID) {
 
-
         alert(CategoryID);
         SetAllView(false);
         $scope.ProductsView = true;
+    };
+
+    $scope.filterProducts = function (product) {
+
+        //console.log(product.ID);
+        //TODO :: چطور است که این فیلتر چندین بار انجام می شود؟
+
+        if ($scope.AvalableProductOnly && !product.Available)
+            return false;
+
+        if ($scope.ProductsPriceFrom > 0 && product.FinallPrice < $scope.ProductsPriceFrom) 
+            return false;
+
+        if ($scope.ProductsPriceTo > 0 && $scope.ProductsPriceTo < product.FinallPrice)
+            return false;
+        
+
+        return true; 
     };
 
     $scope.CartClick = function () {
@@ -3217,102 +3236,3 @@ app.controller('MainControl', function ($scope) {
 
 });
 
-app.directive("w3TestDirective", function () {
-    return {
-
-        template: CreateNavbarMenu([
-        {
-            Id: 1,
-            Caption: "test 1",
-            Menu: [
-                {
-                    Id: 11,
-                    Caption: "test 1 - 1",
-                    Menu: [
-                        {
-                            Id: 111,
-                            Caption: "test 1 - 1 - 1",
-                            Menu: []
-                        },
-                        {
-                            Id: 112,
-                            Caption: "test 1 - 1 - 2",
-                            Menu: []
-                        }, {
-                            Id: 113,
-                            Caption: "test 1 - 1 - 3",
-                            Menu: []
-                        }
-                    ]
-                },
-                {
-                    Id: 12,
-                    Caption: "test 1 - 2",
-                    Menu: [
-                        {
-                            Id: 121,
-                            Caption: "test 1 - 2 - 1",
-                            Menu: []
-                        },
-                        {
-                            Id: 122,
-                            Caption: "test 1 - 2 - 2",
-                            Menu: []
-                        }, {
-                            Id: 123,
-                            Caption: "test 1 - 2 - 3",
-                            Menu: []
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            Id: 2,
-            Caption: "test 2",
-            Menu: [
-                {
-                    Id: 21,
-                    Caption: "test 2 - 1",
-                    Menu: [
-                        {
-                            Id: 211,
-                            Caption: "test 2 - 1 - 1",
-                            Menu: []
-                        },
-                        {
-                            Id: 212,
-                            Caption: "test 2 - 1 - 2",
-                            Menu: []
-                        }, {
-                            Id: 213,
-                            Caption: "test 2 - 1 - 3",
-                            Menu: []
-                        }
-                    ]
-                },
-                {
-                    Id: 22,
-                    Caption: "test 2 - 2",
-                    Menu: [
-                        {
-                            Id: 221,
-                            Caption: "test 2 - 2 - 1",
-                            Menu: []
-                        },
-                        {
-                            Id: 222,
-                            Caption: "test 2 - 2 - 2",
-                            Menu: []
-                        }, {
-                            Id: 223,
-                            Caption: "test 2 - 2 - 3",
-                            Menu: []
-                        }
-                    ]
-                }
-            ]
-        }
-        ])
-    };
-});

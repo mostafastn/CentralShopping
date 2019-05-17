@@ -515,18 +515,18 @@
                                 </ul>
                             </li>
                             <!--test-->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-nowrap dropdown-toggle" href="#" data-toggle="dropdown">
-                                داینامیک 1
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li ng-repeat="NavbarProduct in NavbarProductMenu" ng-include="'categoryTree'">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-nowrap dropdown-toggle" href="#" data-toggle="dropdown">
+                                    داینامیک 1
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li ng-repeat="NavbarProduct in NavbarProductMenu" ng-include="'categoryTree'">
 
-                                </li>
-                               
-                            </ul>
-                        </li>
-                        <!--test-->
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <!--test-->
 
                             <li class="nav-item">
                                 <a class="nav-link text-nowrap" href="" id="StoreMenu" ng-click="StoreMenuClick()">فروشگاه ها</a>
@@ -826,8 +826,8 @@
             <div class="row border border-dark mb-3 rounded" ng-show="StoreView">
 
                 <div class="col-md-3 border-right border-secondary rounded">
-                    
-                   <div id="accordion">
+
+                    <div id="accordion">
                         <div class="card">
                             <div class="card-header">
                                 <a class="collapsed card-link font-weight-bold" href="" ng-click="HomeCompanyClick()">{{Store.Name}}</a>
@@ -835,11 +835,10 @@
                         </div>
                         <div class="card">
                             <div class="card-header" id="headingOne">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link card-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        محصولات
-                                    </button>
-                                </h5>
+
+                                <button class="btn btn-link card-link p-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    محصولات
+                                </button>
                             </div>
 
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
@@ -860,8 +859,8 @@
                                 <a class="collapsed card-link" href="" ng-click="ContactCompanyClick()">تماس با ما</a>
                             </div>
                         </div>
-                    </div> 
-                    
+                    </div>
+
                 </div>
 
                 <div class="col-md-9" ng-show="HomeCompanyView">
@@ -1010,21 +1009,21 @@
             <!-- #endregion -->
             <!-- #region ProductsView -->
             <div class="row mb-3" ng-show="ProductsView">
-              
-                
+
+
                 <div class="col-md-3">
-                    
+
                     <div class="label text-dark font-weight-bold py-2 BTitr">
                         {{ProductList.Caption}}
                     </div>
-                   
+
                     <div class="card">
                         <div class="card-header">
-                            
+
                             <div class="label text-dark font-weight-bold mb-2 border-bottom border-muted">
                                 فیلتر گذاری
                             </div>
-                            
+
                             <div class="label text-dark font-weight-bold small">
                                 محدوده قیمت
                             </div>
@@ -1032,13 +1031,15 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-sm">از</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+                                       ng-model="ProductsPriceFrom">
                             </div>
                             <div class="input-group input-group-sm mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-sm">تا</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+                                       ng-model="ProductsPriceTo">
                             </div>
 
                             <div class="form-check">
@@ -1047,32 +1048,32 @@
                             </div>
 
                         </div>
-                        </div>
-                    
+                    </div>
+
                 </div>
 
                 <div class="col-md-9 border border-secondary rounded">
                     <div class="row pt-2">
                         <div class="col-sm-3">
-                            <select class="text-primary border-primary rounded w-100" ng-model="SortType" 
+                            <select class="text-primary border-primary rounded w-100" ng-model="SortType"
                                     ng-options="x.Caption for x in SortTypes"></select>
                         </div>
-                        
+
                         <div class="col-sm-9 text-info text-right">
                             {{ProductList.Products.length}} محصول
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-4 p-1" ng-repeat="x in SearchResultProductList.Products | filter :{AvalableProductOnly: x.Available} | orderBy : SortType.Value" id="{{x.ID}}" ng-click="StoreProductClick(x.ID)">
+                        <div class="col-md-4 p-1" ng-repeat="x in SearchResultProductList.Products | filter :filterProducts | orderBy : SortType.Value" id="{{x.ID}}" ng-click="StoreProductClick(x.ID)">
                             <div class="border rounded h-100" ng-class="{'border-danger' : !x.Available , 'border-dark' : x.Available }">
                                 <div class="m-1">
                                     <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 150px;">
                                 </div>
                                 <div class="label m-1 text-dark font-weight-bold">{{x.Name}}</div>
-                                <div class="label m-1" ng-show="x.Discount">
+                                <div class="label text-dark font-weight-bold m-1 p-1" ng-show="x.Discount">
                                     تخفیف :
-                                    <span class="text-danger">{{x.Discount}}%</span>
+                                    <span class="text-danger bg-warning rounded p-1">{{x.Discount}}%</span>
                                 </div>
                                 <div class="label m-1 text-white bg-info rounded p-1">{{x.FinallPrice | currency:"":0}} ریال</div>
                             </div>
@@ -1086,12 +1087,7 @@
 
                 <div ng-show="Cart.Items.length">
 
-                    <div class="text-dark text-left mb-5">
-
-                        سبد خرید
-
-                        <hr />
-                    </div>
+                    <h3 class="text-dark text-left border-bottom border-muted mb-5 pb-2 BTitr">سبد خرید</h3>
 
                     <div class="row" ng-repeat="x in Cart.Items">
 
