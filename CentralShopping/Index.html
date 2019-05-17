@@ -608,48 +608,86 @@
 
             <div class="row my-5" ng-show="HomeView">
                 <div class="col">
-                    <nav class="tabbable">
-                        <div class="nav nav-tabs">
-                            <a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" ng-repeat="x in SpecialTab" ng-click="SpecialTabClick(x)" ng-class="{'active': x.Active }">{{x.Name}}</a>
+                    <div class="border border-muted rounded">
+                        <div class="label text-danger m-2 BTitr">
+                            محصولات ویژه
                         </div>
-                    </nav>
-                    <div class="tab-content" id="nav-tabContent">
-                        <div class="container tab-pane  border border-secondary rounded" ng-class="{'active': x.Active , 'fade': !x.Active}" ng-repeat="x in SpecialTab">
-                            <div class="row">
+                        <nav class="tabbable">
+                            <div class="nav nav-tabs">
+                                <a class="nav-item nav-link text-nowrap bg-light" data-toggle="tab" ng-repeat="x in SpecialTab" ng-click="SpecialTabClick(x)" ng-class="{'active': x.Active }">{{x.Name}}</a>
+                            </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="container tab-pane" ng-class="{'active': x.Active , 'fade': !x.Active}" ng-repeat="x in SpecialTab">
+                                <div class="row">
 
-                                <div class="col-lg-4 my-auto ">
-                                    <div ng-repeat="t in x.Options">
-                                        {{t.Caption}}
-                                        <hr />
-                                    </div>
-                                </div>
-                                <div class="col-md-4 my-auto">
-
-                                    <div ng-show="x.Discount" ng-class="{'mt-2': x.Discount}">
-
-                                        <div class="label text-danger bg-warning rounded m-1 p-1 w-100">
-                                            قیمت :
-                                            <s>{{x.Price | currency:"":0}}</s> ریال
-                                        </div>
-                                        <div class="label text-danger bg-warning rounded m-1 p-1 w-100">
-                                            تخفیف : {{x.Discount}}%
+                                    <div class="col-lg-4 my-auto ">
+                                        <div ng-repeat="t in x.Options">
+                                            {{t.Caption}}
+                                            <hr />
                                         </div>
                                     </div>
+                                    <div class="col-md-4 my-auto">
 
-                                    <div class="label text-light bg-info rounded m-1 p-1 w-100" ng-class="{'mt-5': !x.Discount}">
-                                        قیمت نهایی : {{x.FinallPrice| currency:"":0}} ریال
+                                        <div ng-show="x.Discount" ng-class="{'mt-2': x.Discount}">
+
+                                            <div class="label text-danger bg-warning rounded m-1 p-1 w-100">
+                                                قیمت :
+                                                <s>{{x.Price | currency:"":0}}</s> ریال
+                                            </div>
+                                            <div class="label text-danger bg-warning rounded m-1 p-1 w-100">
+                                                تخفیف : {{x.Discount}}%
+                                            </div>
+                                        </div>
+
+                                        <div class="label text-light bg-info rounded m-1 p-1 w-100" ng-class="{'mt-5': !x.Discount}">
+                                            قیمت نهایی : {{x.FinallPrice| currency:"":0}} ریال
+                                        </div>
+
+                                        <div class="mt-3 text-center">
+                                            <button class="btn btn-primary w-75 font-weight-bold" type="submit" ng-click="SpecialTabProductClick(x)">
+                                                <i class="fa fa-eye fa-2x pull-left" aria-hidden="true">
+                                                </i>
+                                                مشاهده محصول
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 my-2">
+                                        <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 200px;">
                                     </div>
 
-                                    <div class="mt-3 text-center">
-                                        <button class="btn btn-primary w-75 font-weight-bold" type="submit" ng-click="SpecialTabProductClick(x)">
-                                            <i class="fa fa-eye fa-2x pull-left" aria-hidden="true">
-                                            </i>
-                                            مشاهده محصول
-                                        </button>
-                                    </div>
                                 </div>
-                                <div class="col-md-4 my-2">
-                                    <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 200px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row my-5" ng-show="HomeView">
+                <div class="col">
+                    <div class="border border-muted rounded">
+                        <div class="label text-danger m-2 BTitr">
+                            فروشگاه های محبوب
+                        </div>
+
+                        <div class="row card-deck">
+
+                            <div class="col-md-4" ng-repeat="x in Stores" ng-click="StoreClick(x.ID)">
+                                <div class="card mb-4 " style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                    <div class="card-header bg-secondary text-white">{{x.ProductCount}} محصول</div>
+                                    <div class="card-body text-center">
+                                        <h6 class="card-title">{{x.Name}}</h6>
+                                        <p class="card-text">{{x.IntroductionSummary}}</p>
+                                    </div>
+                                    <ul class="list-group list-group-flush" ng-repeat="t in x.Options">
+                                        <li class="list-group-item text-info small">
+                                            <small>{{t.Caption}}</small>
+                                        </li>
+                                    </ul>
+                                    <div class="card-footer text-muted small">
+                                        <p class="btn-sm btn-primary text-center">{{x.Name}}</p>
+                                        {{x.lastUpdate}} دقیقه پیش
+                                    </div>
                                 </div>
 
                             </div>
@@ -658,144 +696,9 @@
                 </div>
             </div>
 
-            <div class="card-deck" ng-show="HomeView">
-
-                <div class="card   mb-4">
-                    <div class="card-header bg-secondary text-white ">محصول جدید</div>
-                    <div class="card-body text-center">
-                        <h6 class="card-title">فروشگاه لوتوس</h6>
-                        <p class="card-text">
-                            فروشنده انواع
-                            تجهیزات آی تی با بهترین قیمت روز و ضمانت اصالت کالا و گارانتی اصلی.
-                        </p>
-                    </div>
-                    <ul class="list-group list-group-flush ">
-                        <li class="list-group-item text-info small">
-                            <small>تخفیف های ویژه</small>
-                        </li>
-                        <li class="list-group-item text-info small">
-                            <small>مدت محدود</small>
-                        </li>
-                        <li class="list-group-item text-info small">
-                            <small>ارسال رایگان</small>
-                        </li>
-                    </ul>
-                    <div class="card-footer text-muted small">
-                        <p class="btn-sm btn-primary text-center">فروشگاه لوتوس</p>
-                        40 دقیقه پیش
-                    </div>
-                </div>
-                <div class="card   mb-4">
-                    <div class="card-header bg-secondary text-white ">محصول جدید</div>
-                    <div class="card-body text-center">
-                        <h6 class="card-title">فروشگاه عطر سفیر</h6>
-                        <p class="card-text">ارائه رایحه های اصیل و ماندگار از عطرها و برندهای معتبر جهان</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-info small">
-                            <small>3 روز ضمانت برگشت کالا</small>
-                        </li>
-                        <li class="list-group-item text-info small">
-                            <small>ارسال رایگان</small>
-                        </li>
-                    </ul>
-                    <div class="card-footer text-muted small">
-                        <p class="btn-sm btn-primary text-center">فروشگاه عطر سفیر</p>
-                        7 دقیقه پیش
-                    </div>
-                </div>
-                <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
-                <div class="card   mb-4">
-                    <div class="card-header bg-secondary text-white ">محصول جدید</div>
-                    <div class="card-body text-center">
-                        <h6 class="card-title">فروشگاه گوشی شاپ</h6>
-                        <p class="card-text">اولین و معتبرترین فروشگاه آنلاین گوشی های موبایل، تبلت، گجت و لوازم جانبی</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-info small">
-                            <small>تخفیف های ویژه</small>
-                        </li>
-                        <li class="list-group-item text-info small">
-                            <small>مدت محدود</small>
-                        </li>
-                    </ul>
-                    <div class="card-footer text-muted small">
-                        <p class="btn-sm btn-primary text-center">فروشگاه گوشی شاپ</p>
-                        57 دقیقه پیش
-                    </div>
-                </div>
-                <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
-                <div class="card   mb-4">
-                    <div class="card-header bg-secondary text-white ">محصول جدید</div>
-                    <div class="card-body text-center">
-                        <h6 class="card-title">فروشگاه الماس پایتخت</h6>
-                        <p class="card-text">محصولات سایت اپل در ایران نمایندگی فروش ایفون اپل در ایران با گارانتی رسمی</p>
-                    </div>
-                    <ul class="list-group list-group-flush ">
-                        <li class="list-group-item text-info small">
-                            <small>گارانتی یک ساله</small>
-                        </li>
-                        <li class="list-group-item text-info small">
-                            <small>خدمات پس از فروش</small>
-                        </li>
-                        <li class="list-group-item text-info small">
-                            <small>ارسال رایگان</small>
-                        </li>
-                    </ul>
-                    <div class="card-footer text-muted small small">
-                        <p class="btn-sm btn-primary text-center">فروشگاه الماس پایتخت</p>
-                        15 دقیقه پیش
-                    </div>
-                </div>
-                <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
-                <div class="w-100 d-none d-lg-block d-xl-none"><!-- wrap every 4 on lg--></div>
-                <div class="card   mb-4">
-                    <div class="card-header bg-secondary text-white ">محصول جدید</div>
-                    <div class="card-body text-center">
-                        <h6 class="card-title">فروشگاه میثم عطر</h6>
-                        <p class="card-text">مرجع تخصصی عطر، لوازم آرایش و محصولات بهداشتی، ارائه کننده بیش از 100 برند معتبر</p>
-                    </div>
-                    <div class="card-footer text-muted small">
-                        <p class="btn-sm btn-primary text-center">فروشگاه میثم عطر</p>
-                        7 دقیقه پیش
-                    </div>
-                </div>
-            </div>
-
             <!-- #endregion -->
             <!-- #region StoresView -->
             <div class="row" ng-show="StoresView">
-
-                <form class="col-12 p-0 mb-4">
-                    <div class="input-group">
-                        <input type="text" class="form-control border border-dark" placeholder="جستجو">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-dark" type="submit" title="جستجو">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-
-                <!--<div class="card-columns bg-primary">
-                    <div class="card mb-4 " style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
-                         ng-repeat="x in Stores" ng-click="StoreClick(x.ID)">
-                        <div class="card-header bg-secondary text-white">{{x.ProductCount}} محصول</div>
-                        <div class="card-body text-center">
-                            <h6 class="card-title">{{x.Name}}</h6>
-                            <p class="card-text">{{x.IntroductionSummary}}</p>
-                        </div>
-                        <ul class="list-group list-group-flush" ng-repeat="t in x.Options">
-                            <li class="list-group-item text-info small">
-                                <small>{{t.Caption}}</small>
-                            </li>
-                        </ul>
-                        <div class="card-footer text-muted small">
-                            <p class="btn-sm btn-primary text-center">{{x.Name}}</p>
-                            {{x.lastUpdate}} دقیقه پیش
-                        </div>
-                    </div>
-                </div>-->
 
                 <div class="row card-deck">
                     <div class="col-md-4" ng-repeat="x in Stores" ng-click="StoreClick(x.ID)">
@@ -818,7 +721,6 @@
 
                     </div>
                 </div>
-
 
             </div>
             <!-- #endregion -->

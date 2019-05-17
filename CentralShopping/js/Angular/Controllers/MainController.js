@@ -42,7 +42,7 @@ app.controller('MainControl', function ($scope) {
 
     // Class Object
 
-    $scope.HomeView = false;
+    $scope.HomeView = true;
 
     $scope.StoresView = false;
 
@@ -53,7 +53,7 @@ app.controller('MainControl', function ($scope) {
     $scope.StoreContactCompanyView = false;
     $scope.StoreProductView = false;
 
-    $scope.ProductsView = true;
+    $scope.ProductsView = false;
 
     $scope.CartView = false;
     $scope.RegisterView = false;
@@ -306,43 +306,43 @@ app.controller('MainControl', function ($scope) {
     $scope.SpecialTab = [
         {
             ID: 1,
-            Name: 'ادوتویلت مردانه',
-            StoreName: 'فروشگاه میثم عطر',
-            Introduction: 'ادو تویلت مردانه امپر ویواریا مدل Stylo Pour Homme حجم 80 میلی لیتر.',
-            Price: 1500000,
-            Discount: 10,
-            FinallPrice: 1350000,
-            Image: 'Images/Slids/Brands/1.png',
+            Name: 'ادو پرفیوم Baccarat Rouge 540',
+            StoreName: 'فروشگاه عطر محمد',
+            Introduction: 'ادو پرفیوم میسون فرانسیس کورکجان مدل Baccarat Rouge 540.',
+            Price: 58000000,
+            Discount: 0,
+            FinallPrice: 58000000,
+            Image: 'Images/Products/111.jpg',
             Options: [
                 {
                     ID: 1,
-                    Caption: 'گارانتی اصالت و سلامت فیزیکی کالا'
+                    Caption: 'نوع رایحه : تند گرم'
                 },
                 {
                     ID: 2,
-                    Caption: 'نوع رایحه: خوراکی خنک طبیعت شیرین'
+                    Caption: 'ساختار رایحه : چوب صمغ گیاهان معطر'
                 },
                 {
                     ID: 3,
-                    Caption: 'ساختار رایحه: مرکبات میوه گیاهان معطر چوب'
-                },
+                    Caption: 'حجم 200 میلی لیتر'
+                }
             ],
             Code: '#1',
             Active: true,
         },
         {
             ID: 2,
-            Name: 'ادوتویلت مردانه',
-            StoreName: 'فروشگاه میثم عطر',
-            Introduction: 'ادو تویلت مردانه امپر ویواریا مدل Stylo Pour Homme حجم 80 میلی لیتر.',
-            Price: 15000000,
-            Discount: 10,
-            FinallPrice: 13500000,
-            Image: 'Images/Slids/Brands/3.png',
+            Name: 'ادو پرفیوم کرید Royal Mayfair',
+            StoreName: 'فروشگاه عطر محمد',
+            Introduction: 'ادو پرفیوم کرید مدل Royal Mayfair.',
+            Price: 49000000,
+            Discount: 5,
+            FinallPrice: 46550000,
+            Image: 'Images/Products/112.jpg',
             Options: [
                 {
                     ID: 1,
-                    Caption: 'گارانتی اصالت و سلامت فیزیکی کالا'
+                    Caption: 'نوع رایحه : تلخ گرم'
                 },
                 {
                     ID: 2,
@@ -350,7 +350,7 @@ app.controller('MainControl', function ($scope) {
                 },
                 {
                     ID: 3,
-                    Caption: 'ساختار رایحه: مرکبات میوه گیاهان معطر چوب'
+                    Caption: 'حجم 120 میلی لیتر'
                 },
             ],
             Code: '#2',
@@ -358,25 +358,25 @@ app.controller('MainControl', function ($scope) {
         },
         {
             ID: 3,
-            Name: 'ادوتویلت مردانه',
+            Name: 'بادی اسپلش زنانه ویکتوریا',
             StoreName: 'فروشگاه میثم عطر',
-            Introduction: 'ادو تویلت مردانه امپر ویواریا مدل Stylo Pour Homme حجم 80 میلی لیتر.',
-            Price: 150000000,
-            Discount: 10,
-            FinallPrice: 135000000,
-            Image: 'Images/Slids/Brands/9.jpg',
+            Introduction: 'بادی اسپلش زنانه ویکتوریا سکرت مدل Eau so party.',
+            Price: 2450000,
+            Discount: 0,
+            FinallPrice: 2450000,
+            Image: 'Images/Products/121.jpg',
             Options: [
                 {
                     ID: 1,
-                    Caption: 'گارانتی اصالت و سلامت فیزیکی کالا'
+                    Caption: 'نوع : اسپری معمولی'
                 },
                 {
                     ID: 2,
-                    Caption: 'نوع رایحه: خوراکی خنک طبیعت شیرین'
+                    Caption: 'طبع : گرم'
                 },
                 {
                     ID: 3,
-                    Caption: 'ساختار رایحه: مرکبات میوه گیاهان معطر چوب'
+                    Caption: 'حجم 250 میلی لیتر'
                 },
             ],
             Code: '#3',
@@ -384,130 +384,118 @@ app.controller('MainControl', function ($scope) {
         },
         {
             ID: 4,
-            Name: 'ادوتویلت مردانه',
-            StoreName: 'فروشگاه میثم عطر',
-            Introduction: 'ادو تویلت مردانه امپر ویواریا مدل Stylo Pour Homme حجم 80 میلی لیتر.',
-            Price: 1500000000,
-            Discount: 10,
-            FinallPrice: 1350000000,
-            Image: 'Images/Slids/Brands/4.jpg',
+            Name: 'زیتون شکسته',
+            StoreName: 'فروشگاه طارم آنلاین',
+            Introduction: 'زیتون شکسته درجه 1.',
+            Price: 180000,
+            Discount: 5,
+            FinallPrice: 171000,
+            Image: 'Images/Products/211.jpg',
             Options: [
                 {
                     ID: 1,
-                    Caption: 'گارانتی اصالت و سلامت فیزیکی کالا'
+                    Caption: 'زیتون طارم'
                 },
                 {
                     ID: 2,
-                    Caption: 'نوع رایحه: خوراکی خنک طبیعت شیرین'
-                },
-                {
-                    ID: 3,
-                    Caption: 'ساختار رایحه: مرکبات میوه گیاهان معطر چوب'
-                },
+                    Caption: 'گوشتی و روغنی'
+                }
             ],
             Code: '#4',
             Active: false,
         },
         {
             ID: 5,
-            Name: 'ادوتویلت مردانه',
-            StoreName: 'فروشگاه میثم عطر',
-            Introduction: 'ادو تویلت مردانه امپر ویواریا مدل Stylo Pour Homme حجم 80 میلی لیتر.',
-            Price: 1500000,
-            Discount: 10,
-            FinallPrice: 1350000,
-            Image: 'Images/Slids/Brands/4.jpg',
+            Name: 'روغن زیتون',
+            StoreName: 'فروشگاه طارم آنلاین',
+            Introduction: 'روغن زیتون درجه 1.',
+            Price: 750000,
+            Discount: 5,
+            FinallPrice: 712500,
+            Image: 'Images/Products/242.jpg',
             Options: [
                 {
                     ID: 1,
-                    Caption: 'گارانتی اصالت و سلامت فیزیکی کالا'
+                    Caption: 'زیتون طارم'
                 },
                 {
                     ID: 2,
-                    Caption: 'نوع رایحه: خوراکی خنک طبیعت شیرین'
-                },
-                {
-                    ID: 3,
-                    Caption: 'ساختار رایحه: مرکبات میوه گیاهان معطر چوب'
-                },
+                    Caption: 'رنگ سبز'
+                }
             ],
             Code: '#5',
             Active: false,
         },
         {
             ID: 6,
-            Name: 'ادوتویلت مردانه',
-            StoreName: 'فروشگاه میثم عطر',
-            Introduction: 'ادو تویلت مردانه امپر ویواریا مدل Stylo Pour Homme حجم 80 میلی لیتر.',
-            Price: 15000000,
-            Discount: 10,
-            FinallPrice: 13500000,
-            Image: 'Images/Slids/Brands/4.jpg',
+            Name: 'رب انار ترش',
+            StoreName: 'فروشگاه طارم آنلاین',
+            Introduction: 'رب انار ترش درجه 1.',
+            Price: 550000,
+            Discount: 5,
+            FinallPrice: 522500,
+            Image: 'Images/Products/252.jpg',
             Options: [
                 {
                     ID: 1,
-                    Caption: 'گارانتی اصالت و سلامت فیزیکی کالا'
+                    Caption: 'انار طارم'
                 },
                 {
                     ID: 2,
-                    Caption: 'نوع رایحه: خوراکی خنک طبیعت شیرین'
+                    Caption: 'غلیظ و به صرفه'
                 },
                 {
-                    ID: 3,
-                    Caption: 'ساختار رایحه: مرکبات میوه گیاهان معطر چوب'
-                },
+                    ID: 2,
+                    Caption: 'رنگ سیاه'
+                }
             ],
             Code: '#6',
             Active: false,
         },
         {
             ID: 7,
-            Name: 'ادوتویلت مردانه',
-            StoreName: 'فروشگاه میثم عطر',
-            Introduction: 'ادو تویلت مردانه امپر ویواریا مدل Stylo Pour Homme حجم 80 میلی لیتر.',
-            Price: 150000000,
-            Discount: 10,
-            FinallPrice: 135000000,
-            Image: 'Images/Slids/Brands/4.jpg',
+            Name: 'رب انار شیرین',
+            StoreName: 'فروشگاه طارم آنلاین',
+            Introduction: 'رب انار شیرین درجه 1.',
+            Price: 550000,
+            Discount: 5,
+            FinallPrice: 522500,
+            Image: 'Images/Products/251.jpg',
             Options: [
                 {
                     ID: 1,
-                    Caption: 'گارانتی اصالت و سلامت فیزیکی کالا'
+                    Caption: 'انار طارم'
                 },
                 {
                     ID: 2,
-                    Caption: 'نوع رایحه: خوراکی خنک طبیعت شیرین'
+                    Caption: 'غلیظ و به صرفه'
                 },
                 {
-                    ID: 3,
-                    Caption: 'ساختار رایحه: مرکبات میوه گیاهان معطر چوب'
-                },
+                    ID: 2,
+                    Caption: 'رنگ سیاه'
+                }
             ],
             Code: '#7',
             Active: false,
         },
         {
             ID: 8,
-            Name: 'ادوتویلت مردانه',
-            StoreName: 'فروشگاه میثم عطر',
-            Introduction: 'ادو تویلت مردانه امپر ویواریا مدل Stylo Pour Homme حجم 80 میلی لیتر.',
-            Price: 1500000000,
-            Discount: 10,
-            FinallPrice: 1350000000,
-            Image: 'Images/Slids/Brands/4.jpg',
+            Name: 'زیتون کنسروی',
+            StoreName: 'فروشگاه طارم آنلاین',
+            Introduction: 'زیتون کنسروی درجه 1.',
+            Price: 180000,
+            Discount: 5,
+            FinallPrice: 171000,
+            Image: 'Images/Products/221.jpg',
             Options: [
                 {
                     ID: 1,
-                    Caption: 'گارانتی اصالت و سلامت فیزیکی کالا'
+                    Caption: 'زیتون طارم'
                 },
                 {
                     ID: 2,
-                    Caption: 'نوع رایحه: خوراکی خنک طبیعت شیرین'
-                },
-                {
-                    ID: 3,
-                    Caption: 'ساختار رایحه: مرکبات میوه گیاهان معطر چوب'
-                },
+                    Caption: 'گوشتی و روغنی'
+                }
             ],
             Code: '#8',
             Active: false,
@@ -788,7 +776,7 @@ app.controller('MainControl', function ($scope) {
         {
             ID: 1,
             ProductCount: 10,
-            Name: 'فروشگاه عطر برادران',
+            Name: 'فروشگاه عطر محمد',
             IntroductionSummary: 'ارائه رایحه های اصیل و ماندگار از عطرها و برندهای معتبر جهان',
             lastUpdate: '15',
             Options: [
@@ -840,7 +828,1033 @@ app.controller('MainControl', function ($scope) {
                                 AvailableCount: 5,
                             },
                             {
+                                ID: 2,
+                                Name: 'ادو پرفیوم کرید مدل Royal Mayfair حجم 120 میلی لیتر',
+                                Price: 49000000,
+                                Discount: 5,
+                                FinallPrice: 46550000,
+                                Image: 'Images/Products/112.jpg',
+                                Options: [
+                                    {
+                                        ID: 1,
+                                        Caption: 'حجم 120 میلی لیتر'
+                                    },
+                                    {
+                                        ID: 2,
+                                        Caption: 'نوع رایحه : تلخ گرم'
+                                    },
+                                    {
+                                        ID: 3,
+                                        Caption: 'ساختار رایحه : مرکبات گل میوه گیاهان معطر چوب'
+                                    },
+                                    {
+                                        ID: 4,
+                                        Caption: 'یکی از عطرهای گلی و میوه‌ای «کرید» (Creed) در سال 2015 ساخته شده است. این ادو پرفیوم که برای استفاده‌ی مشترک آقایان و بانوان ساخته شده «Royal Mayfair» نام دارد. Royal Mayfair یکی از شاهکارهای عطرساز برجسته و کاربلد «اولیویه کرید» (Olivier Creed) به‌حساب می‌آید. این عطر بوی خنکی دارد و برای استفاده در تمامی فصول سال به‌ویژه‌ بهار و تابستان پیشنهاد می‌شود. بطری Royal Mayfair خیلی ساده و درعین‌حال شیک طراحی شده است. روی بطری Royal Mayfair نشان تجاری کرید و نام Royal Mayfair را مشاهده می‌کنید. مایع درون بطری به رنگ طلایی است و از روی شیشه‌ی شفاف آن دیده می‌شود. درپوش طلایی بطری به‌خوبی طرح کلی Royal Mayfair را کامل می‌کند. شیشه بسیار خوش‌دست بوده و به‌راحتی در دست آقایان و بانوان جا می‌شود. پس از اسپری کردن Royal Mayfair روی پوست و محل نبضتان متوجه بوی لیموترش و درخت کاج خواهید شد. این ترکیب طبیعی و شیرین، انرژی و تازگی را در شما بیشتر می‌کند. پس از مدتی، این نت‌ها جای خود را به نت‌های میانی خواهند داد. نت‌های میانی از ترکیب گل رز ساخته می‌شوند. بوی شیرین این نت‌‌‌های گلی، انرژی مثبت و طراوت را در شما ایجاد می‌کند. در ادامه و با گذشت مدت‌زمانی طولانی، نت‌های پایانی از راه رسیده و جای نت‌های میانی را می‌گیرند. این نت‌ها از پرتقال، چوب سدر و اوکالیپتوس تشکیل شده‌اند. پس از استشمام بوی این نت‌ها، اعتمادبه‌نفس بالایی خواهید داشت. خرید عطر کرید Royal Mayfair با توجه به بوی خنک، پخش بوی قوی، ماندگاری بالا، بطری خاص و زیبا، قابلیت استفاده برای آقایان و بانوان، حجم 120 میلی‌لیتری و برند شناخته‌شده و ارزشمندش برای شما و کسی که این عطر را از شما هدیه می‌گیرد بسیار به‌صرفه خواهد بود.'
+                                    },
+                                ],
+                                LastUpdate: '2019-05-12',
+                                VisitsCount: 70,
+                                Available: true,
+                                AvailableCount: 5,
+
+                            },
+                            {
+                                ID: 3,
+                                Name: 'ادو پرفیوم زنانه میسون فرانسیس کورکجان مدل A La Rose حجم 200 میلی لیتر',
+                                Price: 47400000,
+                                Discount: 10,
+                                FinallPrice: 42660000,
+                                Image: 'Images/Products/113.jpg',
+                                Options: [
+                                    {
+                                        ID: 1,
+                                        Caption: 'حجم 200 میلی لیتر'
+                                    },
+                                    {
+                                        ID: 2,
+                                        Caption: 'نوع رایحه : شیرین گل'
+                                    },
+                                    {
+                                        ID: 3,
+                                        Caption: 'ساختار رایحه : چوب مرکبات گیاهان معطر گل'
+                                    },
+                                    {
+                                        ID: 3,
+                                        Caption: 'ادو پرفیوم زنانه فرانسیس کورکجان مدل A La Rose، عطری است ملایم و شیرین. این عطر در سال ۲۰۱۴ به بازار عطر و ادکلن عرضه شد. این ادوپرفیوم عطری است زنانه و رمانتیک که برای خانم های شیک پوش و سخت پسند که همواره به دنبال بهترین ها هستند طراحی شده است.'
+                                    },
+                                ],
+                                LastUpdate: '2019-05-12',
+                                VisitsCount: 15,
+                                Available: true,
+                                AvailableCount: 5,
+                            },
+                            {
+                                ID: 4,
+                                Name: 'پرفیوم میسون فرانسیس کورکجان مدل Baccarat Rouge 540 Extrait de Parfum حجم 70 میلی لیتر',
+                                Price: 44649000,
+                                Discount: 0,
+                                FinallPrice: 44649000,
+                                Image: 'Images/Products/114.jpg',
+                                Options: [
+                                    {
+                                        ID: 1,
+                                        Caption: 'حجم 70 میلی لیتر'
+                                    },
+                                    {
+                                        ID: 2,
+                                        Caption: 'نوع رایحه : شیرین گرم شرقی'
+                                    },
+                                    {
+                                        ID: 3,
+                                        Caption: 'ساختار رایحه : چوب صمغ گیاهان معطر'
+                                    },
+                                    {
+                                        ID: 3,
+                                        Caption: 'میسون فرانسیس کورکجان مدل Baccarat Rouge 540، پرفیومی خالص است که در سال 2017 توسط طراح مشهور عطر فرانسیس کورکجان خلق شد. این عطر دارای رایحه ای شیرین و شرقی میباشد. ماندگاری بالا و خط بوی ویژه این عطر از نقاط برجسته آن میباشد. این عطر برای استفاده آقایان و خانمها طراحی شده است.'
+                                    },
+                                ],
+                                LastUpdate: '2019-05-12',
+                                VisitsCount: 15,
+                                Available: true,
+                                AvailableCount: 5,
+                            },
+                            {
+                                ID: 5,
+                                Name: 'ادو پرفیوم کرید مدل Royal Oud حجم 120 میلی لیتر',
+                                Price: 43500000,
+                                Discount: 10,
+                                FinallPrice: 39150000,
+                                Image: 'Images/Products/115.jpg',
+                                Options: [
+                                    {
+                                        ID: 1,
+                                        Caption: 'حجم 120 میلی لیتر'
+                                    },
+                                    {
+                                        ID: 2,
+                                        Caption: 'نوع رایحه : تلخ گرم'
+                                    },
+                                    {
+                                        ID: 3,
+                                        Caption: 'ساختار رایحه : مرکبات میوه گیاهان معطر خاک و زمین ادویه چوب'
+                                    },
+                                    {
+                                        ID: 3,
+                                        Caption: 'آیا شما جزو افرادی هستید که علاوه بر بوی عطر به اعتبار برند و همچنین طراحی شیشه‌ی آن اهمیت ویژه‌ای می‌دهند؟ اگر چنین است، بدون شک نام برند معتبر و معروف «کرید» (Creed) را شنیده‌اید. یکی از تولیدات ویژه‌ی کرید که در سال 2011 در کشور فرانسه ساخته شد، «رویال عود» (Royal Oud) نام دارد. یکی از مهم‌ترین ویژگی این عطر، قابلیت استفاده‌ی آن برای آقایان و بانوان است. عطرساز معروفی به نام «Olivier Creed Sixth Generation» کار طراحی و فرمولاسیون این ادو پرفیوم را انجام داده است. همان‌طور که از نام این عطر پیداست، با استفاده از آن حال و هوای حضور در قصرهای سلطنتی و مجلل را خواهید داشت. پس بی‌دلیل نیست که افراد مشهوری مثل بازیگران هالیوود، خانواده‌های سلطنتی و ورزشکاران نامی در سراسر دنیا از مشتریان پر و پا قرص محصولات کرید هستند. با نگاهی به شیشه‌ی کرید، طراحی آن شکوه و عظمت کاخ‌های سلطنتی و مهمانی‌های مجلل قدیمی را برای شما تداعی می‌کند. در بطری به رنگ مشکی به‌خوبی با شیشه‌ی آن هماهنگی دارد. مایع درون شیشه به رنگ طلایی روشن است و به‌وضوح از روی بطری شفاف رویال عود قابل‌مشاهده است. اگر کمی با دقت به شیشه دقت کنید، نشان تجاری کرید با حروف درشت و طلایی‌رنگ به‌خوبی قابل‌مشاهده است. به محض اسپری این عطر روی محل نبض یا لباس خود، بوی لیمو، فلفل صورتی و نارنج به سرعت در هوا پخش می‌شود. تندی عجیب و قوی این ترکیب، شما و اطرافیانتان را کاملاً متوجه خودش خواهد کرد. پس از مدتی بوی سدر، گیاه مفید باریجه و گلپر نام‌آشنا، جایگزین نت‌های قبلی خواهد شد. خنکی این ترکیب سه‌گانه حس آرامش و شادی ویژه‌ای را به شما می‌بخشد. این نت‌های میانی تا مدت زیادی قابل استشمام خواهند بود. پس از این شاهد تأثیر عناصری همچون چوب عود، چوب صندل و مشک خواهید بود. این نت‌ها علاوه بر حفظ طراوت و خنکی نت‌های قبلی با وجود مشک انرژی خاصی را ایجاد می‌کنند. برند کرید از سال 1760 توسط آقای «اولیویر کرید» (Olivier Creed) در کشور فرانسه و در شهر پاریس تاسیس شد. یکی از ویژگی‌های مهم در ساخت عطرهای کرید به کار رفتن مواد طبیعی و استفاده از روش‌های سنتی در هنگام تقطیر آن‌هاست.'
+                                    },
+                                ],
+                                LastUpdate: '2019-05-12',
+                                VisitsCount: 15,
+                                Available: true,
+                                AvailableCount: 5,
+                            },
+                        ],
+                        TotalCount: 50,
+                    },
+                    {
+                        ID: 2,
+                        Caption: 'اسپری',
+                        ProductList: [
+                            {
                                 ID: 1,
+                                Name: 'بادی اسپلش زنانه ویکتوریا سکرت مدل Eau so party حجم 250 میلی لیتر',
+                                Price: 2450000,
+                                Discount: 0,
+                                FinallPrice: 2450000,
+                                Image: 'Images/Products/121.jpg',
+                                Options: [
+                                    {
+                                        ID: 1,
+                                        Caption: 'حجم 250 میلی لیتر'
+                                    },
+                                    {
+                                        ID: 2,
+                                        Caption: 'نوع : اسپری معمولی'
+                                    },
+                                    {
+                                        ID: 3,
+                                        Caption: 'طبع : گرم'
+                                    }
+                                ],
+                                LastUpdate: '2019-05-12',
+                                VisitsCount: 150,
+                                Available: true,
+                                AvailableCount: 5,
+                            },
+                            {
+                                ID: 2,
+                                Name: 'بادی اسپلش زنانه ویکتوریا سکرت مدل Scandalous حجم 250 میلی لیتر',
+                                Price: 2450000,
+                                Discount: 0,
+                                FinallPrice: 2450000,
+                                Image: 'Images/Products/122.jpg',
+                                Options: [
+                                    {
+                                        ID: 1,
+                                        Caption: 'حجم 250 میلی لیتر'
+                                    },
+                                    {
+                                        ID: 2,
+                                        Caption: 'نوع : اسپری معمولی'
+                                    },
+                                    {
+                                        ID: 3,
+                                        Caption: 'طبع : معتدل'
+                                    }
+                                ],
+                                LastUpdate: '2019-05-12',
+                                VisitsCount: 150,
+                                Available: true,
+                                AvailableCount: 5,
+                            },
+                            {
+                                ID: 3,
+                                Name: 'بادی اسپلش زنانه ویکتوریا سکرت مدل Eau so حجم 250 میلی لیتر',
+                                Price: 2450000,
+                                Discount: 0,
+                                FinallPrice: 2450000,
+                                Image: 'Images/Products/123.jpg',
+                                Options: [
+                                    {
+                                        ID: 1,
+                                        Caption: 'حجم 250 میلی لیتر'
+                                    },
+                                    {
+                                        ID: 2,
+                                        Caption: 'نوع : اسپری معمولی'
+                                    },
+                                    {
+                                        ID: 3,
+                                        Caption: 'طبع : خنک'
+                                    }
+                                ],
+                                LastUpdate: '2019-05-12',
+                                VisitsCount: 150,
+                                Available: true,
+                                AvailableCount: 5,
+                            },
+                            {
+                                ID: 4,
+                                Name: 'بادی اسپلش زنانه ویکتوریا سکرت مدل Tease حجم 250 میلی لیتر',
+                                Price: 2450000,
+                                Discount: 0,
+                                FinallPrice: 2450000,
+                                Image: 'Images/Products/124.jpg',
+                                Options: [
+                                    {
+                                        ID: 1,
+                                        Caption: 'حجم 250 میلی لیتر'
+                                    },
+                                    {
+                                        ID: 2,
+                                        Caption: 'نوع : اسپری معمولی'
+                                    },
+                                    {
+                                        ID: 3,
+                                        Caption: 'طبع : خنک'
+                                    }
+                                ],
+                                LastUpdate: '2019-05-12',
+                                VisitsCount: 150,
+                                Available: true,
+                                AvailableCount: 5,
+                            },
+                            {
+                                ID: 5,
+                                Name: 'بادی اسپلش ویکتوریا سکرت مدل Xo victoria حجم 250 میلی لیتر',
+                                Price: 2450000,
+                                Discount: 0,
+                                FinallPrice: 2450000,
+                                Image: 'Images/Products/125.jpg',
+                                Options: [
+                                    {
+                                        ID: 1,
+                                        Caption: 'حجم 250 میلی لیتر'
+                                    },
+                                    {
+                                        ID: 2,
+                                        Caption: 'نوع : اسپری معمولی'
+                                    },
+                                    {
+                                        ID: 3,
+                                        Caption: 'طبع : معتدل'
+                                    }
+                                ],
+                                LastUpdate: '2019-05-12',
+                                VisitsCount: 150,
+                                Available: true,
+                                AvailableCount: 5,
+                            },
+                        ],
+                        TotalCount: 56,
+                    },
+            ],
+            Image: 'Images/Company/1.jpg',
+        },
+        {
+            ID: 2,
+            ProductCount: 27,
+            Name: 'فروشگاه طارم آنلاین',
+            IntroductionSummary:
+                'اولین و معتبرترین فروشگاه آنلاین مصولات اورگانیک شامل انواع زیتون ، روغن زیتون، رب انار ترش و شیرین ملس، سیر ترشی، رب گوجه خانگی .',
+            lastUpdate: '25',
+            Options: [
+                {
+                    ID: 1,
+                    Caption: 'مدت محدود'
+                },
+                {
+                    ID: 2,
+                    Caption: 'ارسال رایگان'
+                },
+                {
+                    ID: 3,
+                    Caption: 'ضمانت برگشت کالا'
+                },
+            ],
+            Link: '',
+            //این ایتم برای تست ایجاد شده و نیازی به ایجاد از وب سرویس ندارد
+            // هنگام ارسال به صفحه فروشگاه از سرویس فراخوانی می شود
+            ProductMenu: [
+                {
+                    ID: 1,
+                    Caption: 'زیتون شکسته',
+                    ProductList: [
+                                {
+                                    ID: 1,
+                                    Name: 'زیتون شکسته درجه 1',
+                                    Price: 180000,
+                                    Discount: 5,
+                                    FinallPrice: 171000,
+                                    Image: 'Images/Products/211.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 2,
+                                    Name: 'زیتون شکسته درجه 2',
+                                    Price: 160000,
+                                    Discount: 0,
+                                    FinallPrice: 160000,
+                                    Image: 'Images/Products/212.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 3,
+                                    Name: 'زیتون شکسته درجه 3',
+                                    Price: 140000,
+                                    Discount: 0,
+                                    FinallPrice: 140000,
+                                    Image: 'Images/Products/213.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 4,
+                                    Name: 'زیتون شکسته درجه 4',
+                                    Price: 120000,
+                                    Discount: 0,
+                                    FinallPrice: 120000,
+                                    Image: 'Images/Products/214.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 5,
+                                    Name: 'زیتون شکسته درجه 5',
+                                    Price: 100000,
+                                    Discount: 0,
+                                    FinallPrice: 100000,
+                                    Image: 'Images/Products/215.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                    ],
+                    TotalCount: 5,
+                },
+                {
+                    ID: 2,
+                    Caption: 'زیتون کنسروی',
+                    ProductList: [
+                                {
+                                    ID: 1,
+                                    Name: 'زیتون کنسروی درجه 1',
+                                    Price: 180000,
+                                    Discount: 5,
+                                    FinallPrice: 171000,
+                                    Image: 'Images/Products/221.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 2,
+                                    Name: 'زیتون کنسروی درجه 2',
+                                    Price: 160000,
+                                    Discount: 0,
+                                    FinallPrice: 160000,
+                                    Image: 'Images/Products/222.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 3,
+                                    Name: 'زیتون کنسروی درجه 3',
+                                    Price: 140000,
+                                    Discount: 0,
+                                    FinallPrice: 140000,
+                                    Image: 'Images/Products/223.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 4,
+                                    Name: 'زیتون کنسروی درجه 4',
+                                    Price: 120000,
+                                    Discount: 0,
+                                    FinallPrice: 120000,
+                                    Image: 'Images/Products/224.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 5,
+                                    Name: 'زیتون کنسروی درجه 5',
+                                    Price: 100000,
+                                    Discount: 0,
+                                    FinallPrice: 100000,
+                                    Image: 'Images/Products/225.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                    ],
+                    TotalCount: 5,
+                },
+                {
+                    ID: 3,
+                    Caption: 'زیتون پرورده',
+                    ProductList: [
+                                {
+                                    ID: 1,
+                                    Name: 'زیتون پرورده درجه 1',
+                                    Price: 280000,
+                                    Discount: 5,
+                                    FinallPrice: 266000,
+                                    Image: 'Images/Products/231.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 2,
+                                    Name: 'زیتون پرورده درجه 2',
+                                    Price: 160000,
+                                    Discount: 0,
+                                    FinallPrice: 160000,
+                                    Image: 'Images/Products/232.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 3,
+                                    Name: 'زیتون پرورده درجه 3',
+                                    Price: 140000,
+                                    Discount: 0,
+                                    FinallPrice: 140000,
+                                    Image: 'Images/Products/233.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 4,
+                                    Name: 'زیتون پرورده درجه 4',
+                                    Price: 120000,
+                                    Discount: 0,
+                                    FinallPrice: 120000,
+                                    Image: 'Images/Products/234.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 5,
+                                    Name: 'زیتون پرورده درجه 5',
+                                    Price: 100000,
+                                    Discount: 0,
+                                    FinallPrice: 100000,
+                                    Image: 'Images/Products/235.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'گوشتی و روغنی'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                    ],
+                    TotalCount: 5,
+                },
+                {
+                    ID: 4,
+                    Caption: 'روغن زیتون',
+                    ProductList: [
+                                {
+                                    ID: 1,
+                                    Name: 'روغن زیتون درجه 1',
+                                    Price: 750000,
+                                    Discount: 5,
+                                    FinallPrice: 712500,
+                                    Image: 'Images/Products/241.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'روغن زیتون ماری'
+                                        },
+                                        {
+                                            ID: 3,
+                                            Caption: 'رنگ زرد'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 2,
+                                    Name: 'روغن زیتون درجه 1',
+                                    Price: 750000,
+                                    Discount: 5,
+                                    FinallPrice: 712500,
+                                    Image: 'Images/Products/242.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'زیتون طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'رنگ سبز'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                }
+                    ],
+                    TotalCount: 2,
+                },
+                {
+                    ID: 5,
+                    Caption: 'رب انار',
+                    ProductList: [
+                                {
+                                    ID: 1,
+                                    Name: 'رب انار شیرین درجه 1',
+                                    Price: 550000,
+                                    Discount: 5,
+                                    FinallPrice: 522500,
+                                    Image: 'Images/Products/251.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'انار طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'غلیظ و به صرفه'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'رنگ سیاه'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 2,
+                                    Name: 'رب انار ترش درجه 1',
+                                    Price: 550000,
+                                    Discount: 5,
+                                    FinallPrice: 522500,
+                                    Image: 'Images/Products/252.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'انار طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'غلیظ و به صرفه'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'رنگ سیاه'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                                {
+                                    ID: 3,
+                                    Name: 'رب انار ترش و شیرین مخلوط درجه 1',
+                                    Price: 550000,
+                                    Discount: 5,
+                                    FinallPrice: 522500,
+                                    Image: 'Images/Products/253.jpg',
+                                    Options: [
+                                        {
+                                            ID: 1,
+                                            Caption: 'انار طارم'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'غلیظ و به صرفه'
+                                        },
+                                        {
+                                            ID: 2,
+                                            Caption: 'رنگ سیاه'
+                                        }
+                                    ],
+                                    LastUpdate: '2019-05-12',
+                                    VisitsCount: 150,
+                                    Available: true,
+                                    AvailableCount: 50,
+                                },
+                    ],
+                    TotalCount: 3,
+                },
+                {
+                    ID: 6,
+                    Caption: 'ترشی جات',
+                    ProductList: [
+                        {
+                            ID: 1,
+                            Name: 'سیر ترشی درجه 1',
+                            Price: 250000,
+                            Discount: 5,
+                            FinallPrice: 237500,
+                            Image: 'Images/Products/261.jpg',
+                            Options: [
+                                {
+                                    ID: 1,
+                                    Caption: 'سیر طارم'
+                                },
+                                {
+                                    ID: 2,
+                                    Caption: 'ترشی هفت ساله'
+                                },
+                                {
+                                    ID: 2,
+                                    Caption: 'رنگ سیاه'
+                                }
+                            ],
+                            LastUpdate: '2019-05-12',
+                            VisitsCount: 150,
+                            Available: true,
+                            AvailableCount: 50,
+                        },
+                        {
+                            ID: 2,
+                            Name: 'سیر ترشی درجه 2',
+                            Price: 220000,
+                            Discount: 5,
+                            FinallPrice: 209000,
+                            Image: 'Images/Products/261.jpg',
+                            Options: [
+                            {
+                                ID: 1,
+                                Caption: 'سیر طارم'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'ترشی شش ساله'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'رنگ سیاه'
+                            }
+                            ],
+                            LastUpdate: '2019-05-12',
+                            VisitsCount: 150,
+                            Available: true,
+                            AvailableCount: 50,
+                        },
+                        {
+                            ID: 3,
+                            Name: 'سیر ترشی درجه 3',
+                            Price: 200000,
+                            Discount: 0,
+                            FinallPrice: 200000,
+                            Image: 'Images/Products/261.jpg',
+                            Options: [
+                            {
+                                ID: 1,
+                                Caption: 'سیر طارم'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'ترشی پنج ساله'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'رنگ سیاه'
+                            }
+                            ],
+                            LastUpdate: '2019-05-12',
+                            VisitsCount: 150,
+                            Available: true,
+                            AvailableCount: 50,
+                        },
+                        {
+                            ID: 4,
+                            Name: 'سیر ترشی درجه 4',
+                            Price: 190000,
+                            Discount: 0,
+                            FinallPrice: 190000,
+                            Image: 'Images/Products/261.jpg',
+                            Options: [
+                            {
+                                ID: 1,
+                                Caption: 'سیر طارم'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'ترشی چهار ساله'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'رنگ سیاه'
+                            }
+                            ],
+                            LastUpdate: '2019-05-12',
+                            VisitsCount: 150,
+                            Available: true,
+                            AvailableCount: 50,
+                        },
+                        {
+                            ID: 5,
+                            Name: 'سیر ترشی درجه 5',
+                            Price: 180000,
+                            Discount: 5,
+                            FinallPrice: 180000,
+                            Image: 'Images/Products/261.jpg',
+                            Options: [
+                            {
+                                ID: 1,
+                                Caption: 'سیر طارم'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'ترشی سه ساله'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'رنگ سیاه'
+                            }
+                            ],
+                            LastUpdate: '2019-05-12',
+                            VisitsCount: 150,
+                            Available: true,
+                            AvailableCount: 50,
+                        },
+                        {
+                            ID: 6,
+                            Name: 'سیر ترشی درجه 6',
+                            Price: 170000,
+                            Discount: 5,
+                            FinallPrice: 170000,
+                            Image: 'Images/Products/262.jpg',
+                            Options: [
+                            {
+                                ID: 1,
+                                Caption: 'سیر طارم'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'ترشی دو ساله'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'رنگ سفید'
+                            }
+                            ],
+                            LastUpdate: '2019-05-12',
+                            VisitsCount: 150,
+                            Available: true,
+                            AvailableCount: 50,
+                        },
+                        {
+                            ID: 7,
+                            Name: 'سیر ترشی درجه 7',
+                            Price: 150000,
+                            Discount: 0,
+                            FinallPrice: 150000,
+                            Image: 'Images/Products/262.jpg',
+                            Options: [
+                            {
+                                ID: 1,
+                                Caption: 'سیر طارم'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'ترشی هفت ساله'
+                            },
+                            {
+                                ID: 2,
+                                Caption: 'رنگ سفید'
+                            }
+                            ],
+                            LastUpdate: '2019-05-12',
+                            VisitsCount: 150,
+                            Available: true,
+                            AvailableCount: 50,
+                        },
+                    ],
+                    TotalCount: 7,
+                },
+            ],
+            Image: 'Images/Company/2.jpg',
+        },
+        {
+            ID: 1,
+            ProductCount: 10,
+            Name: 'فروشگاه عطر محمد',
+            IntroductionSummary: 'ارائه رایحه های اصیل و ماندگار از عطرها و برندهای معتبر جهان',
+            lastUpdate: '15',
+            Options: [
+                {
+                    ID: 1,
+                    Caption: 'تخفیف های ویژه'
+                },
+                {
+                    ID: 3,
+                    Caption: 'ارسال رایگان'
+                },
+            ],
+            Link: '',
+            //این ایتم برای تست ایجاد شده و نیازی به ایجاد از وب سرویس ندارد
+            // هنگام ارسال به صفحه فروشگاه از سرویس فراخوانی می شود
+            ProductMenu: [
+                    {
+                        ID: 1,
+                        Caption: 'عطر و ادوکلن',
+                        ProductList: [
+                            {
+                                ID: 1,
+                                Name: 'ادو پرفیوم میسون فرانسیس کورکجان مدل Baccarat Rouge 540 حجم 200 میلی لیتر',
+                                Price: 58000000,
+                                Discount: 0,
+                                FinallPrice: 58000000,
+                                Image: 'Images/Products/111.jpg',
+                                Options: [
+                                    {
+                                        ID: 1,
+                                        Caption: 'حجم 200 میلی لیتر'
+                                    },
+                                    {
+                                        ID: 2,
+                                        Caption: 'نوع رایحه : تند گرم'
+                                    },
+                                    {
+                                        ID: 3,
+                                        Caption: 'ساختار رایحه : چوب صمغ گیاهان معطر'
+                                    },
+                                    {
+                                        ID: 4,
+                                        Caption: 'ادو پرفیوم میسون فرانسیس کورکجان مدل Baccarat Rouge 540، عطری خاص است که در سال 2015 توسط طراح مشهور عطر فرانسیس کورکجان برای استفاده آقایان و خانمها خلق شد. این عطر دارای رایحه ای گرم و تند میباشد. ماندگاری بالا و خط بوی ویژه این عطر برای استفاده در روزها و شبهای سرد و خنک انتخابی ویژه است.'
+                                    }
+                                ],
+                                LastUpdate: '2019-05-12',
+                                VisitsCount: 150,
+                                Available: true,
+                                AvailableCount: 5,
+                            },
+                            {
+                                ID: 2,
                                 Name: 'ادو پرفیوم کرید مدل Royal Mayfair حجم 120 میلی لیتر',
                                 Price: 49000000,
                                 Discount: 5,
@@ -1854,18 +2868,6 @@ app.controller('MainControl', function ($scope) {
                     Content:
                         'هدف اصلی لوناتو، جلب اعتماد صددرصدی مشتری‌هاست. ما با اطمینان می‌گوییم که برای انتخاب مشتری و هزینه‌ای که برای خرید پرداخت می‌کند، ارزش بسیار زیادی قائل هستیم. برای اثبات این ادعا نیز به اطلاع مشتری‌های خود می‌رسانیم که اگر به هر دلیلی از خرید خود پشیمان شده و قصد مرجوع کردن کالای خریداری شده را دارند، لوناتو این امکان را برای آن‌ها مهیا ساخته و با کمال‌ میل، اجناس فروخته شده را تا ۳۰ روز پس از خرید و بدون نیاز به هیچ توضیحی پس می‌گیرد.'
                 },
-                {
-                    ID: 3,
-                    Caption: 'هدف ما آسایش مشتری است',
-                    Content:
-                        ' یکی از اصلی‌ترین اهداف فروشگاه اینترنتی لوناتو، آسایش هرچه بیشتر مشتری در خرید عینک موردنظرش است. برای این منظور ما خدمات ویژه‌ای در نظر گرفته‌ایم. به این صورت که کاربر می‌تواند تا حداکثر ۵ جفت عینک را انتخاب کند تا برای تست رایگان در منزل، به نشانی وی ارسال شود. این سرویس کاملا رایگان است و توسط پیک در کوتاه‌ترین زمان برایتان ارسال می‌شود. شما پس از انتخاب گزینه (های) دلخواه، بقیه عینک‌ها را به پیک لوناتو پس داده و هزینه خرید عینک را همان‌جا در منزل خود با کارت بانکی یا به‌صورت نقد پرداخت می‌کنید. لازم است اشاره کنیم که اگر به هر دلیلی، هیچ‌کدام از ۵ عینک ارسالی موردپسندتان واقع نشد، بدون پرداخت هیچ‌نوع هزینه‌ای می‌توانید آن‌ها را مرجوع کنید. همچنین به صورت آنلاین هم می‌توانید با پاسخ دادن به پرسش‌های تصویری، فریم‌های متناسب با صورت خود را انتخاب کنید.'
-                },
-                {
-                    ID: 4,
-                    Caption: 'کالای فروخته شده پس گرفته می‌شود!',
-                    Content:
-                        'هدف اصلی لوناتو، جلب اعتماد صددرصدی مشتری‌هاست. ما با اطمینان می‌گوییم که برای انتخاب مشتری و هزینه‌ای که برای خرید پرداخت می‌کند، ارزش بسیار زیادی قائل هستیم. برای اثبات این ادعا نیز به اطلاع مشتری‌های خود می‌رسانیم که اگر به هر دلیلی از خرید خود پشیمان شده و قصد مرجوع کردن کالای خریداری شده را دارند، لوناتو این امکان را برای آن‌ها مهیا ساخته و با کمال‌ میل، اجناس فروخته شده را تا ۳۰ روز پس از خرید و بدون نیاز به هیچ توضیحی پس می‌گیرد.'
-                }
             ],
             Image: 'Images/Slids/Brands/5.png',
             Link: 'http://centralshopping.ir'
@@ -3058,7 +4060,7 @@ app.controller('MainControl', function ($scope) {
         }
     };
 
-    $scope.SpecialTabProductClick = function (productID, isAvailable) {
+    $scope.SpecialTabProductClick = function (productID) {
 
         SetAllView(false);
         $scope.StoreView = true;
@@ -3076,6 +4078,7 @@ app.controller('MainControl', function ($scope) {
             $scope.StoreProduct.FinallPrice = _item.FinallPrice;
             $scope.StoreProduct.Available = _item.Available;
             $scope.StoreProduct.AvailableCount = _item.AvailableCount;
+            $scope.StoreProduct.Image = _item.Image;
         }
     };
 
