@@ -42,7 +42,7 @@ app.controller('MainControl', function ($scope) {
 
     // Class Object
 
-    $scope.HomeView = true;
+    $scope.HomeView = false;
 
     $scope.StoresView = false;
 
@@ -53,7 +53,7 @@ app.controller('MainControl', function ($scope) {
     $scope.StoreContactCompanyView = false;
     $scope.StoreProductView = false;
 
-    $scope.ProductsView = false;
+    $scope.ProductsView = true;
 
     $scope.CartView = false;
     $scope.RegisterView = false;

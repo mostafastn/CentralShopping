@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <script src="js/Angular/angular.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>-->
+    <script src="js/Angular/Controllers/MainController.js"></script>
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/rtlBootstrap/bootstrap.min.js"></script>
@@ -15,7 +18,6 @@
     <script src="js/Infrastructure.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 
 
     <style>
@@ -68,10 +70,6 @@
             flex-wrap: nowrap;
         }
     </style>
-    <script src="js/Angular/angular.min.js"></script>
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>-->
-    <script src="js/Angular/Controllers/MainController.js"></script>
-
 </head>
 <body>
     <div ng-app="CentralShopping" ng-controller="MainControl" ng-init="init()">
@@ -83,7 +81,7 @@
             </div>
         </div>
 
-        <!-- #region Menubar -->
+        <!-- #region MenuBar -->
 
         <div class="container-fluid bg-dark sticky-top">
             <div class="container">
@@ -517,20 +515,18 @@
                                 </ul>
                             </li>
                             <!--test-->
-                            <!--<li class="nav-item dropdown">
-                                <a class="nav-link text-nowrap dropdown-toggle" href="#" data-toggle="dropdown">
-                                    داینامیک
-                                </a>
-                                <ul class="dropdown-menu" id="menuScript">
-                                    <li ng-repeat="NavbarProduct in NavbarProductMenu" ng-include="'categoryTree'">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-nowrap dropdown-toggle" href="#" data-toggle="dropdown">
+                                داینامیک 1
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="NavbarProduct in NavbarProductMenu" ng-include="'categoryTree'">
 
-                                    </li>
-                                    <w3-test-directive ng-bind-html-unsafe="NavbarProductMenuJS"></w3-test-directive>
-
-                                    <li ng-bind-html-unsafe="NavbarProductMenuJS"> </li>
-                                </ul>
-                            </li>-->
-                            <!--test-->
+                                </li>
+                               
+                            </ul>
+                        </li>
+                        <!--test-->
 
                             <li class="nav-item">
                                 <a class="nav-link text-nowrap" href="" id="StoreMenu" ng-click="StoreMenuClick()">فروشگاه ها</a>
@@ -565,8 +561,8 @@
         </div>
 
         <script type="text/ng-template" id="categoryTree">
-            <a class="dropdown-item " href="#" ng-class="{'dropdown-toggle': NavbarProduct.Menu}">{{ NavbarProduct.Caption }}</a>
-            <ul class="dropdown-menu" ng-if="NavbarProduct.Menu">
+            <a class="dropdown-item " href="#" ng-class="{'dropdown-toggle': NavbarProduct.Menu.length}">{{ NavbarProduct.Caption }}</a>
+            <ul class="dropdown-menu" ng-if="NavbarProduct.Menu.length">
                 <li ng-repeat="NavbarProduct in NavbarProduct.Menu" ng-include="'categoryTree'">
 
                 </li>
@@ -608,7 +604,6 @@
                         </a>
                     </div>
                 </div>
-
             </div>
 
             <div class="row my-5" ng-show="HomeView">
@@ -802,8 +797,8 @@
                     </div>
                 </div>-->
 
-                <div class="row card-deck" >
-                    <div class="col-md-4" ng-repeat="x in Stores"  ng-click="StoreClick(x.ID)">                        
+                <div class="row card-deck">
+                    <div class="col-md-4" ng-repeat="x in Stores" ng-click="StoreClick(x.ID)">
                         <div class="card mb-4 " style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                             <div class="card-header bg-secondary text-white">{{x.ProductCount}} محصول</div>
                             <div class="card-body text-center">
@@ -823,7 +818,7 @@
 
                     </div>
                 </div>
-                
+
 
             </div>
             <!-- #endregion -->
@@ -831,21 +826,23 @@
             <div class="row border border-dark mb-3 rounded" ng-show="StoreView">
 
                 <div class="col-md-3 border-right border-secondary rounded">
-
-                    <div id="accordion" class="m-1">
+                    
+                   <div id="accordion">
                         <div class="card">
                             <div class="card-header">
                                 <a class="collapsed card-link font-weight-bold" href="" ng-click="HomeCompanyClick()">{{Store.Name}}</a>
                             </div>
                         </div>
-
                         <div class="card">
-                            <div class="card-header">
-                                <a class="card-link" data-toggle="collapse" href="#collapseProductMenu">
-                                    محصولات
-                                </a>
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link card-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        محصولات
+                                    </button>
+                                </h5>
                             </div>
-                            <div id="collapseProductMenu" class="collapse show" data-parent="#accordion">
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                                 <div class="card-body" ng-repeat="x in Store.ProductMenu">
                                     <a class="collapsed card-link" href="" ng-click="ProductMenuClick(x.ID)">
                                         {{x.Caption}}
@@ -853,19 +850,18 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="card">
                             <div class="card-header">
                                 <a class="collapsed card-link" href="" ng-click="AboutCompanyClick()">درباره ما</a>
                             </div>
                         </div>
-
                         <div class="card">
                             <div class="card-header">
                                 <a class="collapsed card-link" href="" ng-click="ContactCompanyClick()">تماس با ما</a>
                             </div>
                         </div>
-                    </div>
+                    </div> 
+                    
                 </div>
 
                 <div class="col-md-9" ng-show="HomeCompanyView">
@@ -896,21 +892,21 @@
                             <select class="text-primary border-0" ng-model="SortType" ng-options="x.Caption for x in SortTypes"></select>
                         </div>
                         <div class="col-sm-4">
-                            
+
                         </div>
                         <div class="col-sm-4 text-info">
-                             {{StoreSelectedProductMenu.TotalCount}} محصول
+                            {{StoreSelectedProductMenu.TotalCount}} محصول
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-4 p-1" ng-repeat="x in StoreSelectedProductMenu.ProductList | orderBy : SortType.Value" id="{{x.ID}}" ng-click="StoreProductClick(x.ID)">
-                            <div class="border border-secondary rounded " ng-class="{'border-danger' : !x.Available }">
+                            <div class="border rounded h-100" ng-class="{'border-danger' : !x.Available , 'border-dark' : x.Available }">
                                 <div class="m-1">
                                     <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 150px;">
                                 </div>
                                 <div class="label m-1 text-dark font-weight-bold">{{x.Name}}</div>
-                                <div class="label m-1 p-1" ng-show="x.Discount">
+                                <div class="label text-dark font-weight-bold m-1 p-1" ng-show="x.Discount">
                                     تخفیف :
                                     <span class="text-danger bg-warning rounded p-1">{{x.Discount}}%</span>
                                 </div>
@@ -1013,76 +1009,68 @@
             </div>
             <!-- #endregion -->
             <!-- #region ProductsView -->
-            <div class="row border border-dark mb-3 rounded" ng-show="ProductsView">
-
-                <div class="col-md-3 border-right border-secondary rounded">
-
-                    <h5 class="pt-3">
-                        <a href="">
-                            {{ProductList.Caption}}
-                        </a>
-                    </h5>
-                    <div id="searchAccordion" class="m-2">
-
-                        <div class="card">
-                            <div class="card-header">
-                                <a class="card-link" data-toggle="collapse" href="#collapseProductSearch">
-                                    محدوده قیمت
-                                </a>
-                            </div>
-                            <div id="collapseProductSearch" class="collapse" data-parent="#searchAccordion">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text small ">قیمت</span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="از">
-                                    <input type="text" class="form-control" placeholder="تا">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header">
-
-
-                                <div class="form-check">
-                                    <label class="form-check-label text-nowrap small">
-                                        <input type="checkbox" class="form-check-input" value="" ng-model="AvalableProductOnly">فقط کالا های موجود
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-
+            <div class="row mb-3" ng-show="ProductsView">
+              
+                
+                <div class="col-md-3">
+                    
+                    <div class="label text-dark font-weight-bold py-2 BTitr">
+                        {{ProductList.Caption}}
                     </div>
+                   
+                    <div class="card">
+                        <div class="card-header">
+                            
+                            <div class="label text-dark font-weight-bold mb-2 border-bottom border-muted">
+                                فیلتر گذاری
+                            </div>
+                            
+                            <div class="label text-dark font-weight-bold small">
+                                محدوده قیمت
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">از</span>
+                                </div>
+                                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">تا</span>
+                                </div>
+                                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                            </div>
 
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="avalableProductOnly" ng-model="AvalableProductOnly">
+                                <label class="form-check-label text-nowrap" for="avalableProductOnly">فقط کالا های موجود</label>
+                            </div>
+
+                        </div>
+                        </div>
+                    
                 </div>
 
-                <div class="col-md-9">
+                <div class="col-md-9 border border-secondary rounded">
                     <div class="row pt-2">
-                        <div class="col-sm-4 border-right border-success ">
-                            <select class="text-primary border-0" ng-model="SortType" ng-options="x.Caption for x in SortTypes"></select>
+                        <div class="col-sm-3">
+                            <select class="text-primary border-primary rounded w-100" ng-model="SortType" 
+                                    ng-options="x.Caption for x in SortTypes"></select>
                         </div>
-                        <div class="col-sm-4 border border-success  border-bottom-0 border-top-0">
-                            <ul class="pagination pagination-sm text-right">
-                                <li class="m-1" ng-repeat="x in ObjectInPageCount">
-                                    <a href="" class="border border-dark bg-light rounded p-1">{{x}}</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-4 text-info border-left border-success ">
-                            نمایش 1-{{ProductList.Products.length}} از {{ProductList.TotalCount}} محصول
+                        
+                        <div class="col-sm-9 text-info text-right">
+                            {{ProductList.Products.length}} محصول
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-4 p-1" ng-repeat="x in SearchResultProductList.Products | filter :{AvalableProductOnly: x.Available} | orderBy : SortType.Value" id="{{x.ID}}" ng-click="StoreProductClick(x.ID)">
-                            <div class="border border-secondary rounded " ng-class="{'border-danger' : !x.Available }">
+                            <div class="border rounded h-100" ng-class="{'border-danger' : !x.Available , 'border-dark' : x.Available }">
                                 <div class="m-1">
                                     <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 150px;">
                                 </div>
                                 <div class="label m-1 text-dark font-weight-bold">{{x.Name}}</div>
-                                <div class="label m-1">
+                                <div class="label m-1" ng-show="x.Discount">
                                     تخفیف :
                                     <span class="text-danger">{{x.Discount}}%</span>
                                 </div>
