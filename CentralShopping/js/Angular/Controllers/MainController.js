@@ -68,6 +68,8 @@ app.controller('MainControl', function ($scope) {
     $scope.AvalableProductOnly = false;
     $scope.ProductsPriceFrom = 0;
     $scope.ProductsPriceTo = 0;
+    
+    $scope.SelectedPlace = "";
 
     $scope.ObjectInPageCount = [9, 18, "همه"];
 
@@ -226,7 +228,242 @@ app.controller('MainControl', function ($scope) {
             ]
         }
     ];
-    $scope.NavbarProductMenuJS = CreateNavbarMenu($scope.NavbarProductMenu);
+
+    $scope.NavbarPlaceMenu = [
+        {
+            Id: 1,
+            Caption: "همه استان ها",
+            Menu: []
+        },
+        {
+            Id: 2,
+            Caption: "تهران",
+            Menu: [
+                {
+                    Id: 21,
+                    Caption: "همه شهرستان ",
+                    Menu: []
+                },
+                {
+                    Id: 22,
+                    Caption: "تهران",
+                    Menu: [
+                        {
+                            Id: 121,
+                            Caption: "همه مناطق",
+                            Menu: []
+                        },
+                        {
+                            Id: 122,
+                            Caption: "منطقه 1",
+                            Menu: []
+                        },
+                        {
+                            Id: 123,
+                            Caption: "منطقه 2",
+                            Menu: []
+                        }
+                    ]
+                },
+                {
+                    Id: 23,
+                    Caption: "شهریار",
+                    Menu: [
+                        {
+                            Id: 121,
+                            Caption: "همه مناطق",
+                            Menu: []
+                        },
+                        {
+                            Id: 122,
+                            Caption: "مرکزی",
+                            Menu: []
+                        },
+                        {
+                            Id: 123,
+                            Caption: "کهنز",
+                            Menu: []
+                        },
+                        {
+                            Id: 122,
+                            Caption: "وائین",
+                            Menu: []
+                        },
+                        {
+                            Id: 123,
+                            Caption: "امیریه",
+                            Menu: []
+                        },
+                        {
+                            Id: 122,
+                            Caption: "اندیشه",
+                            Menu: []
+                        },
+                        {
+                            Id: 123,
+                            Caption: "جعفریه",
+                            Menu: []
+                        }
+                    ]
+                },
+                {
+                    Id: 24,
+                    Caption: "اسلامشهر",
+                    Menu: [
+                        {
+                            Id: 241,
+                            Caption: "همه مناطق",
+                            Menu: []
+                        },
+                        {
+                            Id: 242,
+                            Caption: "مرکزی",
+                            Menu: [
+                                {
+                                    Id: 2421,
+                                    Caption: "همه محل ها",
+                                    Menu: []
+                                },
+                                {
+                                    Id: 2422,
+                                    Caption: "مطهری",
+                                    Menu: [
+                                        {
+                                            Id: 24221,
+                                            Caption: "همه خیابان ها",
+                                            Menu: []
+                                        },
+                                        {
+                                            Id: 24222,
+                                            Caption: "مطهری",
+                                            Menu: []
+                                        },
+                                        {
+                                            Id: 24223,
+                                            Caption: "طالقانی",
+                                            Menu: []
+                                        },
+                                        {
+                                            Id: 24224,
+                                            Caption: "فاطمه زهرا",
+                                            Menu: []
+                                        }
+                                    ]
+                                },
+                                {
+                                    Id: 2423,
+                                    Caption: "شهرک گلها",
+                                    Menu: []
+                                },
+                                {
+                                    Id: 2424,
+                                    Caption: "شهرک میان آباد (امام حسین)",
+                                    Menu: []
+                                },
+                                {
+                                    Id: 2425,
+                                    Caption: "کاشانی",
+                                    Menu: []
+                                },
+                                {
+                                    Id: 2426,
+                                    Caption: "۲۰ متری امام خمینی (ره)",
+                                    Menu: []
+                                },
+                                {
+                                    Id: 2427,
+                                    Caption: "باغ نرده",
+                                    Menu: []
+                                },
+                                {
+                                    Id: 2428,
+                                    Caption: "مهدیه",
+                                    Menu: []
+                                },
+                                {
+                                    Id: 2429,
+                                    Caption: "محمدیه",
+                                    Menu: []
+                                },
+                                {
+                                    Id: 24210,
+                                    Caption: "سعیدیه",
+                                    Menu: []
+                                },
+                                {
+                                    Id: 24211,
+                                    Caption: "قاسم‌آباد شاهی",
+                                    Menu: []
+                                },
+                                {
+                                    Id: 24212,
+                                    Caption: "مافین آباد",
+                                    Menu: []
+                                },
+                                {
+                                    Id: 24213,
+                                    Caption: "شهرک لاله",
+                                    Menu: []
+                                },
+                                {
+                                    Id: 24214,
+                                    Caption: "موسی‌آباد",
+                                    Menu: []
+                                },
+                                {
+                                    Id: 24215,
+                                    Caption: "واوان",
+                                    Menu: []
+                                },
+                                {
+                                    Id: 24216,
+                                    Caption: "قائمیه",
+                                    Menu: []
+                                },
+                                {
+                                    Id: 24217,
+                                    Caption: "شیرودی",
+                                    Menu: []
+                                },
+                                {
+                                    Id: 24218,
+                                    Caption: "شهر موسی",
+                                    Menu: []
+                                },
+                                {
+                                    Id: 24219,
+                                    Caption: "قائمیه",
+                                    Menu: []
+                                }
+                            ]
+                        },
+                        {
+                            Id: 243,
+                            Caption: "چهاردانگه",
+                            Menu: []
+                        },
+                        {
+                            Id: 243,
+                            Caption: "احمدآباد مستوفی",
+                            Menu: []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            Id: 3,
+            Caption: "زنجان",
+            Menu: [
+                {
+                    Id: 11,
+                    Caption: "همه شهرستان ",
+                    Menu: []
+                }
+            ]
+        },
+
+    ];
 
     $scope.CarouselSlide = [
         {
@@ -3920,8 +4157,6 @@ app.controller('MainControl', function ($scope) {
 
     $scope.init = function () {
 
-        var res = CreateNavbarMenu($scope.NavbarProductMenu);
-        $("#menuScript").html(res);
 
     }
 
@@ -4089,6 +4324,14 @@ app.controller('MainControl', function ($scope) {
         $scope.ProductsView = true;
     };
 
+    $scope.NavbarPlaceClick = function (place) {
+        
+        if (place.Menu.length>0) {
+            return;
+        }
+        $scope.SelectedPlace = place.Caption;
+    };
+
     $scope.filterProducts = function (product) {
 
         //console.log(product.ID);
@@ -4097,14 +4340,14 @@ app.controller('MainControl', function ($scope) {
         if ($scope.AvalableProductOnly && !product.Available)
             return false;
 
-        if ($scope.ProductsPriceFrom > 0 && product.FinallPrice < $scope.ProductsPriceFrom) 
+        if ($scope.ProductsPriceFrom > 0 && product.FinallPrice < $scope.ProductsPriceFrom)
             return false;
 
         if ($scope.ProductsPriceTo > 0 && $scope.ProductsPriceTo < product.FinallPrice)
             return false;
-        
 
-        return true; 
+
+        return true;
     };
 
     $scope.CartClick = function () {
