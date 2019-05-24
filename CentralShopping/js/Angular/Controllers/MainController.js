@@ -44,6 +44,8 @@ app.controller('MainControl', function ($scope) {
 
     $scope.HomeView = true;
 
+    $scope.PlaceSelectorView = false;
+
     $scope.StoresView = false;
 
     $scope.StoreView = false;
@@ -68,8 +70,8 @@ app.controller('MainControl', function ($scope) {
     $scope.AvalableProductOnly = false;
     $scope.ProductsPriceFrom = 0;
     $scope.ProductsPriceTo = 0;
-    
-    $scope.SelectedPlace = "";
+
+    $scope.SelectedPlace = "انتخاب کنید ...";
 
     $scope.ObjectInPageCount = [9, 18, "همه"];
 
@@ -136,45 +138,21 @@ app.controller('MainControl', function ($scope) {
 
     $scope.NavbarProductMenu = [
         {
-            Id: 'FE10B934-F112-4F4A-A814-EC0321E4E86B',
-            Caption: "test 1",
+            ID: 'FE10B934-F112-4F4A-A814-EC0321E4E86B',
+            Caption: "آرایشی، بهداشتی و سلامت",
             Menu: [
                 {
-                    Id: 11,
-                    Caption: "test 1 - 1",
+                    ID: 11,
+                    Caption: "عطر",
                     Menu: [
                         {
-                            Id: 111,
-                            Caption: "test 1 - 1 - 1",
+                            ID: 111,
+                            Caption: "عطر و ادوکلن",
                             Menu: []
                         },
                         {
-                            Id: 112,
-                            Caption: "test 1 - 1 - 2",
-                            Menu: []
-                        }, {
-                            Id: 113,
-                            Caption: "test 1 - 1 - 3",
-                            Menu: []
-                        }
-                    ]
-                },
-                {
-                    Id: 12,
-                    Caption: "test 1 - 2",
-                    Menu: [
-                        {
-                            Id: 121,
-                            Caption: "test 1 - 2 - 1",
-                            Menu: []
-                        },
-                        {
-                            Id: 122,
-                            Caption: "test 1 - 2 - 2",
-                            Menu: []
-                        }, {
-                            Id: 123,
-                            Caption: "test 1 - 2 - 3",
+                            ID: 112,
+                            Caption: "اسپری",
                             Menu: []
                         }
                     ]
@@ -182,46 +160,77 @@ app.controller('MainControl', function ($scope) {
             ]
         },
         {
-            Id: 2,
-            Caption: "test 2",
+            ID: 2,
+            Caption: "خوردنی و آشامیدنی",
             Menu: [
                 {
-                    Id: 21,
-                    Caption: "test 2 - 1",
+                    ID: 21,
+                    Caption: "کالاهای اساسی و خوار و بار",
                     Menu: [
                         {
-                            Id: 211,
-                            Caption: "test 2 - 1 - 1",
-                            Menu: []
+                            ID: 211,
+                            Caption: "زیتون",
+                            Menu: [
+                                {
+                                    ID: 2111,
+                                    Caption: "زیتون شکسته",
+                                    Menu: []
+                                },
+                                {
+                                    ID: 2112,
+                                    Caption: "زیتون کنسروی",
+                                    Menu: []
+                                }]
                         },
                         {
-                            Id: 212,
-                            Caption: "test 2 - 1 - 2",
-                            Menu: []
-                        }, {
-                            Id: 213,
-                            Caption: "test 2 - 1 - 3",
-                            Menu: []
-                        }
-                    ]
-                },
-                {
-                    Id: 22,
-                    Caption: "test 2 - 2",
-                    Menu: [
-                        {
-                            Id: 221,
-                            Caption: "test 2 - 2 - 1",
-                            Menu: []
+                            ID: 212,
+                            Caption: "روغن زیتون",
+                            Menu: [{
+                                ID: 2121,
+                                Caption: "روغن زیتون سبز",
+                                Menu: []
+                            },
+                                {
+                                    ID: 2122,
+                                    Caption: "روغن زیتون زرد",
+                                    Menu: []
+                                }]
                         },
                         {
-                            Id: 222,
-                            Caption: "test 2 - 2 - 2",
-                            Menu: []
-                        }, {
-                            Id: 223,
-                            Caption: "test 2 - 2 - 3",
-                            Menu: []
+                            ID: 213,
+                            Caption: "رب",
+                            Menu: [
+                                {
+                                    ID: 2131,
+                                    Caption: "رب انار",
+                                    Menu: [
+                                        {
+                                            ID: 21311,
+                                            Caption: "رب انار شیرین",
+                                            Menu: []
+                                        },
+                                        {
+                                            ID: 21312,
+                                            Caption: "رب انار ترش",
+                                            Menu: []
+                                        },
+                                        {
+                                            ID: 21313,
+                                            Caption: "رب انار ترش و شیرین مخلوط",
+                                            Menu: []
+                                        }
+                                    ]
+                                }]
+                        },
+                        {
+                            ID: 214,
+                            Caption: "ترشی جات",
+                            Menu: [
+                                {
+                                    ID: 2141,
+                                    Caption: "سیر ترشی",
+                                    Menu: []
+                                }]
                         }
                     ]
                 }
@@ -231,219 +240,219 @@ app.controller('MainControl', function ($scope) {
 
     $scope.NavbarPlaceMenu = [
         {
-            Id: 1,
+            ID: 1,
             Caption: "همه استان ها",
             Menu: []
         },
         {
-            Id: 2,
+            ID: 2,
             Caption: "تهران",
             Menu: [
                 {
-                    Id: 21,
+                    ID: 21,
                     Caption: "همه شهرستان ",
                     Menu: []
                 },
                 {
-                    Id: 22,
+                    ID: 22,
                     Caption: "تهران",
                     Menu: [
                         {
-                            Id: 121,
+                            ID: 121,
                             Caption: "همه مناطق",
                             Menu: []
                         },
                         {
-                            Id: 122,
+                            ID: 122,
                             Caption: "منطقه 1",
                             Menu: []
                         },
                         {
-                            Id: 123,
+                            ID: 123,
                             Caption: "منطقه 2",
                             Menu: []
                         }
                     ]
                 },
                 {
-                    Id: 23,
+                    ID: 23,
                     Caption: "شهریار",
                     Menu: [
                         {
-                            Id: 121,
+                            ID: 121,
                             Caption: "همه مناطق",
                             Menu: []
                         },
                         {
-                            Id: 122,
+                            ID: 122,
                             Caption: "مرکزی",
                             Menu: []
                         },
                         {
-                            Id: 123,
+                            ID: 123,
                             Caption: "کهنز",
                             Menu: []
                         },
                         {
-                            Id: 122,
+                            ID: 122,
                             Caption: "وائین",
                             Menu: []
                         },
                         {
-                            Id: 123,
+                            ID: 123,
                             Caption: "امیریه",
                             Menu: []
                         },
                         {
-                            Id: 122,
+                            ID: 122,
                             Caption: "اندیشه",
                             Menu: []
                         },
                         {
-                            Id: 123,
+                            ID: 123,
                             Caption: "جعفریه",
                             Menu: []
                         }
                     ]
                 },
                 {
-                    Id: 24,
+                    ID: 24,
                     Caption: "اسلامشهر",
                     Menu: [
                         {
-                            Id: 241,
+                            ID: 241,
                             Caption: "همه مناطق",
                             Menu: []
                         },
                         {
-                            Id: 242,
+                            ID: 242,
                             Caption: "مرکزی",
                             Menu: [
                                 {
-                                    Id: 2421,
+                                    ID: 2421,
                                     Caption: "همه محل ها",
                                     Menu: []
                                 },
                                 {
-                                    Id: 2422,
+                                    ID: 2422,
                                     Caption: "مطهری",
                                     Menu: [
                                         {
-                                            Id: 24221,
+                                            ID: 24221,
                                             Caption: "همه خیابان ها",
                                             Menu: []
                                         },
                                         {
-                                            Id: 24222,
+                                            ID: 24222,
                                             Caption: "مطهری",
                                             Menu: []
                                         },
                                         {
-                                            Id: 24223,
+                                            ID: 24223,
                                             Caption: "طالقانی",
                                             Menu: []
                                         },
                                         {
-                                            Id: 24224,
+                                            ID: 24224,
                                             Caption: "فاطمه زهرا",
                                             Menu: []
                                         }
                                     ]
                                 },
                                 {
-                                    Id: 2423,
+                                    ID: 2423,
                                     Caption: "شهرک گلها",
                                     Menu: []
                                 },
                                 {
-                                    Id: 2424,
+                                    ID: 2424,
                                     Caption: "شهرک میان آباد (امام حسین)",
                                     Menu: []
                                 },
                                 {
-                                    Id: 2425,
+                                    ID: 2425,
                                     Caption: "کاشانی",
                                     Menu: []
                                 },
                                 {
-                                    Id: 2426,
+                                    ID: 2426,
                                     Caption: "۲۰ متری امام خمینی (ره)",
                                     Menu: []
                                 },
                                 {
-                                    Id: 2427,
+                                    ID: 2427,
                                     Caption: "باغ نرده",
                                     Menu: []
                                 },
                                 {
-                                    Id: 2428,
+                                    ID: 2428,
                                     Caption: "مهدیه",
                                     Menu: []
                                 },
                                 {
-                                    Id: 2429,
+                                    ID: 2429,
                                     Caption: "محمدیه",
                                     Menu: []
                                 },
                                 {
-                                    Id: 24210,
+                                    ID: 24210,
                                     Caption: "سعیدیه",
                                     Menu: []
                                 },
                                 {
-                                    Id: 24211,
+                                    ID: 24211,
                                     Caption: "قاسم‌آباد شاهی",
                                     Menu: []
                                 },
                                 {
-                                    Id: 24212,
+                                    ID: 24212,
                                     Caption: "مافین آباد",
                                     Menu: []
                                 },
                                 {
-                                    Id: 24213,
+                                    ID: 24213,
                                     Caption: "شهرک لاله",
                                     Menu: []
                                 },
                                 {
-                                    Id: 24214,
+                                    ID: 24214,
                                     Caption: "موسی‌آباد",
                                     Menu: []
                                 },
                                 {
-                                    Id: 24215,
+                                    ID: 24215,
                                     Caption: "واوان",
                                     Menu: []
                                 },
                                 {
-                                    Id: 24216,
+                                    ID: 24216,
                                     Caption: "قائمیه",
                                     Menu: []
                                 },
                                 {
-                                    Id: 24217,
+                                    ID: 24217,
                                     Caption: "شیرودی",
                                     Menu: []
                                 },
                                 {
-                                    Id: 24218,
+                                    ID: 24218,
                                     Caption: "شهر موسی",
                                     Menu: []
                                 },
                                 {
-                                    Id: 24219,
+                                    ID: 24219,
                                     Caption: "قائمیه",
                                     Menu: []
                                 }
                             ]
                         },
                         {
-                            Id: 243,
+                            ID: 243,
                             Caption: "چهاردانگه",
                             Menu: []
                         },
                         {
-                            Id: 243,
+                            ID: 243,
                             Caption: "احمدآباد مستوفی",
                             Menu: []
                         }
@@ -452,11 +461,11 @@ app.controller('MainControl', function ($scope) {
             ]
         },
         {
-            Id: 3,
+            ID: 3,
             Caption: "زنجان",
             Menu: [
                 {
-                    Id: 11,
+                    ID: 11,
                     Caption: "همه شهرستان ",
                     Menu: []
                 }
@@ -741,265 +750,301 @@ app.controller('MainControl', function ($scope) {
 
     $scope.ProductList = {
         ID: 1,
-        Caption: 'انواع لنز',
+        Caption: '-',
         Products: [
             {
-                ID: 2,
-                Name: 'عینک آفتابی RayBan 3576N 1537V',
-                Price: 25790000,
-                Discount: 25,
-                FinallPrice: 10,
-                Image: 'Images/Slids/Brands/2.png',
+                CategoryID: 111,
+                ID: 1,
+                Name: 'ادو پرفیوم میسون فرانسیس کورکجان مدل Baccarat Rouge 540 حجم 200 میلی لیتر',
+                Price: 58000000,
+                Discount: 0,
+                FinallPrice: 58000000,
+                Image: 'Images/Products/111.jpg',
                 Options: [
                     {
                         ID: 1,
-                        Caption: 'ساخت کشور ایتالیا'
+                        Caption: 'حجم 200 میلی لیتر'
                     },
                     {
                         ID: 2,
-                        Caption: 'سبک کلاسیک، با معرفی Blaze'
+                        Caption: 'نوع رایحه : تند گرم'
                     },
                     {
                         ID: 3,
-                        Caption: 'لنز Sharp Onesie! Ray-Ban'
+                        Caption: 'ساختار رایحه : چوب صمغ گیاهان معطر'
                     },
                     {
                         ID: 4,
-                        Caption: 'مناسب برای صورت های بیضی و گرد شکل'
-                    },
+                        Caption:
+                            'ادو پرفیوم میسون فرانسیس کورکجان مدل Baccarat Rouge 540، عطری خاص است که در سال 2015 توسط طراح مشهور عطر فرانسیس کورکجان برای استفاده آقایان و خانمها خلق شد. این عطر دارای رایحه ای گرم و تند میباشد. ماندگاری بالا و خط بوی ویژه این عطر برای استفاده در روزها و شبهای سرد و خنک انتخابی ویژه است.'
+                    }
                 ],
-                LastUpdate: '2017-12-01',
+                LastUpdate: '2019-05-12',
                 VisitsCount: 150,
                 Available: true,
                 AvailableCount: 5,
             },
             {
-                ID: 1,
-                Name: 'عینک آفتابی RayBan 3581N 90387J',
-                Price: 25790000,
-                Discount: 10,
-                FinallPrice: 20,
-                Image: 'Images/Slids/Brands/8.jpg',
+                CategoryID: 111,
+                ID: 2,
+                Name: 'ادو پرفیوم کرید مدل Royal Mayfair حجم 120 میلی لیتر',
+                Price: 49000000,
+                Discount: 5,
+                FinallPrice: 46550000,
+                Image: 'Images/Products/112.jpg',
                 Options: [
                     {
                         ID: 1,
-                        Caption: 'ساخت کشور ایتالیا'
+                        Caption: 'حجم 120 میلی لیتر'
                     },
                     {
                         ID: 2,
-                        Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
+                        Caption: 'نوع رایحه : تلخ گرم'
                     },
                     {
                         ID: 3,
-                        Caption: 'زیبایی و ترکیبی فراتر از انتظار'
+                        Caption: 'ساختار رایحه : مرکبات گل میوه گیاهان معطر چوب'
                     },
                     {
                         ID: 4,
-                        Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
+                        Caption:
+                            'یکی از عطرهای گلی و میوه‌ای «کرید» (Creed) در سال 2015 ساخته شده است. این ادو پرفیوم که برای استفاده‌ی مشترک آقایان و بانوان ساخته شده «Royal Mayfair» نام دارد. Royal Mayfair یکی از شاهکارهای عطرساز برجسته و کاربلد «اولیویه کرید» (Olivier Creed) به‌حساب می‌آید. این عطر بوی خنکی دارد و برای استفاده در تمامی فصول سال به‌ویژه‌ بهار و تابستان پیشنهاد می‌شود. بطری Royal Mayfair خیلی ساده و درعین‌حال شیک طراحی شده است. روی بطری Royal Mayfair نشان تجاری کرید و نام Royal Mayfair را مشاهده می‌کنید. مایع درون بطری به رنگ طلایی است و از روی شیشه‌ی شفاف آن دیده می‌شود. درپوش طلایی بطری به‌خوبی طرح کلی Royal Mayfair را کامل می‌کند. شیشه بسیار خوش‌دست بوده و به‌راحتی در دست آقایان و بانوان جا می‌شود. پس از اسپری کردن Royal Mayfair روی پوست و محل نبضتان متوجه بوی لیموترش و درخت کاج خواهید شد. این ترکیب طبیعی و شیرین، انرژی و تازگی را در شما بیشتر می‌کند. پس از مدتی، این نت‌ها جای خود را به نت‌های میانی خواهند داد. نت‌های میانی از ترکیب گل رز ساخته می‌شوند. بوی شیرین این نت‌‌‌های گلی، انرژی مثبت و طراوت را در شما ایجاد می‌کند. در ادامه و با گذشت مدت‌زمانی طولانی، نت‌های پایانی از راه رسیده و جای نت‌های میانی را می‌گیرند. این نت‌ها از پرتقال، چوب سدر و اوکالیپتوس تشکیل شده‌اند. پس از استشمام بوی این نت‌ها، اعتمادبه‌نفس بالایی خواهید داشت. خرید عطر کرید Royal Mayfair با توجه به بوی خنک، پخش بوی قوی، ماندگاری بالا، بطری خاص و زیبا، قابلیت استفاده برای آقایان و بانوان، حجم 120 میلی‌لیتری و برند شناخته‌شده و ارزشمندش برای شما و کسی که این عطر را از شما هدیه می‌گیرد بسیار به‌صرفه خواهد بود.'
                     },
                 ],
-                LastUpdate: '2018-01-20',
+                LastUpdate: '2019-05-12',
                 VisitsCount: 70,
-                Available: false,
-                AvailableCount: 0,
+                Available: true,
+                AvailableCount: 5,
 
             },
             {
+                CategoryID: 111,
                 ID: 3,
-                Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
-                Price: 23460000,
-                Discount: 20,
-                FinallPrice: 30,
-                Image: 'Images/Slids/Brands/6.jpg',
+                Name: 'ادو پرفیوم زنانه میسون فرانسیس کورکجان مدل A La Rose حجم 200 میلی لیتر',
+                Price: 47400000,
+                Discount: 10,
+                FinallPrice: 42660000,
+                Image: 'Images/Products/113.jpg',
                 Options: [
                     {
                         ID: 1,
-                        Caption: 'ساخت کشور ایتالیا'
+                        Caption: 'حجم 200 میلی لیتر'
                     },
                     {
                         ID: 2,
-                        Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
+                        Caption: 'نوع رایحه : شیرین گل'
                     },
                     {
                         ID: 3,
-                        Caption: 'بسیار بادوام و مستحکم'
+                        Caption: 'ساختار رایحه : چوب مرکبات گیاهان معطر گل'
+                    },
+                    {
+                        ID: 3,
+                        Caption:
+                            'ادو پرفیوم زنانه فرانسیس کورکجان مدل A La Rose، عطری است ملایم و شیرین. این عطر در سال ۲۰۱۴ به بازار عطر و ادکلن عرضه شد. این ادوپرفیوم عطری است زنانه و رمانتیک که برای خانم های شیک پوش و سخت پسند که همواره به دنبال بهترین ها هستند طراحی شده است.'
                     },
                 ],
-                LastUpdate: '2017-12-05',
+                LastUpdate: '2019-05-12',
                 VisitsCount: 15,
                 Available: true,
                 AvailableCount: 5,
             },
             {
-                ID: 6,
-                Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
-                Price: 23460000,
-                Discount: 0,
-                FinallPrice: 40,
-                Image:
-                    'Images/Slids/Brands/7.png',
-                Options: [
-                    {
-                        ID: 1,
-                        Caption: 'ساخت کشور ایتالیا'
-                    },
-                    {
-                        ID: 2,
-                        Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
-                    },
-                    {
-                        ID: 3,
-                        Caption: 'بسیار بادوام و مستحکم'
-                    },
-                ],
-                LastUpdate: '2018-10-15',
-                VisitsCount: 51,
-                Available: false,
-                AvailableCount: 0,
-            },
-            {
-                ID: 7,
-                Name: 'عینک آفتابی RayBan 3581N 90387J',
-                Price: 25790000,
-                Discount: 0,
-                FinallPrice: 25790000,
-                Image: 'Images/Slids/Brands/4.jpg',
-                Options: [
-                    {
-                        ID: 1,
-                        Caption: 'ساخت کشور ایتالیا'
-                    },
-                    {
-                        ID: 2,
-                        Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
-                    },
-                    {
-                        ID: 3,
-                        Caption: 'زیبایی و ترکیبی فراتر از انتظار'
-                    },
-                    {
-                        ID: 4,
-                        Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
-                    },
-                ],
-                LastUpdate: '2019-02-08',
-                VisitsCount: 7,
-                Available: false,
-                AvailableCount: 0,
-            },
-            {
-                ID: 5,
-                Name: 'عینک آفتابی RayBan 3576N 1537V',
-                Price: 25790000,
-                Discount: 0,
-                FinallPrice: 25790000,
-                Image: 'Images/Slids/Brands/5.png',
-                Options: [
-                    {
-                        ID: 1,
-                        Caption: 'ساخت کشور ایتالیا'
-                    },
-                    {
-                        ID: 2,
-                        Caption: 'سبک کلاسیک، با معرفی Blaze'
-                    },
-                    {
-                        ID: 3,
-                        Caption: 'لنز Sharp Onesie! Ray-Ban'
-                    },
-                    {
-                        ID: 4,
-                        Caption: 'مناسب برای صورت های بیضی و گرد شکل'
-                    },
-                ],
-                LastUpdate: '2018-09-11',
-                VisitsCount: 201,
-                Available: true,
-                AvailableCount: 5,
-            },
-            {
-                ID: 9,
-                Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
-                Price: 23460000,
-                Discount: 0,
-                FinallPrice: 23460000,
-                Image: 'Images/Slids/Brands/1.png',
-                Options: [
-                    {
-                        ID: 1,
-                        Caption: 'ساخت کشور ایتالیا'
-                    },
-                    {
-                        ID: 2,
-                        Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
-                    },
-                    {
-                        ID: 3,
-                        Caption: 'بسیار بادوام و مستحکم'
-                    },
-                ],
-                LastUpdate: '2018-11-27',
-                VisitsCount: 71,
-                Available: true,
-                AvailableCount: 5,
-            },
-            {
-                ID: 8,
-                Name: 'عینک آفتابی RayBan 3576N 1537V',
-                Price: 25790000,
-                Discount: 0,
-                FinallPrice: 25790000,
-                Image: 'Images/Slids/Brands/3.png',
-                Options: [
-                    {
-                        ID: 1,
-                        Caption: 'ساخت کشور ایتالیا'
-                    },
-                    {
-                        ID: 2,
-                        Caption: 'سبک کلاسیک، با معرفی Blaze'
-                    },
-                    {
-                        ID: 3,
-                        Caption: 'لنز Sharp Onesie! Ray-Ban'
-                    },
-                    {
-                        ID: 4,
-                        Caption: 'مناسب برای صورت های بیضی و گرد شکل'
-                    },
-                ],
-                LastUpdate: '2019-01-11',
-                VisitsCount: 20,
-                Available: true,
-                AvailableCount: 5,
-            },
-            {
+                CategoryID: 111,
                 ID: 4,
-                Name: 'عینک آفتابی RayBan 3581N 90387J',
-                Price: 25790000,
+                Name: 'پرفیوم میسون فرانسیس کورکجان مدل Baccarat Rouge 540 Extrait de Parfum حجم 70 میلی لیتر',
+                Price: 44649000,
                 Discount: 0,
-                FinallPrice: 25790000,
-                Image: 'Images/Slids/Brands/2.png',
+                FinallPrice: 44649000,
+                Image: 'Images/Products/114.jpg',
                 Options: [
                     {
                         ID: 1,
-                        Caption: 'ساخت کشور ایتالیا'
+                        Caption: 'حجم 70 میلی لیتر'
                     },
                     {
                         ID: 2,
-                        Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
+                        Caption: 'نوع رایحه : شیرین گرم شرقی'
                     },
                     {
                         ID: 3,
-                        Caption: 'زیبایی و ترکیبی فراتر از انتظار'
+                        Caption: 'ساختار رایحه : چوب صمغ گیاهان معطر'
                     },
                     {
-                        ID: 4,
-                        Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
+                        ID: 3,
+                        Caption:
+                            'میسون فرانسیس کورکجان مدل Baccarat Rouge 540، پرفیومی خالص است که در سال 2017 توسط طراح مشهور عطر فرانسیس کورکجان خلق شد. این عطر دارای رایحه ای شیرین و شرقی میباشد. ماندگاری بالا و خط بوی ویژه این عطر از نقاط برجسته آن میباشد. این عطر برای استفاده آقایان و خانمها طراحی شده است.'
                     },
                 ],
-                LastUpdate: '2018-10-08',
-                VisitsCount: 550,
+                LastUpdate: '2019-05-12',
+                VisitsCount: 15,
+                Available: true,
+                AvailableCount: 5,
+            },
+            {
+                CategoryID: 111,
+                ID: 5,
+                Name: 'ادو پرفیوم کرید مدل Royal Oud حجم 120 میلی لیتر',
+                Price: 43500000,
+                Discount: 10,
+                FinallPrice: 39150000,
+                Image: 'Images/Products/115.jpg',
+                Options: [
+                    {
+                        ID: 1,
+                        Caption: 'حجم 120 میلی لیتر'
+                    },
+                    {
+                        ID: 2,
+                        Caption: 'نوع رایحه : تلخ گرم'
+                    },
+                    {
+                        ID: 3,
+                        Caption: 'ساختار رایحه : مرکبات میوه گیاهان معطر خاک و زمین ادویه چوب'
+                    },
+                    {
+                        ID: 3,
+                        Caption:
+                            'آیا شما جزو افرادی هستید که علاوه بر بوی عطر به اعتبار برند و همچنین طراحی شیشه‌ی آن اهمیت ویژه‌ای می‌دهند؟ اگر چنین است، بدون شک نام برند معتبر و معروف «کرید» (Creed) را شنیده‌اید. یکی از تولیدات ویژه‌ی کرید که در سال 2011 در کشور فرانسه ساخته شد، «رویال عود» (Royal Oud) نام دارد. یکی از مهم‌ترین ویژگی این عطر، قابلیت استفاده‌ی آن برای آقایان و بانوان است. عطرساز معروفی به نام «Olivier Creed Sixth Generation» کار طراحی و فرمولاسیون این ادو پرفیوم را انجام داده است. همان‌طور که از نام این عطر پیداست، با استفاده از آن حال و هوای حضور در قصرهای سلطنتی و مجلل را خواهید داشت. پس بی‌دلیل نیست که افراد مشهوری مثل بازیگران هالیوود، خانواده‌های سلطنتی و ورزشکاران نامی در سراسر دنیا از مشتریان پر و پا قرص محصولات کرید هستند. با نگاهی به شیشه‌ی کرید، طراحی آن شکوه و عظمت کاخ‌های سلطنتی و مهمانی‌های مجلل قدیمی را برای شما تداعی می‌کند. در بطری به رنگ مشکی به‌خوبی با شیشه‌ی آن هماهنگی دارد. مایع درون شیشه به رنگ طلایی روشن است و به‌وضوح از روی بطری شفاف رویال عود قابل‌مشاهده است. اگر کمی با دقت به شیشه دقت کنید، نشان تجاری کرید با حروف درشت و طلایی‌رنگ به‌خوبی قابل‌مشاهده است. به محض اسپری این عطر روی محل نبض یا لباس خود، بوی لیمو، فلفل صورتی و نارنج به سرعت در هوا پخش می‌شود. تندی عجیب و قوی این ترکیب، شما و اطرافیانتان را کاملاً متوجه خودش خواهد کرد. پس از مدتی بوی سدر، گیاه مفید باریجه و گلپر نام‌آشنا، جایگزین نت‌های قبلی خواهد شد. خنکی این ترکیب سه‌گانه حس آرامش و شادی ویژه‌ای را به شما می‌بخشد. این نت‌های میانی تا مدت زیادی قابل استشمام خواهند بود. پس از این شاهد تأثیر عناصری همچون چوب عود، چوب صندل و مشک خواهید بود. این نت‌ها علاوه بر حفظ طراوت و خنکی نت‌های قبلی با وجود مشک انرژی خاصی را ایجاد می‌کنند. برند کرید از سال 1760 توسط آقای «اولیویر کرید» (Olivier Creed) در کشور فرانسه و در شهر پاریس تاسیس شد. یکی از ویژگی‌های مهم در ساخت عطرهای کرید به کار رفتن مواد طبیعی و استفاده از روش‌های سنتی در هنگام تقطیر آن‌هاست.'
+                    },
+                ],
+                LastUpdate: '2019-05-12',
+                VisitsCount: 15,
+                Available: true,
+                AvailableCount: 5,
+            },
+            {
+                CategoryID: 112,
+                ID: 1,
+                Name: 'بادی اسپلش زنانه ویکتوریا سکرت مدل Eau so party حجم 250 میلی لیتر',
+                Price: 2450000,
+                Discount: 0,
+                FinallPrice: 2450000,
+                Image: 'Images/Products/121.jpg',
+                Options: [
+                    {
+                        ID: 1,
+                        Caption: 'حجم 250 میلی لیتر'
+                    },
+                    {
+                        ID: 2,
+                        Caption: 'نوع : اسپری معمولی'
+                    },
+                    {
+                        ID: 3,
+                        Caption: 'طبع : گرم'
+                    }
+                ],
+                LastUpdate: '2019-05-12',
+                VisitsCount: 150,
+                Available: true,
+                AvailableCount: 5,
+            },
+            {
+                CategoryID: 112,
+                ID: 2,
+                Name: 'بادی اسپلش زنانه ویکتوریا سکرت مدل Scandalous حجم 250 میلی لیتر',
+                Price: 2450000,
+                Discount: 0,
+                FinallPrice: 2450000,
+                Image: 'Images/Products/122.jpg',
+                Options: [
+                    {
+                        ID: 1,
+                        Caption: 'حجم 250 میلی لیتر'
+                    },
+                    {
+                        ID: 2,
+                        Caption: 'نوع : اسپری معمولی'
+                    },
+                    {
+                        ID: 3,
+                        Caption: 'طبع : معتدل'
+                    }
+                ],
+                LastUpdate: '2019-05-12',
+                VisitsCount: 150,
+                Available: true,
+                AvailableCount: 5,
+            },
+            {
+                CategoryID: 112,
+                ID: 3,
+                Name: 'بادی اسپلش زنانه ویکتوریا سکرت مدل Eau so حجم 250 میلی لیتر',
+                Price: 2450000,
+                Discount: 0,
+                FinallPrice: 2450000,
+                Image: 'Images/Products/123.jpg',
+                Options: [
+                    {
+                        ID: 1,
+                        Caption: 'حجم 250 میلی لیتر'
+                    },
+                    {
+                        ID: 2,
+                        Caption: 'نوع : اسپری معمولی'
+                    },
+                    {
+                        ID: 3,
+                        Caption: 'طبع : خنک'
+                    }
+                ],
+                LastUpdate: '2019-05-12',
+                VisitsCount: 150,
+                Available: true,
+                AvailableCount: 5,
+            },
+            {
+                CategoryID: 112,
+                ID: 4,
+                Name: 'بادی اسپلش زنانه ویکتوریا سکرت مدل Tease حجم 250 میلی لیتر',
+                Price: 2450000,
+                Discount: 0,
+                FinallPrice: 2450000,
+                Image: 'Images/Products/124.jpg',
+                Options: [
+                    {
+                        ID: 1,
+                        Caption: 'حجم 250 میلی لیتر'
+                    },
+                    {
+                        ID: 2,
+                        Caption: 'نوع : اسپری معمولی'
+                    },
+                    {
+                        ID: 3,
+                        Caption: 'طبع : خنک'
+                    }
+                ],
+                LastUpdate: '2019-05-12',
+                VisitsCount: 150,
+                Available: true,
+                AvailableCount: 5,
+            },
+            {
+                CategoryID: 112,
+                ID: 5,
+                Name: 'بادی اسپلش ویکتوریا سکرت مدل Xo victoria حجم 250 میلی لیتر',
+                Price: 2450000,
+                Discount: 0,
+                FinallPrice: 2450000,
+                Image: 'Images/Products/125.jpg',
+                Options: [
+                    {
+                        ID: 1,
+                        Caption: 'حجم 250 میلی لیتر'
+                    },
+                    {
+                        ID: 2,
+                        Caption: 'نوع : اسپری معمولی'
+                    },
+                    {
+                        ID: 3,
+                        Caption: 'طبع : معتدل'
+                    }
+                ],
+                LastUpdate: '2019-05-12',
+                VisitsCount: 150,
                 Available: true,
                 AvailableCount: 5,
             },
@@ -1007,7 +1052,12 @@ app.controller('MainControl', function ($scope) {
         TotalCount: 50,
     };
 
-    $scope.SearchResultProductList = $scope.ProductList;
+    $scope.SearchResultProductList = {
+        ID: 1,
+        Caption: '-',
+        Products: [],
+        TotalCount: 50,
+    };
 
     $scope.Stores = [
         {
@@ -4169,6 +4219,7 @@ app.controller('MainControl', function ($scope) {
     $scope.StoreMenuClick = function () {
 
         SetAllView(false);
+        $scope.PlaceSelectorView = true;
         $scope.StoresView = true;
     };
 
@@ -4317,16 +4368,29 @@ app.controller('MainControl', function ($scope) {
         }
     };
 
-    $scope.NavbarMenuClick = function (CategoryID) {
+    $scope.NavbarMenuClick = function (navbarMenuItem) {
 
-        alert(CategoryID);
+        if (navbarMenuItem.Menu.length > 0)
+            return;
+        
+        $scope.SearchResultProductList.Caption = navbarMenuItem.Caption;
+        $scope.SearchResultProductList.Products = [];
+
+        var _item = $scope.ProductList.Products.filter(function (x) {
+            return x.CategoryID == navbarMenuItem.ID;
+        });
+
+        if (_item)
+            $scope.SearchResultProductList.Products = _item;
+        
         SetAllView(false);
+        $scope.PlaceSelectorView = true;
         $scope.ProductsView = true;
     };
 
     $scope.NavbarPlaceClick = function (place) {
-        
-        if (place.Menu.length>0) {
+
+        if (place.Menu.length > 0) {
             return;
         }
         $scope.SelectedPlace = place.Caption;
@@ -4427,6 +4491,7 @@ app.controller('MainControl', function ($scope) {
     function SetAllView(isShow) {
 
         $scope.HomeView = isShow;
+        $scope.PlaceSelectorView = isShow;
         $scope.StoresView = isShow;
 
         $scope.StoreView = isShow;

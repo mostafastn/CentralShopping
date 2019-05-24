@@ -107,6 +107,7 @@
     <Content Include="Images\Slids\Brands\9.jpg" />
     <Content Include="js\Angular\angular.min.js" />
     <Content Include="js\Angular\Controllers\MainController.js" />
+    <Content Include="js\Help\JS-LINQ.js" />
     <Content Include="js\rtlBootstrap\bootstrap.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="Images\Slids\Brands\2.png" />
