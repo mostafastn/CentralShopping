@@ -137,6 +137,7 @@
     <Content Include="Menu\Menu.json" />
     <Content Include="css\FontStyle\B-NAZANIN.TTF" />
     <Content Include="css\FontStyle\B Titr Bold_0.ttf" />
+    <Content Include="Server.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,6 +1,6 @@
 ﻿/// <reference path="../../Infrastructure.js" />
 var app = angular.module('CentralShopping', []);
-app.controller('MainControl', function ($scope) {
+app.controller('MainControl', function ($scope, $http) {
 
     // Class Object
 
@@ -136,107 +136,109 @@ app.controller('MainControl', function ($scope) {
         //}
     ];
 
-    $scope.NavbarProductMenu = [
-        {
-            ID: 'FE10B934-F112-4F4A-A814-EC0321E4E86B',
-            Caption: "آرایشی، بهداشتی و سلامت",
-            Menu: [
-                {
-                    ID: 11,
-                    Caption: "عطر",
-                    Menu: [
-                        {
-                            ID: 111,
-                            Caption: "عطر و ادوکلن",
-                            Menu: []
-                        },
-                        {
-                            ID: 112,
-                            Caption: "اسپری",
-                            Menu: []
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            ID: 2,
-            Caption: "خوردنی و آشامیدنی",
-            Menu: [
-                {
-                    ID: 21,
-                    Caption: "کالاهای اساسی و خوار و بار",
-                    Menu: [
-                        {
-                            ID: 211,
-                            Caption: "زیتون",
-                            Menu: [
-                                {
-                                    ID: 2111,
-                                    Caption: "زیتون شکسته",
-                                    Menu: []
-                                },
-                                {
-                                    ID: 2112,
-                                    Caption: "زیتون کنسروی",
-                                    Menu: []
-                                }]
-                        },
-                        {
-                            ID: 212,
-                            Caption: "روغن زیتون",
-                            Menu: [{
-                                ID: 2121,
-                                Caption: "روغن زیتون سبز",
-                                Menu: []
-                            },
-                                {
-                                    ID: 2122,
-                                    Caption: "روغن زیتون زرد",
-                                    Menu: []
-                                }]
-                        },
-                        {
-                            ID: 213,
-                            Caption: "رب",
-                            Menu: [
-                                {
-                                    ID: 2131,
-                                    Caption: "رب انار",
-                                    Menu: [
-                                        {
-                                            ID: 21311,
-                                            Caption: "رب انار شیرین",
-                                            Menu: []
-                                        },
-                                        {
-                                            ID: 21312,
-                                            Caption: "رب انار ترش",
-                                            Menu: []
-                                        },
-                                        {
-                                            ID: 21313,
-                                            Caption: "رب انار ترش و شیرین مخلوط",
-                                            Menu: []
-                                        }
-                                    ]
-                                }]
-                        },
-                        {
-                            ID: 214,
-                            Caption: "ترشی جات",
-                            Menu: [
-                                {
-                                    ID: 2141,
-                                    Caption: "سیر ترشی",
-                                    Menu: []
-                                }]
-                        }
-                    ]
-                }
-            ]
-        }
-    ];
+    $scope.NavbarProductMenu = [];
+
+    //$scope.NavbarProductMenu = [
+    //    {
+    //        ID: 'FE10B934-F112-4F4A-A814-EC0321E4E86B',
+    //        Caption: "آرایشی، بهداشتی و سلامت",
+    //        Menu: [
+    //            {
+    //                ID: 11,
+    //                Caption: "عطر",
+    //                Menu: [
+    //                    {
+    //                        ID: 111,
+    //                        Caption: "عطر و ادوکلن",
+    //                        Menu: []
+    //                    },
+    //                    {
+    //                        ID: 112,
+    //                        Caption: "اسپری",
+    //                        Menu: []
+    //                    }
+    //                ]
+    //            }
+    //        ]
+    //    },
+    //    {
+    //        ID: 2,
+    //        Caption: "خوردنی و آشامیدنی",
+    //        Menu: [
+    //            {
+    //                ID: 21,
+    //                Caption: "کالاهای اساسی و خوار و بار",
+    //                Menu: [
+    //                    {
+    //                        ID: 211,
+    //                        Caption: "زیتون",
+    //                        Menu: [
+    //                            {
+    //                                ID: 2111,
+    //                                Caption: "زیتون شکسته",
+    //                                Menu: []
+    //                            },
+    //                            {
+    //                                ID: 2112,
+    //                                Caption: "زیتون کنسروی",
+    //                                Menu: []
+    //                            }]
+    //                    },
+    //                    {
+    //                        ID: 212,
+    //                        Caption: "روغن زیتون",
+    //                        Menu: [{
+    //                            ID: 2121,
+    //                            Caption: "روغن زیتون سبز",
+    //                            Menu: []
+    //                        },
+    //                            {
+    //                                ID: 2122,
+    //                                Caption: "روغن زیتون زرد",
+    //                                Menu: []
+    //                            }]
+    //                    },
+    //                    {
+    //                        ID: 213,
+    //                        Caption: "رب",
+    //                        Menu: [
+    //                            {
+    //                                ID: 2131,
+    //                                Caption: "رب انار",
+    //                                Menu: [
+    //                                    {
+    //                                        ID: 21311,
+    //                                        Caption: "رب انار شیرین",
+    //                                        Menu: []
+    //                                    },
+    //                                    {
+    //                                        ID: 21312,
+    //                                        Caption: "رب انار ترش",
+    //                                        Menu: []
+    //                                    },
+    //                                    {
+    //                                        ID: 21313,
+    //                                        Caption: "رب انار ترش و شیرین مخلوط",
+    //                                        Menu: []
+    //                                    }
+    //                                ]
+    //                            }]
+    //                    },
+    //                    {
+    //                        ID: 214,
+    //                        Caption: "ترشی جات",
+    //                        Menu: [
+    //                            {
+    //                                ID: 2141,
+    //                                Caption: "سیر ترشی",
+    //                                Menu: []
+    //                            }]
+    //                    }
+    //                ]
+    //            }
+    //        ]
+    //    }
+    //];
 
     $scope.NavbarPlaceMenu = [
         {
@@ -4207,7 +4209,7 @@ app.controller('MainControl', function ($scope) {
 
     $scope.init = function () {
 
-
+        GetMainMenu();
     }
 
     $scope.HomeMenuClick = function () {
@@ -4540,6 +4542,26 @@ app.controller('MainControl', function ($scope) {
                 totall += x.FinallPrice * x.Quantity;
             });
         $scope.Cart.CartTotalFinallPrice = totall;
+    };
+
+    //
+
+    //Callback From Server
+
+    function GetMainMenu() {
+        
+        $http({
+            method: "GET",
+            url: "Server.json"
+        }).then(function mySuccess(response) {
+
+            $scope.NavbarProductMenu = response.data.NavbarProductMenu;
+
+        }, function myError(response) {
+
+            $scope.ErrorMessage = response.statusText;
+            $scope.Alerts.push(new Alert(100, 'خطا فراخوانی وب سرویس', response.statusText, 'alert-danger', 3));
+        });
     };
 
     //
