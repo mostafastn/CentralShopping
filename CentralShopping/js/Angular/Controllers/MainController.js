@@ -4402,7 +4402,7 @@ app.controller('MainControl', function ($scope, $http) {
     function SetAllView(isShow) {
 
         $scope.HomeView = isShow;
-        $scope.GoBackView = !isShow;
+        $scope.GoBackView = isShow;
         $scope.PlaceSelectorView = isShow;
         $scope.StoresView = isShow;
 

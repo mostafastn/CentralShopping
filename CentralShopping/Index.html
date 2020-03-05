@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en" dir="rtl">
 <head>
-    <title>BKCO.IR</title>
+    <title>کارخانه بهشت کیمیا</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -76,8 +76,8 @@
 
         <div class="jumbotron" style="margin-bottom:0; padding-top: 30px; padding-bottom: 20px;">
             <div class="container BTitr orange-text">
-                <h1 style="text-shadow:1px 1px 3px black;">نسخه آزمایشی خرید مرکزی</h1>
-                <h6 style="text-shadow:0px 0px 10px #fb9600;">کلیه محصولات از تمام برند های معتبر‬‎</h6>
+                <h1 style="text-shadow:1px 1px 3px black;">نسخه آزمایشی کارخانه بهشت کیمیا</h1>
+                <h6 style="text-shadow:0px 0px 10px #fb9600;">تولید کننده انواع آرایشی بهداشتی شوینده و ضد عفونی کننده‬‎</h6>
             </div>
         </div>
 
@@ -87,7 +87,7 @@
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-dark row ">
 
-                    <a class="navbar-brand BTitr orange-text" style="color: #fb9600;" href="" ng-click="HomeMenuClick()">خرید مرکزی</a>
+                    <a class="navbar-brand BTitr orange-text" style="color: #fb9600;" href="" ng-click="HomeMenuClick()">بهشت کیمیا</a>
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                         <span class="navbar-toggler-icon"></span>
@@ -95,67 +95,264 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
-                                <a class="nav-link text-nowrap dropdown-toggle" href="#" data-toggle="dropdown">
+                                <a class="nav-link text-nowrap dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                                     محصولات
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li ng-repeat="NavbarProduct in NavbarProductMenu" ng-include="'categoryTree'">
-
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#">کالای دیجیتال</a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">لوازم جانبی گوشی</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">کیف و کاور گوشی</a></li>
+                                                    <li><a class="dropdown-item" href="#">پاور بانک (شارژر همراه)</a></li>
+                                                    <li><a class="dropdown-item" href="#">هندزفری، هدفون، هدست</a></li>
+                                                    <li><a class="dropdown-item" href="#">پایه نگهدارنده گوشی</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">گوشی موبایل</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">آیفون اپل</a></li>
+                                                    <li><a class="dropdown-item" href="#">هوآوی</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">واقعیت مجازی</a></li>
+                                            <li><a class="dropdown-item" href="#">مچ‌بند و ساعت هوشمند</a></li>
+                                            <li><a class="dropdown-item" href="#">هدفون، هدست، هندزفری</a></li>
+                                            <li><a class="dropdown-item" href="#">اسپیکر بلوتوث و با سیم</a></li>
+                                            <li><a class="dropdown-item" href="#">اسکوتر برقی</a></li>
+                                            <li><a class="dropdown-item" href="#">هارد، فلش و SSD</a></li>
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">دوربین</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">دوربین عکاسی دیجیتال</a></li>
+                                                    <li><a class="dropdown-item" href="#">دوربین‌ ورزشی و فیلم برداری</a></li>
+                                                    <li><a class="dropdown-item" href="#">دوربین‌ چاپ سریع</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">لوازم جانبی دوربین</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">کیف</a></li>
+                                                    <li><a class="dropdown-item" href="#">کارت حافظه</a></li>
+                                                    <li><a class="dropdown-item" href="#">کاغذ چاپ عکس</a></li>
+                                                    <li><a class="dropdown-item" href="#">دوربین‌های تحت شبکه</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">دوربین دو چشمی و شکاری</a></li>
+                                            <li><a class="dropdown-item" href="#">تلسکوپ</a></li>
+                                            <li><a class="dropdown-item" href="#">XBox, PS4 و بازی</a></li>
+                                            <li><a class="dropdown-item" href="#">لپ تاپ</a></li>
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">لوازم جانبی لپتاپ</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">کیف، کوله و کاور</a></li>
+                                                    <li><a class="dropdown-item" href="#">کابل‌های رابط و مبدل</a></li>
+                                                    <li><a class="dropdown-item" href="#">کابل‌ صدا، AUX و HDMI</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">مودم و تجهیزات شبکه</a></li>
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">کامپیوتر و تجهیزات جانبی</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">تجهیزات مخصوص بازی</a></li>
+                                                    <li><a class="dropdown-item" href="#">مانیتور</a></li>
+                                                    <li><a class="dropdown-item" href="#">کیس‌های اسمبل شده</a></li>
+                                                    <li><a class="dropdown-item" href="#">قطعات داخلی کامپیوتر</a></li>
+                                                    <li><a class="dropdown-item" href="#">ماوس</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">تبلت</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">لنوو</a></li>
+                                                    <li><a class="dropdown-item" href="#">سامسونگ</a></li>
+                                                    <li><a class="dropdown-item" href="#">ایسوس</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">کیف، کاور، لوازم جانبی تبلت</a></li>
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">ماشین های اداری</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">لوازم جانبی پرینتر</a></li>
+                                                    <li><a class="dropdown-item" href="#">تلفن، بی سیم و سانترال</a></li>
+                                                    <li><a class="dropdown-item" href="#">فکس</a></li>
+                                                    <li><a class="dropdown-item" href="#">پرینتر</a></li>
+                                                    <li><a class="dropdown-item" href="#">لیبل زن و لوازم جانبی</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
                                     </li>
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#">آرایشی و بهداشتی</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Submenu action 2</a></li>
+                                            <li><a class="dropdown-item" href="#">Another submenu action 2</a></li>
 
+
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">Subsubmenu action 1 3</a></li>
+                                                    <li><a class="dropdown-item" href="#">Another subsubmenu action 2 3</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu 3</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">Subsubmenu action 3 </a></li>
+                                                    <li><a class="dropdown-item" href="#">Another subsubmenu action 3</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#">خودرو، ابزار و اداری</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Submenu action 2</a></li>
+                                            <li><a class="dropdown-item" href="#">Another submenu action 2</a></li>
+
+
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">Subsubmenu action 1 3</a></li>
+                                                    <li><a class="dropdown-item" href="#">Another subsubmenu action 2 3</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu 3</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">Subsubmenu action 3 </a></li>
+                                                    <li><a class="dropdown-item" href="#">Another subsubmenu action 3</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#">مد و پوشاک</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Submenu action 2</a></li>
+                                            <li><a class="dropdown-item" href="#">Another submenu action 2</a></li>
+
+
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">Subsubmenu action 1 3</a></li>
+                                                    <li><a class="dropdown-item" href="#">Another subsubmenu action 2 3</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu 3</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">Subsubmenu action 3 </a></li>
+                                                    <li><a class="dropdown-item" href="#">Another subsubmenu action 3</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#">خانه و آشپزخانه</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Submenu action 2</a></li>
+                                            <li><a class="dropdown-item" href="#">Another submenu action 2</a></li>
+
+
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">Subsubmenu action 1 3</a></li>
+                                                    <li><a class="dropdown-item" href="#">Another subsubmenu action 2 3</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu 3</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">Subsubmenu action 3 </a></li>
+                                                    <li><a class="dropdown-item" href="#">Another subsubmenu action 3</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#">فرهنگ و هنر</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Submenu action 2</a></li>
+                                            <li><a class="dropdown-item" href="#">Another submenu action 2</a></li>
+
+
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">Subsubmenu action 1 3</a></li>
+                                                    <li><a class="dropdown-item" href="#">Another subsubmenu action 2 3</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu 3</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">Subsubmenu action 3 </a></li>
+                                                    <li><a class="dropdown-item" href="#">Another subsubmenu action 3</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#">اسباب بازی و کودک</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Submenu action 2</a></li>
+                                            <li><a class="dropdown-item" href="#">Another submenu action 2</a></li>
+
+
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">Subsubmenu action 1 3</a></li>
+                                                    <li><a class="dropdown-item" href="#">Another subsubmenu action 2 3</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu 3</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">Subsubmenu action 3 </a></li>
+                                                    <li><a class="dropdown-item" href="#">Another subsubmenu action 3</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item dropdown-toggle" href="#">ورزش و سفر</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Submenu action 2</a></li>
+                                            <li><a class="dropdown-item" href="#">Another submenu action 2</a></li>
+
+
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">Subsubmenu action 1 3</a></li>
+                                                    <li><a class="dropdown-item" href="#">Another subsubmenu action 2 3</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu 3</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">Subsubmenu action 3 </a></li>
+                                                    <li><a class="dropdown-item" href="#">Another subsubmenu action 3</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-nowrap" href="" id="StoreMenu" ng-click="StoreMenuClick()">فروشگاه ها</a>
-                            </li>
                         </ul>
-
-                        <form class="navbar-form mr-2">
-                            <div class="input-group">
-                                <input type="text" class="form-control border border-light" placeholder="جستجو">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-light" type="submit" title="جستجو">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </div>
-                            </div>
-
-
-                        </form>
-
-                        <button class="btn btn-light mr-2 my-2 " type="submit" title="ورود">
-                            <i class="fa fa-user-circle"></i>
-                        </button>
-                        <button class="btn btn-light my-2" type="submit" title="سبد خرید" ng-click="CartClick()">
-                            <i class="fa fa-shopping-cart">
-                                <span class="badge badge-secondary small" title="تعداد محصولات">{{Cart.Items.length}}</span>
-                            </i>
-                        </button>
                     </div>
-
                 </nav>
             </div>
         </div>
-
-        <script type="text/ng-template" id="categoryTree">
-            <a class="dropdown-item " href="#"
-               ng-class="{'dropdown-toggle': NavbarProduct.Menu.length}"
-               ng-click="NavbarMenuClick(NavbarProduct)">{{ NavbarProduct.Caption }}</a>
-            <ul class="dropdown-menu" ng-if="NavbarProduct.Menu.length">
-                <li ng-repeat="NavbarProduct in NavbarProduct.Menu" ng-include="'categoryTree'">
-
-                </li>
-            </ul>
-        </script>
-
-        <script type="text/ng-template" id="placeTree">
-            <a class="dropdown-item " href="#" ng-class="{'dropdown-toggle': NavbarPlace.Menu.length}" ng-click="NavbarPlaceClick(NavbarPlace)">{{ NavbarPlace.Caption }}</a>
-            <ul class="dropdown-menu" ng-if="NavbarPlace.Menu.length">
-                <li ng-repeat="NavbarPlace in NavbarPlace.Menu" ng-include="'placeTree'">
-
-                </li>
-            </ul>
-        </script>
 
         <!-- #endregion -->
 
@@ -173,33 +370,7 @@
 
             <!-- #endregion -->
             <!-- #region HomePage -->
-            <!--<div class="container">
-        <h2>Form Validation</h2>
-        <p>In this example, we use <code>.was-validated</code> to indicate what's missing before submitting the form:</p>
-        <form action="/action_page.php" class="was-validated">
-            <div class="form-group">
-                <label for="uname">Username:</label>
-                <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-            <div class="form-group">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" name="remember" required> I agree on blabla.
-                    <div class="valid-feedback">Valid.</div>
-                    <div class="invalid-feedback">Check this checkbox to continue.</div>
-                </label>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </div>-->
-
+            
             <div class="row" ng-show="HomeView">
                 <div class="col">
                     <div id="demo" class="carousel slide" data-ride="carousel">
@@ -277,43 +448,10 @@
                 </div>
             </div>
 
-            <div class="row my-5" ng-show="HomeView">
-                <div class="col">
-                    <div class="border border-muted rounded">
-                        <div class="label text-danger m-2 BTitr">
-                            فروشگاه های محبوب
-                        </div>
-
-                        <div class="row card-deck">
-
-                            <div class="col-md-4" ng-repeat="x in Stores" ng-click="StoreClick(x.ID)">
-                                <div class="card mb-4 " style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                                    <div class="card-header bg-secondary text-white">{{x.ProductCount}} محصول</div>
-                                    <div class="card-body text-center">
-                                        <h6 class="card-title">{{x.Name}}</h6>
-                                        <p class="card-text">{{x.IntroductionSummary}}</p>
-                                    </div>
-                                    <ul class="list-group list-group-flush" ng-repeat="t in x.Options">
-                                        <li class="list-group-item text-info small">
-                                            <small>{{t.Caption}}</small>
-                                        </li>
-                                    </ul>
-                                    <div class="card-footer text-muted small">
-                                        <p class="btn-sm btn-primary text-center">{{x.Name}}</p>
-                                        {{x.lastUpdate}} دقیقه پیش
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- #endregion -->
             <!-- #region GoBackView -->
 
-            <div class="row mb-2 justify-content-end" ng-show="GoBackView">
+            <div class="row mb-2 justify-content-end" ng-show="ViewStack.length>0">
                 <div class="col-sm-3">
                     <button class="btn btn-danger w-100" type="submit" title="بازگشت به قسمت قبل" ng-click="AddCart();$event.stopPropagation();" ng-disabled>
                         <i class="fa fa-arrow-left fa-2x pull-left" aria-hidden="true">
@@ -324,32 +462,7 @@
             </div>
 
             <!-- #endregion -->
-            <!-- #region PlaceSelectorView -->
-
-            <div class="row mb-2" ng-show="PlaceSelectorView">
-                <nav class="navbar navbar-expand border border-muted rounded w-100">
-                    <a class="navbar-brand text-dark" href="">انتخاب شهر: </a>
-
-                    <div class="collapse navbar-collapse">
-                        <ul class="navbar-nav">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link text-nowrap dropdown-toggle" href="#" data-toggle="dropdown">
-                                    {{SelectedPlace}}
-                                </a>
-                                <div class="label font-weight-bold bg-light"></div>
-                                <ul class="dropdown-menu">
-                                    <li ng-repeat="NavbarPlace in NavbarPlaceMenu" ng-include="'placeTree'">
-
-                                    </li>
-
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-
-            <!-- #endregion -->
+            
             <!-- #region StoresView -->
 
             <div class="row border border-muted rounded mb-3" ng-show="StoresView">
@@ -379,67 +492,8 @@
 
             <div class="row border border-dark mb-3 rounded" ng-show="StoreView">
 
-                <div class="col-md-3 border-right border-secondary rounded">
 
-                    <div id="accordion">
-                        <div class="card">
-                            <div class="card-header">
-                                <a class="collapsed card-link font-weight-bold" href="" ng-click="HomeCompanyClick()">{{Store.Name}}</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-
-                                <button class="btn btn-link card-link p-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    محصولات
-                                </button>
-                            </div>
-
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                                <div class="card-body" ng-repeat="x in Store.ProductMenu">
-                                    <a class="collapsed card-link" href="" ng-click="ProductMenuClick(x.ID)">
-                                        {{x.Caption}}
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <a class="collapsed card-link" href="" ng-click="AboutCompanyClick()">درباره ما</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <a class="collapsed card-link" href="" ng-click="ContactCompanyClick()">تماس با ما</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-md-9" ng-show="HomeCompanyView">
-
-                    <div class="card-body">
-                        <img src="{{Store.Introduction.Image}}" alt="{{Store.Introduction.Summary}}" class="img-fluid mx-auto d-block">
-                    </div>
-
-                    <div class="card-body" ng-repeat="x in Store.Introduction.Contents">
-                        <h6>
-                            {{x.Caption}}
-                        </h6>
-                        <p class="text-justify" style="direction: rtl;">
-                            {{x.Content}}
-                        </p>
-                    </div>
-
-                    <div class="card-body" ng-show="Store.Introduction.Link!=''">
-                        <p class="text-left" style="direction: ltr;">
-                            <a class="text-primary font-weight-bold" href="{{Store.Introduction.Link}}" target="_blank">{{Store.Name}}</a>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-9" ng-show="StoreProductListView">
+                <div class="col-md-12" ng-show="StoreProductListView">
                     <div class="row pt-2">
                         <div class="col-sm-4">
                             <select class="text-primary border-0" ng-model="SortType" ng-options="x.Caption for x in SortTypes"></select>
@@ -477,31 +531,10 @@
 
                 </div>
 
-                <div class="col-md-9" ng-show="StoreAboutCompanyView">
+                
 
-                    <div class="card-body" ng-repeat="x in Store.AboutCompany">
-                        <h6>
-                            {{x.Caption}}
-                        </h6>
-                        <p class="text-justify" style="direction: rtl;">
-                            {{x.Content}}
-                        </p>
-                    </div>
 
-                </div>
-
-                <div class="col-md-9" ng-show="StoreContactCompanyView">
-                    <div class="card-body" ng-repeat="x in Store.ContactCompany">
-                        <h6>
-                            {{x.Caption}}
-                        </h6>
-                        <p class="text-left" style="direction: ltr;">
-                            {{x.Content}}
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-9" ng-show="StoreProductView">
+                <div class="col-md-12" ng-show="StoreProductView">
                     <div class="row border-bottom border-secondary rounded" style="border-width: 5px;">
 
                         <div class="col-lg-6 pt-3">
@@ -556,13 +589,13 @@
                         <div class="col-lg-4">
 
                         </div>
-                        <div class="col-lg-4 mt-auto">
+                        <!--<div class="col-lg-4 mt-auto">
                             <button class="btn btn-primary w-100" type="submit" title="سبد خرید" ng-click="AddCart(StoreProduct)" ng-disabled="!StoreProduct.Available">
                                 <i class="fa fa-cart-plus fa-2x pull-left" aria-hidden="true">
                                 </i>
                                 افزودن به سبد خرید
                             </button>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
 
@@ -908,19 +941,23 @@
 
         </div>
         <div class="jumbotron text-center" style="margin-bottom:0; padding-top: 20px; padding-bottom: 15px;">
-            <div class="font-weight-bold text-nowrap p-0 m-0">
+            <div class="font-weight-bold text-nowrap p-0 m-0 border-bottom" >
                 <ul class="nav justify-content-center">
                     <li class="nav-item"><a href="" class="nav-link orange-text mx-3" ng-click="PolicyClick()">خط مشی</a></li>
                     <li class="nav-item"><a href="" class="nav-link orange-text mx-3" ng-click="ContactUsClick()">ارتباط با ما</a></li>
                     <li class="nav-item"><a href="" class="nav-link orange-text mx-3" ng-click="AboutUsClick()">سخن ما</a></li>
-                    <li class="nav-item"><a href="" class="nav-link orange-text mx-3" ng-click="AdsClick()">تبلیغات در سایت</a></li>
-                    <li class="nav-item"><a href="" class="nav-link orange-text mx-3" ng-click="ProblemClick()">اعلام مشکل سایت</a></li>
+                    <!--<li class="nav-item"><a href="" class="nav-link orange-text mx-3" ng-click="AdsClick()">تبلیغات در سایت</a></li>
+                    <li class="nav-item"><a href="" class="nav-link orange-text mx-3" ng-click="ProblemClick()">اعلام مشکل سایت</a></li>-->
                 </ul>
 
             </div>
             <div class="text-muted">
                 تمامی حقوق این اثر متعلق به
-                <a class="text-primary font-weight-bold" href="http://tahasoft.ir" target="_blank">طاها سافت</a> می باشد
+                <a class="orange-text font-weight-bold" href="http://BKCI.IR" target="_blank">بهشت کیمیا</a> می باشد
+            </div>
+            <div class="text-muted" ng-show="1">
+                طراحی و تولید توسط
+                <a class="text-primary" href="http://tahasoft.ir" target="_blank">طاها سافت</a>
             </div>
         </div>
 
