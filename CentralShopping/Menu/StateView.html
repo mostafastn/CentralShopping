@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+
+        First Name: <input type="text" ng-model="firstName"><br>
+        Last Name: <input type="text" ng-model="lastName"><br>
+        <br>
+        Full Name: {{firstName + " " + lastName}}
+
+        <hr />
+
+        <a href="" class="nav-link orange-text mx-3" ng-click="NextClick()">بعدی</a>
+        <hr />
+        <a href="" class="nav-link orange-text mx-3" ng-click="PreviousClick()" ng-show="ViewStack.length>0">قبلی</a>
+
+        <hr />
+
+        <div ng-show="PaymentView" ng-click="PaymentViewClick()">
+            <div class="text-center text-dark display-4">
+                1 -  درحال انتقال به درگاه پرداخت !
+                <hr />
+            </div>
+        </div>
+        <div ng-show="PolicyView" ng-click="PolicyViewClick()">
+            <div class="text-center text-dark display-4">
+                2 - قوانین و خط مشی !
+                <hr />
+            </div>
+        </div>
+        <div ng-show="ContactUsView" ng-click="ContactUsViewClick()">
+            <div class="text-center text-dark display-4">
+                3 - ارتباط با ما !
+                <hr />
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope) {
+            $scope.firstName = "John";
+            $scope.lastName = "Doe";
+
+            $scope.PaymentView = true;
+            $scope.PolicyView = false;
+            $scope.ContactUsView = false;
+
+            $scope.CurentView = "PaymentView";
+            $scope.ViewStack = [];
+
+            //$scope.NextClick = function () {
+
+            //    $scope.ViewStack.push();
+            //    var x = $scope.ViewStack.findIndex(t => t === $scope.CurentView);
+            //    RenderView($scope.CurentView);
+            //    $scope.CurentView = $scope.ViewStack[x + 1];
+            //};
+
+            //function RenderView(ViewName) {
+            //    console.log(ViewName);
+
+            //    switch (ViewName) {
+
+            //        case "PaymentView":
+            //            $scope.PaymentView = true;
+            //            $scope.PolicyView = false;
+            //            $scope.ContactUsView = false;
+            //            break;
+
+            //        case "PolicyView":
+            //            $scope.PaymentView = false;
+            //            $scope.PolicyView = true;
+            //            $scope.ContactUsView = false;
+            //            break;
+
+            //        case "ContactUsView":
+            //            $scope.PaymentView = false;
+            //            $scope.PolicyView = false;
+            //            $scope.ContactUsView = true;
+            //            break;
+            //        default:
+            //    }
+            //}
+
+            $scope.PaymentViewClick = function () {
+
+                $scope.ViewStack.push($scope.CurentView);
+                $scope.CurentView = "PolicyView";
+
+                $scope.PaymentView = false;
+                $scope.PolicyView = true;
+                $scope.ContactUsView = false;
+
+                console.log($scope.ViewStack);
+                console.log($scope.CurentView);
+            };
+
+            $scope.PolicyViewClick = function () {
+
+                $scope.ViewStack.push($scope.CurentView);
+                $scope.CurentView = "ContactUsView";
+
+                $scope.PaymentView = false;
+                $scope.PolicyView = false;
+                $scope.ContactUsView = true;
+
+                console.log($scope.ViewStack);
+                console.log($scope.CurentView);
+            };
+
+            $scope.ContactUsViewClick = function () {
+
+                $scope.ViewStack.push($scope.CurentView);
+                $scope.CurentView = "PaymentView";
+
+                $scope.PaymentView = true;
+                $scope.PolicyView = false;
+                $scope.ContactUsView = false;
+
+                console.log($scope.ViewStack);
+                console.log($scope.CurentView);
+            };
+
+            $scope.PreviousClick = function () {
+
+                var viewName = $scope.ViewStack.splice(-1, 1);
+                $scope.CurentView = viewName[0];
+                RenderView($scope.CurentView);
+            };
+
+            function RenderView(viewName) {
+
+                switch (viewName) {
+
+                    case "PaymentView":
+                        $scope.PaymentView = true;
+                        $scope.PolicyView = false;
+                        $scope.ContactUsView = false;
+                        break;
+
+                    case "PolicyView":
+                        $scope.PaymentView = false;
+                        $scope.PolicyView = true;
+                        $scope.ContactUsView = false;
+                        break;
+
+                    case "ContactUsView":
+                        $scope.PaymentView = false;
+                        $scope.PolicyView = false;
+                        $scope.ContactUsView = true;
+                        break;
+                    default:
+                }
+            }
+        });
+
+    </script>
+
+</body>
+</html>

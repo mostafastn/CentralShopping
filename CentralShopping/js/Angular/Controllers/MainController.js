@@ -9,7 +9,7 @@ app.controller('MainControl', function ($scope, $http) {
         this.Caption = caption;
         this.Class = _class;
         this.Click = click;
-    };
+    }
 
     function Alert(id, caption, body, _class, timeout) {
 
@@ -22,14 +22,14 @@ app.controller('MainControl', function ($scope, $http) {
 
             setTimeout(function () {
                 $scope.Alerts.splice(0, 1);
-                var itemID = '#' + id
+                var itemID = '#' + id;
                 $(itemID).fadeTo(500, 0).slideUp(500, function () {
                     $(this).remove();
                 });
             }, timeout * 1000);
 
         }
-    };
+    }
 
     function AlertWithHandler(id, caption, body, _class, handler) {
 
@@ -38,22 +38,23 @@ app.controller('MainControl', function ($scope, $http) {
         this.Body = body;
         this.Class = _class;
         this.Handler = handler;
-    };
+    }
 
     // Class Object
 
     $scope.HomeView = true;
 
+    $scope.GoBackView = true;
     $scope.PlaceSelectorView = false;
 
     $scope.StoresView = false;
 
     $scope.StoreView = false;
-    $scope.HomeCompanyView = true;
+    $scope.HomeCompanyView = false;
     $scope.StoreProductListView = false;
     $scope.StoreAboutCompanyView = false;
     $scope.StoreContactCompanyView = false;
-    $scope.StoreProductView = false;
+    $scope.StoreProductView = true;
 
     $scope.ProductsView = false;
 
@@ -70,6 +71,9 @@ app.controller('MainControl', function ($scope, $http) {
     $scope.AvalableProductOnly = false;
     $scope.ProductsPriceFrom = 0;
     $scope.ProductsPriceTo = 0;
+
+    $scope.CurentView = "HomeView";
+    $scope.ViewStack = [];
 
     $scope.SelectedPlace = "انتخاب کنید ...";
 
@@ -108,14 +112,14 @@ app.controller('MainControl', function ($scope, $http) {
                 Caption: 'Caption',
                 Class: 'btn-success',
                 Show: true,
-                Click: function () { },
+                Click: function () { }
             },
             {
                 Caption: 'Caption',
                 Class: 'btn-danger',
                 Show: true,
-                Click: function () { },
-            },
+                Click: function () { }
+            }
         ]
     };
 
@@ -137,108 +141,6 @@ app.controller('MainControl', function ($scope, $http) {
     ];
 
     $scope.NavbarProductMenu = [];
-
-    //$scope.NavbarProductMenu = [
-    //    {
-    //        ID: 'FE10B934-F112-4F4A-A814-EC0321E4E86B',
-    //        Caption: "آرایشی، بهداشتی و سلامت",
-    //        Menu: [
-    //            {
-    //                ID: 11,
-    //                Caption: "عطر",
-    //                Menu: [
-    //                    {
-    //                        ID: 111,
-    //                        Caption: "عطر و ادوکلن",
-    //                        Menu: []
-    //                    },
-    //                    {
-    //                        ID: 112,
-    //                        Caption: "اسپری",
-    //                        Menu: []
-    //                    }
-    //                ]
-    //            }
-    //        ]
-    //    },
-    //    {
-    //        ID: 2,
-    //        Caption: "خوردنی و آشامیدنی",
-    //        Menu: [
-    //            {
-    //                ID: 21,
-    //                Caption: "کالاهای اساسی و خوار و بار",
-    //                Menu: [
-    //                    {
-    //                        ID: 211,
-    //                        Caption: "زیتون",
-    //                        Menu: [
-    //                            {
-    //                                ID: 2111,
-    //                                Caption: "زیتون شکسته",
-    //                                Menu: []
-    //                            },
-    //                            {
-    //                                ID: 2112,
-    //                                Caption: "زیتون کنسروی",
-    //                                Menu: []
-    //                            }]
-    //                    },
-    //                    {
-    //                        ID: 212,
-    //                        Caption: "روغن زیتون",
-    //                        Menu: [{
-    //                            ID: 2121,
-    //                            Caption: "روغن زیتون سبز",
-    //                            Menu: []
-    //                        },
-    //                            {
-    //                                ID: 2122,
-    //                                Caption: "روغن زیتون زرد",
-    //                                Menu: []
-    //                            }]
-    //                    },
-    //                    {
-    //                        ID: 213,
-    //                        Caption: "رب",
-    //                        Menu: [
-    //                            {
-    //                                ID: 2131,
-    //                                Caption: "رب انار",
-    //                                Menu: [
-    //                                    {
-    //                                        ID: 21311,
-    //                                        Caption: "رب انار شیرین",
-    //                                        Menu: []
-    //                                    },
-    //                                    {
-    //                                        ID: 21312,
-    //                                        Caption: "رب انار ترش",
-    //                                        Menu: []
-    //                                    },
-    //                                    {
-    //                                        ID: 21313,
-    //                                        Caption: "رب انار ترش و شیرین مخلوط",
-    //                                        Menu: []
-    //                                    }
-    //                                ]
-    //                            }]
-    //                    },
-    //                    {
-    //                        ID: 214,
-    //                        Caption: "ترشی جات",
-    //                        Menu: [
-    //                            {
-    //                                ID: 2141,
-    //                                Caption: "سیر ترشی",
-    //                                Menu: []
-    //                            }]
-    //                    }
-    //                ]
-    //            }
-    //        ]
-    //    }
-    //];
 
     $scope.NavbarPlaceMenu = [
         {
@@ -472,7 +374,7 @@ app.controller('MainControl', function ($scope, $http) {
                     Menu: []
                 }
             ]
-        },
+        }
 
     ];
 
@@ -548,7 +450,7 @@ app.controller('MainControl', function ($scope, $http) {
             AlternateText: "Alternate Text",
             SourceAddress: 'Images/Slids/Brands/12.jpg',
             Active: false
-        },
+        }
     ];
 
     $scope.SpecialTab = [
@@ -576,7 +478,7 @@ app.controller('MainControl', function ($scope, $http) {
                 }
             ],
             Code: '#1',
-            Active: true,
+            Active: true
         },
         {
             ID: 2,
@@ -599,10 +501,10 @@ app.controller('MainControl', function ($scope, $http) {
                 {
                     ID: 3,
                     Caption: 'حجم 120 میلی لیتر'
-                },
+                }
             ],
             Code: '#2',
-            Active: false,
+            Active: false
         },
         {
             ID: 3,
@@ -625,10 +527,10 @@ app.controller('MainControl', function ($scope, $http) {
                 {
                     ID: 3,
                     Caption: 'حجم 250 میلی لیتر'
-                },
+                }
             ],
             Code: '#3',
-            Active: false,
+            Active: false
         },
         {
             ID: 4,
@@ -672,7 +574,7 @@ app.controller('MainControl', function ($scope, $http) {
                 }
             ],
             Code: '#5',
-            Active: false,
+            Active: false
         },
         {
             ID: 6,
@@ -698,7 +600,7 @@ app.controller('MainControl', function ($scope, $http) {
                 }
             ],
             Code: '#6',
-            Active: false,
+            Active: false
         },
         {
             ID: 7,
@@ -724,7 +626,7 @@ app.controller('MainControl', function ($scope, $http) {
                 }
             ],
             Code: '#7',
-            Active: false,
+            Active: false
         },
         {
             ID: 8,
@@ -746,7 +648,7 @@ app.controller('MainControl', function ($scope, $http) {
                 }
             ],
             Code: '#8',
-            Active: false,
+            Active: false
         },
     ];
 
@@ -4215,6 +4117,10 @@ app.controller('MainControl', function ($scope, $http) {
     $scope.HomeMenuClick = function () {
 
         SetAllView(false);
+
+        $scope.ViewStack = [];
+        $scope.CurentView = "HomeView";
+
         $scope.HomeView = true;
     };
 
@@ -4223,6 +4129,9 @@ app.controller('MainControl', function ($scope, $http) {
         SetAllView(false);
         $scope.PlaceSelectorView = true;
         $scope.StoresView = true;
+
+        $scope.ViewStack.push($scope.CurentView);
+        $scope.CurentView = "PaymentView";
     };
 
     $scope.SpecialTabClick = function (item) {
@@ -4230,7 +4139,7 @@ app.controller('MainControl', function ($scope, $http) {
         $scope.SpecialTab.forEach(t => t.Active = false);
 
         var _item = $scope.SpecialTab.filter(function (x) {
-            return x.ID == item.ID
+            return x.ID === item.ID;
         });
         item.Active = true;
     };
@@ -4293,7 +4202,7 @@ app.controller('MainControl', function ($scope, $http) {
         $scope.StoreProductListView = true;
 
         var _item = $scope.Store.ProductMenu.find(function (x) {
-            return x.ID == productMenuID
+            return x.ID === productMenuID;
         });
         if (_item)
             $scope.StoreSelectedProductMenu = _item;
@@ -4306,7 +4215,7 @@ app.controller('MainControl', function ($scope, $http) {
         $scope.HomeCompanyView = true;
 
         var _item = $scope.Stores.find(function (x) {
-            return x.ID == StoreID
+            return x.ID === StoreID;
         });
         if (_item) {
             $scope.Store.ID = _item.ID;
@@ -4327,7 +4236,7 @@ app.controller('MainControl', function ($scope, $http) {
         $scope.StoreProductView = true;
 
         var _item = $scope.StoreSelectedProductMenu.ProductList.find(function (x) {
-            return x.ID == productID
+            return x.ID === productID;
         });
         if (_item) {
 
@@ -4355,7 +4264,7 @@ app.controller('MainControl', function ($scope, $http) {
         $scope.StoreProductView = true;
 
         var _item = $scope.StoreSelectedProductMenu.ProductList.find(function (x) {
-            return x.ID == productID
+            return x.ID === productID;
         });
         if (_item) {
 
@@ -4379,7 +4288,7 @@ app.controller('MainControl', function ($scope, $http) {
         $scope.SearchResultProductList.Products = [];
 
         var _item = $scope.ProductList.Products.filter(function (x) {
-            return x.CategoryID == navbarMenuItem.ID;
+            return x.CategoryID === navbarMenuItem.ID;
         });
 
         if (_item)
@@ -4447,7 +4356,7 @@ app.controller('MainControl', function ($scope, $http) {
         item.Quantity = 1;
 
         var _itemInCart = $scope.Cart.Items.find(function (x) {
-            return x.ID == item.ID
+            return x.ID === item.ID;
         });
         if (_itemInCart) {
 
@@ -4493,6 +4402,7 @@ app.controller('MainControl', function ($scope, $http) {
     function SetAllView(isShow) {
 
         $scope.HomeView = isShow;
+        $scope.GoBackView = !isShow;
         $scope.PlaceSelectorView = isShow;
         $scope.StoresView = isShow;
 
