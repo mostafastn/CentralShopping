@@ -69,7 +69,7 @@ app.controller('MainControl', function ($scope, $http) {
     $scope.ProblemView = false;
 
     $scope.AvalableProductOnly = false;
-    $scope.ProductsPriceFrom = 0;``
+    $scope.ProductsPriceFrom = 0; ``
     $scope.ProductsPriceTo = 0;
 
     $scope.CurentView = [{ view: "HomeView" }];
@@ -491,7 +491,7 @@ app.controller('MainControl', function ($scope, $http) {
 
     $scope.SpecialTab = [
         {
-            ID: 1,
+            ID: 501,
             Name: 'ضدعفونی کننده 250',
             StoreName: '',
             Introduction: 'ضدعفونی کننده موثر و سریع بدون ترکیبات تحریک کننده پوست',
@@ -518,10 +518,21 @@ app.controller('MainControl', function ($scope, $http) {
                 }
             ],
             Code: '#1',
-            Active: true
+            Active: true,
+
+            //این 
+            //CategoryID 
+            //فقط برای حالت 
+            //Static 
+            //لازمه و برای حالت 
+            //Dynamic 
+            //با 
+            //ID 
+            //محصول از سمت سرور بارگزاری می شود
+            CategoryID: 5
         },
         {
-            ID: 2,
+            ID: 502,
             Name: 'ضدعفونی کننده 400',
             StoreName: '',
             Introduction: 'ضدعفونی کننده موثر و سریع بدون ترکیبات تحریک کننده پوست',
@@ -548,7 +559,9 @@ app.controller('MainControl', function ($scope, $http) {
                 }
             ],
             Code: '#2',
-            Active: false
+            Active: false,
+
+            CategoryID: 5
         }
 
     ];
@@ -3074,7 +3087,7 @@ app.controller('MainControl', function ($scope, $http) {
                     VisitsCount: 15,
                     Available: true,
                     AvailableCount: 5,
-                },
+                }
             ],
             TotalCount: 50
         },
@@ -3754,7 +3767,7 @@ app.controller('MainControl', function ($scope, $http) {
             Caption: 'ضد عفونی کننده',
             ProductList: [
                 {
-                    ID: 1,
+                    ID: 501,
                     Name: 'ضدعفونی کننده 250',
                     Price: 625000,
                     Discount: 40,
@@ -3785,7 +3798,7 @@ app.controller('MainControl', function ($scope, $http) {
 
                 },
                 {
-                    ID: 2,
+                    ID: 502,
                     Name: 'ضدعفونی کننده 400',
                     StoreName: '',
                     Introduction: 'ضدعفونی کننده موثر و سریع بدون ترکیبات تحریک کننده پوست',
@@ -4136,26 +4149,43 @@ app.controller('MainControl', function ($scope, $http) {
             }];
     };
 
-    $scope.SpecialTabProductClick = function (productID) {
+    $scope.SpecialTabProductClick = function (categoryID, productID) {
+
 
         SetAllView(false);
         $scope.StoreView = true;
         $scope.StoreProductView = true;
 
-        var _item = $scope.StoreSelectedProductMenu.ProductList.find(function (x) {
-            return x.ID === productID;
+        var category = $scope.ProductMenu.find(function (x) {
+            return x.ID === categoryID;
         });
-        if (_item) {
 
-            $scope.StoreProduct.ID = _item.ID;
-            $scope.StoreProduct.Name = _item.Name;
-            $scope.StoreProduct.Price = _item.Price;
-            $scope.StoreProduct.Discount = _item.Discount;
-            $scope.StoreProduct.FinallPrice = _item.FinallPrice;
-            $scope.StoreProduct.Available = _item.Available;
-            $scope.StoreProduct.AvailableCount = _item.AvailableCount;
-            $scope.StoreProduct.Image = _item.Image;
+        if (category) {
+            
+            var item = category.ProductList.find(function (x) {
+                return x.ID === productID;
+            });
+            if (item) {
+
+                $scope.StoreProduct.ID = item.ID;
+                $scope.StoreProduct.Name = item.Name;
+                $scope.StoreProduct.Price = item.Price;
+                $scope.StoreProduct.Discount = item.Discount;
+                $scope.StoreProduct.FinallPrice = item.FinallPrice;
+                $scope.StoreProduct.Options = item.Options;
+                $scope.StoreProduct.Available = item.Available;
+                $scope.StoreProduct.AvailableCount = item.AvailableCount;
+                $scope.StoreProduct.Images = [
+                    {
+                        ID: 1,
+                        AlternateText: "Alternate Text",
+                        SourceAddress: item.Image,
+                        Active: true
+                    }];
+            }
         }
+
+
     };
 
     $scope.NavbarMenuClick = function (navbarMenuItem) {
@@ -4342,9 +4372,9 @@ app.controller('MainControl', function ($scope, $http) {
     function RenderView(viewNames) {
 
         SetAllView(false);
-        
+
         viewNames.forEach(function (item) {
-            
+
             switch (item.view) {
 
                 case "HomeView":
