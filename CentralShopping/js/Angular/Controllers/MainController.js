@@ -4137,10 +4137,6 @@ app.controller('MainControl', function ($scope, $http) {
     $scope.SpecialTabClick = function (item) {
 
         $scope.SpecialTab.forEach(t => t.Active = false);
-
-        var _item = $scope.SpecialTab.filter(function (x) {
-            return x.ID === item.ID;
-        });
         item.Active = true;
     };
 
