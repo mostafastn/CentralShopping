@@ -382,73 +382,91 @@ app.controller('MainControl', function ($scope, $http) {
         {
             ID: 1,
             AlternateText: "Alternate Text",
-            SourceAddress: 'Images/Slids/Brands/1.png',
+            SourceAddress: 'Images/Slids/Brands/HS-250ML.JPG',
             Active: true
         },
         {
             ID: 2,
             AlternateText: "Alternate Text",
-            SourceAddress: 'Images/Slids/Brands/2.png',
+            SourceAddress: 'Images/Slids/Brands/HS-400ML.JPG',
             Active: false
         },
         {
             ID: 3,
             AlternateText: "Alternate Text",
-            SourceAddress: 'Images/Slids/Brands/3.png',
+            SourceAddress: 'Images/Slids/Brands/MRC-1.jpg',
             Active: false
         },
         {
             ID: 4,
             AlternateText: "Alternate Text",
-            SourceAddress: 'Images/Slids/Brands/4.jpg',
+            SourceAddress: 'Images/Slids/Brands/SC-1.jpg',
             Active: false
         },
         {
             ID: 5,
             AlternateText: "Alternate Text",
-            SourceAddress: 'Images/Slids/Brands/5.png',
+            SourceAddress: 'Images/Slids/Brands/LS-1.jpg',
             Active: false
         },
         {
             ID: 6,
             AlternateText: "Alternate Text",
-            SourceAddress: 'Images/Slids/Brands/6.jpg',
+            SourceAddress: 'Images/Slids/Brands/GB-1.jpg',
             Active: false
         },
         {
             ID: 7,
             AlternateText: "Alternate Text",
-            SourceAddress: 'Images/Slids/Brands/7.png',
+            SourceAddress: 'Images/Slids/Brands/BA-1.jpg',
             Active: false
         },
         {
             ID: 8,
             AlternateText: "Alternate Text",
-            SourceAddress: 'Images/Slids/Brands/8.jpg',
+            SourceAddress: 'Images/Slids/Brands/BS-1.jpg',
             Active: false
         },
         {
             ID: 9,
             AlternateText: "Alternate Text",
-            SourceAddress: 'Images/Slids/Brands/9.jpg',
+            SourceAddress: 'Images/Slids/Brands/AHFS-1.jpg',
             Active: false
         },
         {
             ID: 10,
             AlternateText: "Alternate Text",
-            SourceAddress: 'Images/Slids/Brands/10.jpg',
+            SourceAddress: 'Images/Slids/Brands/AHFS-2.jpg',
             Active: false
         },
         {
             ID: 11,
             AlternateText: "Alternate Text",
-            SourceAddress: 'Images/Slids/Brands/11.jpg',
+            SourceAddress: 'Images/Slids/Brands/B.jpg',
             Active: false
         },
         {
             ID: 12,
             AlternateText: "Alternate Text",
-            SourceAddress: 'Images/Slids/Brands/12.jpg',
+            SourceAddress: 'Images/Slids/Brands/FCP-1.jpg',
+            Active: false
+        },
+        {
+            ID: 13,
+            AlternateText: "Alternate Text",
+            SourceAddress: 'Images/Slids/Brands/HeSe-1.jpg',
+            Active: false
+        },
+        {
+            ID: 14,
+            AlternateText: "Alternate Text",
+            SourceAddress: 'Images/Slids/Brands/HD-1.jpg',
+            Active: false
+        },
+        {
+            ID: 14,
+            AlternateText: "Alternate Text",
+            SourceAddress: 'Images/Slids/Brands/HT-1.jpg',
             Active: false
         }
     ];
@@ -456,25 +474,29 @@ app.controller('MainControl', function ($scope, $http) {
     $scope.SpecialTab = [
         {
             ID: 1,
-            Name: 'ادو پرفیوم Baccarat Rouge 540',
-            StoreName: 'فروشگاه عطر محمد',
-            Introduction: 'ادو پرفیوم میسون فرانسیس کورکجان مدل Baccarat Rouge 540.',
-            Price: 58000000,
-            Discount: 0,
-            FinallPrice: 58000000,
-            Image: 'Images/Products/111.jpg',
+            Name: 'ضدعفونی کننده 250',
+            StoreName: '',
+            Introduction: 'ضدعفونی کننده موثر و سریع بدون ترکیبات تحریک کننده پوست',
+            Price: 625000,
+            Discount: 40,
+            FinallPrice: 375000,
+            Image: 'Images/Products/HS-250ML.JPG',
             Options: [
                 {
                     ID: 1,
-                    Caption: 'نوع رایحه : تند گرم'
+                    Caption: 'بهره گیری از تکنولوژی نانو سیلور جهت ازبین برندگی ویروس ها'
                 },
                 {
                     ID: 2,
-                    Caption: 'ساختار رایحه : چوب صمغ گیاهان معطر'
+                    Caption: 'در حجم های مختلف مناسب برای مصارف شخصی و اماکن عمومی و ادارات'
                 },
                 {
                     ID: 3,
-                    Caption: 'حجم 200 میلی لیتر'
+                    Caption: 'سازگار با انواع پوست های خشک و چرب'
+                },
+                {
+                    ID: 4,
+                    Caption: 'حجم 250 میلی لیتر'
                 }
             ],
             Code: '#1',
@@ -482,174 +504,35 @@ app.controller('MainControl', function ($scope, $http) {
         },
         {
             ID: 2,
-            Name: 'ادو پرفیوم کرید Royal Mayfair',
-            StoreName: 'فروشگاه عطر محمد',
-            Introduction: 'ادو پرفیوم کرید مدل Royal Mayfair.',
-            Price: 49000000,
-            Discount: 5,
-            FinallPrice: 46550000,
-            Image: 'Images/Products/112.jpg',
+            Name: 'ضدعفونی کننده 400',
+            StoreName: '',
+            Introduction: 'ضدعفونی کننده موثر و سریع بدون ترکیبات تحریک کننده پوست',
+            Price: 1000000,
+            Discount: 40,
+            FinallPrice: 600000,
+            Image: 'Images/Products/HS-400ML.JPG',
             Options: [
                 {
                     ID: 1,
-                    Caption: 'نوع رایحه : تلخ گرم'
+                    Caption: 'بهره گیری از تکنولوژی نانو سیلور جهت ازبین برندگی ویروس ها'
                 },
                 {
                     ID: 2,
-                    Caption: 'نوع رایحه: خوراکی خنک طبیعت شیرین'
+                    Caption: 'در حجم های مختلف مناسب برای مصارف شخصی و اماکن عمومی و ادارات'
                 },
                 {
                     ID: 3,
-                    Caption: 'حجم 120 میلی لیتر'
+                    Caption: 'سازگار با انواع پوست های خشک و چرب'
+                },
+                {
+                    ID: 4,
+                    Caption: 'حجم 400 میلی لیتر'
                 }
             ],
             Code: '#2',
             Active: false
-        },
-        {
-            ID: 3,
-            Name: 'بادی اسپلش زنانه ویکتوریا',
-            StoreName: 'فروشگاه میثم عطر',
-            Introduction: 'بادی اسپلش زنانه ویکتوریا سکرت مدل Eau so party.',
-            Price: 2450000,
-            Discount: 0,
-            FinallPrice: 2450000,
-            Image: 'Images/Products/121.jpg',
-            Options: [
-                {
-                    ID: 1,
-                    Caption: 'نوع : اسپری معمولی'
-                },
-                {
-                    ID: 2,
-                    Caption: 'طبع : گرم'
-                },
-                {
-                    ID: 3,
-                    Caption: 'حجم 250 میلی لیتر'
-                }
-            ],
-            Code: '#3',
-            Active: false
-        },
-        {
-            ID: 4,
-            Name: 'زیتون شکسته',
-            StoreName: 'فروشگاه طارم آنلاین',
-            Introduction: 'زیتون شکسته درجه 1.',
-            Price: 180000,
-            Discount: 5,
-            FinallPrice: 171000,
-            Image: 'Images/Products/211.jpg',
-            Options: [
-                {
-                    ID: 1,
-                    Caption: 'زیتون طارم'
-                },
-                {
-                    ID: 2,
-                    Caption: 'گوشتی و روغنی'
-                }
-            ],
-            Code: '#4',
-            Active: false,
-        },
-        {
-            ID: 5,
-            Name: 'روغن زیتون',
-            StoreName: 'فروشگاه طارم آنلاین',
-            Introduction: 'روغن زیتون درجه 1.',
-            Price: 750000,
-            Discount: 5,
-            FinallPrice: 712500,
-            Image: 'Images/Products/242.jpg',
-            Options: [
-                {
-                    ID: 1,
-                    Caption: 'زیتون طارم'
-                },
-                {
-                    ID: 2,
-                    Caption: 'رنگ سبز'
-                }
-            ],
-            Code: '#5',
-            Active: false
-        },
-        {
-            ID: 6,
-            Name: 'رب انار ترش',
-            StoreName: 'فروشگاه طارم آنلاین',
-            Introduction: 'رب انار ترش درجه 1.',
-            Price: 550000,
-            Discount: 5,
-            FinallPrice: 522500,
-            Image: 'Images/Products/252.jpg',
-            Options: [
-                {
-                    ID: 1,
-                    Caption: 'انار طارم'
-                },
-                {
-                    ID: 2,
-                    Caption: 'غلیظ و به صرفه'
-                },
-                {
-                    ID: 2,
-                    Caption: 'رنگ سیاه'
-                }
-            ],
-            Code: '#6',
-            Active: false
-        },
-        {
-            ID: 7,
-            Name: 'رب انار شیرین',
-            StoreName: 'فروشگاه طارم آنلاین',
-            Introduction: 'رب انار شیرین درجه 1.',
-            Price: 550000,
-            Discount: 5,
-            FinallPrice: 522500,
-            Image: 'Images/Products/251.jpg',
-            Options: [
-                {
-                    ID: 1,
-                    Caption: 'انار طارم'
-                },
-                {
-                    ID: 2,
-                    Caption: 'غلیظ و به صرفه'
-                },
-                {
-                    ID: 2,
-                    Caption: 'رنگ سیاه'
-                }
-            ],
-            Code: '#7',
-            Active: false
-        },
-        {
-            ID: 8,
-            Name: 'زیتون کنسروی',
-            StoreName: 'فروشگاه طارم آنلاین',
-            Introduction: 'زیتون کنسروی درجه 1.',
-            Price: 180000,
-            Discount: 5,
-            FinallPrice: 171000,
-            Image: 'Images/Products/221.jpg',
-            Options: [
-                {
-                    ID: 1,
-                    Caption: 'زیتون طارم'
-                },
-                {
-                    ID: 2,
-                    Caption: 'گوشتی و روغنی'
-                }
-            ],
-            Code: '#8',
-            Active: false
-        },
+        }
+      
     ];
 
     $scope.ProductList = {
@@ -951,9 +834,9 @@ app.controller('MainControl', function ($scope, $http) {
                 VisitsCount: 150,
                 Available: true,
                 AvailableCount: 5,
-            },
+            }
         ],
-        TotalCount: 50,
+        TotalCount: 50
     };
 
     $scope.SearchResultProductList = {
@@ -3850,270 +3733,73 @@ app.controller('MainControl', function ($scope, $http) {
         },
         {
             ID: 5,
-            Caption: 'عینک های طبی',
+            Caption: 'ضد عفونی کننده',
             ProductList: [
                 {
                     ID: 1,
-                    Name: 'عینک آفتابی RayBan 3581N 90387J',
-                    Price: 25790000,
-                    Discount: 0,
-                    FinallPrice: 25790000,
-                    Image: 'Images/Slids/Brands/8.jpg',
+                    Name: 'ضدعفونی کننده 250',
+                    Price: 625000,
+                    Discount: 40,
+                    FinallPrice: 375000,
+                    Image: 'Images/Products/HS-250ML.JPG',
                     Options: [
                         {
                             ID: 1,
-                            Caption: 'ساخت کشور ایتالیا'
+                            Caption: 'بهره گیری از تکنولوژی نانو سیلور جهت ازبین برندگی ویروس ها'
                         },
                         {
                             ID: 2,
-                            Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
+                            Caption: 'در حجم های مختلف مناسب برای مصارف شخصی و اماکن عمومی و ادارات'
                         },
                         {
                             ID: 3,
-                            Caption: 'زیبایی و ترکیبی فراتر از انتظار'
+                            Caption: 'سازگار با انواع پوست های خشک و چرب'
                         },
                         {
                             ID: 4,
-                            Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
-                        },
+                            Caption: 'حجم 250 میلی لیتر'
+                        }
                     ],
                     LastUpdate: '2018-01-20',
                     VisitsCount: 70,
                     Available: true,
-                    AvailableCount: 5,
-
+                    AvailableCount: 5                
+                    
                 },
                 {
-                    ID: 6,
-                    Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
-                    Price: 23460000,
-                    Discount: 0,
-                    FinallPrice: 23460000,
-                    Image:
-                        'Images/Slids/Brands/7.png',
+                    ID: 2,
+                    Name: 'ضدعفونی کننده 400',
+                    StoreName: '',
+                    Introduction: 'ضدعفونی کننده موثر و سریع بدون ترکیبات تحریک کننده پوست',
+                    Price: 1000000,
+                    Discount: 40,
+                    FinallPrice: 600000,
+                    Image: 'Images/Products/HS-400ML.JPG',
                     Options: [
                         {
                             ID: 1,
-                            Caption: 'ساخت کشور ایتالیا'
+                            Caption: 'بهره گیری از تکنولوژی نانو سیلور جهت ازبین برندگی ویروس ها'
                         },
                         {
                             ID: 2,
-                            Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
+                            Caption: 'در حجم های مختلف مناسب برای مصارف شخصی و اماکن عمومی و ادارات'
                         },
                         {
                             ID: 3,
-                            Caption: 'بسیار بادوام و مستحکم'
+                            Caption: 'سازگار با انواع پوست های خشک و چرب'
                         },
+                        {
+                            ID: 4,
+                            Caption: 'حجم 400 میلی لیتر'
+                        }
                     ],
                     LastUpdate: '2018-10-15',
                     VisitsCount: 51,
                     Available: true,
                     AvailableCount: 5,
-                },
-                {
-                    ID: 3,
-                    Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
-                    Price: 23460000,
-                    Discount: 0,
-                    FinallPrice: 23460000,
-                    Image: 'Images/Slids/Brands/6.jpg',
-                    Options: [
-                        {
-                            ID: 1,
-                            Caption: 'ساخت کشور ایتالیا'
-                        },
-                        {
-                            ID: 2,
-                            Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
-                        },
-                        {
-                            ID: 3,
-                            Caption: 'بسیار بادوام و مستحکم'
-                        },
-                    ],
-                    LastUpdate: '2017-12-05',
-                    VisitsCount: 15,
-                    Available: true,
-                    AvailableCount: 5,
-                },
-                {
-                    ID: 5,
-                    Name: 'عینک آفتابی RayBan 3576N 1537V',
-                    Price: 25790000,
-                    Discount: 0,
-                    FinallPrice: 25790000,
-                    Image: 'Images/Slids/Brands/5.png',
-                    Options: [
-                        {
-                            ID: 1,
-                            Caption: 'ساخت کشور ایتالیا'
-                        },
-                        {
-                            ID: 2,
-                            Caption: 'سبک کلاسیک، با معرفی Blaze'
-                        },
-                        {
-                            ID: 3,
-                            Caption: 'لنز Sharp Onesie! Ray-Ban'
-                        },
-                        {
-                            ID: 4,
-                            Caption: 'مناسب برای صورت های بیضی و گرد شکل'
-                        },
-                    ],
-                    LastUpdate: '2018-09-11',
-                    VisitsCount: 201,
-                    Available: true,
-                    AvailableCount: 5,
-                },
-                {
-                    ID: 7,
-                    Name: 'عینک آفتابی RayBan 3581N 90387J',
-                    Price: 25790000,
-                    Discount: 0,
-                    FinallPrice: 25790000,
-                    Image: 'Images/Slids/Brands/4.jpg',
-                    Options: [
-                        {
-                            ID: 1,
-                            Caption: 'ساخت کشور ایتالیا'
-                        },
-                        {
-                            ID: 2,
-                            Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
-                        },
-                        {
-                            ID: 3,
-                            Caption: 'زیبایی و ترکیبی فراتر از انتظار'
-                        },
-                        {
-                            ID: 4,
-                            Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
-                        },
-                    ],
-                    LastUpdate: '2019-02-08',
-                    VisitsCount: 7,
-                    Available: true,
-                    AvailableCount: 5,
-                },
-                {
-                    ID: 4,
-                    Name: 'عینک آفتابی RayBan 3581N 90387J',
-                    Price: 25790000,
-                    Discount: 0,
-                    FinallPrice: 25790000,
-                    Image: 'Images/Slids/Brands/2.png',
-                    Options: [
-                        {
-                            ID: 1,
-                            Caption: 'ساخت کشور ایتالیا'
-                        },
-                        {
-                            ID: 2,
-                            Caption: 'لنزهای تمام تخت با تکنولوژی جدید Blaze'
-                        },
-                        {
-                            ID: 3,
-                            Caption: 'زیبایی و ترکیبی فراتر از انتظار'
-                        },
-                        {
-                            ID: 4,
-                            Caption: 'مناسب صورت های بیضی قلبی، گرد و مربع شکل'
-                        },
-                    ],
-                    LastUpdate: '2018-10-08',
-                    VisitsCount: 550,
-                    Available: true,
-                    AvailableCount: 5,
-                },
-                {
-                    ID: 8,
-                    Name: 'عینک آفتابی RayBan 3576N 1537V',
-                    Price: 25790000,
-                    Discount: 0,
-                    FinallPrice: 25790000,
-                    Image: 'Images/Slids/Brands/3.png',
-                    Options: [
-                        {
-                            ID: 1,
-                            Caption: 'ساخت کشور ایتالیا'
-                        },
-                        {
-                            ID: 2,
-                            Caption: 'سبک کلاسیک، با معرفی Blaze'
-                        },
-                        {
-                            ID: 3,
-                            Caption: 'لنز Sharp Onesie! Ray-Ban'
-                        },
-                        {
-                            ID: 4,
-                            Caption: 'مناسب برای صورت های بیضی و گرد شکل'
-                        },
-                    ],
-                    LastUpdate: '2019-01-11',
-                    VisitsCount: 20,
-                    Available: true,
-                    AvailableCount: 5,
-                },
-                {
-                    ID: 9,
-                    Name: 'عینک آفتابی RayBan RB3540 9002A6 56',
-                    Price: 23460000,
-                    Discount: 0,
-                    FinallPrice: 23460000,
-                    Image: 'Images/Slids/Brands/1.png',
-                    Options: [
-                        {
-                            ID: 1,
-                            Caption: 'ساخت کشور ایتالیا'
-                        },
-                        {
-                            ID: 2,
-                            Caption: 'مناسب برای صورت‌های مربع و بیضی‌شکل'
-                        },
-                        {
-                            ID: 3,
-                            Caption: 'بسیار بادوام و مستحکم'
-                        },
-                    ],
-                    LastUpdate: '2018-11-27',
-                    VisitsCount: 71,
-                    Available: true,
-                    AvailableCount: 5,
-                },
-                {
-                    ID: 2,
-                    Name: 'عینک آفتابی RayBan 3576N 1537V',
-                    Price: 25790000,
-                    Discount: 0,
-                    FinallPrice: 25790000,
-                    Image: 'Images/Slids/Brands/2.png',
-                    Options: [
-                        {
-                            ID: 1,
-                            Caption: 'ساخت کشور ایتالیا'
-                        },
-                        {
-                            ID: 2,
-                            Caption: 'سبک کلاسیک، با معرفی Blaze'
-                        },
-                        {
-                            ID: 3,
-                            Caption: 'لنز Sharp Onesie! Ray-Ban'
-                        },
-                        {
-                            ID: 4,
-                            Caption: 'مناسب برای صورت های بیضی و گرد شکل'
-                        },
-                    ],
-                    LastUpdate: '2017-12-01',
-                    VisitsCount: 150,
-                    Available: true,
-                    AvailableCount: 5,
-                },
+                }
             ],
-            TotalCount: 23
+            TotalCount: 2
         }
     ];
 
@@ -4393,6 +4079,9 @@ app.controller('MainControl', function ($scope, $http) {
         });
         if (_item)
             $scope.StoreSelectedProductMenu = _item;
+
+        $scope.ViewStack.push($scope.CurentView);
+        $scope.CurentView = "StoreView";
     };
 
     $scope.StoreClick = function (StoreID) {
@@ -4442,6 +4131,9 @@ app.controller('MainControl', function ($scope, $http) {
             $scope.StoreProduct.Available = _item.Available;
             $scope.StoreProduct.AvailableCount = _item.AvailableCount;
         }
+
+        $scope.ViewStack.push($scope.CurentView);
+        $scope.CurentView = "StoreProductView";
     };
 
     $scope.SpecialTabProductClick = function (productID) {

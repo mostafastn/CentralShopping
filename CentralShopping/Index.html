@@ -109,18 +109,21 @@
                                     <li>
                                         <a class="dropdown-item dropdown-toggle" href="#">مواد شوینده</a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#" ng-click="ProductMenuClick(3);">عطر و ادوکلن</a></li>
-                                            <li><a class="dropdown-item" href="#" ng-click="ProductMenuClick(4);">اسپری</a></li>
+                                            <li><a class="dropdown-item" href="#" ng-click="ProductMenuClick(3);">شامپو</a></li>
+                                            <li><a class="dropdown-item" href="#" ng-click="ProductMenuClick(4);">دست و صورت</a></li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item dropdown-toggle" href="#">ضد عفونی کننده</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#" ng-click="ProductMenuClick(5);">عطر و ادوکلن</a></li>
-                                            <li><a class="dropdown-item" href="#" ng-click="ProductMenuClick(6);">اسپری</a></li>
-                                        </ul>
+                                        <a class="dropdown-item" href="#" ng-click="ProductMenuClick(5);">ضد عفونی کننده</a>                                        
                                     </li>
                                 </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-nowrap" href="" id="StoreMenu" ng-click="AboutUsClick()">سخن ما</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-nowrap" href="" id="StoreMenu" ng-click="ContactUsClick()">ارتباط با ما</a>
                             </li>
                         </ul>
                     </div>
@@ -181,9 +184,8 @@
                                 <div class="row">
 
                                     <div class="col-lg-4 my-auto ">
-                                        <div ng-repeat="t in x.Options">
-                                            {{t.Caption}}
-                                            <hr />
+                                        <div class="mb-2 font-weight-bold" ng-repeat="t in x.Options">
+                                            {{t.Caption}}                                            
                                         </div>
                                     </div>
                                     <div class="col-md-4 my-auto">
@@ -393,8 +395,8 @@
             <div class="font-weight-bold text-nowrap p-0 m-0 border-bottom" >
                 <ul class="nav justify-content-center">
                     <li class="nav-item"><a href="" class="nav-link orange-text mx-3" ng-click="PolicyClick()">خط مشی</a></li>
-                    <li class="nav-item"><a href="" class="nav-link orange-text mx-3" ng-click="ContactUsClick()">ارتباط با ما</a></li>
                     <li class="nav-item"><a href="" class="nav-link orange-text mx-3" ng-click="AboutUsClick()">سخن ما</a></li>
+                    <li class="nav-item"><a href="" class="nav-link orange-text mx-3" ng-click="ContactUsClick()">ارتباط با ما</a></li>
                 </ul>
 
             </div>
