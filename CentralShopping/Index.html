@@ -229,7 +229,7 @@
 
             <div class="row mb-2 justify-content-end" ng-show="ViewStack.length">
                 <div class="col-sm-3">
-                    <button class="btn btn-danger w-100" type="submit" title="بازگشت به قسمت قبل"  ng-click="PreviousViewClick()" ng-show="ViewStack.length>0">
+                    <button class="btn btn-secondary w-100" type="submit" title="بازگشت به قسمت قبل"  ng-click="PreviousViewClick()" ng-show="ViewStack.length>0">
                         <i class="fa fa-arrow-left fa-2x pull-left" aria-hidden="true">
                         </i>
                         بازگشت
@@ -238,7 +238,6 @@
             </div>
 
             <!-- #endregion -->
-            
             <!-- #region StoreView -->
 
             <div class="row border border-dark mb-3 rounded" ng-show="StoreView">
@@ -282,20 +281,20 @@
                     <div class="row border-bottom border-secondary rounded" style="border-width: 5px;">
 
                         <div class="col-lg-6 pt-3">
-                            <h6>
+                            <h5 class="font-weight-bold">
                                 {{StoreProduct.Name}}
-                            </h6>
+                            </h5>
 
                             <ul class="list-unstyled">
                                 <li ng-repeat="x in StoreProduct.Options">
 
-                                    <p class="text-justify">
+                                    <p class="text-justify font-weight-bold">
                                         {{x.Caption}}
                                     </p>
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 p-1">
                             <div id="productImage" class="carousel slide" data-ride="carousel" data-interval="false">
                                 <div class="carousel-inner">
                                     <div class="carousel-item" ng-repeat="x in StoreProduct.Images" ng-class="{'active': x.Active}">
