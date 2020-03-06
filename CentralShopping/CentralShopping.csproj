@@ -90,8 +90,10 @@
     <Content Include="Images\Products\MRC-1.jpg" />
     <Content Include="Images\Products\SC-1.jpg" />
     <Content Include="Images\Products\SC-2.jpg" />
+    <Content Include="Images\Products\SC-3.jpg" />
     <Content Include="Images\Slids\Brands\AHFS-1.jpg" />
     <Content Include="Images\Slids\Brands\AHFS-2.jpg" />
+    <Content Include="Images\Slids\Brands\AWC-1.jpg" />
     <Content Include="Images\Slids\Brands\B.jpg" />
     <Content Include="Images\Slids\Brands\BA-1.jpg" />
     <Content Include="Images\Slids\Brands\BS-1.jpg" />
@@ -105,6 +107,8 @@
     <Content Include="Images\Slids\Brands\LS-1.jpg" />
     <Content Include="Images\Slids\Brands\MRC-1.jpg" />
     <Content Include="Images\Slids\Brands\SC-1.jpg" />
+    <Content Include="Images\Slids\Brands\SC-2.jpg" />
+    <Content Include="Images\Slids\Brands\SC-3.jpg" />
     <Content Include="js\Angular\angular.min.js" />
     <Content Include="js\Angular\Controllers\MainController.js" />
     <Content Include="js\Help\JS-LINQ.js" />

@@ -76,7 +76,7 @@
 
         <div class="jumbotron" style="margin-bottom:0; padding-top: 30px; padding-bottom: 20px;">
             <div class="container BTitr orange-text">
-                <h1 style="text-shadow:1px 1px 3px black;">نسخه آزمایشی کارخانه بهشت کیمیا</h1>
+                <h1 style="text-shadow:1px 1px 3px black;">کارخانه بهشت کیمیا</h1>
                 <h6 style="text-shadow:0px 0px 10px #fb9600;">تولید کننده انواع آرایشی بهداشتی شوینده و ضد عفونی کننده‬‎</h6>
             </div>
         </div>
@@ -227,9 +227,9 @@
             <!-- #endregion -->
             <!-- #region GoBackView -->
 
-            <div class="row mb-2 justify-content-end" ng-show="ViewStack.length>0">
+            <div class="row mb-2 justify-content-end" ng-show="ViewStack.length">
                 <div class="col-sm-3">
-                    <button class="btn btn-danger w-100" type="submit" title="بازگشت به قسمت قبل" ng-click="AddCart();$event.stopPropagation();" ng-disabled>
+                    <button class="btn btn-danger w-100" type="submit" title="بازگشت به قسمت قبل"  ng-click="PreviousViewClick()" ng-show="ViewStack.length>0">
                         <i class="fa fa-arrow-left fa-2x pull-left" aria-hidden="true">
                         </i>
                         بازگشت

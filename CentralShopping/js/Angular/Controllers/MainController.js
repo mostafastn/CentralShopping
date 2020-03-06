@@ -69,10 +69,10 @@ app.controller('MainControl', function ($scope, $http) {
     $scope.ProblemView = false;
 
     $scope.AvalableProductOnly = false;
-    $scope.ProductsPriceFrom = 0;
+    $scope.ProductsPriceFrom = 0;``
     $scope.ProductsPriceTo = 0;
 
-    $scope.CurentView = "HomeView";
+    $scope.CurentView = [{ view: "HomeView" }];
     $scope.ViewStack = [];
 
     $scope.SelectedPlace = "انتخاب کنید ...";
@@ -406,67 +406,85 @@ app.controller('MainControl', function ($scope, $http) {
         {
             ID: 5,
             AlternateText: "Alternate Text",
-            SourceAddress: 'Images/Slids/Brands/LS-1.jpg',
+            SourceAddress: 'Images/Slids/Brands/SC-2.jpg',
             Active: false
         },
         {
             ID: 6,
             AlternateText: "Alternate Text",
-            SourceAddress: 'Images/Slids/Brands/GB-1.jpg',
+            SourceAddress: 'Images/Slids/Brands/SC-3.jpg',
             Active: false
         },
         {
             ID: 7,
             AlternateText: "Alternate Text",
-            SourceAddress: 'Images/Slids/Brands/BA-1.jpg',
+            SourceAddress: 'Images/Slids/Brands/LS-1.jpg',
             Active: false
         },
         {
             ID: 8,
             AlternateText: "Alternate Text",
-            SourceAddress: 'Images/Slids/Brands/BS-1.jpg',
+            SourceAddress: 'Images/Slids/Brands/GB-1.jpg',
             Active: false
         },
         {
             ID: 9,
             AlternateText: "Alternate Text",
-            SourceAddress: 'Images/Slids/Brands/AHFS-1.jpg',
+            SourceAddress: 'Images/Slids/Brands/BA-1.jpg',
             Active: false
         },
         {
             ID: 10,
             AlternateText: "Alternate Text",
-            SourceAddress: 'Images/Slids/Brands/AHFS-2.jpg',
+            SourceAddress: 'Images/Slids/Brands/BS-1.jpg',
             Active: false
         },
         {
             ID: 11,
             AlternateText: "Alternate Text",
-            SourceAddress: 'Images/Slids/Brands/B.jpg',
+            SourceAddress: 'Images/Slids/Brands/AHFS-1.jpg',
             Active: false
         },
         {
             ID: 12,
             AlternateText: "Alternate Text",
-            SourceAddress: 'Images/Slids/Brands/FCP-1.jpg',
+            SourceAddress: 'Images/Slids/Brands/AHFS-2.jpg',
             Active: false
         },
         {
             ID: 13,
             AlternateText: "Alternate Text",
-            SourceAddress: 'Images/Slids/Brands/HeSe-1.jpg',
+            SourceAddress: 'Images/Slids/Brands/B.jpg',
             Active: false
         },
         {
             ID: 14,
+            AlternateText: "Alternate Text",
+            SourceAddress: 'Images/Slids/Brands/FCP-1.jpg',
+            Active: false
+        },
+        {
+            ID: 15,
+            AlternateText: "Alternate Text",
+            SourceAddress: 'Images/Slids/Brands/HeSe-1.jpg',
+            Active: false
+        },
+        {
+            ID: 16,
             AlternateText: "Alternate Text",
             SourceAddress: 'Images/Slids/Brands/HD-1.jpg',
             Active: false
         },
         {
-            ID: 14,
+            ID: 17,
             AlternateText: "Alternate Text",
             SourceAddress: 'Images/Slids/Brands/HT-1.jpg',
+            Active: false
+        },
+        {
+            ID: 18,
+            AlternateText: "Alternate Text",
+            SourceAddress: 'Images/Slids/Brands/AWC-1.jpg',
             Active: false
         }
     ];
@@ -532,7 +550,7 @@ app.controller('MainControl', function ($scope, $http) {
             Code: '#2',
             Active: false
         }
-      
+
     ];
 
     $scope.ProductList = {
@@ -3462,7 +3480,7 @@ app.controller('MainControl', function ($scope, $http) {
                     AvailableCount: 5,
                 },
             ],
-            TotalCount: 50,
+            TotalCount: 50
         },
         {
             ID: 4,
@@ -3763,8 +3781,8 @@ app.controller('MainControl', function ($scope, $http) {
                     LastUpdate: '2018-01-20',
                     VisitsCount: 70,
                     Available: true,
-                    AvailableCount: 5                
-                    
+                    AvailableCount: 5
+
                 },
                 {
                     ID: 2,
@@ -3796,7 +3814,7 @@ app.controller('MainControl', function ($scope, $http) {
                     LastUpdate: '2018-10-15',
                     VisitsCount: 51,
                     Available: true,
-                    AvailableCount: 5,
+                    AvailableCount: 5
                 }
             ],
             TotalCount: 2
@@ -3992,19 +4010,9 @@ app.controller('MainControl', function ($scope, $http) {
         SetAllView(false);
 
         $scope.ViewStack = [];
-        $scope.CurentView = "HomeView";
+        $scope.CurentView = [{ view: "HomeView" }];
 
         $scope.HomeView = true;
-    };
-
-    $scope.StoreMenuClick = function () {
-
-        SetAllView(false);
-        $scope.PlaceSelectorView = true;
-        $scope.StoresView = true;
-
-        $scope.ViewStack.push($scope.CurentView);
-        $scope.CurentView = "PaymentView";
     };
 
     $scope.SpecialTabClick = function (item) {
@@ -4081,28 +4089,14 @@ app.controller('MainControl', function ($scope, $http) {
             $scope.StoreSelectedProductMenu = _item;
 
         $scope.ViewStack.push($scope.CurentView);
-        $scope.CurentView = "StoreView";
-    };
 
-    $scope.StoreClick = function (StoreID) {
-
-        SetAllView(false);
-        $scope.StoreView = true;
-        $scope.HomeCompanyView = true;
-
-        var _item = $scope.Stores.find(function (x) {
-            return x.ID === StoreID;
-        });
-        if (_item) {
-            $scope.Store.ID = _item.ID;
-            $scope.Store.Name = _item.Name;
-            $scope.Store.Introduction.Summary = _item.Introduction;
-            $scope.Store.Introduction.Image = _item.Image;
-            $scope.Store.ProductMenu = _item.ProductMenu;
-            //$scope.Store.Image = _item.Image;
-            $scope.Store.Options = _item.Options;
-            $scope.Store.lastUpdate = _item.lastUpdate;
-        }
+        $scope.CurentView = [
+            {
+                view: "StoreView"
+            },
+            {
+                view: "StoreProductListView"
+            }];
     };
 
     $scope.StoreProductClick = function (productID) {
@@ -4133,7 +4127,13 @@ app.controller('MainControl', function ($scope, $http) {
         }
 
         $scope.ViewStack.push($scope.CurentView);
-        $scope.CurentView = "StoreProductView";
+        $scope.CurentView = [
+            {
+                view: "StoreView"
+            },
+            {
+                view: "StoreProductView"
+            }];
     };
 
     $scope.SpecialTabProductClick = function (productID) {
@@ -4274,6 +4274,12 @@ app.controller('MainControl', function ($scope, $http) {
         $scope.PaymentView = true;
     };
 
+    $scope.PreviousViewClick = function () {
+        var viewName = $scope.ViewStack.splice(-1, 1);
+        $scope.CurentView = viewName[0];
+        RenderView($scope.CurentView);
+    };
+
     //
 
     // Private Finctions
@@ -4311,7 +4317,7 @@ app.controller('MainControl', function ($scope, $http) {
         $scope.ModalContent.ModalTitle = modalTitle;
         $scope.ModalContent.ModalBody = modalBody;
         $scope.ModalContent.Buttons = buttons;
-    };
+    }
 
     function CartTotalPrice() {
 
@@ -4321,7 +4327,7 @@ app.controller('MainControl', function ($scope, $http) {
                 total += x.Price * x.Quantity;
             });
         $scope.Cart.CartTotalPrice = total;
-    };
+    }
 
     function CartTotalFinallPrice() {
 
@@ -4331,7 +4337,38 @@ app.controller('MainControl', function ($scope, $http) {
                 totall += x.FinallPrice * x.Quantity;
             });
         $scope.Cart.CartTotalFinallPrice = totall;
-    };
+    }
+
+    function RenderView(viewNames) {
+
+        SetAllView(false);
+        
+        viewNames.forEach(function (item) {
+            
+            switch (item.view) {
+
+                case "HomeView":
+                    $scope.HomeView = true;
+                    break;
+
+                case "StoreView":
+                    $scope.StoreView = true;
+                    break;
+
+                case "StoreProductListView":
+                    $scope.StoreProductListView = true;
+                    break;
+
+                case "StoreProductView":
+                    $scope.StoreProductView = true;
+                    break;
+
+                default:
+
+            }
+        });
+
+    }
 
     //
 
@@ -4351,7 +4388,7 @@ app.controller('MainControl', function ($scope, $http) {
             $scope.ErrorMessage = response.statusText;
             $scope.Alerts.push(new Alert(100, 'خطا فراخوانی وب سرویس', response.statusText, 'alert-danger', 3));
         });
-    };
+    }
 
     //
 
