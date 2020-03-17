@@ -259,25 +259,21 @@ app.controller('MainControl', function ($scope, $http) {
             Name: 'ضدعفونی کننده 250',
             StoreName: '',
             Introduction: 'ضدعفونی کننده موثر و سریع بدون ترکیبات تحریک کننده پوست',
-            Price: 625000,
-            Discount: 40,
-            FinallPrice: 375000,
+            Price: 0,
+            Discount: 0,
+            FinallPrice: 0,
             Image: 'Images/Products/HS-250ML.JPG',
             Options: [
                 {
                     ID: 1,
-                    Caption: 'بهره گیری از تکنولوژی نانو سیلور جهت ازبین برندگی ویروس ها'
-                },
-                {
-                    ID: 2,
                     Caption: 'در حجم های مختلف مناسب برای مصارف شخصی و اماکن عمومی و ادارات'
                 },
                 {
-                    ID: 3,
+                    ID: 2,
                     Caption: 'سازگار با انواع پوست های خشک و چرب'
                 },
                 {
-                    ID: 4,
+                    ID: 3,
                     Caption: 'حجم 250 میلی لیتر'
                 }
             ],
@@ -300,9 +296,9 @@ app.controller('MainControl', function ($scope, $http) {
             Name: 'ضدعفونی کننده 400',
             StoreName: '',
             Introduction: 'ضدعفونی کننده موثر و سریع بدون ترکیبات تحریک کننده پوست',
-            Price: 1000000,
-            Discount: 40,
-            FinallPrice: 600000,
+            Price: 0,
+            Discount: 0,
+            FinallPrice: 0,
             Image: 'Images/Products/HS-400ML.JPG',
             Options: [
                 {
@@ -3229,25 +3225,21 @@ app.controller('MainControl', function ($scope, $http) {
                 {
                     ID: 501,
                     Name: 'ضدعفونی کننده 250',
-                    Price: 625000,
-                    Discount: 40,
-                    FinallPrice: 375000,
+                    Price: 0,
+                    Discount: 0,
+                    FinallPrice: 0,
                     Image: 'Images/Products/HS-250ML.JPG',
                     Options: [
                         {
                             ID: 1,
-                            Caption: 'بهره گیری از تکنولوژی نانو سیلور جهت ازبین برندگی ویروس ها'
-                        },
-                        {
-                            ID: 2,
                             Caption: 'در حجم های مختلف مناسب برای مصارف شخصی و اماکن عمومی و ادارات'
                         },
                         {
-                            ID: 3,
+                            ID: 2,
                             Caption: 'سازگار با انواع پوست های خشک و چرب'
                         },
                         {
-                            ID: 4,
+                            ID: 3,
                             Caption: 'حجم 250 میلی لیتر'
                         }
                     ],
@@ -3262,9 +3254,9 @@ app.controller('MainControl', function ($scope, $http) {
                     Name: 'ضدعفونی کننده 400',
                     StoreName: '',
                     Introduction: 'ضدعفونی کننده موثر و سریع بدون ترکیبات تحریک کننده پوست',
-                    Price: 1000000,
-                    Discount: 40,
-                    FinallPrice: 600000,
+                    Price: 0,
+                    Discount: 0,
+                    FinallPrice: 0,
                     Image: 'Images/Products/HS-400ML.JPG',
                     Options: [
                         {

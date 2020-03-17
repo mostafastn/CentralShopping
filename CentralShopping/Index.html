@@ -114,7 +114,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#" ng-click="ProductMenuClick(5);">ضد عفونی کننده</a>                                        
+                                        <a class="dropdown-item" href="#" ng-click="ProductMenuClick(5);">ضد عفونی کننده</a>
                                     </li>
                                 </ul>
                             </li>
@@ -147,7 +147,7 @@
 
             <!-- #endregion -->
             <!-- #region HomePage -->
-            
+
             <div class="row" ng-show="HomeView">
                 <div class="col">
                     <div id="demo" class="carousel slide" data-ride="carousel">
@@ -185,7 +185,7 @@
 
                                     <div class="col-lg-4 my-auto ">
                                         <div class="mb-2 font-weight-bold" ng-repeat="t in x.Options">
-                                            {{t.Caption}}                                            
+                                            {{t.Caption}}
                                         </div>
                                     </div>
                                     <div class="col-md-4 my-auto">
@@ -201,7 +201,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="label text-light bg-info rounded m-1 p-1 w-100" ng-class="{'mt-5': !x.Discount}">
+                                        <div class="label text-light bg-info rounded m-1 p-1 w-100" ng-class="{'mt-5': !x.Discount}" ng-show="x.FinallPrice">
                                             قیمت نهایی : {{x.FinallPrice| currency:"":0}} ریال
                                         </div>
 
@@ -229,7 +229,7 @@
 
             <div class="row mb-2 justify-content-end" ng-show="ViewStack.length">
                 <div class="col-sm-3">
-                    <button class="btn btn-secondary w-100" type="submit" title="بازگشت به قسمت قبل"  ng-click="PreviousViewClick()" ng-show="ViewStack.length>0">
+                    <button class="btn btn-secondary w-100" type="submit" title="بازگشت به قسمت قبل" ng-click="PreviousViewClick()" ng-show="ViewStack.length>0">
                         <i class="fa fa-arrow-left fa-2x pull-left" aria-hidden="true">
                         </i>
                         بازگشت
@@ -267,14 +267,16 @@
                                     تخفیف :
                                     <span class="text-danger bg-warning rounded p-1">{{x.Discount}}%</span>
                                 </div>
-                                <div class="label m-1 text-white bg-info rounded p-1">{{x.FinallPrice | currency:"":0}} ریال</div>
+                                <div class="label m-1 text-white bg-info rounded p-1" ng-show="x.FinallPrice">
+                                    {{x.FinallPrice | currency:"":0}} ریال
+                                </div>
                             </div>
                         </div>
                     </div>
 
                 </div>
 
-                
+
 
 
                 <div class="col-md-12" ng-show="StoreProductView">
@@ -324,7 +326,7 @@
                                 </div>
                             </div>
 
-                            <div class="label text-light bg-info rounded m-1 p-1 w-100" ng-class="{'mt-5': !StoreProduct.Discount}">
+                            <div class="label text-light bg-info rounded m-1 p-1 w-100" ng-class="{'mt-5': !StoreProduct.Discount}" ng-show="x.FinallPrice">
                                 قیمت کل : {{StoreProduct.FinallPrice| currency:"":0}} ریال
                             </div>
 
@@ -360,16 +362,50 @@
             </div>
             <!-- #endregion -->
             <!-- #region ContactUsView -->
-            <div ng-show="ContactUsView">
-                <div class="text-center text-primary">
+            <div class="border border-dark rounded p-4 mb-2" ng-show="ContactUsView">
+                <!--<div class="text-center text-primary">
 
-                    <i class="fa fa-refresh fa-spin fa-5x" aria-hidden="true">
-                    </i>
+        <i class="fa fa-refresh fa-spin fa-5x" aria-hidden="true">
+        </i>
 
+    </div>-->
+
+                <div class="text-left mb-3">
+                    <h4 class="font-weight-bold ml-3">تلفن واحد فروش</h4>
+                    <h5 class="font-weight-bold ml-5">
+                        09124404410                        
+                    </h5>
+                    <div class="font-weight-bold ml-5">
+                        ساعات پاسخ گویی از 10 الی 16
+                    </div>
                 </div>
-                <div class="text-center text-dark display-4">
-                    ارتباط با ما !
-                    <hr />
+
+                <div class="text-left">
+                    <h4 class="font-weight-bold ml-3">واحد رسیدگی به شکایات</h4>
+                    <h5 class="font-weight-bold ml-5">
+                        09356606999
+                    </h5>
+                </div>
+
+                <div class="text-left">
+                    <h4 class="font-weight-bold ml-3">کارخانه</h4>
+                    <h5 class="font-weight-bold ml-5">
+                        02637774510
+                    </h5>
+                </div>
+
+                <div class="text-left">
+                    <h4 class="font-weight-bold ml-3">آدرس</h4>
+                    <h5 class="font-weight-bold ml-5">
+                        شهرک صنعتی اشتهارد، خیابان غزالی غربی، گلنوش دوم، قطعه 2531/1
+                    </h5>
+                </div>
+
+                <div class="text-left">
+                    <h4 class="font-weight-bold ml-3">کد پستی</h4>
+                    <h5 class="font-weight-bold ml-5">
+                        3188115459
+                    </h5>
                 </div>
 
             </div>
@@ -391,7 +427,7 @@
             <!-- #endregion -->
         </div>
         <div class="jumbotron text-center" style="margin-bottom:0; padding-top: 20px; padding-bottom: 15px;">
-            <div class="font-weight-bold text-nowrap p-0 m-0 border-bottom" >
+            <div class="font-weight-bold text-nowrap p-0 m-0 border-bottom">
                 <ul class="nav justify-content-center">
                     <li class="nav-item"><a href="" class="nav-link orange-text mx-3" ng-click="PolicyClick()">خط مشی</a></li>
                     <li class="nav-item"><a href="" class="nav-link orange-text mx-3" ng-click="AboutUsClick()">سخن ما</a></li>
