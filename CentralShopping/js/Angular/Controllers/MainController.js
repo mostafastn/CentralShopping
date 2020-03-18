@@ -1,6 +1,6 @@
 ﻿/// <reference path="../../Infrastructure.js" />
-var app = angular.module('CentralShopping', []);
-app.controller('MainControl', function ($scope, $http) {
+var app = angular.module('CentralShopping', ['APIColler']);
+app.controller('MainControl', function ($scope, $http, Hexafy) {
 
     // Class Object
 
@@ -3350,7 +3350,7 @@ app.controller('MainControl', function ($scope, $http) {
 
     $scope.init = function () {
 
-
+        console.log(Hexafy.Convert(255));
     };
 
     $scope.HomeMenuClick = function () {
@@ -3631,3 +3631,9 @@ app.controller('MainControl', function ($scope, $http) {
 
 });
 
+//app.service('Hexafy', function () {
+//    this.Convert = function (input) {
+                
+//        return input.toString(16);
+//    };
+//});
