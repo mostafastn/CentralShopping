@@ -1,0 +1,9 @@
+{
+  "Config": [
+    {
+      "API_Address": "http://localhost:28534/",
+      "User": "username",
+      "Password": "password"
+    }
+  ]
+}

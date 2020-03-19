@@ -7,8 +7,9 @@
 
     <script src="js/Angular/angular.min.js"></script>
     <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>-->
-    <script src="js/Angular/Controllers/MainController.js"></script>
     <script src="js/Angular/Services/APICaller.js"></script>
+    <script src="js/Angular/Services/AboutUSService.js"></script>
+    <script src="js/Angular/Controllers/MainController.js"></script>
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/rtlBootstrap/bootstrap.min.js"></script>
@@ -156,7 +157,7 @@
                         <div class="carousel-inner">
 
                             <div class="carousel-item" ng-repeat="x in CarouselSlide" ng-class="{'active': x.Active}">
-                                <img src="{{x.SourceAddress}}" alt="Appel" class="img-fluid mx-auto d-block" style="height: 350px;" />
+                                <img ng-src="{{x.SourceAddress}}" alt="Appel" class="img-fluid mx-auto d-block" style="height: 350px;" />
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#demo" data-slide="prev">
@@ -215,7 +216,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4 my-2">
-                                        <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 200px;">
+                                        <img ng-src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 200px;">
                                     </div>
 
                                 </div>
@@ -261,7 +262,7 @@
                         <div class="col-md-4 p-1" ng-repeat="x in StoreSelectedProductMenu.ProductList | orderBy : SortType.Value" id="{{x.ID}}" ng-click="StoreProductClick(x.ID)">
                             <div class="border rounded h-100" ng-class="{'border-danger' : !x.Available , 'border-dark' : x.Available }">
                                 <div class="m-1">
-                                    <img src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 150px;">
+                                    <img ng-src="{{x.Image}}" alt="{{x.Name}}" class="img-fluid mx-auto d-block" style="height: 150px;">
                                 </div>
                                 <div class="label m-1 text-dark font-weight-bold">{{x.Name}}</div>
                                 <div class="label text-dark font-weight-bold m-1 p-1" ng-show="x.Discount">
@@ -301,7 +302,7 @@
                             <div id="productImage" class="carousel slide" data-ride="carousel" data-interval="false">
                                 <div class="carousel-inner">
                                     <div class="carousel-item" ng-repeat="x in StoreProduct.Images" ng-class="{'active': x.Active}">
-                                        <img src="{{x.SourceAddress}}" alt="Appel" class="img-fluid mx-auto d-block" style="height: 300px;" />
+                                        <img ng-src="{{x.SourceAddress}}" alt="Appel" class="img-fluid mx-auto d-block" style="height: 300px;" />
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#productImage" data-slide="prev">

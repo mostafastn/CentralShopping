@@ -1,6 +1,6 @@
 ﻿/// <reference path="../../Infrastructure.js" />
-var app = angular.module('CentralShopping', ['APIColler']);
-app.controller('MainControl', function ($scope, $http, Hexafy) {
+var app = angular.module('CentralShopping', ['APICaller', 'AboutUS']);
+app.controller('MainControl', function ($scope, APICallerService, AboutUSService) {
 
     // Class Object
 
@@ -3287,58 +3287,58 @@ app.controller('MainControl', function ($scope, $http, Hexafy) {
     ];
 
     $scope.StoreProduct = {
-        ID: 2,
-        Name: 'عینک آفتابی RayBan 3576N 1537V',
-        Price: 25790000,
-        Discount: 0,
-        FinallPrice: 25790000,
-        Images: [
-            {
-                ID: 1,
-                AlternateText: "Alternate Text",
-                SourceAddress: 'Images/Slids/Brands/2.png',
-                Active: true
-            },
-            {
-                ID: 2,
-                AlternateText: "Alternate Text",
-                SourceAddress: 'Images/Slids/Brands/8.jpg',
-                Active: false
-            },
-            {
-                ID: 3,
-                AlternateText: "Alternate Text",
-                SourceAddress: 'Images/Slids/Brands/4.jpg',
-                Active: false
-            },
-            {
-                ID: 4,
-                AlternateText: "Alternate Text",
-                SourceAddress: 'Images/Slids/Brands/5.png',
-                Active: false
-            },
-        ],
-        Options: [
-            {
-                ID: 1,
-                Caption: 'ساخت کشور ایتالیا'
-            },
-            {
-                ID: 2,
-                Caption: 'سبک کلاسیک، با معرفی Blaze'
-            },
-            {
-                ID: 3,
-                Caption: 'لنز Sharp Onesie! Ray-Ban'
-            },
-            {
-                ID: 4,
-                Caption: 'مناسب برای صورت های بیضی و گرد شکل'
-            },
-        ],
-        Available: true,
-        AvailableCount: 5,
-        Quantity: 0
+        //ID: 2,
+        //Name: 'عینک آفتابی RayBan 3576N 1537V',
+        //Price: 25790000,
+        //Discount: 0,
+        //FinallPrice: 25790000,
+        //Images: [
+        //    {
+        //        ID: 1,
+        //        AlternateText: "Alternate Text",
+        //        SourceAddress: 'Images/Slids/Brands/2.png',
+        //        Active: true
+        //    },
+        //    {
+        //        ID: 2,
+        //        AlternateText: "Alternate Text",
+        //        SourceAddress: 'Images/Slids/Brands/8.jpg',
+        //        Active: false
+        //    },
+        //    {
+        //        ID: 3,
+        //        AlternateText: "Alternate Text",
+        //        SourceAddress: 'Images/Slids/Brands/4.jpg',
+        //        Active: false
+        //    },
+        //    {
+        //        ID: 4,
+        //        AlternateText: "Alternate Text",
+        //        SourceAddress: 'Images/Slids/Brands/5.png',
+        //        Active: false
+        //    },
+        //],
+        //Options: [
+        //    {
+        //        ID: 1,
+        //        Caption: 'ساخت کشور ایتالیا'
+        //    },
+        //    {
+        //        ID: 2,
+        //        Caption: 'سبک کلاسیک، با معرفی Blaze'
+        //    },
+        //    {
+        //        ID: 3,
+        //        Caption: 'لنز Sharp Onesie! Ray-Ban'
+        //    },
+        //    {
+        //        ID: 4,
+        //        Caption: 'مناسب برای صورت های بیضی و گرد شکل'
+        //    },
+        //],
+        //Available: true,
+        //AvailableCount: 5,
+        //Quantity: 0
     };
 
     $scope.StoreSelectedProductMenu = $scope.ProductMenu[0];
@@ -3350,7 +3350,27 @@ app.controller('MainControl', function ($scope, $http, Hexafy) {
 
     $scope.init = function () {
 
-        console.log(Hexafy.Convert(255));
+        //AboutUSService.Test();
+        AboutUSService.GetAll(function (successResponse) {
+
+            console.log("successResponse");
+            console.log(successResponse);
+        }, function (failResponse) {
+
+            console.log("failResponse");
+            console.log(failResponse);
+        });
+
+        APICallerService.GetConfig(function (successResponse) {
+
+            console.log("APICallerService.GetConfig");
+            console.log(successResponse);
+        }, function (failResponse) {
+
+                console.log("APICallerService.GetConfig");
+            console.log(failResponse);
+        });
+
     };
 
     $scope.HomeMenuClick = function () {
@@ -3633,7 +3653,7 @@ app.controller('MainControl', function ($scope, $http, Hexafy) {
 
 //app.service('Hexafy', function () {
 //    this.Convert = function (input) {
-                
+
 //        return input.toString(16);
 //    };
 //});
